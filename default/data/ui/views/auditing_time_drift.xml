@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<form>
+  <label>Time drift</label>
+  <fieldset autoRun="true">
+    <input type="time">
+      <default>Last 60 minutes</default>
+    </input> 
+  </fieldset>
+  <row>
+    <html>
+      <p>These reporting devices have a time drift of more than 1 second compared to the event time as reported by Splunk</p>
+      <p>Consider checking the NTP settings of the following devices</p>
+    </html>
+  </row>
+  <row>
+    <table>
+      <searchName>time drift</searchName>
+      <option name="displayRowNumbers">true</option>
+      <title>Time drift between event time and device's reported event time</title>
+    </table>
+  </row>
+</form>

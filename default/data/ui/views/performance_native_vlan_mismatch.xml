@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<form>
+  <label>Native VLAN mismatch</label>
+  <fieldset autoRun="true">
+    <input type="time">
+      <default>Last 60 minutes</default>
+    </input>
+  </fieldset>  
+  <row>
+    <table>
+      <searchString>eventtype="cisco_ios-native_vlan_mismatch" | dedup host,cdp_local_interface | table _time,host,cdp_local_interface,cdp_local_vlan,cdp_neighbor,cdp_remote_interface,cdp_remote_vlan | rename cdp_local_interface AS "Local Int.",cdp_local_vlan AS "Local VLAN",cdp_neighbor AS "CDP Neighbor",cdp_remote_interface AS "Remote Int.",cdp_remote_vlan AS "Remote VLAN",message_text AS "Message"</searchString>
+      <title>Native VLAN mismatch</title>
+      <option name="count">50</option>
+      <option name="displayRowNumbers">true</option>
+    </table>
+  </row>
+</form>

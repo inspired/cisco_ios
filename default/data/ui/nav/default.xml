@@ -1,0 +1,19 @@
+<nav>    
+  <view name="overview" default="true" />
+    <collection label="ACL">
+      <view name="acl_dashboard" />
+    </collection>
+    <collection label="Auditing">
+      <view name="auditing_dashboard" />
+      <view name="auditing_config_change_transactions" />
+      <view name="auditing_time_drift" />
+    </collection>
+    <collection label="Routing">
+      <view name="routing_dashboard" />
+    </collection>
+    <collection label="Performance">
+      <view name="performance_dsl" />
+      <view name="performance_duplex_mismatch" />
+      <view name="performance_native_vlan_mismatch" />
+    </collection>
+</nav>

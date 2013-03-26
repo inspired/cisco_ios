@@ -1,0 +1,195 @@
+<view template="dashboard.html">
+ 	<label>Overview</label>
+
+  	<module name="AccountBar" layoutPanel="appHeader"/>
+  	<module name="SideviewUtils" layoutPanel="appHeader"/>
+  	<module name="AppBar" layoutPanel="navigationHeader"/>
+  	<module name="Message" layoutPanel="messaging">
+    		<param name="filter">*</param>
+    		<param name="clearOnJobDispatch">False</param>
+    		<param name="maxSize">1</param>
+  	</module>
+  	<module name="Message" layoutPanel="messaging">
+    		<param name="filter">splunk.search.job</param>
+    		<param name="clearOnJobDispatch">True</param>
+    		<param name="maxSize">1</param>
+  	</module>
+  	<module name="TitleBar" layoutPanel="viewHeader">
+    		<param name="actionsMenuFilter">dashboard</param>
+  	</module>
+
+
+   	<module name="TimeRangePicker" layoutPanel="panel_row1_col1_grp1" autoRun="True">
+		<param name="selected">Last 60 Minutes</param>
+		<param name="searchWhenChanged">True</param>   
+
+                <!-- PANEL: TOTAL NUMBER OF EVENTS -->
+                <module name="GenericHeader" layoutPanel="panel_row1_col1_grp1">
+                        <param name="label">Total number of events</param>
+                </module>
+                <module name="Search" layoutPanel="panel_row1_col1_grp1">
+                        <param name="search">sourcetype=cisco:ios | stats count | rangemap field=count default=elevated</param>
+                        <module name="SingleValue">
+                                <param name="field">count</param>
+                                <param name="afterLabel">Events</param>
+                                <param name="classField">range</param>
+                        </module>
+                </module>
+
+                <!-- PANEL: Mnemonic timechart -->
+                <module name="GenericHeader" layoutPanel="panel_row1_col2_grp1">
+                        <param name="label">Mnemonic types by time</param>
+                </module>
+                <module name="Search" layoutPanel="panel_row1_col2_grp1">
+                        <param name="search">index=ios | timechart useother=false span=10m count by mnemonic</param>
+    			<module name="HiddenChartFormatter">
+     				<param name="chart">line</param>
+     				<module name="JSChart">
+      					<module name="ConvertToDrilldownSearch">
+       						<module name="ViewRedirector">
+        						<param name="viewTarget">flashtimeline</param>
+       						</module>
+      					</module>
+     				</module>
+    			</module>
+    			<module name="JobProgressIndicator" />
+                </module>
+ 		
+
+                <module name="GenericHeader" layoutPanel="panel_row2_col1">
+                        <param name="label">Port flapping</param>
+                </module>
+   		<module name="HiddenSavedSearch" layoutPanel="panel_row2_col1" autoRun="true">
+    			<param name="savedSearch">port flapping</param>
+			<module name="SimpleResultsTable">
+				<param name="drilldown">all</param>
+				<module name="ConvertToDrilldownSearch">
+					<module name="ViewRedirector">
+						<param name="viewTarget">flashtimeline</param>
+					</module>
+				</module>
+			</module>
+    			<module name="JobProgressIndicator" />
+   		</module>
+
+
+                <module name="GenericHeader" layoutPanel="panel_row2_col2">
+                        <param name="label">Error disabled interfaces</param>
+                </module>
+   		<module name="HiddenSearch" layoutPanel="panel_row2_col2" autoRun="true">
+    			<param name="search">sourcetype=cisco:ios eventtype="cisco_ios-err_disable" | stats count(detected_on_interface) AS Amount BY host,detected_on_interface,disable_interface,disable_cause | rename detected_on_interface AS Interface, disable_interface AS "Dis. Interface", disable_cause AS Cause</param>
+			<module name="SimpleResultsTable">
+				<param name="drilldown">all</param>
+				<module name="ConvertToDrilldownSearch">
+					<module name="ViewRedirector">
+						<param name="viewTarget">flashtimeline</param>
+					</module>
+				</module>
+			</module>
+    			<module name="JobProgressIndicator" />
+   		</module>
+
+
+                <module name="GenericHeader" layoutPanel="panel_row2_col3">
+                        <param name="label">Syslog severity distribution</param>
+                </module>
+   		<module name="Search" layoutPanel="panel_row2_col3" autoRun="true">
+    			<param name="search">sourcetype=cisco:ios | chart count(severity) by severity_name</param>
+    			<module name="HiddenChartFormatter">
+     				<param name="chart">pie</param>
+     				<param name="charting.chart.sliceCollapsingThreshold">0</param>
+     				<module name="JSChart">
+      					<module name="ConvertToDrilldownSearch">
+       						<module name="ViewRedirector">
+        						<param name="viewTarget">flashtimeline</param>
+       						</module>
+      					</module>
+     				</module>
+    			</module>
+    			<module name="JobProgressIndicator" />
+   		</module>
+
+                <module name="GenericHeader" layoutPanel="panel_row3_col1">
+                        <param name="label">Top messages</param>
+                </module>
+   		<module name="Search" layoutPanel="panel_row3_col1" autoRun="true">
+    			<param name="search">sourcetype=cisco:ios | top mnemonic | rename count AS Amount</param>
+    			<module name="HiddenChartFormatter">
+     				<param name="chart">bar</param>
+     				<param name="charting.axisTitleX.text">Message</param>
+     				<module name="JSChart">
+      					<module name="ConvertToDrilldownSearch">
+       						<module name="ViewRedirector">
+        						<param name="viewTarget">flashtimeline</param>
+       						</module>
+      					</module>
+     				</module>
+    			</module>
+    			<module name="JobProgressIndicator" />
+   		</module>
+
+                <module name="GenericHeader" layoutPanel="panel_row3_col2">
+                        <param name="label">Rare messages</param>
+                </module>
+   		<module name="Search" layoutPanel="panel_row3_col2" autoRun="true">
+    			<param name="search">sourcetype=cisco:ios | rare mnemonic | rename count AS Amount</param>
+    			<module name="HiddenChartFormatter">
+     				<param name="chart">bar</param>
+     				<param name="charting.axisTitleX.text">Message</param>
+     				<module name="JSChart">
+      					<module name="ConvertToDrilldownSearch">
+       						<module name="ViewRedirector">
+        						<param name="viewTarget">flashtimeline</param>
+       						</module>
+      					</module>
+     				</module>
+    			</module>
+    			<module name="JobProgressIndicator" />
+   		</module>
+
+
+                <module name="GenericHeader" layoutPanel="panel_row4_col1">
+                        <param name="label">Top ACL logs by host (excluding hits from local management IPs)</param>
+                </module>
+   		<module name="HiddenSavedSearch" layoutPanel="panel_row4_col1" autoRun="true">
+    			<param name="savedSearch">top acl logs</param>
+			<module name="Paginator">
+				<param name="entityName">results</param>
+				<module name="SimpleResultsTable">
+					<param name="entityName">results</param>
+					<param name="drilldown">all</param>
+					<param name="count">10</param>
+					<module name="ConvertToDrilldownSearch">
+						<module name="ViewRedirector">
+							<param name="viewTarget">flashtimeline</param>
+						</module>
+					</module>
+				</module>
+			</module>
+    			<module name="JobProgressIndicator" />
+   		</module>  
+
+                <module name="GenericHeader" layoutPanel="panel_row4_col2">
+                        <param name="label">Diagnostic messages</param>
+                </module>
+   		<module name="HiddenSearch" layoutPanel="panel_row4_col2" autoRun="true">
+    			<param name="search">sourcetype=cisco:ios (facility=DIAG OR facility=OIR) | eval eventcode=facility + "-" + severity + "-" + mnemonic | table _time,host,eventcode,message_text</param>
+			<module name="Paginator">
+				<param name="entityName">results</param>
+				<module name="SimpleResultsTable">
+					<param name="entityName">results</param>
+					<param name="drilldown">all</param>
+					<param name="count">10</param>
+					<module name="ConvertToDrilldownSearch">
+						<module name="ViewRedirector">
+							<param name="viewTarget">flashtimeline</param>
+						</module>
+					</module>
+				</module>
+			</module>
+    			<module name="JobProgressIndicator" />
+   		</module>  
+
+  	</module>
+  
+</view>

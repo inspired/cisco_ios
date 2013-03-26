@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<form>
+  <label>Dashboard</label>
+  <fieldset autoRun="true">
+    <input type="time">
+      <default>Last 60 minutes</default>
+    </input>
+  </fieldset>
+  <row>
+    <table>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-acl_log" NOT [inputlookup cisco_ios_acl_excluded_ips | fields acl_src_ip] | table _time,host,acl_list,acl_action,acl_proto,acl_src_ip,acl_src_port,acl_dst_ip,acl_dst_port</searchString>
+      <title>Access Control List logs (excluding hits from local management IPs)</title>
+      <option name="count">10</option>
+      <option name="displayRowNumbers">true</option>
+    </table>
+  </row>
+</form>

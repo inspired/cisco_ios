@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<form>
+  <label>Dashboard</label>
+  <fieldset autoRun="true">
+    <input type="time">
+      <default>Last 60 minutes</default>
+    </input>
+  </fieldset>
+  <row>
+    <table>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-config_started" | table _time,host,config_source,user,line,src_ip</searchString>
+      <title>Configuration started</title>
+    </table>
+    <table>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-reload" | table _time,host,user,line,reason,src_ip</searchString>
+      <title>Device reloads</title>
+    </table>
+  </row>
+  <row>
+    <table>
+      <searchName>cdp neighborship</searchName>
+      <title>CDP Neighborship (Nexus only)</title>
+    </table>
+  </row>
+</form>
