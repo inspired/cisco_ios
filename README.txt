@@ -1,8 +1,8 @@
 Copyright (C) 2013 Mikael Bjerkeland, Datametrix AS. All Rights Reserved.
 
 App:               	Cisco IOS
-Current Version:	1.0.1
-Last Modified:		2013-03-21
+Current Version:	1.0.2
+Last Modified:		2013-03-26
 Splunk Version:		4.2.x, 4.3.x, 5.0.x
 Author:			Mikael Bjerkeland
 Dependencies:		Sideview Utils
@@ -14,6 +14,12 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 
 ++ What's New
+
++++ 1.0.2 (2013-03-26)
+Features:
+* More extractions added, not yet in any views
+Bug fixes:
+* device_time extraction has been re-worked a bit to avoid pulling in the wrong values
 
 +++ 1.0.1 (2013-03-25)
 Bug fixes:
