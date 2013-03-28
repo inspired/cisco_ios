@@ -62,7 +62,7 @@ Features:
 * Identify ACL hits
 * Identify diagnostic messages
 * Change Management and see system reloads
-* Identify DSL bandwidth performance (tested on 8xx routers
+* Identify DSL bandwidth performance (tested on 8xx routers)
 * Identify duplex and Native VLAN mismatches
 
 
