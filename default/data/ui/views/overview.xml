@@ -77,7 +77,7 @@
                         <param name="label">Error disabled interfaces</param>
                 </module>
    		<module name="HiddenSearch" layoutPanel="panel_row2_col2" autoRun="true">
-    			<param name="search">sourcetype=cisco:ios eventtype="cisco_ios-err_disable" | stats count(detected_on_interface) AS Amount BY host,detected_on_interface,disable_interface,disable_cause | rename detected_on_interface AS Interface, disable_interface AS "Dis. Interface", disable_cause AS Cause</param>
+    			<param name="search">eventtype="cisco_ios-err_disable" | stats count(detected_on_interface) AS Amount BY host,detected_on_interface,disable_interface,disable_cause | rename detected_on_interface AS Interface, disable_interface AS "Dis. Interface", disable_cause AS Cause</param>
 			<module name="SimpleResultsTable">
 				<param name="drilldown">all</param>
 				<module name="ConvertToDrilldownSearch">
@@ -173,7 +173,7 @@
                         <param name="label">Diagnostic messages</param>
                 </module>
    		<module name="HiddenSearch" layoutPanel="panel_row4_col2" autoRun="true">
-    			<param name="search">sourcetype=cisco:ios (facility=DIAG OR facility=OIR) | eval eventcode=facility + "-" + severity + "-" + mnemonic | table _time,host,eventcode,message_text</param>
+    			<param name="search">eventtype=cisco_ios-diag | eval eventcode=facility + "-" + severity + "-" + mnemonic | table _time,host,eventcode,message_text</param>
 			<module name="Paginator">
 				<param name="entityName">results</param>
 				<module name="SimpleResultsTable">
