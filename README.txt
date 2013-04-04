@@ -15,6 +15,10 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 ++ What's New
 
++++ 1.0.4 (2013-04-04)
+Bug fixes:
+* Fixed subfacility extraction
+
 +++ 1.0.3 (2013-03-28)
 Bug fixes:
 * Minor under the hood improvements
@@ -119,6 +123,7 @@ service timestamps log datetime msec localtime show-timezone
 * Add paginators for all panels
 * Check CIM compliance
 * Add tags, i.e. tag=network, tag=authentication
+* Add a macro for specifying index to accomodate different users
 
 ++ Troubleshooting the app
 
