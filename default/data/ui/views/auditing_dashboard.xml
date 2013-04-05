@@ -19,8 +19,10 @@
   <row>
     <table>
       <searchName>system restart</searchName>
-      <title>Device restarts/boots (last 10)</title>
+      <title>Device restarts/boots</title>
     </table>
+  </row>
+  <row>
     <table>
       <searchName>cdp neighborship</searchName>
       <title>CDP Neighborship (Nexus only)</title>
