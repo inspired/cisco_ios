@@ -128,7 +128,6 @@ service timestamps log datetime msec localtime show-timezone
 * Check CIM compliance
 * Add tags, i.e. tag=network, tag=authentication
 * Add a macro for specifying index to accomodate different users
-* Add extraction to extract switch number from message_text for stacks, specify in device reloads in auditing dashboard
 * Add a stack manager view
 
 ++ Troubleshooting the app
