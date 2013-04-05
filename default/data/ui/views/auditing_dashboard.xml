@@ -18,6 +18,10 @@
   </row>
   <row>
     <table>
+      <searchName>system restart</searchName>
+      <title>Device restarts/boots (last 10)</title>
+    </table>
+    <table>
       <searchName>cdp neighborship</searchName>
       <title>CDP Neighborship (Nexus only)</title>
     </table>

@@ -1,8 +1,8 @@
 Copyright (C) 2013 Mikael Bjerkeland, Datametrix AS. All Rights Reserved.
 
 App:               	Cisco IOS
-Current Version:	1.0.3
-Last Modified:		2013-03-28
+Current Version:	1.0.5
+Last Modified:		2013-04-05
 Splunk Version:		4.2.x, 4.3.x, 5.0.x
 Author:			Mikael Bjerkeland
 Dependencies:		Sideview Utils
@@ -14,6 +14,10 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 
 ++ What's New
+
++++ 1.0.5 (2013-04-05)
+Features:
+* Added device restart/boot table to Auditing dashboard. Thanks jaoui
 
 +++ 1.0.4 (2013-04-04)
 Bug fixes:
