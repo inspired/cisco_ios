@@ -129,6 +129,7 @@ service timestamps log datetime msec localtime show-timezone
 * Add tags, i.e. tag=network, tag=authentication
 * Add a macro for specifying index to accomodate different users
 * Add a stack manager view
+* Add SNMP extractions
 
 ++ Troubleshooting the app
 
