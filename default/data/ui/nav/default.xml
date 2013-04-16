@@ -16,4 +16,7 @@
       <view name="performance_duplex_mismatch" />
       <view name="performance_native_vlan_mismatch" />
     </collection>
+    <collection label="Stacking">
+      <view name="stacking_dashboard" />
+    </collection>
 </nav>
