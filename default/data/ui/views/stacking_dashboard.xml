@@ -8,7 +8,7 @@
   </fieldset>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-stackmgr" | table _time, switch_id, state_to, dest_int, switch</searchString>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-stackmgr" | table _time, host, switch_id, state_to, dest_int, switch</searchString>
       <title>Access Control List logs (excluding hits from local management IPs)</title>
       <option name="count">10</option>
       <option name="displayRowNumbers">true</option>
