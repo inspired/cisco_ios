@@ -1,7 +1,7 @@
 Copyright (C) 2013 Mikael Bjerkeland, Datametrix AS. All Rights Reserved.
 
 App:               	Cisco IOS
-Current Version:	1.0.6
+Current Version:	1.0.7
 Last Modified:		2013-04-12
 Splunk Version:		4.2.x, 4.3.x, 5.0.x
 Author:			Mikael Bjerkeland
@@ -14,6 +14,11 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 
 ++ What's New
+
++++ 1.0.7 (2013-04-17)
+Features:
+* Regex support for WLC
+* Added stack manager
 
 +++ 1.0.6 (2013-04-12)
 Features:
@@ -130,13 +135,12 @@ service timestamps log datetime msec localtime show-timezone
 
 ++ TODO
 
-* Extract IPACCESSLOGS
+* Add new nav: Switching
 * Add summary indexing
 * Add paginators for all panels
 * Check CIM compliance
 * Add tags, i.e. tag=network, tag=authentication
 * Add a macro for specifying index to accomodate different users
-* Add a stack manager view
 * Add SNMP extractions
 
 ++ Troubleshooting the app
