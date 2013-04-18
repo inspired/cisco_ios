@@ -132,6 +132,19 @@ See Auditing -> Configuration change transactions
 service timestamps log datetime msec localtime show-timezone
 --
 
+4. Add something along the following to monitor interface changes:
+
+--
+logging event trunk-status global
+logging event link-status global
+!
+interface ra Gi1/0/1 - 52
+ logging event trunk-status
+ logging event spanning-tree
+ logging event status
+!
+--
+
 
 ++ TODO
 
