@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<form>
+  <label>Spanning tree &amp; MAC flapping</label>
+  <fieldset autoRun="true">
+    <input type="time">
+      <default>Last 60 minutes</default>
+    </input>
+  </fieldset>
+  <row>
+    <table>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-spanning_tree" | table _time, host, facility, mnemonic, action, dest_int, spanning_tree_mode</searchString>
+      <title>Spanning tree events</title>
+      <option name="count">20</option>
+      <option name="displayRowNumbers">true</option>
+    </table>
+  </row>
+  <row>
+    <table>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-mac_flapping" | table _time, host, facility, mnemonic, src_mac, src_vlan, src_int, dest_int</searchString>
+      <title>MAC Flapping</title>
+      <option name="count">20</option>
+      <option name="displayRowNumbers">true</option>
+    </table>
+  </row>
+</form>

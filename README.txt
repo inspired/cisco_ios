@@ -17,9 +17,11 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 +++ 1.0.8 (2013-04-23)
 Features:
-* Added Switching nav - currently empty
+* Added Switching nav 
 * Added Security nav
-* Added extractions for DOT1X
+* Added extractions for DOT1X - this will be getting transaction tracking soon
+Bug fixes:
+* Fixed general extraction to handle integers in facility and mnmenonic
 
 +++ 1.0.7 (2013-04-17)
 Features:
