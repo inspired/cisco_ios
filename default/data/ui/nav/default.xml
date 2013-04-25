@@ -1,8 +1,5 @@
 <nav>    
   <view name="overview" default="true" />
-    <collection label="ACL">
-      <view name="acl_dashboard" />
-    </collection>
     <collection label="Auditing">
       <view name="auditing_dashboard" />
       <view name="auditing_config_change_transactions" />
@@ -18,6 +15,7 @@
     </collection>
     <collection label="Security">
       <view name="security_dot1x" />
+      <view name="security_acl" />
     </collection>
     <collection label="Performance">
       <view name="performance_dsl" />
