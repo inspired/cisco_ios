@@ -41,7 +41,7 @@
                         <param name="label">Mnemonic types by time</param>
                 </module>
                 <module name="Search" layoutPanel="panel_row1_col2_grp1">
-                        <param name="search">index=ios | timechart useother=false span=10m count by mnemonic</param>
+                        <param name="search">index=ios mnemonic=* | timechart useother=false span=10m count by mnemonic</param>
     			<module name="HiddenChartFormatter">
      				<param name="chart">line</param>
      				<module name="JSChart">
