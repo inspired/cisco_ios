@@ -1,0 +1,13 @@
+%DTP-5-DOMAINMISMATCH: Unable to perform trunk negotiation on port Gi0/25 because of VTP domain mismatch.
+
+%DTP-5-TRUNKPORTON: Port Fa3 has become dot1q trunk
+
+%DTP-5-NONTRUNKPORTON: Port Fa3 has become non-trunk
+
+
+
+index=ios | dedup facility,mnemonic
+
+
+
+ADD VIEWS for more facilities and mnemonics!
