@@ -11,3 +11,11 @@ index=ios | dedup facility,mnemonic
 
 
 ADD VIEWS for more facilities and mnemonics!
+
+Such as MALLOCFAIL and
+%FIB-3-NOMEM: Malloc Failure, disabling CEF
+
+
+ETHERNET COLLISIONS:
+http://www.cisco.com/en/US/products/hw/modules/ps2033/products_tech_note09186a008009446d.shtml
+
