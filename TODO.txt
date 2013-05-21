@@ -9,6 +9,7 @@
 index=ios | dedup facility,mnemonic
 
 
+May 14 14:24:05 dig-4105-n5548-1.mgmt.local : 2013 May 14 14:24:05 CEST: %VSHD-5-VSHD_SYSLOG_CONFIG_I: Configured from vty by sjoh on 172.16.11.10@pts/32
 
 ADD VIEWS for more facilities and mnemonics!
 
