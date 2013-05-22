@@ -14,4 +14,36 @@
       <option name="displayRowNumbers">true</option>
     </table>
   </row>
+  <row>
+    <table>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction audit_session_id | table</searchString>
+      <title>Audit Session ID transactions</title>
+      <option name="count">20</option>
+      <option name="displayRowNumbers">true</option>
+    </table>
+  </row>
+  <row>
+    <table>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction src_mac | table</searchString>
+      <title>MAC address transactions</title>
+      <option name="count">20</option>
+      <option name="displayRowNumbers">true</option>
+    </table>
+  </row>
+  <row>
+    <table>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction audit_session_id src_mac | table</searchString>
+      <title>Audit session ID/MAC transactions</title>
+      <option name="count">20</option>
+      <option name="displayRowNumbers">true</option>
+    </table>
+  </row>
+  <row>
+    <table>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction src_mac src_int | table</searchString>
+      <title>MAC/IP transactions </title>
+      <option name="count">20</option>
+      <option name="displayRowNumbers">true</option>
+    </table>
+  </row>
 </form>
