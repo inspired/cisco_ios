@@ -12,6 +12,8 @@
       <view name="switching_spanning_tree" />
       <view name="switching_duplex_mismatch" />
       <view name="switching_native_vlan_mismatch" />
+      <view name="switching_hsrp" />
+    </collection>
     </collection>
     <collection label="Routing">
       <view name="routing_dashboard" />

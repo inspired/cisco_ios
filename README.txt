@@ -18,6 +18,7 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 +++ 1.1.0 (2013-05-16)
 Features:
 * Smart Install view added to Auditing
+* Added HSRP to Switching (no extractions yet)
 
 +++ 1.0.9 (2013-04-26)
 Features: 
