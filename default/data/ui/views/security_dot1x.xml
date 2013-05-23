@@ -16,7 +16,7 @@
   </row>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction audit_session_id | table</searchString>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction audit_session_id</searchString>
       <title>Audit Session ID transactions</title>
       <option name="count">20</option>
       <option name="displayRowNumbers">true</option>
@@ -24,7 +24,7 @@
   </row>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction src_mac | table</searchString>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction src_mac</searchString>
       <title>MAC address transactions</title>
       <option name="count">20</option>
       <option name="displayRowNumbers">true</option>
@@ -32,7 +32,7 @@
   </row>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction audit_session_id src_mac | table</searchString>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction audit_session_id src_mac</searchString>
       <title>Audit session ID/MAC transactions</title>
       <option name="count">20</option>
       <option name="displayRowNumbers">true</option>
@@ -40,7 +40,7 @@
   </row>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction src_mac src_int | table</searchString>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | transaction src_mac src_int</searchString>
       <title>MAC/IP transactions </title>
       <option name="count">20</option>
       <option name="displayRowNumbers">true</option>
