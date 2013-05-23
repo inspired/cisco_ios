@@ -12,7 +12,7 @@
       <view name="switching_spanning_tree" />
       <view name="switching_duplex_mismatch" />
       <view name="switching_native_vlan_mismatch" />
-      <view name="switching_hsrp" />
+      <view name="switching_fhrp" />
     </collection>
     </collection>
     <collection label="Routing">
