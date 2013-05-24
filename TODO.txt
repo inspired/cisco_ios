@@ -20,3 +20,11 @@ Such as MALLOCFAIL and
 ETHERNET COLLISIONS:
 http://www.cisco.com/en/US/products/hw/modules/ps2033/products_tech_note09186a008009446d.shtml
 
+
+http://www.cisco.com/web/about/security/intelligence/identify-incidents-via-syslog.html#4
+%SEC-4-TOOMANY
+
+
+Add a reliable_time=true/false based on presence of *:
+
+The time stamp format used in system logging messages is determined by the service timestamps global configuration mode command. The service sequence-numbers global configuration command enables or disables the leading sequence number. An asterisk (*) before the time indicates that the time may be incorrect because the system clock has not synchronized to a reliable time source.
