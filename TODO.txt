@@ -24,6 +24,13 @@ http://www.cisco.com/en/US/products/hw/modules/ps2033/products_tech_note09186a00
 http://www.cisco.com/web/about/security/intelligence/identify-incidents-via-syslog.html#4
 %SEC-4-TOOMANY
 
+ 	
+For DOT1x events:
+May 27 09:03:14 10.215.32.107 597: 10.215.32.107: May 27 09:07:14.747 CEST: %AUTHMGR-5-VLANASSIGN: VLAN 33 assigned to Interface Fa0/1 AuditSessionID 0AD7206B00000B7132B16CC5
+May 27 09:03:15 10.215.32.107 601: 10.215.32.107: May 27 09:07:15.502 CEST: %EPM-6-IPEVENT: IP 10.215.33.101| MAC 001a.6bd2.67d9| AuditSessionID 0AD7206B00000B7132B16CC5| AUTHTYPE DOT1X| EVENT IP-ASSIGNMENT
+ 	
+
+May 27 09:03:14 10.215.32.107 599: 10.215.32.107: May 27 09:07:14.773 CEST: %EPM-6-IPEVENT: IP 0.0.0.0| MAC 001a.6bd2.67d9| AuditSessionID 0AD7206B00000B7132B16CC5| AUTHTYPE DOT1X| EVENT IP-WAIT
 
 Add a reliable_time=true/false based on presence of *:
 
