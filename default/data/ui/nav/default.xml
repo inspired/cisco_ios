@@ -14,7 +14,6 @@
       <view name="switching_native_vlan_mismatch" />
       <view name="switching_fhrp" />
     </collection>
-    </collection>
     <collection label="Routing">
       <view name="routing_dashboard" />
     </collection>

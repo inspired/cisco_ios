@@ -1,15 +1,7 @@
-%DTP-5-DOMAINMISMATCH: Unable to perform trunk negotiation on port Gi0/25 because of VTP domain mismatch.
-
-%DTP-5-TRUNKPORTON: Port Fa3 has become dot1q trunk
-
-%DTP-5-NONTRUNKPORTON: Port Fa3 has become non-trunk
-
 
 
 index=ios | dedup facility,mnemonic
 
-
-May 14 14:24:05 dig-4105-n5548-1.mgmt.local : 2013 May 14 14:24:05 CEST: %VSHD-5-VSHD_SYSLOG_CONFIG_I: Configured from vty by sjoh on 172.16.11.10@pts/32
 
 ADD VIEWS for more facilities and mnemonics!
 
@@ -26,7 +18,6 @@ http://www.cisco.com/web/about/security/intelligence/identify-incidents-via-sysl
 
  	
 For DOT1x events:
-May 27 09:03:14 10.215.32.107 597: 10.215.32.107: May 27 09:07:14.747 CEST: %AUTHMGR-5-VLANASSIGN: VLAN 33 assigned to Interface Fa0/1 AuditSessionID 0AD7206B00000B7132B16CC5
 May 27 09:03:15 10.215.32.107 601: 10.215.32.107: May 27 09:07:15.502 CEST: %EPM-6-IPEVENT: IP 10.215.33.101| MAC 001a.6bd2.67d9| AuditSessionID 0AD7206B00000B7132B16CC5| AUTHTYPE DOT1X| EVENT IP-ASSIGNMENT
  	
 
