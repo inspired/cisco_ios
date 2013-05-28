@@ -8,8 +8,8 @@
   </fieldset>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-standby"</searchString>
-      <title>HSRP</title>
+      <searchName>hsrp statechange</searchName>
+      <title>HSRP State Changes</title>
       <option name="count">10</option>
       <option name="displayRowNumbers">true</option>
     </table>
