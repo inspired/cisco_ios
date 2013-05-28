@@ -18,6 +18,7 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 +++ 1.1.1 (2013-05-27)
 Features:
 * Add a reliable_time=true/false based on presence of *:
+* More CIM compliance
 
 +++ 1.1.0 (2013-05-16)
 Features:
