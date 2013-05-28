@@ -37,7 +37,7 @@
       <option name="displayRowNumbers">true</option>
     </table>
     <chart>
-      <searchString>sourcetype=cisco:ios | chart count(severity) by severity_name</searchString>
+      <searchString>sourcetype=cisco:ios | chart count(severity_id) by severity_name</searchString>
       <title>Syslog severity distribution</title>
       <option name="charting.chart">pie</option>
       <option name="charting.chart.sliceCollapsingThreshold">0</option>

@@ -94,7 +94,7 @@
                         <param name="label">Syslog severity distribution</param>
                 </module>
    		<module name="Search" layoutPanel="panel_row2_col3" autoRun="true">
-    			<param name="search">sourcetype=cisco:ios | chart count(severity) by severity_name</param>
+    			<param name="search">sourcetype=cisco:ios | chart count(severity_id) by severity_name</param>
     			<module name="HiddenChartFormatter">
      				<param name="chart">pie</param>
      				<param name="charting.chart.sliceCollapsingThreshold">0</param>
@@ -173,7 +173,7 @@
                         <param name="label">Diagnostic messages</param>
                 </module>
    		<module name="HiddenSearch" layoutPanel="panel_row4_col2" autoRun="true">
-    			<param name="search">eventtype=cisco_ios-diag | eval eventcode=facility + "-" + severity + "-" + mnemonic | table _time,host,eventcode,message_text</param>
+    			<param name="search">eventtype=cisco_ios-diag | eval eventcode=facility + "-" + severity_id + "-" + mnemonic | table _time,host,eventcode,message_text</param>
 			<module name="Paginator">
 				<param name="entityName">results</param>
 				<module name="SimpleResultsTable">
