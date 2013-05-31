@@ -172,7 +172,7 @@
                 <module name="GenericHeader" layoutPanel="panel_row4_col2">
                         <param name="label">Latest diagnostic messages</param>
                 </module>
-   		<module name="HiddenSearch" layoutPanel="panel_row4_col2" autoRun="true">
+   		<module name="HiddenSavedSearch" layoutPanel="panel_row4_col2" autoRun="true">
     			<param name="savedSearch">diagnostic count</param>
 			<module name="Paginator">
 				<param name="entityName">results</param>
