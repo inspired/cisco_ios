@@ -170,10 +170,10 @@
    		</module>  
 
                 <module name="GenericHeader" layoutPanel="panel_row4_col2">
-                        <param name="label">Diagnostic messages</param>
+                        <param name="label">Latest diagnostic messages</param>
                 </module>
    		<module name="HiddenSearch" layoutPanel="panel_row4_col2" autoRun="true">
-    			<param name="search">eventtype=cisco_ios-diag | eval eventcode=facility + "-" + severity_id + "-" + mnemonic | table _time,host,eventcode,message_text</param>
+    			<param name="savedSearch">diagnostic count</param>
 			<module name="Paginator">
 				<param name="entityName">results</param>
 				<module name="SimpleResultsTable">
