@@ -19,6 +19,7 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 Features:
 * Add a reliable_time=true/false based on presence of *:
 * More CIM compliance
+* Fixed ACL logging for log-input
 
 +++ 1.1.0 (2013-05-16)
 Features:
