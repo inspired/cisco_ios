@@ -40,4 +40,4 @@ http://docs.splunk.com/Documentation/Splunk/5.0.2/Knowledge/UnderstandandusetheC
 VRRP??
 
 
-Cisco IOS Firewall (i.e. FW-6-SESS_AUDIT_TRAIL_START etc
+Cisco IOS Firewall (i.e. FW-6-SESS_AUDIT_TRAIL_START etc.) http://www.cisco.com/en/US/products/sw/secursw/ps1018/products_configuration_example09186a00800949e3.shtml#tshoot
