@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<form>
+  <label>Best practice deviations</label>
+  <fieldset autoRun="true">
+    <input type="time">
+      <default>Last 60 minutes</default>
+    </input>
+  </fieldset>
+  <row>
+    <table>
+      <searchName>best practice deviations</searchName>
+      <title>Best practice deviations</title>
+    </table>
+  </row>
+</form>
