@@ -10,7 +10,13 @@
     <table>
       <searchString>eventtype="cisco_ios-lwapp_radio_crash" | table _time,host,radio_id,ap_mac</searchString>
       <title>Radio crashes</title>
-      <option name="count">100</option>
+      <option name="count">20</option>
+      <option name="displayRowNumbers">true</option>
+    </table>
+    <table>
+      <searchString>eventtype="cisco_ios-lwapp_akita_err" | table _time,host,ap_mac</searchString>
+      <title>Unsupported access points</title>
+      <option name="count">20</option>
       <option name="displayRowNumbers">true</option>
     </table>
   </row>
