@@ -26,4 +26,7 @@
       <view name="performance_dsl" />
       <view name="performance_etherchannel" />
     </collection>
+    <collection label="Wireless">
+      <view name="wireless_dashboard" />
+    </collection>
 </nav>
