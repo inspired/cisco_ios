@@ -27,12 +27,12 @@ export = system
 [tags]
 export = system
 
-[eventtypes]
-export = system
-
 [viewstates]
 access = read : [ * ], write : [ * ]
 export = system
 
 [lookups]
 export = system
+
+[views]
+export = none
