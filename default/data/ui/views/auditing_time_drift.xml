@@ -19,4 +19,11 @@
       <title>Time drift between event time and device's reported event time</title>
     </table>
   </row>
+  <row>
+    <table>
+      <searchName>unreliable time</searchName>
+      <option name="displayRowNumbers">true</option>
+      <title>Devices with unsynchronized clocks</title>
+    </table>
+  </row>
 </form>
