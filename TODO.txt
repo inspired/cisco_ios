@@ -1,6 +1,3 @@
-Fix extractions so that all of them work with subfacilities too, i.e. for 6500 switches and higher
-
-
 
 index=ios | dedup facility,mnemonic
 
