@@ -43,3 +43,6 @@ Add a Auditing -> Best practice deviations view:
  %IP_SNMP-4-NOTRAPIP: SNMP trap source FastEthernet0/1.3 has no ip address
 
 Cisco IOS Firewall (i.e. FW-6-SESS_AUDIT_TRAIL_START etc.) http://www.cisco.com/en/US/products/sw/secursw/ps1018/products_configuration_example09186a00800949e3.shtml#tshoot
+
+Can I make this useful in any way? It shows interface speed changes on Nexus switches
+index=ios mnemonic=SPEED | eval int_and_host=src_int + " on " + host | timechart avg(speed) by int_and_host limit=15 useother=f

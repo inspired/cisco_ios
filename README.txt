@@ -1,8 +1,8 @@
 Copyright (C) 2013 Mikael Bjerkeland, Datametrix AS. All Rights Reserved.
 
 App:               	Cisco IOS
-Current Version:	1.1.3
-Last Modified:		2013-08-12
+Current Version:	1.1.4
+Last Modified:		2013-08-27
 Splunk Version:		4.2.x, 4.3.x, 5.0.x
 Author:			Mikael Bjerkeland
 Dependencies:		Sideview Utils
@@ -14,6 +14,10 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 
 ++ What's New
+
++++ 1.1.4 (2013-08-27)
+Features:
+* Added a few Nexus snacks
 
 +++ 1.1.3 (2013-08-12)
 Bug fixes:
