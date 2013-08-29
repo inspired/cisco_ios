@@ -10,26 +10,36 @@
 
 []
 access = read : [ * ], write : [ admin, power ]
-export = system
+#export = system
+export = none
 
 [eventtypes]
-export = system
+#export = system
+export = none
+
 
 [props]
-export = system
+#export = system
+export = none
+
 
 [transforms]
-export = system
+#export = system
+export = none
+
 
 [macros]
-export = system
+#export = system
+export = none
+
 
 [tags]
 export = system
 
 [viewstates]
 access = read : [ * ], write : [ * ]
-export = system
+#export = system
+export = none
 
 [lookups]
 export = system
