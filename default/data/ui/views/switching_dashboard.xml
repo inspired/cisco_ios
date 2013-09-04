@@ -8,7 +8,7 @@
       <default>*</default>
     </input>
     <input type="time">
-      <default>Last 60 minutes</default>
+      <default>Last 7 days</default>
     </input>
   </fieldset>
   <row>
