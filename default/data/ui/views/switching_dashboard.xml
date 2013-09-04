@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<form refresh="30">
+  <label>Dashboard</label>
+  <searchTemplate>| savedsearch "link changes" hostToken="$hostToken$"</searchTemplate>
+  <fieldset autoRun="true">
+    <input type="text" token="hostToken">
+      <label>Host</label>
+      <default>*</default>
+    </input>
+    <input type="time">
+      <default>Last 60 minutes</default>
+    </input>
+  </fieldset>
+  <row>
+    <chart>
+      <!--<searchName>link changes</searchName>-->
+      <title>Link connects</title>
+      <option name="charting.chart">column</option>
+    </chart>
+  </row>
+</form>

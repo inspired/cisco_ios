@@ -8,6 +8,7 @@
       <view name="auditing_best_practice_deviations" />
     </collection>
     <collection label="Switching">
+      <view name="switching_dashboard" />
       <view name="switching_stacking" />
       <view name="switching_dhcp_snooping" />
       <view name="switching_spanning_tree" />
