@@ -2,7 +2,7 @@ IOS XR extraction (thank you Cisco for making this different from the good old f
 http://www.cisco.com/en/US/docs/routers/crs/software/crs_r4.2/system_monitoring/configuration/guide/b_sysmon_cg42crs_chapter_0100.html#con_1060607
 Works, but uses the wrong terms:
 
-(?<node_id>RP\/0\/RSP0\/CPU0)\:(?<device_time>.+)\s\:\s(?<process_name>[A-Za-z0-9_]+)\[(?<pid>\d+)\]\:\s%((?<category>[A-Z0-9_]+)-)?(?<facility>[A-Z0-9_]+)-(?<subfacility>[A-Z12_]*(-?[A-Z_]*))-?(?<severity_id>[0-7])-(?<mnemonic>[A-Z0-9_]+)(\s)?:\s(?<message_text>.+)
+((?<event_id>\d+)\:\s)?(?<node_id>([A-Z]+)\/(\d+)\/([A-Z0-9]+)\/([A-Z0-9]+))\:(?<device_time>.+)\s\:\s(?<process_name>[A-Za-z0-9_]+)\[(?<pid>\d+)\]\:\s%((?<category>[A-Z0-9_]+)-)?(?<facility>[A-Z0-9_]+)-(?<subfacility>[A-Z12_]*(-?[A-Z_]*))-?(?<severity_id>[0-7])-(?<mnemonic>[A-Z0-9_]+)(\s)?:\s(?<message_text>.+)
 
 Works on:
 Sep 17 09:15:10 172.16.202.35 118590: RP/0/RSP0/CPU0:Sep 17 15:15:43.581 : config[65764]: %MGBL-CONFIG-6-DB_COMMIT : Configuration committed by user 'ojj'. Use 'show configuration commit changes 1000000134' to view the changes
