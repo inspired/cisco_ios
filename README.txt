@@ -127,7 +127,7 @@ Features:
 ++ Application Details
 
 Sourcetype(s):            cisco:ios
-Supported Technologies:   Cisco IOS, IOS-XE and NX-OS devices
+Supported Technologies:   Cisco IOS, IOS-XE, NX-OS, IOS XR devices
 
 
 ++ Installation Instructions
