@@ -1,0 +1,251 @@
+host,"last_reported_time","_bkt","_cd","_indextime","_kv","_raw","_serial","_si","_sourcetype","__mv_host","__mv_last_reported_time","__mv__bkt","__mv__cd","__mv__indextime","__mv__kv","__mv__raw","__mv__serial","__mv__si","__mv__sourcetype"
+"sbe-13894-13583-sw-01.eiendom.statsbygg.pro",1380805200,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:882009",1380805201,1,"Oct  3 15:00:00 sbe-13894-13583-sw-01.eiendom.statsbygg.pro 175534: Oct  3 14:59:59.967 CEST: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted tcp 10.35.42.36(1632) -> 10.35.32.28(502), 4 packets",0,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-8e.statsbygg.pro",1380805199,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:882001",1380805200,1,"Oct  3 14:59:59 hk-sw-8e.statsbygg.pro 339564: Oct  3 14:59:58.481 CEST: %AUTHMGR-5-START: Starting 'dot1x' for client (001e.4ff6.5478) on Interface Fa1/0/32 AuditSessionID 0000000000002AF7D2EB8DF7",1,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-8s.statsbygg.pro",1380805198,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881994",1380805199,1,"Oct  3 14:59:58 hk-sw-8s.statsbygg.pro 154478: Oct  3 14:59:58.166 CEST: %DOT1X-5-FAIL: Authentication failed for client (0080.647f.7523) on Interface Fa1/0/6 AuditSessionID ",2,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"10.32.3.126",1380805197,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881987",1380805199,1,"Oct  3 14:59:57 10.32.3.126 264848: Oct  3 14:59:56.704: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted tcp 10.35.18.205(57984) -> 10.35.18.21(80), 1 packet",3,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3500-10899-sw-01.eiendom.statsbygg.pro",1380805197,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881979",1380805198,1,"Oct  3 14:59:57 sbe-3500-10899-sw-01.eiendom.statsbygg.pro 132646: Oct  3 14:59:56.185 CEST: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted tcp 10.35.82.202(3541) -> 10.35.82.21(80), 1 packet",4,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-d202-sw-01.eiendom.statsbygg.pro",1380805197,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881971",1380805197,1,"Oct  3 14:59:57 sbe-3481-d202-sw-01.eiendom.statsbygg.pro 514318: Oct  3 14:59:56.013: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted udp 172.24.220.1(123) -> 10.36.10.19(123), 1 packet",5,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-564-1741-sw-01.eiendom.statsbygg.pro",1380805192,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881940",1380805193,1,"Oct  3 14:59:52 sbe-564-1741-sw-01.eiendom.statsbygg.pro 209626: 134247: Oct  3 14:59:52.100 CEST: %SYS-2-MALLOCFAIL: Memory allocation of 65536 bytes failed from 0x1442328, alignment 0 ",9,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-802-1943-sw-01.eiendom.statsbygg.pro",1380805190,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881932",1380805193,1,"Oct  3 14:59:50 sbe-802-1943-sw-01.eiendom.statsbygg.pro 2413132: Oct  3 14:59:49.395 CEST: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted tcp 10.35.10.25(80) -> 10.35.8.34(21081), 1 packet",12,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-2476-7973-sw-01.eiendom.statsbygg.pro",1380805190,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881924",1380805193,1,"Oct  3 14:59:50 sbe-2476-7973-sw-01.eiendom.statsbygg.pro 2369536: 2369533: Oct  3 14:59:49.345: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted tcp 10.35.8.34(21081) -> 10.35.10.25(80), 1 packet",13,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-8w.statsbygg.pro",1380805166,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881621",1380805167,1,"Oct  3 14:59:26 hk-sw-8w.statsbygg.pro 21235: Oct  3 14:59:25.562 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0/25, changed state to up",51,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-8n.statsbygg.pro",1380805158,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881552",1380805161,1,"Oct  3 14:59:18 hk-sw-8n.statsbygg.pro 807272: Oct  3 14:59:17.076 CEST: %AUTHMGR-5-FAIL: Authorization failed for client (Unknown MAC) on Interface Fa1/0/4 AuditSessionID 000000000000174A23703971",61,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"10.32.3.94",1380805156,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881438",1380805157,1,"Oct  3 14:59:16 10.32.3.94 17416: 017413: Oct  3 14:59:15.967: %CDP-4-DUPLEX_MISMATCH: duplex mismatch discovered on GigabitEthernet1/0/24 (not full duplex), with Statsbygg_Bergen_Fengsel FastEthernet1 (full duplex).",74,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-14720-xxx-sw-01.eiendom.statsbygg.pro",1380805154,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881408",1380805154,1,"Oct  3 14:59:14 sbe-14720-xxx-sw-01.eiendom.statsbygg.pro 1402: Oct  3 14:59:13.255: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted tcp 172.24.201.16(51844) -> 10.36.26.2(22), 5 packets",78,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-468-1233-sw-01.eiendom.statsbygg.pro",1380805145,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881310",1380805146,1,"Oct  3 14:59:05 sbe-468-1233-sw-01.eiendom.statsbygg.pro 252944: Oct  3 14:59:04.970 CEST: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted udp 172.24.201.127(19249) -> 10.35.42.2(161), 2 packets",91,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-6e.statsbygg.pro",1380805143,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881265",1380805144,1,"Oct  3 14:59:03 hk-sw-6e.statsbygg.pro 113702: Oct  3 14:59:03.689 CEST: %LINK-3-UPDOWN: Interface FastEthernet1/0/29, changed state to down",97,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-89-215-sw-01.eiendom.statsbygg.pro",1380805140,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:881188",1380805140,1,"Oct  3 14:59:00 sbe-89-215-sw-01.eiendom.statsbygg.pro 64389: Oct  3 14:58:59.050 CEST: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted udp 172.24.201.127(19249) -> 10.35.3.2(161), 2 packets",104,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-477-1265-sw-01.eiendom.statsbygg.pro",1380805123,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:880965",1380805123,1,"Oct  3 14:58:43 sbe-477-1265-sw-01.eiendom.statsbygg.pro 64231: Oct  3 14:58:42.058 CEST: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted tcp 212.118.234.142(443) -> 10.35.54.21(50321), 22 packets",134,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-bsw-01.statsbygg.pro",1380805105,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:880784",1380805106,1,"Oct  3 14:58:25 hk-bsw-01.statsbygg.pro 165834: Oct  3 14:58:20.344 CEST: %PLATFORM_ENV-1-PWR_RPS: Redundant power supply faulty or in standby mode (HK-BSW-01-3)",160,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-173-525-sw-01.eiendom.statsbygg.pro",1380805091,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:880599",1380805092,1,"Oct  3 14:58:11 sbe-173-525-sw-01.eiendom.statsbygg.pro 6853: 006849: Oct  3 14:58:10.815: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",185,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-eal-124-sw-17.eiendom.statsbygg.pro",1380805086,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:880509",1380805086,1,"Oct  3 14:58:06 sbe-3481-eal-124-sw-17.eiendom.statsbygg.pro 14844: Oct  3 14:58:06.071: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to up",195,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-170-508-sw-01.eiendom.statsbygg.pro",1380805070,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:880296",1380805070,1,"Oct  3 14:57:50 sbe-170-508-sw-01.eiendom.statsbygg.pro 3194: Oct  3 14:57:49.600 CEST: %SEC-6-IPACCESSLOGP: list USERS-OUT denied udp 10.36.15.21(1061) -> 10.36.15.240(161), 58 packets",224,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-pav14-sw-02.eiendom.statsbygg.pro",1380805045,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:879939",1380805047,1,"Oct  3 14:57:25 sbe-3481-pav14-sw-02.eiendom.statsbygg.pro 23565: Oct  3 14:57:24.632: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to up",270,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-637-1722-sw-01.eiendom.statsbygg.pro",1380805039,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:879871",1380805042,1,"Oct  3 14:57:19 sbe-637-1722-sw-01.eiendom.statsbygg.pro 206469: Oct  3 14:57:18.592 CEST: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted tcp 10.35.13.201(2656) -> 10.35.64.25(502), 2111 packets",279,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-7w.statsbygg.pro",1380805025,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:879641",1380805028,1,"Oct  3 14:57:05 hk-sw-7w.statsbygg.pro 59039: Oct  3 14:57:04.709 CEST: %LINK-3-UPDOWN: Interface FastEthernet1/0/42, changed state to down",315,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"10.4.220.10",1380805005,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:879275",1380805006,1,"Oct  3 14:56:45 10.4.220.10 844: Oct  3 14:57:28.480 CEST: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",356,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-b009-sw-09.eiendom.statsbygg.pro",1380804976,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:878929",1380804977,1,"Oct  3 14:56:16 sbe-3481-b009-sw-09.eiendom.statsbygg.pro 71474: Oct  3 14:56:16.079: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to up",402,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-2570-13432-sw-01.eiendom.statsbygg.pro",1380804955,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:878623",1380804955,1,"Oct  3 14:55:55 sbe-2570-13432-sw-01.eiendom.statsbygg.pro 43729: 043725: Oct  3 14:55:54.339 CEST: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted tcp 10.36.36.21(4875) -> 10.36.34.25(2499), 60 packets",440,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-2565-9999-sw-01.eiendom.statsbygg.pro",1380804950,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:878615",1380804953,1,"Oct  3 14:55:50 sbe-2565-9999-sw-01.eiendom.statsbygg.pro 77626: 077623: Oct  3 14:55:50.194 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/3, changed state to up",446,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-13835-16-sw-01.eiendom.statsbygg.pro",1380804936,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:878330",1380804937,1,"Oct  3 14:55:36 sbe-13835-16-sw-01.eiendom.statsbygg.pro 27075: 027071: Oct  3 14:55:35.909 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",480,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"10.32.3.70",1380804910,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:877959",1380804910,1,"Oct  3 14:55:10 10.32.3.70 6409: Oct  3 14:55:09.287: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",528,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-159-14006-sw-01.eiendom.statsbygg.pro",1380804888,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:877674",1380804889,1,"Oct  3 14:54:48 sbe-159-14006-sw-01.eiendom.statsbygg.pro 30067: Oct  3 14:54:47.639 CEST: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted udp 10.32.0.201(123) -> 10.35.24.44(123), 1 packet",565,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-13882-12327-sw-01.eiendom.statsbygg.pro",1380804887,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:877658",1380804887,1,"Oct  3 14:54:47 sbe-13882-12327-sw-01.eiendom.statsbygg.pro 3381: Oct  3 14:54:46.125 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",567,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-13865-13319-sw-01.eiendom.statsbygg.pro",1380804883,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:877627",1380804884,1,"Oct  3 14:54:43 sbe-13865-13319-sw-01.eiendom.statsbygg.pro 3609: Oct  3 14:54:42.532 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",572,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-2643-8684-sw-01.eiendom.statsbygg.pro",1380804858,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:877242",1380804859,1,"Oct  3 14:54:18 sbe-2643-8684-sw-01.eiendom.statsbygg.pro 4764: Oct  3 14:54:18.766 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up",623,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-64-63-sw-01.eiendom.statsbygg.pro",1380804832,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:876773",1380804832,1,"Oct  3 14:53:52 sbe-64-63-sw-01.eiendom.statsbygg.pro 85892: 085888: Oct  3 14:53:51.277 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",684,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3569-11176-sw-01.eiendom.statsbygg.pro",1380804829,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:876706",1380804829,1,"Oct  3 14:53:49 sbe-3569-11176-sw-01.eiendom.statsbygg.pro 25371: Oct  3 14:53:48.229 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",693,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3539-11089-sw-01.eiendom.statsbygg.pro",1380804814,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:876452",1380804814,1,"Oct  3 14:53:34 sbe-3539-11089-sw-01.eiendom.statsbygg.pro 4301: Oct  3 14:53:33.201 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",723,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-89-215-sw-02.eiendom.statsbygg.pro",1380804802,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:876234",1380804802,1,"Oct  3 14:53:22 sbe-89-215-sw-02.eiendom.statsbygg.pro 2245: Oct  3 14:53:21.280 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",751,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-2520-9-sw-01.eiendom.statsbygg.pro",1380804743,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:875498",1380804743,1,"Oct  3 14:52:23 sbe-2520-9-sw-01.eiendom.statsbygg.pro 3985: Oct  3 14:52:22.048: %SEC-6-IPACCESSLOGP: list TEK-OUT permitted udp 129.240.2.6(123) -> 10.36.20.2(123), 1 packet",850,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"10.32.3.46",1380804703,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:874865",1380804704,1,"Oct  3 14:51:43 10.32.3.46 2667: Oct  3 14:51:42.332: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",932,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"rg-sw-w.statsbygg.pro",1380804692,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:874712",1380804695,1,"Oct  3 14:51:32 rg-sw-w.statsbygg.pro 36569: Oct  3 14:51:31.766 CEST: %IP_SNMP-4-NOTRAPIP: SNMP trap source Vlan220 has no ip address",956,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-5w.statsbygg.pro",1380804690,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:874645",1380804692,1,"Oct  3 14:51:30 hk-sw-5w.statsbygg.pro 23626: Oct  3 14:51:29.668 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet3/0/5, changed state to up",961,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-802-1943-sw-02.eiendom.statsbygg.pro",1380804660,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:874123",1380804661,1,"Oct  3 14:51:00 sbe-802-1943-sw-02.eiendom.statsbygg.pro 20737: Oct  3 14:50:59.635 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",1028,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-272-558-sw-01.eiendom.statsbygg.pro",1380804619,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:873562",1380804620,1,"Oct  3 14:50:19 sbe-272-558-sw-01.eiendom.statsbygg.pro 34082: 034080: Oct  3 14:50:19.735 CEST: %LINK-3-UPDOWN: Interface FastEthernet0/5, changed state to down",1104,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-14695-14563-sw-01.eiendom.statsbygg.pro",1380804615,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:873499",1380804616,1,"Oct  3 14:50:15 sbe-14695-14563-sw-01.eiendom.statsbygg.pro 1700: Oct  3 14:50:15.507: %LINK-3-UPDOWN: Interface FastEthernet0/3, changed state to down",1110,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-14206-13437-sw-01.eiendom.statsbygg.pro",1380804550,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:872524",1380804551,1,"Oct  3 14:49:10 sbe-14206-13437-sw-01.eiendom.statsbygg.pro 2238: 002234: Oct  3 14:49:09.229 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",1240,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"10.32.3.118",1380804546,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:872455",1380804547,1,"Oct  3 14:49:06 10.32.3.118 14655: Oct  3 14:49:05.547: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",1248,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-7e.statsbygg.pro",1380804498,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:871794",1380804499,1,"Oct  3 14:48:18 hk-sw-7e.statsbygg.pro 32411: Oct  3 14:48:18.785 CEST: %LINK-3-UPDOWN: Interface FastEthernet2/0/23, changed state to down",1335,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-467-1216-sw-01.eiendom.statsbygg.pro",1380804442,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:870925",1380804442,1,"Oct  3 14:47:22 sbe-467-1216-sw-01.eiendom.statsbygg.pro 18406: Oct  3 14:47:21.522 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",1449,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3571-11102-sw-01.eiendom.statsbygg.pro",1380804440,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:870902",1380804441,1,"Oct  3 14:47:20 sbe-3571-11102-sw-01.eiendom.statsbygg.pro 14304: Oct  3 14:47:19.928 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",1451,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-6w.statsbygg.pro",1380804420,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:870679",1380804422,1,"Oct  3 14:47:00 hk-sw-6w.statsbygg.pro 81458: Oct  3 14:46:59.930 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet3/0/37, changed state to up",1483,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-14350-13929-sw-01.eiendom.statsbygg.pro",1380804389,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:870263",1380804389,1,"Oct  3 14:46:29 sbe-14350-13929-sw-01.eiendom.statsbygg.pro 13584: 013580: Oct  3 14:46:28.103 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",1534,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-91-220-sw-01.eiendom.statsbygg.pro",1380804366,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:869977",1380804367,1,"Oct  3 14:46:06 sbe-91-220-sw-01.eiendom.statsbygg.pro 23655: Oct  3 14:46:05.901 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",1570,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-281-1679-sw-01.eiendom.statsbygg.pro",1380804294,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:868943",1380804295,1,"Oct  3 14:44:54 sbe-281-1679-sw-01.eiendom.statsbygg.pro 21915: Oct  3 14:44:53.729 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",1707,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"pk-hib-sw01.statsbygg.pro",1380804218,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:867803",1380804219,1,"Oct  3 14:43:38 pk-hib-sw01.statsbygg.pro 4716: Oct  3 14:43:38.164 CEST: %LINK-3-UPDOWN: Interface GigabitEthernet0/13, changed state to down",1858,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"10.32.3.110",1380804207,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:867652",1380804208,1,"Oct  3 14:43:27 10.32.3.110 1953: Oct  3 14:43:26.851: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",1878,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3528-1101-sw-01.eiendom.statsbygg.pro",1380804146,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:866768",1380804146,1,"Oct  3 14:42:26 sbe-3528-1101-sw-01.eiendom.statsbygg.pro 28930: Oct  3 14:42:25.074 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",1992,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"10.32.3.150",1380804144,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:866746",1380804145,1,"Oct  3 14:42:24 10.32.3.150 4594: Oct  3 14:42:23.835: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",1996,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"pk-hib-sw02.statsbygg.pro",1380804137,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:866670",1380804139,1,"Oct  3 14:42:17 pk-hib-sw02.statsbygg.pro 10328: Oct  3 14:42:16.750 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/39, changed state to up",2007,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"rg-sw-m.statsbygg.pro",1380804061,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:865441",1380804064,1,"Oct  3 14:41:01 rg-sw-m.statsbygg.pro 25873: Oct  3 14:41:00.635 CEST: %LINK-3-UPDOWN: Interface FastEthernet1/0/22, changed state to down",2168,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-2571-8402-sw-02.eiendom.statsbygg.pro",1380803956,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:863968",1380803957,1,"Oct  3 14:39:16 sbe-2571-8402-sw-02.eiendom.statsbygg.pro 53982: Oct  3 14:39:16.503 CEST: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to down",2361,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-58-26-sw-01.eiendom.statsbygg.pro",1380803903,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:863261",1380803903,1,"Oct  3 14:38:23 sbe-58-26-sw-01.eiendom.statsbygg.pro 10773: 011237: Oct  3 14:38:22.270: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",2452,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-468-1234-sw-02.eiendom.statsbygg.pro",1380803830,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:862193",1380803831,1,"Oct  3 14:37:10 sbe-468-1234-sw-02.eiendom.statsbygg.pro 12974: Oct  3 14:37:09.311 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",2592,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"pk-vt-fhi-sw-01.statsbygg.pro",1380803719,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:860640",1380803721,1,"Oct  3 14:35:19 pk-vt-fhi-sw-01.statsbygg.pro 36564: Oct  3 14:35:18.918 CEST: %LINK-3-UPDOWN: Interface GigabitEthernet2/0/24, changed state to down",2796,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-131-297-sw-01.eiendom.statsbygg.pro",1380803700,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:860363",1380803701,1,"Oct  3 14:35:00 sbe-131-297-sw-01.eiendom.statsbygg.pro 18738: Oct  3 14:34:59.850 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",2832,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3558-11083-sw-01.eiendom.statsbygg.pro",1380803625,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:859396",1380803626,1,"Oct  3 14:33:45 sbe-3558-11083-sw-01.eiendom.statsbygg.pro 8391: Oct  3 14:33:44.148 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/11, changed state to up",2957,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"pk-vt-sw-02.statsbygg.pro",1380803605,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:859161",1380803606,1,"Oct  3 14:33:25 pk-vt-sw-02.statsbygg.pro 28124: Oct  3 14:33:25.471 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/7, changed state to up",2988,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-600-1653-sw-01.eiendom.statsbygg.pro",1380803575,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:858754",1380803576,1,"Oct  3 14:32:55 sbe-600-1653-sw-01.eiendom.statsbygg.pro 32451: Oct  3 14:32:54.312 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",3042,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"10.32.1.182",1380803545,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:858215",1380803545,1,"Oct  3 14:32:25 10.32.1.182 7407: 007404: Oct  3 14:32:24.460: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",3110,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-492-1346-sw-01.eiendom.statsbygg.pro",1380803528,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:858006",1380803529,1,"Oct  3 14:32:08 sbe-492-1346-sw-01.eiendom.statsbygg.pro 25239: Oct  3 14:32:07.433 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",3139,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-2590-12096-sw-01.eiendom.statsbygg.pro",1380803524,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:857930",1380803525,1,"Oct  3 14:32:04 sbe-2590-12096-sw-01.eiendom.statsbygg.pro 11443: Oct  3 14:32:03.406: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",3149,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-5e.statsbygg.pro",1380803523,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:857894",1380803524,1,"Oct  3 14:32:03 hk-sw-5e.statsbygg.pro 12098: Oct  3 14:32:03.279 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/3, changed state to up",3153,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-13830-2a-sw-01.eiendom.statsbygg.pro",1380803322,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:855015",1380803322,1,"Oct  3 14:28:42 sbe-13830-2a-sw-01.eiendom.statsbygg.pro 1695: Oct  3 14:28:41.667: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",3529,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-68-71-sw-01.eiendom.statsbygg.pro",1380803314,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:854896",1380803314,1,"Oct  3 14:28:34 sbe-68-71-sw-01.eiendom.statsbygg.pro 41511: Oct  3 14:28:33.278 CEST: %SMI-3-SMI_CLIENT_BACKUP_FAILURE: Client Device startup configuration backup fail on repository",3547,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"pk-ca-sw-01.statsbygg.pro",1380802541,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:843634",1380802541,1,"Oct  3 14:15:41 pk-ca-sw-01.statsbygg.pro 393: Oct  3 14:15:40.647 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/46, changed state to up",5017,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-csw.statsbygg.pro",1380802352,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:840477",1380802353,1,"Oct  3 14:12:32 hk-csw.statsbygg.pro 7273: Oct  3 14:12:31.890 CEST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: mibj] [Source: 172.24.201.16] [localport: 22] at 14:12:31 CEST Thu Oct 3 2013",5433,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-studhus-sw-10.eiendom.statsbygg.pro",1380801707,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:830520",1380801707,1,"Oct  3 14:01:47 sbe-3481-studhus-sw-10.eiendom.statsbygg.pro 5096: Oct  3 14:01:47.411: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to up",6749,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-sishallen-sw-13.eiendom.statsbygg.pro",1380801185,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:822321",1380801186,1,"Oct  3 13:53:05 sbe-3481-sishallen-sw-13.eiendom.statsbygg.pro 1070: Oct  3 13:53:04.265: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up",7821,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"pk-vt-sw-01.statsbygg.pro",1380800629,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:813912",1380800630,1,"Oct  3 13:43:49 pk-vt-sw-01.statsbygg.pro 6491: Oct  3 13:43:49.939 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/19, changed state to up",8920,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-377-1032-sw-01.eiendom.statsbygg.pro",1380799877,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:802744",1380799880,1,"Oct  3 13:31:17 sbe-377-1032-sw-01.eiendom.statsbygg.pro 30: *Mar  1 01:01:26.805 CET: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 172.24.201.35 port 514 started - reconnection",10382,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"e7-csw.statsbygg.pro",1380799639,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:798817",1380799639,1,"Oct  3 13:27:19 e7-csw.statsbygg.pro 17207: Oct  3 13:27:18.164 CEST: %SEC-6-IPACCESSLOGP: list SSH-MGMNT permitted tcp 172.24.201.127(45368) -> 0.0.0.0(23), 1 packet",10885,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-ssw-01.statsbygg.pro",1380799629,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:798555",1380799629,1,"Oct  3 13:27:09 hk-ssw-01.statsbygg.pro 4720: Oct  3 13:27:08.199 CEST: %SEC-6-IPACCESSLOGP: list SSH-MGMNT permitted tcp 172.24.201.127(45383) -> 0.0.0.0(22), 1 packet",10919,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-dmz-01.statsbygg.pro",1380799627,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:798525",1380799627,1,"Oct  3 13:27:07 hk-dmz-01.statsbygg.pro 10424: Oct  3 13:27:03.343 CEST: %SEC-6-IPACCESSLOGP: list SSH-MGMNT permitted tcp 172.24.201.127(38293) -> 0.0.0.0(22), 1 packet",10924,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-wsw-01.statsbygg.pro",1380799599,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:798027",1380799600,1,"Oct  3 13:26:39 hk-wsw-01.statsbygg.pro 4952: Oct  3 13:26:38.865 CEST: %SEC-6-IPACCESSLOGP: list SSH-MGMNT permitted tcp 172.24.201.127(23860) -> 0.0.0.0(22), 1 packet",10990,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-14291-12088-sw-01.eiendom.statsbygg.pro",1380799302,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:793785",1380799303,1,"Oct  3 13:21:42 sbe-14291-12088-sw-01.eiendom.statsbygg.pro 1437: 001433: Oct  3 13:21:41.825 CEST: %SYS-5-PRIV_AUTH_PASS: Privilege level set to 1 by piadmin on vty0 (172.24.201.127)",11544,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-13860-13490-sw-01.eiendom.statsbygg.pro",1380799297,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:793609",1380799297,1,"Oct  3 13:21:37 sbe-13860-13490-sw-01.eiendom.statsbygg.pro 9752: Oct  3 13:21:36.107 CEST: %SYS-5-PRIV_AUTH_PASS: Privilege level set to 1 by lmsadmin on vty0 (172.24.201.127)",11564,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-2568-8370-sw-01.eiendom.statsbygg.pro",1380799296,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:793616",1380799297,1,"Oct  3 13:21:36 sbe-2568-8370-sw-01.eiendom.statsbygg.pro 170: Oct  3 13:21:35.960 CEST: %SYS-5-PRIV_AUTH_PASS: Privilege level set to 1 by piadmin on vty0 (172.24.201.127)",11566,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"e7-ssw-04.statsbygg.pro",1380799296,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:793588",1380799296,1,"Oct  3 13:21:36 e7-ssw-04.statsbygg.pro 64942: Oct  3 13:21:32.534 CEST: %SYS-5-PRIV_AUTH_PASS: Privilege level set to 1 by ncsadmin on vty0 (172.24.201.127)",11569,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"pk-yb-sw-01.statsbygg.pro",1380799295,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:793538",1380799296,1,"Oct  3 13:21:35 pk-yb-sw-01.statsbygg.pro 2066: Oct  3 13:21:34.866 CEST: %SYS-5-PRIV_AUTH_PASS: Privilege level set to 1 by ncsadmin on vty0 (172.24.201.127)",11577,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"e7-dmz-01.statsbygg.pro",1380799295,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:793477",1380799295,1,"Oct  3 13:21:35 e7-dmz-01.statsbygg.pro 3164: Oct  3 13:21:34.250 CEST: %SYS-5-PRIV_AUTH_PASS: Privilege level set to 1 by ncsadmin on vty0 (172.24.201.127)",11582,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"pk-vt-fhi-sw-02.statsbygg.pro",1380799293,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:793406",1380799294,1,"Oct  3 13:21:33 pk-vt-fhi-sw-02.statsbygg.pro 32659: Oct  3 13:21:32.475 CEST: %SYS-5-PRIV_AUTH_PASS: Privilege level set to 1 by arsw on vty0 (172.24.201.127)",11592,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-158-417-sw-01.eiendom.statsbygg.pro",1380799292,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:793340",1380799293,1,"Oct  3 13:21:32 sbe-158-417-sw-01.eiendom.statsbygg.pro 4107: Oct  3 13:21:31.897 CEST: %SYS-5-PRIV_AUTH_PASS: Privilege level set to 1 by piadmin on vty0 (172.24.201.127)",11601,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-ssw-02.statsbygg.pro",1380799292,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:793318",1380799293,1,"Oct  3 13:21:32 hk-ssw-02.statsbygg.pro 18457: Oct  3 13:21:31.585 CEST: %SYS-5-PRIV_AUTH_PASS: Privilege level set to 1 by ncsadmin on vty0 (172.24.201.127)",11603,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-ka-123-sw-16.eiendom.statsbygg.pro",1380799288,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:793108",1380799288,1,"Oct  3 13:21:28 sbe-3481-ka-123-sw-16.eiendom.statsbygg.pro 945: Oct  3 13:21:27.164: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: piadmin] [Source: 172.24.201.127] [localport: 22] at 13:21:27 CEST Thu Oct 3 2013",11627,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-v217-sw-12.eiendom.statsbygg.pro",1380799287,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792980",1380799287,1,"Oct  3 13:21:27 sbe-3481-v217-sw-12.eiendom.statsbygg.pro 823: Oct  3 13:21:26.893: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",11646,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-k170-sw-19.eiendom.statsbygg.pro",1380799286,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792963",1380799287,1,"Oct  3 13:21:26 sbe-3481-k170-sw-19.eiendom.statsbygg.pro 1957: Oct  3 13:21:25.765: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: piadmin] [Source: 172.24.201.127] [localport: 22] at 13:21:25 CEST Thu Oct 3 2013",11650,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-56-24-sw-01.eiendom.statsbygg.pro",1380799283,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792672",1380799283,1,"Oct  3 13:21:23 sbe-56-24-sw-01.eiendom.statsbygg.pro 258: 000255: Oct  3 13:21:22.037: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",11683,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-tjod-sw-14.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792395",1380799281,1,"Oct  3 13:21:21 sbe-3481-tjod-sw-14.eiendom.statsbygg.pro 867: Oct  3 13:21:20.218: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",11716,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-a251a-sw-21.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792380",1380799281,1,"Oct  3 13:21:21 sbe-3481-a251a-sw-21.eiendom.statsbygg.pro 735: Oct  3 13:21:20.225: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",11718,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-c209-sw-07.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792349",1380799281,1,"Oct  3 13:21:21 sbe-3481-c209-sw-07.eiendom.statsbygg.pro 790: Oct  3 13:21:20.253: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",11720,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-hl-data-a242-sw-04.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792334",1380799281,1,"Oct  3 13:21:21 sbe-3481-hl-data-a242-sw-04.eiendom.statsbygg.pro 805: Oct  3 13:21:20.305: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",11722,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-mg075-sw-01.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792316",1380799281,1,"Oct  3 13:21:21 sbe-3481-mg075-sw-01.eiendom.statsbygg.pro 2024: Oct  3 13:21:20.015: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: piadmin] [Source: 172.24.201.127] [localport: 22] at 13:21:20 CEST Thu Oct 3 2013",11724,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-hgh-p206-sw-05.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792294",1380799281,1,"Oct  3 13:21:21 sbe-3481-hgh-p206-sw-05.eiendom.statsbygg.pro 963: Oct  3 13:21:20.166: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",11725,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-e385-sw-08.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792278",1380799281,1,"Oct  3 13:21:21 sbe-3481-e385-sw-08.eiendom.statsbygg.pro 877: Oct  3 13:21:20.244: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",11727,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-ka-u012-sw-22.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792261",1380799281,1,"Oct  3 13:21:21 sbe-3481-ka-u012-sw-22.eiendom.statsbygg.pro 799: Oct  3 13:21:20.090: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: piadmin] [Source: 172.24.201.127] [localport: 22] at 13:21:20 CEST Thu Oct 3 2013",11729,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-ka-s042-sw-20.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792252",1380799281,1,"Oct  3 13:21:21 sbe-3481-ka-s042-sw-20.eiendom.statsbygg.pro 633: Oct  3 13:21:20.080: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: piadmin] [Source: 172.24.201.127] [localport: 22] at 13:21:20 CEST Thu Oct 3 2013",11730,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-ka-u045-sw-24.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792243",1380799281,1,"Oct  3 13:21:21 sbe-3481-ka-u045-sw-24.eiendom.statsbygg.pro 687: Oct  3 13:21:20.079: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: piadmin] [Source: 172.24.201.127] [localport: 22] at 13:21:20 CEST Thu Oct 3 2013",11731,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-s184-sw-06.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792236",1380799281,1,"Oct  3 13:21:21 sbe-3481-s184-sw-06.eiendom.statsbygg.pro 907: Oct  3 13:21:20.330: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",11732,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-s166-sw-03.eiendom.statsbygg.pro",1380799281,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792213",1380799281,1,"Oct  3 13:21:21 sbe-3481-s166-sw-03.eiendom.statsbygg.pro 967: Oct  3 13:21:20.325: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",11734,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"e7-wsw-01.statsbygg.pro",1380799280,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792402",1380799281,1,"Oct  3 13:21:20 e7-wsw-01.statsbygg.pro 52546: Oct  3 13:21:19.800 CEST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: ncsadmin] [Source: 172.24.201.127] [localport: 22] at 13:21:19 CEST Thu Oct 3 2013",11765,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"172.24.220.150",1380799280,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792364",1380799281,1,"Oct  3 13:21:20 172.24.220.150 5749: Oct  3 13:21:19.914 CEST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: ncsadmin] [Source: 172.24.201.127] [localport: 22] at 13:21:19 CEST Thu Oct 3 2013",11766,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-lab-03.statsbygg.pro",1380799280,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792356",1380799281,1,"Oct  3 13:21:20 hk-sw-lab-03.statsbygg.pro 1967: *Jul 21 05:55:48.301 CEST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: ncsadmin] [Source: 172.24.201.127] [localport: 22] at 05:55:48 CEST Wed Jul 21 1993",11767,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-3481-o214-sw-11.eiendom.statsbygg.pro",1380799280,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792309",1380799281,1,"Oct  3 13:21:20 sbe-3481-o214-sw-11.eiendom.statsbygg.pro 862: Oct  3 13:21:20.141: %PARSER-5-CFGLOG_LOGGEDCMD: User:piadmin  logged command:!exec: enable",11768,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"pk-vt-sw-03.statsbygg.pro",1380799280,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792220",1380799281,1,"Oct  3 13:21:20 pk-vt-sw-03.statsbygg.pro 2041: Oct  3 13:21:19.690 CEST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: ncsadmin] [Source: 172.24.201.127] [localport: 22] at 13:21:19 CEST Thu Oct 3 2013",11770,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"rg-sw-s.statsbygg.pro",1380799280,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:792065",1380799281,1,"Oct  3 13:21:20 rg-sw-s.statsbygg.pro 2842: Oct  3 13:21:19.953 CEST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: ncsadmin] [Source: 172.24.201.127] [localport: 22] at 13:21:19 CEST Thu Oct 3 2013",11784,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-provision.statsbygg.pro",1380794788,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:727957",1380794788,1,"Oct  3 12:06:28 hk-sw-provision.statsbygg.pro 1327: Oct  3 12:06:27.101 CEST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: lmsadmin] [Source: 172.24.201.123] [localport: 22] at 12:06:27 CEST Thu Oct 3 2013",20133,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-sw-lab-01.statsbygg.pro",1380794787,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:727918",1380794787,1,"Oct  3 12:06:27 hk-sw-lab-01.statsbygg.pro 2513: Oct  3 12:06:26.386 CEST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: lmsadmin] [Source: 172.24.201.123] [localport: 22] at 12:06:26 CEST Thu Oct 3 2013",20136,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"pk-yb-sw-02.statsbygg.pro",1380784993,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:570115",1380784994,1,"Oct  3 09:23:13 pk-yb-sw-02.statsbygg.pro 2413: Oct  3 09:23:13.520 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/1, changed state to up",40750,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"hk-ssw-03.statsbygg.pro",1380758706,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:239796",1380758707,1,"Oct  3 02:05:06 hk-ssw-03.statsbygg.pro 5716: Oct  3 02:05:06.858 CEST: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet3/0/5, changed state to up",83263,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"10.32.3.54",1380749675,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:132942",1380749676,1,"Oct  2 23:34:35 10.32.3.54 126: Oct  2 23:34:34.507: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: lmsadmin] [Source: 172.24.201.123] [localport: 22] at 23:34:34 CEST Wed Oct 2 2013",96852,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-579-1603-sw-01.eiendom.statsbygg.pro",1380749671,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:132859",1380749672,1,"Oct  2 23:34:31 sbe-579-1603-sw-01.eiendom.statsbygg.pro 86: Oct  2 23:34:30.352: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: lmsadmin] [Source: 172.24.201.123] [localport: 22] at 23:34:30 CEST Wed Oct 2 2013",96862,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"e7-bsw-01.statsbygg.pro",1380749423,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:129194",1380749424,1,"Oct  2 23:30:23 e7-bsw-01.statsbygg.pro 1123: Oct  2 23:30:19.782 CEST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: lmsadmin] [Source: 172.24.201.123] [localport: 22] at 23:30:19 CEST Wed Oct 2 2013",97317,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"sbe-110-xxx-sw-01.eiendom.statsbygg.pro",1380746464,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:96424",1380746465,1,"Oct  2 22:41:04 sbe-110-xxx-sw-01.eiendom.statsbygg.pro 275: .Oct  2 22:41:03.682: %DHCP-6-ADDRESS_ASSIGN: Interface Vlan1 assigned DHCP address 172.24.253.21, mask 255.255.255.0, hostname SBE-110-XXX-SW-01",101479,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"172.24.253.24",1380740383,"ios~52~FBF377A5-01DB-45EE-A99E-20FE13B026CA","52:11682",1380740384,1,"Oct  2 20:59:43 172.24.253.24 271: .Oct  2 20:59:41.675: %DHCP-6-ADDRESS_ASSIGN: Interface Vlan1 assigned DHCP address 172.24.253.24, mask 255.255.255.0, hostname SBE-0b.1bc0",112258,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
+"172.24.253.25",1380727870,"ios~51~FBF377A5-01DB-45EE-A99E-20FE13B026CA","51:114782",1380727871,1,"Oct  2 17:31:10 172.24.253.25 353: .Oct  2 17:31:08.991: %DHCP-6-ADDRESS_ASSIGN: Interface Vlan1 assigned DHCP address 172.24.253.25, mask 255.255.255.0, hostname SBE-a1.13c0",129794,"vmsplunk01
+ios","cisco:ios",,,,,,,,,"$vmsplunk01$;$ios$",
