@@ -3,7 +3,7 @@ Copyright (C) 2013 Mikael Bjerkeland, Datametrix AS. All Rights Reserved.
 App:               	Cisco IOS
 Current Version:	1.1.6
 Last Modified:		2013-10-10
-Splunk Version:		4.2.x, 4.3.x, 5.0.x
+Splunk Version:		4.2.x, 4.3.x, 5.0.x, 6.X
 Author:			Mikael Bjerkeland
 Dependencies:		Sideview Utils
 
@@ -16,6 +16,9 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 ++ What's New
 
 +++ 1.1.6 (2013-10-10)
+Features:
+* Started creating Data Models for Splunk 6.0
+
 Bug fixes:
 * Top ACL logs now counts num_packets
 

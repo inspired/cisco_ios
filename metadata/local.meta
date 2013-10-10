@@ -1,0 +1,13 @@
+[datamodels/Log_Event]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 6.0
+modtime = 1381406088.632703000
+
+[models/Log_Event]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 6.0
+modtime = 1381406088.646899000
