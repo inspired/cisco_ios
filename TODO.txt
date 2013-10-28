@@ -8,7 +8,7 @@ Works on:
 Sep 17 09:15:10 172.16.202.35 118590: RP/0/RSP0/CPU0:Sep 17 15:15:43.581 : config[65764]: %MGBL-CONFIG-6-DB_COMMIT : Configuration committed by user 'ojj'. Use 'show configuration commit changes 1000000134' to view the changes
 
 
-index=ios | dedup facility,mnemonic
+* Support for TCP inputs
 
 
 ADD VIEWS for more facilities and mnemonics!
