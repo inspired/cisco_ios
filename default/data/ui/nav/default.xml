@@ -1,5 +1,8 @@
 <nav>    
   <view name="overview" default="true" />
+    <collection label="Devices">
+      <view name="devices_dashboard" />
+    </collection>
     <collection label="Auditing">
       <view name="auditing_dashboard" />
       <view name="auditing_config_change_transactions" />

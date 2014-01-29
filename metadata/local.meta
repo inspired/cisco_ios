@@ -11,3 +11,10 @@ export = none
 owner = admin
 version = 6.0
 modtime = 1381406088.646899000
+
+[views/devices_dashboard]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 6.0
+modtime = 1391000212.816140000
