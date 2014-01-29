@@ -18,3 +18,7 @@ export = none
 owner = admin
 version = 6.0
 modtime = 1391000212.816140000
+
+[views/device]
+version = 6.0
+modtime = 1391001616.590371000
