@@ -1,36 +1,38 @@
 <nav>    
   <view name="overview" default="true" />
-    <collection label="Devices">
-      <view name="devices_dashboard" />
-    </collection>
-    <collection label="Auditing">
-      <view name="auditing_dashboard" />
-      <view name="auditing_config_change_transactions" />
-      <view name="auditing_time_drift" />
-      <view name="auditing_smart_install" />
-      <view name="auditing_best_practice_deviations" />
-    </collection>
-    <collection label="Switching">
-      <view name="switching_dashboard" />
-      <view name="switching_stacking" />
-      <view name="switching_dhcp_snooping" />
-      <view name="switching_spanning_tree" />
-      <view name="switching_duplex_mismatch" />
-      <view name="switching_native_vlan_mismatch" />
-      <view name="switching_fhrp" />
-    </collection>
-    <collection label="Routing">
-      <view name="routing_dashboard" />
-    </collection>
-    <collection label="Security">
-      <view name="security_dot1x" />
-      <view name="security_acl" />
-    </collection>
-    <collection label="Performance">
-      <view name="performance_dsl" />
-      <view name="performance_etherchannel" />
-    </collection>
-    <collection label="Wireless">
-      <view name="wireless_dashboard" />
-    </collection>
+  <collection label="Devices">
+    <view name="devices_dashboard" />
+  </collection>
+  <collection label="Auditing">
+    <view name="auditing_dashboard" />
+    <view name="auditing_config_change_transactions" />
+    <view name="auditing_time_drift" />
+    <view name="auditing_smart_install" />
+    <view name="auditing_best_practice_deviations" />
+  </collection>
+  <collection label="Switching">
+    <view name="switching_dashboard" />
+    <view name="switching_stacking" />
+    <view name="switching_dhcp_snooping" />
+    <view name="switching_spanning_tree" />
+    <view name="switching_duplex_mismatch" />
+    <view name="switching_native_vlan_mismatch" />
+    <view name="switching_fhrp" />
+  </collection>
+  <collection label="Routing">
+    <view name="routing_dashboard" />
+  </collection>
+  <collection label="Security">
+    <view name="security_dot1x" />
+    <view name="security_acl" />
+  </collection>
+  <collection label="Performance">
+    <view name="performance_dsl" />
+    <view name="performance_etherchannel" />
+  </collection>
+  <collection label="Wireless">
+    <view name="wireless_dashboard" />
+  </collection>
+  <view name="search" />
+  <view name="data_models" />
 </nav>

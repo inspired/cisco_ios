@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form script="autodiscover.js">
+  <label>Device</label>
+  <fieldset autoRun="true">
+    <input type="time" searchWhenChanged="true">
+      <default>
+        <earliestTime>-24h@h</earliestTime>
+        <latestTime>now</latestTime>
+      </default>
+    </input>
+  </fieldset>
+  <row>
+    <html>
+      <p>Device info comes here</p>
+    </html>
+  </row>
+  <row>
+    <single>
+      <title>Device</title>
+      <searchString>| inputlookup CiscoSNMPInfo | search host=$form.host$ | fields host</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="linkView">search</option>
+    </single>
+     <html>
+<h2>Popular message types last 24 hours</h2>
+<div id="tagcloud-search"
+class="splunk-manager splunk-searchmanager "
+data-require="splunkjs/mvc/searchmanager"
+data-options='{
+"app": "cisco_ios",
+"preview": true,
+"search": "sourcetype=cisco:ios host=$form.host$ | eval fsm=facility + \"-\" + severity_id + \"-\" + mnemonic | chart count by fsm",
+"earliest_time": "-24h"
+}'>
+</div>
+<div id="tagcloud"
+class="splunk-view"
+data-require="app/cisco_ios/components/tagcloud/tagcloud"
+data-options='{
+"minFontSize": 14,
+"maxFontSize": 55,
+"managerid": "tagcloud-search",
+"valueField": "count",
+"labelField": "fsm"
+}'>
+</div>
+</html>
+  </row>
+  <row>
+    <table>
+      <title>Interfaces</title>
+      <searchString>host=$form.host$ sourcetype=Cisco:SNMP:Interfaces UID=*  ifHCInOctets=* | streamstats current=f global=f window=1
+     first(ifHCInOctets) as next_ifHCInOctets, first(_time) as next_time by host,UID | eval dt=next_time-_time
+ | eval difHCInOctets=next_ifHCInOctets-ifHCInOctets
+ | eval rifHCInOctets=difHCInOctets/dt | eval in_bytes=rifHCInOctets*8 | lookup CiscoSNMPInterfaces host,UID | stats sparkline(avg(in_bytes),10m) AS utilization_in by host,ifDescr,ifAlias,ifOperStatus,ifAdminStatus,ifIndex | sort host,ifIndex | table host,ifDescr,ifAlias,ifOperStatus,ifAdminStatus,utilization_in</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">cell</option>
+      <option name="count">48</option>
+    </table>
+  </row>
+</form>
