@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
-<form>
+<?xml version="1.0" encoding="utf-8"?><form>
   <label>DOT1X</label>
   <fieldset autoRun="true">
     <input type="time">
@@ -8,42 +7,72 @@
   </fieldset>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(int_prefix_long,int_suffix)` | table _time,host,mnemonic,audit_session_id,authenticator,int_normalized,src_mac,src_vlan,result</searchString>
       <title>DOT1X events (will be made into transactions)</title>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_int")` | table _time,host,mnemonic,audit_session_id,authenticator,src_int,src_mac,src_vlan,result</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
       <option name="count">20</option>
       <option name="displayRowNumbers">true</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">true</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">row</option>
     </table>
   </row>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(int_prefix_long,int_suffix)` | transaction audit_session_id | table _time,host,mnemonic,audit_session_id,authenticator,int_normalized,src_mac,src_vlan,result</searchString>
       <title>Audit Session ID transactions</title>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_int")` | transaction audit_session_id | table _time,host,mnemonic,audit_session_id,authenticator,src_int,src_mac,src_vlan,result</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
       <option name="count">20</option>
       <option name="displayRowNumbers">true</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">true</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">row</option>
     </table>
   </row>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(int_prefix_long,int_suffix)` | transaction src_mac | table _time,host,mnemonic,audit_session_id,authenticator,int_normalized,src_mac,src_vlan,result</searchString>
       <title>MAC address transactions</title>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_int")` | transaction src_mac | table _time,host,mnemonic,audit_session_id,authenticator,src_int,src_mac,src_vlan,result</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
       <option name="count">20</option>
       <option name="displayRowNumbers">true</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">true</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">row</option>
     </table>
   </row>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(int_prefix_long,int_suffix)`| transaction audit_session_id src_mac | table _time,host,mnemonic,audit_session_id,authenticator,int_normalized,src_mac,src_vlan,result</searchString>
       <title>Audit session ID/MAC transactions</title>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_int")`| transaction audit_session_id src_mac | table _time,host,mnemonic,audit_session_id,authenticator,src_int,src_mac,src_vlan,result</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
       <option name="count">20</option>
       <option name="displayRowNumbers">true</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">true</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">row</option>
     </table>
   </row>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(int_prefix_long,int_suffix)` | transaction src_mac src_int | table _time,host,mnemonic,audit_session_id,authenticator,int_normalized,src_mac,src_vlan,result</searchString>
-      <title>MAC/IP transactions </title>
+      <title>MAC/IP transactions</title>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_int")` | transaction src_mac src_int | table _time,host,mnemonic,audit_session_id,authenticator,src_int,src_mac,src_vlan,result</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
       <option name="count">20</option>
       <option name="displayRowNumbers">true</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">true</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">row</option>
     </table>
   </row>
 </form>
