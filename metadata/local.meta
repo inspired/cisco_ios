@@ -3,22 +3,35 @@ access = read : [ * ], write : [ admin ]
 export = none
 owner = admin
 version = 6.0
-modtime = 1381406088.632703000
+modtime = 1392717153.071580000
 
 [models/Log_Event]
 access = read : [ * ], write : [ admin ]
 export = none
 owner = admin
 version = 6.0
-modtime = 1381406088.646899000
+modtime = 1392717153.075187000
 
 [views/devices_dashboard]
 access = read : [ * ], write : [ admin ]
 export = none
 owner = admin
 version = 6.0
-modtime = 1391000212.816140000
+modtime = 1391712430.003293000
 
 [views/device]
 version = 6.0
 modtime = 1391004274.526283000
+
+[views/security_acl]
+version = 6.0
+modtime = 1392717382.920646000
+
+[views/overview_html]
+owner = admin
+version = 6.0
+modtime = 1392107445.330478000
+
+[views/security_dot1x]
+version = 6.0
+modtime = 1392129760.334884000

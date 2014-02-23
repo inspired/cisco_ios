@@ -1,11 +1,56 @@
-<?xml version='1.0' encoding='utf-8'?>
-<form>
+<?xml version="1.0" encoding="utf-8"?><form>
   <label>ACL</label>
   <fieldset autoRun="true">
     <input type="time">
       <default>Last 60 minutes</default>
     </input>
   </fieldset>
+  <row>
+    <chart>
+      <title>Protocols by action</title>
+      <searchString>sourcetype=cisco:ios eventtype=cisco_ios-acl_log | strcat protocol "://" dest_port protoDstPort | chart count(protoDstPort) over action BY protoDstPort</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">bar</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.axisTitleY.text">Note: Does not take num_packets into account</option>
+    </chart>
+    <chart>
+      <title>Top ACE Correlation Tags</title>
+      <searchString>| pivot Log_Event Access_List_Event count(acl_correlation_tag) AS "Count of acl_correlation_tag" SPLITROW acl_correlation_tag AS "acl_correlation_tag" SORT 100 acl_correlation_tag</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">row</option>
+      <option name="count">10</option>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+  </row>
   <row>
     <table>
       <searchString>sourcetype=cisco:ios eventtype="cisco_ios-acl_log" NOT [inputlookup cisco_ios_acl_excluded_ips | fields acl_src_ip] | table _time,host,acl_list,acl_action,acl_proto,acl_src_ip,acl_src_port,acl_dst_ip,acl_dst_port</searchString>
