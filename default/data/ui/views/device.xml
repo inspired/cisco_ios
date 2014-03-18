@@ -45,7 +45,7 @@
       <searchString>host=$form.host$ sourcetype=Cisco:SNMP:Interfaces UID=*  ifHCInOctets=* | streamstats current=f global=f window=1
      first(ifHCInOctets) as next_ifHCInOctets, first(_time) as next_time by host,UID | eval dt=next_time-_time
  | eval difHCInOctets=next_ifHCInOctets-ifHCInOctets
- | eval rifHCInOctets=difHCInOctets/dt | eval in_bytes=rifHCInOctets*8 | lookup CiscoSNMPInterfaces host,UID | stats sparkline(avg(in_bytes),10m) AS utilization_in by host,ifDescr,ifAlias,ifOperStatus,ifAdminStatus,ifIndex | sort host,ifIndex | table host,ifDescr,ifAlias,ifOperStatus,ifAdminStatus,utilization_in</searchString>
+ | eval rifHCInOctets=difHCInOctets/dt | eval in_bytes=rifHCInOctets*8 | lookup CiscoSNMPInterfaces host,UID | stats sparkline(avg(in_bytes),10m) AS utilization_in by ifDescr,ifAlias,ifOperStatus,ifAdminStatus,ifIndex | sort ifIndex | table ifDescr,ifAlias,ifOperStatus,ifAdminStatus,utilization_in</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="wrap">true</option>

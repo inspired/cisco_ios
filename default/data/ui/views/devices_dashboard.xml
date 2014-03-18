@@ -5,7 +5,7 @@
   <row>
     <table>
       <title>Devices reporting last period</title>
-      <searchString>| inputlookup CiscoSNMPInfo | join host [| inputlookup CiscoIOSHosts] | convert timeformat="%Y-%m-%d %H:%M:%S" ctime(updated_at)</searchString>
+      <searchString>| inputlookup CiscoSNMPInfo | eval host=lower(host) | join host [| inputlookup CiscoIOSHosts] | convert timeformat="%Y-%m-%d %H:%M:%S" ctime(updated_at)</searchString>
       <earliestTime>0</earliestTime>
       <latestTime>now</latestTime>
       <option name="wrap">true</option>
