@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <form>
   <label>Dashboard</label>
   <fieldset autoRun="true">
@@ -7,19 +7,56 @@
     </input>
   </fieldset>
   <row>
+    <chart>
+      <title>Configuration started by host</title>
+      <searchString>| pivot Log_Event Configuration_Started count(Configuration_Started) AS "Count of Configuration Started" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time NUMCOLS 100</searchString>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisTitleY.text">Count of Configuration Started</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.chart">area</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+    </chart>
+    <chart>
+      <title>Device Logins by user</title>
+      <searchString>| pivot Log_Event Successful_Device_Authentication count(Successful_Device_Authentication) AS "Count of Successful Device Login" SPLITROW user AS "user" SORT 100 user</searchString>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.legend.placement">none</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.chart">bar</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+    </chart>
+  </row>
+  <row>
     <table>
       <searchString>sourcetype=cisco:ios eventtype="cisco_ios-config_started" | table _time,host,config_source,user,line,src_ip</searchString>
       <title>Configuration started</title>
     </table>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-reload" | table _time,host,user,line,reason,src_ip</searchString>
-      <title>Device reloads</title>
-    </table>
-  </row>
-  <row>
-    <table>
-      <searchName>system restart</searchName>
-      <title>Device restarts/boots</title>
+      <title>Device restarts</title>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-restart" OR eventtype="cisco_ios-reload" | eval host=if(isnotnull(switch_id),host + "/" + switch_id,host) | table _time,host,user,src_ip,reason</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">cell</option>
     </table>
   </row>
   <row>

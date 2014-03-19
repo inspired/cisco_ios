@@ -1,612 +1,1084 @@
 {
-    "objectNameList": [
-        "Log_Event", 
-        "Access_List_Event", 
-        "User", 
-        "DOT1X_Authentication"
-    ], 
+    "modelName": "Log_Event", 
     "objects": [
         {
-            "objectName": "Log_Event", 
             "comment": "", 
-            "parentName": "BaseEvent", 
+            "calculations": [], 
             "displayName": "Event", 
+            "parentName": "BaseEvent", 
             "fields": [
                 {
-                    "fieldName": "facility", 
                     "comment": "", 
                     "displayName": "facility", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "facility", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "mnemonic", 
                     "comment": "", 
                     "displayName": "mnemonic", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "mnemonic", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "severity_id", 
                     "comment": "", 
                     "displayName": "severity_id", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "severity_id", 
                     "multivalue": false, 
                     "type": "number"
                 }, 
                 {
-                    "fieldName": "acl_action", 
                     "comment": "", 
                     "displayName": "acl_action", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "acl_action", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "acl_dst_ip", 
                     "comment": "", 
                     "displayName": "acl_dst_ip", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "acl_dst_ip", 
                     "multivalue": false, 
                     "type": "ipv4"
                 }, 
                 {
-                    "fieldName": "acl_dst_port", 
                     "comment": "", 
                     "displayName": "acl_dst_port", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "acl_dst_port", 
                     "multivalue": false, 
                     "type": "number"
                 }, 
                 {
-                    "fieldName": "acl_list", 
                     "comment": "", 
                     "displayName": "acl_list", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "acl_list", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "acl_proto", 
                     "comment": "", 
                     "displayName": "acl_proto", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "acl_proto", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "acl_src_ip", 
                     "comment": "", 
                     "displayName": "acl_src_ip", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "acl_src_ip", 
                     "multivalue": false, 
                     "type": "ipv4"
                 }, 
                 {
-                    "fieldName": "acl_src_port", 
                     "comment": "", 
                     "displayName": "acl_src_port", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "acl_src_port", 
                     "multivalue": false, 
                     "type": "number"
                 }, 
                 {
-                    "fieldName": "action", 
                     "comment": "", 
                     "displayName": "action", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "action", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "num_packets", 
                     "comment": "", 
                     "displayName": "num_packets", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "num_packets", 
                     "multivalue": false, 
                     "type": "number"
                 }, 
                 {
-                    "fieldName": "protocol", 
                     "comment": "", 
                     "displayName": "protocol", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "protocol", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "rule", 
                     "comment": "", 
                     "displayName": "rule", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "rule", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "authenticator", 
                     "comment": "", 
                     "displayName": "authenticator", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "authenticator", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "dest", 
                     "comment": "", 
                     "displayName": "dest", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "dest", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "dest_ip", 
                     "comment": "", 
                     "displayName": "dest_ip", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "dest_ip", 
                     "multivalue": false, 
                     "type": "ipv4"
                 }, 
                 {
-                    "fieldName": "dest_port", 
                     "comment": "", 
                     "displayName": "dest_port", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "dest_port", 
                     "multivalue": false, 
                     "type": "number"
                 }, 
                 {
-                    "fieldName": "src", 
                     "comment": "", 
                     "displayName": "src", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "src", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "src_int", 
                     "comment": "", 
                     "displayName": "src_int", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "src_int", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "src_ip", 
                     "comment": "", 
                     "displayName": "src_ip", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "src_ip", 
                     "multivalue": false, 
                     "type": "ipv4"
                 }, 
                 {
-                    "fieldName": "src_mac", 
                     "comment": "", 
                     "displayName": "src_mac", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "src_mac", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "src_port", 
                     "comment": "", 
                     "displayName": "src_port", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "src_port", 
                     "multivalue": false, 
                     "type": "number"
                 }, 
                 {
-                    "fieldName": "transport", 
                     "comment": "", 
                     "displayName": "transport", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "transport", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "cdp_local_duplex", 
                     "comment": "", 
                     "displayName": "cdp_local_duplex", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "cdp_local_duplex", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "cdp_local_interface", 
                     "comment": "", 
                     "displayName": "cdp_local_interface", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "cdp_local_interface", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "cdp_neighbor", 
                     "comment": "", 
                     "displayName": "cdp_neighbor", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "cdp_neighbor", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "cdp_remote_duplex", 
                     "comment": "", 
                     "displayName": "cdp_remote_duplex", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "cdp_remote_duplex", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "cdp_remote_interface", 
                     "comment": "", 
                     "displayName": "cdp_remote_interface", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "cdp_remote_interface", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "interface", 
                     "comment": "", 
                     "displayName": "interface", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "interface", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "port_status", 
                     "comment": "", 
                     "displayName": "port_status", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "port_status", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "result", 
                     "comment": "", 
                     "displayName": "result", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "result", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "audit_session_id", 
                     "comment": "", 
                     "displayName": "audit_session_id", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "audit_session_id", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "bytes", 
                     "comment": "", 
                     "displayName": "bytes", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "bytes", 
                     "multivalue": false, 
                     "type": "number"
                 }, 
                 {
-                    "fieldName": "fail_from", 
                     "comment": "", 
                     "displayName": "fail_from", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "fail_from", 
                     "multivalue": false, 
                     "type": "number"
                 }, 
                 {
-                    "fieldName": "command", 
                     "comment": "", 
                     "displayName": "command", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "command", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "user", 
                     "comment": "", 
                     "displayName": "user", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "user", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "acl_correlation_tag", 
                     "comment": "", 
                     "displayName": "acl_correlation_tag", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "acl_correlation_tag", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "app", 
                     "comment": "", 
                     "displayName": "app", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "app", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "dvc", 
                     "comment": "", 
                     "displayName": "dvc", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "dvc", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "event_id", 
                     "comment": "", 
                     "displayName": "event_id", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "event_id", 
                     "multivalue": false, 
                     "type": "number"
                 }, 
                 {
-                    "fieldName": "severity", 
                     "comment": "", 
                     "displayName": "severity", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "severity", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "severity_description", 
                     "comment": "", 
                     "displayName": "severity_description", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "severity_description", 
                     "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "severity_name", 
                     "comment": "", 
                     "displayName": "severity_name", 
-                    "hidden": false, 
                     "required": false, 
+                    "hidden": false, 
+                    "fieldName": "severity_name", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "alignment", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "alignment", 
+                    "multivalue": false, 
+                    "type": "number"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "as_number", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "as_number", 
+                    "multivalue": false, 
+                    "type": "number"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "bw_down", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "bw_down", 
+                    "multivalue": false, 
+                    "type": "number"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "bw_up", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "bw_up", 
+                    "multivalue": false, 
+                    "type": "number"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "device_time", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "device_time", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "neighbor", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "neighbor", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "process_id", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "process_id", 
+                    "multivalue": false, 
+                    "type": "number"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "reason", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "reason", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "reliable_time", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "reliable_time", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "reported_hostname", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "reported_hostname", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "state_to", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "state_to", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "vcd", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "vcd", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "comment": "", 
+                    "displayName": "vendor", 
+                    "required": false, 
+                    "hidden": false, 
+                    "fieldName": "vendor", 
                     "multivalue": false, 
                     "type": "string"
                 }
             ], 
-            "calculations": [], 
             "constraints": [
                 {
                     "search": "sourcetype=cisco:ios"
                 }
-            ]
+            ], 
+            "objectName": "Log_Event"
         }, 
         {
-            "objectName": "Access_List_Event", 
             "comment": "", 
-            "parentName": "Log_Event", 
+            "calculations": [], 
             "displayName": "Access List Event", 
+            "parentName": "Log_Event", 
             "fields": [
                 {
+                    "owner": "Log_Event", 
+                    "comment": "", 
                     "fieldName": "num_packets", 
-                    "comment": "", 
+                    "required": true, 
+                    "hidden": false, 
                     "displayName": "num_packets", 
-                    "hidden": false, 
-                    "required": true, 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
                     "type": "number"
                 }, 
                 {
+                    "owner": "Log_Event", 
+                    "comment": "", 
                     "fieldName": "rule", 
-                    "comment": "", 
+                    "required": true, 
+                    "hidden": false, 
                     "displayName": "rule", 
-                    "hidden": false, 
-                    "required": true, 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
                     "type": "string"
                 }, 
                 {
+                    "owner": "Log_Event", 
+                    "comment": "", 
                     "fieldName": "protocol", 
-                    "comment": "", 
+                    "required": true, 
+                    "hidden": false, 
                     "displayName": "protocol", 
-                    "hidden": false, 
-                    "required": true, 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
                     "type": "string"
                 }, 
                 {
+                    "owner": "Log_Event", 
+                    "comment": "", 
                     "fieldName": "action", 
-                    "comment": "", 
+                    "required": true, 
+                    "hidden": false, 
                     "displayName": "action", 
-                    "hidden": false, 
-                    "required": true, 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
                     "type": "string"
                 }, 
                 {
+                    "owner": "Log_Event", 
+                    "comment": "", 
                     "fieldName": "acl_src_port", 
-                    "comment": "", 
+                    "required": true, 
+                    "hidden": false, 
                     "displayName": "acl_src_port", 
-                    "hidden": false, 
-                    "required": true, 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
                     "type": "number"
                 }, 
                 {
+                    "owner": "Log_Event", 
+                    "comment": "", 
                     "fieldName": "acl_src_ip", 
-                    "comment": "", 
+                    "required": true, 
+                    "hidden": false, 
                     "displayName": "acl_src_ip", 
-                    "hidden": false, 
-                    "required": true, 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
                     "type": "string"
                 }, 
                 {
+                    "owner": "Log_Event", 
+                    "comment": "", 
                     "fieldName": "acl_proto", 
-                    "comment": "", 
+                    "required": true, 
+                    "hidden": false, 
                     "displayName": "acl_proto", 
-                    "hidden": false, 
-                    "required": true, 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
                     "type": "string"
                 }, 
                 {
+                    "owner": "Log_Event", 
+                    "comment": "", 
                     "fieldName": "acl_list", 
-                    "comment": "", 
-                    "displayName": "acl_list", 
-                    "hidden": false, 
                     "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_list", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "acl_dst_port", 
-                    "comment": "", 
-                    "displayName": "acl_dst_port", 
-                    "hidden": false, 
-                    "required": true, 
-                    "multivalue": false, 
                     "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_dst_port", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_dst_port", 
+                    "multivalue": false, 
                     "type": "number"
                 }, 
                 {
-                    "fieldName": "acl_dst_ip", 
-                    "comment": "", 
-                    "displayName": "acl_dst_ip", 
-                    "hidden": false, 
-                    "required": true, 
-                    "multivalue": false, 
                     "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_dst_ip", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_dst_ip", 
+                    "multivalue": false, 
                     "type": "string"
                 }, 
                 {
-                    "fieldName": "acl_action", 
-                    "comment": "", 
-                    "displayName": "acl_action", 
-                    "hidden": false, 
-                    "required": true, 
-                    "multivalue": false, 
                     "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_action", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_action", 
+                    "multivalue": false, 
                     "type": "string"
                 }
             ], 
-            "calculations": [], 
             "constraints": [
                 {
                     "search": "eventtype=cisco_ios-acl_log"
                 }
-            ]
+            ], 
+            "objectName": "Access_List_Event"
         }, 
         {
-            "objectName": "User", 
             "comment": "", 
-            "parentName": "Log_Event", 
+            "calculations": [], 
             "displayName": "User", 
+            "parentName": "Log_Event", 
             "fields": [
                 {
-                    "fieldName": "user", 
-                    "comment": "", 
-                    "displayName": "user", 
-                    "hidden": false, 
-                    "required": true, 
-                    "multivalue": false, 
                     "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "user", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "user", 
+                    "multivalue": false, 
                     "type": "string"
                 }
             ], 
-            "calculations": [], 
             "constraints": [
                 {
                     "search": "user=*"
                 }
-            ]
+            ], 
+            "objectName": "User"
         }, 
         {
-            "objectName": "DOT1X_Authentication", 
             "comment": "", 
+            "calculations": [], 
+            "displayName": "Authentication", 
             "parentName": "Log_Event", 
-            "displayName": "DOT1X Authentication", 
-            "fields": [
+            "fields": [], 
+            "constraints": [
                 {
-                    "fieldName": "src_port", 
-                    "comment": "", 
-                    "displayName": "src_port", 
-                    "hidden": false, 
-                    "required": true, 
-                    "multivalue": false, 
-                    "owner": "Log_Event", 
-                    "type": "number"
-                }, 
-                {
-                    "fieldName": "src_int", 
-                    "comment": "", 
-                    "displayName": "src_int", 
-                    "hidden": false, 
-                    "required": true, 
-                    "multivalue": false, 
-                    "owner": "Log_Event", 
-                    "type": "string"
+                    "search": "user=*"
                 }
             ], 
+            "objectName": "Authentication"
+        }, 
+        {
+            "comment": "", 
             "calculations": [], 
+            "displayName": "Device Login", 
+            "parentName": "Authentication", 
+            "fields": [], 
+            "constraints": [
+                {
+                    "search": "eventtype=cisco_ios-login_success OR eventtype=cisco_ios-config_started OR eventtype=cisco_ios-login_failed"
+                }
+            ], 
+            "objectName": "Device_Authentication"
+        }, 
+        {
+            "comment": "", 
+            "calculations": [], 
+            "displayName": "DOT1X Authentication", 
+            "parentName": "Authentication", 
+            "fields": [], 
             "constraints": [
                 {
                     "search": "eventtype=cisco_ios-dot1x"
                 }
-            ]
+            ], 
+            "objectName": "DOT1X_Authentication"
+        }, 
+        {
+            "comment": "", 
+            "calculations": [], 
+            "displayName": "Successful Device Login", 
+            "parentName": "Device_Authentication", 
+            "fields": [], 
+            "constraints": [
+                {
+                    "search": "eventtype=cisco_ios-login_success OR eventtype=cisco_ios-config_started"
+                }
+            ], 
+            "objectName": "Successful_Device_Authentication"
+        }, 
+        {
+            "comment": "", 
+            "calculations": [], 
+            "displayName": "Failed Device Login", 
+            "parentName": "Device_Authentication", 
+            "fields": [], 
+            "constraints": [
+                {
+                    "search": "eventtype=cisco_ios-login_failed"
+                }
+            ], 
+            "objectName": "Failed_Device_Authentication"
+        }, 
+        {
+            "comment": "", 
+            "calculations": [], 
+            "displayName": "Configuration", 
+            "parentName": "Log_Event", 
+            "fields": [], 
+            "constraints": [
+                {
+                    "search": "eventtype=cisco_ios-cfglog_loggedcmd OR eventtype=\"cisco_ios-config_started\""
+                }
+            ], 
+            "objectName": "Configuration"
+        }, 
+        {
+            "comment": "", 
+            "calculations": [], 
+            "displayName": "Configuration Change", 
+            "parentName": "Configuration", 
+            "fields": [], 
+            "constraints": [
+                {
+                    "search": "eventtype=cisco_ios-cfglog_loggedcmd"
+                }
+            ], 
+            "objectName": "Configuration_Change"
+        }, 
+        {
+            "comment": "", 
+            "calculations": [], 
+            "displayName": "Configuration Started", 
+            "parentName": "Configuration", 
+            "fields": [], 
+            "constraints": [
+                {
+                    "search": "eventtype=\"cisco_ios-config_started\""
+                }
+            ], 
+            "objectName": "Configuration_Started"
+        }, 
+        {
+            "comment": "", 
+            "calculations": [], 
+            "displayName": "Routing change", 
+            "parentName": "Log_Event", 
+            "fields": [], 
+            "constraints": [
+                {
+                    "search": "mnemonic=NBRCHANGE OR mnemonic=ADJCHG OR mnemonic=ADJCHANGE OR mnemonic=NBRCHG"
+                }
+            ], 
+            "objectName": "Routing_change"
+        }, 
+        {
+            "comment": "", 
+            "calculations": [], 
+            "displayName": "Spanning Tree Topology Change", 
+            "parentName": "Log_Event", 
+            "fields": [], 
+            "constraints": [
+                {
+                    "search": "facility=SPANTREE mnemonic=TOPOTRAP OR mnemonic=ROOTCHANGE"
+                }
+            ], 
+            "objectName": "Spanning_Tree_Topology_Change"
+        }, 
+        {
+            "comment": "", 
+            "calculations": [], 
+            "displayName": "Allowed Access List Event", 
+            "parentName": "Access_List_Event", 
+            "fields": [
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "num_packets", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "num_packets", 
+                    "multivalue": false, 
+                    "type": "number"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "rule", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "rule", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "protocol", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "protocol", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "action", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "action", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_src_port", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_src_port", 
+                    "multivalue": false, 
+                    "type": "number"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_src_ip", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_src_ip", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_proto", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_proto", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_list", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_list", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_dst_port", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_dst_port", 
+                    "multivalue": false, 
+                    "type": "number"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_dst_ip", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_dst_ip", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_action", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_action", 
+                    "multivalue": false, 
+                    "type": "string"
+                }
+            ], 
+            "constraints": [
+                {
+                    "search": "action=allowed"
+                }
+            ], 
+            "objectName": "Allowed_Access_List_Event"
+        }, 
+        {
+            "comment": "", 
+            "calculations": [], 
+            "displayName": "Blocked Access List Event", 
+            "parentName": "Access_List_Event", 
+            "fields": [
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "num_packets", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "num_packets", 
+                    "multivalue": false, 
+                    "type": "number"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "rule", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "rule", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "protocol", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "protocol", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "action", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "action", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_src_port", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_src_port", 
+                    "multivalue": false, 
+                    "type": "number"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_src_ip", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_src_ip", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_proto", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_proto", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_list", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_list", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_dst_port", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_dst_port", 
+                    "multivalue": false, 
+                    "type": "number"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_dst_ip", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_dst_ip", 
+                    "multivalue": false, 
+                    "type": "string"
+                }, 
+                {
+                    "owner": "Log_Event", 
+                    "comment": "", 
+                    "fieldName": "acl_action", 
+                    "required": true, 
+                    "hidden": false, 
+                    "displayName": "acl_action", 
+                    "multivalue": false, 
+                    "type": "string"
+                }
+            ], 
+            "constraints": [
+                {
+                    "search": "action=blocked"
+                }
+            ], 
+            "objectName": "Blocked_Access_List_Event"
         }
     ], 
-    "displayName": "Log Event", 
     "objectSummary": {
-        "Interface Implementations": 0, 
         "Interfaces": 0, 
-        "Event-Based": 4, 
+        "Interface Implementations": 0, 
+        "Transaction-Based": 0, 
         "Search-Based": 0, 
-        "Transaction-Based": 0
+        "Event-Based": 15
     }, 
     "description": "Log event", 
-    "modelName": "Log_Event"
+    "displayName": "Log Event", 
+    "objectNameList": [
+        "Log_Event", 
+        "Access_List_Event", 
+        "User", 
+        "Authentication", 
+        "Device_Authentication", 
+        "DOT1X_Authentication", 
+        "Successful_Device_Authentication", 
+        "Failed_Device_Authentication", 
+        "Configuration", 
+        "Configuration_Change", 
+        "Configuration_Started", 
+        "Routing_change", 
+        "Spanning_Tree_Topology_Change", 
+        "Allowed_Access_List_Event", 
+        "Blocked_Access_List_Event"
+    ]
 }
