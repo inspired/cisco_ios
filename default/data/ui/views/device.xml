@@ -9,10 +9,17 @@
       </default>
     </input>
   </fieldset>
-  <row>
+  <row grouping="2,2">
     <html>
       <p>Device info comes here</p>
     </html>
+        <single>
+      <title>Device</title>
+      <searchString>| inputlookup CiscoSNMPInfo | search host=$form.host$ | fields host</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="linkView">search</option>
+    </single>
     <table>
       <title>Severities</title>
       <searchString>| pivot Log_Event Log_Event count(Log_Event) AS "Count of Event" SPLITROW severity_name AS "severity_name" SORT 100 severity_name FILTER host is $form.host$</searchString>
@@ -24,21 +31,14 @@
       <option name="drilldown">row</option>
       <option name="count">10</option>
     </table>
-  </row>
-  <row>
-    <single>
-      <title>Device</title>
-      <searchString>| inputlookup CiscoSNMPInfo | search host=$form.host$ | fields host</searchString>
-      <earliestTime>$earliest$</earliestTime>
-      <latestTime>$latest$</latestTime>
-      <option name="linkView">search</option>
-    </single>
+ 
+
     <html>
       <h2>Popular message types last 24 hours</h2>
       <div id="tagcloud-search" class="splunk-manager splunk-searchmanager " data-require="splunkjs/mvc/searchmanager" data-options="{ &quot;app&quot;: &quot;cisco_ios&quot;, &quot;preview&quot;: true, &quot;search&quot;: &quot;sourcetype=cisco:ios host=$form.host$ | eval fsm=facility + \&quot;-\&quot; + severity_id + \&quot;-\&quot; + mnemonic | chart count by fsm&quot;, &quot;earliest_time&quot;: &quot;-24h&quot; }"/>
       <div id="tagcloud" class="splunk-view" data-require="app/cisco_ios/components/tagcloud/tagcloud" data-options="{ &quot;minFontSize&quot;: 14, &quot;maxFontSize&quot;: 55, &quot;managerid&quot;: &quot;tagcloud-search&quot;, &quot;valueField&quot;: &quot;count&quot;, &quot;labelField&quot;: &quot;fsm&quot; }"/>
     </html>
-  </row>
+     </row>
   <row>
     <table>
       <title>Interfaces</title>
