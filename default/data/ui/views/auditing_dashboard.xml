@@ -9,7 +9,7 @@
   <row>
     <chart>
       <title>Configuration started by host</title>
-      <searchString>| pivot Log_Event Configuration_Started count(Configuration_Started) AS "Count of Configuration Started" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time NUMCOLS 100</searchString>
+      <searchString>| pivot Cisco_IOS_Event Configuration_Started count(Configuration_Started) AS "Count of Configuration Started" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time NUMCOLS 100</searchString>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
       <option name="charting.axisTitleY.text">Count of Configuration Started</option>
@@ -27,7 +27,7 @@
     </chart>
     <chart>
       <title>Device Logins by user</title>
-      <searchString>| pivot Log_Event Successful_Device_Authentication count(Successful_Device_Authentication) AS "Count of Successful Device Login" SPLITROW user AS "user" SORT 100 user</searchString>
+      <searchString>| pivot Cisco_IOS_Event Successful_Device_Authentication count(Successful_Device_Authentication) AS "Count of Successful Device Login" SPLITROW user AS "user" SORT 100 user</searchString>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
       <option name="charting.legend.placement">none</option>

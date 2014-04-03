@@ -11,7 +11,7 @@
   <row grouping="6,2">
     <single>
       <title>Events</title>
-      <searchString>| pivot Log_Event Log_Event count(Log_Event) AS "Count of Event"</searchString>
+      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event"</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">Events</option>
@@ -32,7 +32,7 @@
     </single>
     <single>
       <title>Unique devices</title>
-      <searchString>| pivot Log_Event Log_Event dc(host) AS "Count of Devices"</searchString>
+      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event dc(host) AS "Count of Devices"</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">Unique devices</option>
@@ -44,7 +44,7 @@
     </single>
     <single>
       <title>Device logins</title>
-      <searchString>| pivot Log_Event Device_Authentication count(Device_Authentication) AS "Count of Device Login"</searchString>
+      <searchString>| pivot Cisco_IOS_Event Device_Authentication count(Device_Authentication) AS "Count of Device Login"</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">Device logins</option>
@@ -56,7 +56,7 @@
     </single>
     <single>
       <title>Config changes</title>
-      <searchString>| pivot Log_Event Configuration count(Configuration) AS "Count of Configuration"</searchString>
+      <searchString>| pivot Cisco_IOS_Event Configuration count(Configuration) AS "Count of Configuration"</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">Config changes</option>
@@ -68,7 +68,7 @@
     </single>
     <single>
       <title>802.1x events</title>
-      <searchString>| pivot Log_Event DOT1X_Authentication count(DOT1X_Authentication) AS "Count of DOT1X Authentication"</searchString>
+      <searchString>| pivot Cisco_IOS_Event DOT1X_Authentication count(DOT1X_Authentication) AS "Count of DOT1X Authentication"</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">802.1x events</option>
@@ -80,7 +80,7 @@
     </single>
     <chart>
       <title>Top reporting hosts by time</title>
-      <searchString>| pivot Log_Event Log_Event count(Log_Event) AS "Count of Event" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time SHOWOTHER false NUMCOLS 10</searchString>
+      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time SHOWOTHER false NUMCOLS 10</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="charting.axisY.scale">linear</option>
@@ -100,7 +100,7 @@
     </chart>
     <chart>
       <title>Syslog severity distribution</title>
-      <searchString>| pivot Log_Event Log_Event count(severity_id) AS "Count of severity_id" SPLITROW severity_name AS "severity_name" TOP 100 count(severity_id)</searchString>
+      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(severity_id) AS "Count of severity_id" SPLITROW severity_name AS "severity_name" TOP 100 count(severity_id)</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="charting.axisY.scale">linear</option>
@@ -119,7 +119,7 @@
     </chart>
     <chart>
       <title>Top mnemonics by time</title>
-      <searchString>| pivot Log_Event Log_Event count(Log_Event) AS "Count of Event" SPLITROW _time AS "_time" PERIOD auto SPLITCOL mnemonic SORT 0 _time NUMCOLS 10</searchString>
+      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW _time AS "_time" PERIOD auto SPLITCOL mnemonic SORT 0 _time NUMCOLS 10</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="charting.axisY.scale">linear</option>
@@ -182,7 +182,7 @@
     </table>
     <chart>
       <title>Top mnemonics</title>
-      <searchString>| pivot Log_Event Log_Event count(Log_Event) AS "Count of Event" SPLITROW mnemonic AS "mnemonic" TOP 10 count(Log_Event)</searchString>
+      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW mnemonic AS "mnemonic" TOP 10 count(Cisco_IOS_Event)</searchString>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
       <option name="charting.legend.placement">none</option>
@@ -199,7 +199,7 @@
     </chart>
     <chart>
       <title>Rare mnemonics</title>
-      <searchString>| pivot Log_Event Log_Event count(Log_Event) AS "Count of Event" SPLITROW mnemonic AS "mnemonic" BOTTOM 10 count(Log_Event)</searchString>
+      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW mnemonic AS "mnemonic" BOTTOM 10 count(Cisco_IOS_Event)</searchString>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
       <option name="charting.legend.placement">none</option>

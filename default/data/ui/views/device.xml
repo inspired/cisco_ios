@@ -22,7 +22,7 @@
     </single>
     <table>
       <title>Severities</title>
-      <searchString>| pivot Log_Event Log_Event count(Log_Event) AS "Count of Event" SPLITROW severity_name AS "severity_name" SORT 100 severity_name FILTER host is $form.host$</searchString>
+      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW severity_name AS "severity_name" SORT 100 severity_name FILTER host is $form.host$</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="wrap">true</option>

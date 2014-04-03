@@ -28,7 +28,7 @@
     </chart>
     <chart>
       <title>Top ACE Correlation Tags</title>
-      <searchString>| pivot Log_Event Access_List_Event count(acl_correlation_tag) AS "Count of acl_correlation_tag" SPLITROW acl_correlation_tag AS "acl_correlation_tag" SORT 100 acl_correlation_tag</searchString>
+      <searchString>| pivot Cisco_IOS_Event Access_List_Event count(acl_correlation_tag) AS "Count of acl_correlation_tag" SPLITROW acl_correlation_tag AS "acl_correlation_tag" SORT 100 acl_correlation_tag</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="wrap">true</option>
