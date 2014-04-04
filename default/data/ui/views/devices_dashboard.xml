@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
   <label>Devices</label>
-  <fieldset autoRun="true"/>
+  <fieldset autoRun="true">
+    <input type="time" searchWhenChanged="true">
+      <default>
+        <earliestTime>-24h@h</earliestTime>
+        <latestTime>now</latestTime>
+      </default>
+    </input>
+  </fieldset>
+  <row>
+    <chart>
+      <title>Unique Devices over time</title>
+      <searchString>| pivot Cisco_IOS_Event Device dc(host) AS "Unique Devices" SPLITROW _time AS "_time" PERIOD auto SORT 0 _time | predict "Unique Devices" future_timespan=20</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+  </row>
   <row>
     <table>
-      <title>Devices reporting last period</title>
-      <searchString>| inputlookup CiscoSNMPInfo | eval host=lower(host) | join host [| inputlookup CiscoIOSHosts] | convert timeformat="%Y-%m-%d %H:%M:%S" ctime(updated_at)</searchString>
-      <earliestTime>0</earliestTime>
-      <latestTime>now</latestTime>
-      <option name="wrap">true</option>
-      <option name="rowNumbers">false</option>
-      <option name="dataOverlayMode">none</option>
+      <title>Devices</title>
+      <searchString>| pivot Cisco_IOS_Event Device count(Device) AS "Count of events" SPLITROW host AS "host" SORT 100 host</searchString>
+      <option name="count">25</option>
       <option name="drilldown">cell</option>
-      <option name="count">10</option>
       <drilldown target="My New Window">
-        <link field="host">
-          /app/cisco_ios/device?form.host=$click.value$
-        </link>
-      </drilldown>   
+        <link field="host">/app/cisco_ios/device?form.host=$click.value$</link>
+      </drilldown>
     </table>
   </row>
 </form>

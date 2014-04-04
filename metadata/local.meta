@@ -3,21 +3,21 @@ access = read : [ * ], write : [ admin ]
 export = system
 owner = admin
 version = 6.0.2
-modtime = 1396517486.693753000
+modtime = 1396599052.470372000
 
 [models/Cisco_IOS_Event]
 access = read : [ * ], write : [ admin ]
 export = system
 owner = admin
 version = 6.0.2
-modtime = 1396517486.697779000
+modtime = 1396599052.472232000
 
 [views/devices_dashboard]
 access = read : [ * ], write : [ admin ]
 export = none
 owner = admin
-version = 6.0
-modtime = 1391712430.003293000
+version = 6.0.2
+modtime = 1396600887.689554000
 
 [views/device]
 version = 6.0.2
@@ -39,3 +39,7 @@ modtime = 1392129760.334884000
 [views/overview]
 version = 6.0.2
 modtime = 1395304770.200967000
+
+[views/auditing_dashboard]
+version = 6.0.2
+modtime = 1396599540.838649000
