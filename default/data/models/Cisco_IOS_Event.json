@@ -1,7 +1,7 @@
 {
-    "modelName": "Log_Event", 
+    "modelName": "Cisco_IOS_Event", 
     "objectNameList": [
-        "Log_Event", 
+        "Cisco_IOS_Event", 
         "Access_List_Event", 
         "User", 
         "Authentication", 
@@ -18,8 +18,8 @@
         "Blocked_Access_List_Event", 
         "Port_State_Change"
     ], 
-    "description": "Log event", 
-    "displayName": "Log Event", 
+    "description": "Cisco IOS Event", 
+    "displayName": "Cisco_IOS_Event", 
     "objectSummary": {
         "Event-Based": 16, 
         "Transaction-Based": 0, 
@@ -34,7 +34,7 @@
                     "search": "sourcetype=cisco:ios"
                 }
             ], 
-            "objectName": "Log_Event", 
+            "objectName": "Cisco_IOS_Event", 
             "fields": [
                 {
                     "type": "string", 
@@ -566,7 +566,7 @@
                 {
                     "type": "number", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "num_packets", 
                     "fieldName": "num_packets", 
@@ -576,7 +576,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "rule", 
                     "fieldName": "rule", 
@@ -586,7 +586,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "protocol", 
                     "fieldName": "protocol", 
@@ -596,7 +596,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "action", 
                     "fieldName": "action", 
@@ -606,7 +606,7 @@
                 {
                     "type": "number", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_src_port", 
                     "fieldName": "acl_src_port", 
@@ -616,7 +616,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_src_ip", 
                     "fieldName": "acl_src_ip", 
@@ -626,7 +626,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_proto", 
                     "fieldName": "acl_proto", 
@@ -636,7 +636,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_list", 
                     "fieldName": "acl_list", 
@@ -646,7 +646,7 @@
                 {
                     "type": "number", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_dst_port", 
                     "fieldName": "acl_dst_port", 
@@ -656,7 +656,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_dst_ip", 
                     "fieldName": "acl_dst_ip", 
@@ -666,7 +666,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_action", 
                     "fieldName": "acl_action", 
@@ -674,7 +674,7 @@
                     "comment": ""
                 }
             ], 
-            "parentName": "Log_Event", 
+            "parentName": "Cisco_IOS_Event", 
             "displayName": "Access List Event", 
             "calculations": [], 
             "comment": ""
@@ -690,7 +690,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "user", 
                     "fieldName": "user", 
@@ -698,7 +698,7 @@
                     "comment": ""
                 }
             ], 
-            "parentName": "Log_Event", 
+            "parentName": "Cisco_IOS_Event", 
             "displayName": "User", 
             "calculations": [], 
             "comment": ""
@@ -711,7 +711,7 @@
             ], 
             "objectName": "Authentication", 
             "fields": [], 
-            "parentName": "Log_Event", 
+            "parentName": "Cisco_IOS_Event", 
             "displayName": "Authentication", 
             "calculations": [], 
             "comment": ""
@@ -776,7 +776,7 @@
             ], 
             "objectName": "Configuration", 
             "fields": [], 
-            "parentName": "Log_Event", 
+            "parentName": "Cisco_IOS_Event", 
             "displayName": "Configuration", 
             "calculations": [], 
             "comment": ""
@@ -815,7 +815,7 @@
             ], 
             "objectName": "Routing_change", 
             "fields": [], 
-            "parentName": "Log_Event", 
+            "parentName": "Cisco_IOS_Event", 
             "displayName": "Routing change", 
             "calculations": [], 
             "comment": ""
@@ -828,7 +828,7 @@
             ], 
             "objectName": "Spanning_Tree_Topology_Change", 
             "fields": [], 
-            "parentName": "Log_Event", 
+            "parentName": "Cisco_IOS_Event", 
             "displayName": "Spanning Tree Topology Change", 
             "calculations": [], 
             "comment": ""
@@ -844,7 +844,7 @@
                 {
                     "type": "number", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "num_packets", 
                     "fieldName": "num_packets", 
@@ -854,7 +854,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "rule", 
                     "fieldName": "rule", 
@@ -864,7 +864,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "protocol", 
                     "fieldName": "protocol", 
@@ -874,7 +874,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "action", 
                     "fieldName": "action", 
@@ -884,7 +884,7 @@
                 {
                     "type": "number", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_src_port", 
                     "fieldName": "acl_src_port", 
@@ -894,7 +894,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_src_ip", 
                     "fieldName": "acl_src_ip", 
@@ -904,7 +904,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_proto", 
                     "fieldName": "acl_proto", 
@@ -914,7 +914,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_list", 
                     "fieldName": "acl_list", 
@@ -924,7 +924,7 @@
                 {
                     "type": "number", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_dst_port", 
                     "fieldName": "acl_dst_port", 
@@ -934,7 +934,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_dst_ip", 
                     "fieldName": "acl_dst_ip", 
@@ -944,7 +944,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_action", 
                     "fieldName": "acl_action", 
@@ -968,7 +968,7 @@
                 {
                     "type": "number", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "num_packets", 
                     "fieldName": "num_packets", 
@@ -978,7 +978,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "rule", 
                     "fieldName": "rule", 
@@ -988,7 +988,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "protocol", 
                     "fieldName": "protocol", 
@@ -998,7 +998,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "action", 
                     "fieldName": "action", 
@@ -1008,7 +1008,7 @@
                 {
                     "type": "number", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_src_port", 
                     "fieldName": "acl_src_port", 
@@ -1018,7 +1018,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_src_ip", 
                     "fieldName": "acl_src_ip", 
@@ -1028,7 +1028,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_proto", 
                     "fieldName": "acl_proto", 
@@ -1038,7 +1038,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_list", 
                     "fieldName": "acl_list", 
@@ -1048,7 +1048,7 @@
                 {
                     "type": "number", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_dst_port", 
                     "fieldName": "acl_dst_port", 
@@ -1058,7 +1058,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_dst_ip", 
                     "fieldName": "acl_dst_ip", 
@@ -1068,7 +1068,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "acl_action", 
                     "fieldName": "acl_action", 
@@ -1092,7 +1092,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "port_status", 
                     "fieldName": "port_status", 
@@ -1102,7 +1102,7 @@
                 {
                     "type": "string", 
                     "multivalue": false, 
-                    "owner": "Log_Event", 
+                    "owner": "Cisco_IOS_Event", 
                     "required": true, 
                     "displayName": "src_int", 
                     "fieldName": "src_int", 
@@ -1110,7 +1110,7 @@
                     "comment": ""
                 }
             ], 
-            "parentName": "Log_Event", 
+            "parentName": "Cisco_IOS_Event", 
             "displayName": "Port State Change", 
             "calculations": [], 
             "comment": ""

@@ -1,11 +1,11 @@
-[datamodels/Log_Event]
+[datamodels/Cisco_IOS_Event]
 access = read : [ * ], write : [ admin ]
 export = system
 owner = admin
 version = 6.0.2
 modtime = 1396517486.693753000
 
-[models/Log_Event]
+[models/Cisco_IOS_Event]
 access = read : [ * ], write : [ admin ]
 export = system
 owner = admin
