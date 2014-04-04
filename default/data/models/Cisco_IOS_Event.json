@@ -551,7 +551,7 @@
                 }
             ], 
             "parentName": "BaseEvent", 
-            "displayName": "Event", 
+            "displayName": "Cisco IOS Event", 
             "calculations": [], 
             "comment": ""
         }, 
