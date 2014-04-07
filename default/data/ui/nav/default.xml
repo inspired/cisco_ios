@@ -7,7 +7,6 @@
     <view name="auditing_dashboard" />
     <view name="auditing_config_change_transactions" />
     <view name="auditing_time_drift" />
-    <view name="auditing_smart_install" />
     <view name="auditing_best_practice_deviations" />
   </collection>
   <collection label="Switching">
