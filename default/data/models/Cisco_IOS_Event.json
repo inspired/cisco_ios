@@ -6,7 +6,7 @@
         "User", 
         "Authentication", 
         "Device_Authentication", 
-        "DOT1X_Authentication", 
+        "DOT1X_Event", 
         "Successful_Device_Authentication", 
         "Failed_Device_Authentication", 
         "Configuration", 
@@ -729,8 +729,8 @@
                     "search": "eventtype=cisco_ios-dot1x"
                 }
             ], 
-            "displayName": "DOT1X Authentication", 
-            "objectName": "DOT1X_Authentication", 
+            "displayName": "DOT1X Event", 
+            "objectName": "DOT1X_Event", 
             "fields": [], 
             "calculations": []
         }, 
