@@ -68,7 +68,7 @@
     </single>
     <single>
       <title>802.1x events</title>
-      <searchString>| pivot Cisco_IOS_Event DOT1X_Authentication count(DOT1X_Authentication) AS "Count of DOT1X Authentication"</searchString>
+      <searchString>| pivot Cisco_IOS_Event DOT1X_Event count(DOT1X_Event) AS "Count of DOT1X Event"</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">802.1x events</option>
