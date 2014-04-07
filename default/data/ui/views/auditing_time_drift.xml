@@ -9,7 +9,15 @@
   <row>
     <html>
       <p>These reporting devices have a time drift of more than 1 second compared to the event time as reported by Splunk</p>
-      <p>Consider checking the NTP settings of the following devices</p>
+      <p>Consider checking the NTP settings of the listed devices</p>
+      <section>
+      <h3>Suggested solutions</h3>
+      <ol>
+        <li>Make sure your <q>ntp server</q> points to a valid NTP server</li>
+        <li>Make sure your <q>ntp source</q> uses an interface that has routing to the NTP server</li>
+        <li>Check your <q>clock timezone</q> and <q>clock summer-time</q> statements</li>
+      </ol>
+      </section>
     </html>
   </row>
   <row>
