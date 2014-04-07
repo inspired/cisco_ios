@@ -61,8 +61,8 @@
   </row>
   <row>
     <table>
-      <searchName>cdp neighborship</searchName>
-      <title>CDP Neighborship (Nexus only)</title>
+      <searchName>cdp neighbors</searchName>
+      <title>CDP Neighbors (Nexus)</title>
     </table>
   </row>
 </form>
