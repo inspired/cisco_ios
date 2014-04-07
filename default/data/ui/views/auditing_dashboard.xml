@@ -59,10 +59,4 @@
       <option name="drilldown">cell</option>
     </table>
   </row>
-  <row>
-    <table>
-      <searchName>cdp neighborship</searchName>
-      <title>CDP Neighborship (Nexus only)</title>
-    </table>
-  </row>
 </form>
