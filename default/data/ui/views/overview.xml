@@ -159,7 +159,7 @@
     </table>
     <table>
       <title>Error disabled interface</title>
-      <searchString>eventtype="cisco_ios-err_disable" | stats count(detected_on_interface) AS Amount BY host,detected_on_interface,disable_interface,disable_cause | rename detected_on_interface AS Interface, disable_interface AS "Dis. Interface", disable_cause AS Cause</searchString>
+      <searchString>eventtype="cisco_ios-err_disable" | stats count(detected_on_interface) AS Amount BY host,detected_on_interface,disable_cause | rename detected_on_interface AS Interface, disable_cause AS Cause</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="wrap">true</option>
