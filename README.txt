@@ -3,9 +3,8 @@ Copyright (C) 2013 Mikael Bjerkeland, Datametrix AS. All Rights Reserved.
 App:               	Cisco IOS
 Current Version:	1.3.0
 Last Modified:		2014-04-04
-Splunk Version:		6.X
+Splunk Version:		6.*
 Author:			Mikael Bjerkeland
-Dependencies:		Sideview Utils
 
 The Cisco IOS app sets different Cisco specific fields used for identifying data from Cisco IOS, IOS-XE, NX-OS, XR
 Install this app on your search head. Install the TA-cisco_ios app on your search head AND indexers
