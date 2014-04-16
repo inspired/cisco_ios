@@ -153,9 +153,8 @@ Supported Technologies:   Cisco IOS, IOS-XE, NX-OS, IOS XR devices
 ++ Installation Instructions
 
 The Cisco IOS app can be downloaded, installed, and configured to receive Cisco IOS data by either using the Splunk app setup screen or by manually installing and configuring the app.
-This app reads from the sourcetype cisco_ios defined in TA-cisco_ios
+This app reads from the sourcetype cisco:ios defined in TA-cisco_ios
 
-NOTE: This app might not work with the Splunk for Cisco Security Suite as it specifies a similar cisco:ios sourcetype.
 
 +++ Setup and configuration
 
