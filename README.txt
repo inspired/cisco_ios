@@ -1,8 +1,8 @@
 Copyright (C) 2013 Mikael Bjerkeland, Datametrix AS. All Rights Reserved.
 
 App:               	Cisco IOS
-Current Version:	1.3.0
-Last Modified:		2014-04-04
+Current Version:	1.3.1
+Last Modified:		2014-04-17
 Splunk Version:		6.*
 Author:			Mikael Bjerkeland
 
@@ -13,6 +13,11 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 
 ++ What's New
+
++++ 1.3.1 (2014-04-17)
+Bug fixes:
+* 802.1x euthentications now renamed to 802.1x events, no longer a child of "User"
+* Various small changes
 
 +++ 1.3.0 (2014-04-04)
 Features: 
