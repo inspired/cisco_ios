@@ -183,6 +183,7 @@
     <chart>
       <title>Top mnemonics</title>
       <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW mnemonic AS "mnemonic" TOP 10 count(Cisco_IOS_Event)</searchString>
+      <option name="charting.axisLabelsY.majorUnit">1</option>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
       <option name="charting.legend.placement">none</option>
@@ -200,6 +201,7 @@
     <chart>
       <title>Rare mnemonics</title>
       <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW mnemonic AS "mnemonic" BOTTOM 10 count(Cisco_IOS_Event)</searchString>
+      <option name="charting.axisLabelsY.majorUnit">1</option>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
       <option name="charting.legend.placement">none</option>
