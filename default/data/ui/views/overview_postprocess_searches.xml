@@ -160,7 +160,7 @@
     </table>
     <table>
       <title>Error disabled interface</title>
-      <searchString>eventtype="cisco_ios-err_disable" | stats count(src_int) AS Amount BY host,src_int,disable_cause | rename src_int AS Interface, disable_cause AS Cause</searchString>
+      <searchString>eventtype="cisco_ios-err_disable" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_int")` | stats count(src_int) AS Amount BY host,src_int,disable_cause | rename src_int AS Interface, disable_cause AS Cause</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="wrap">true</option>
