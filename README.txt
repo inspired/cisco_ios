@@ -14,7 +14,7 @@ Supported Cisco Devices:
 * Cisco ASR - Aggregation Services Routers (900, 1000, 5000, 9000 etc.)
 * Cisco ISR - Integrated Services Routers (800, 1900, 2900, 3900, 4451 etc.)
 * Cisco Nexus Data Center switches (1000V, 2000, 3000, 4000, 5000, 6000, 7000, 9000 etc.)
-* Other Cisco IOS based devices (Metro Ethernet, Industrial Ethernet etc.)
+* Other Cisco IOS based devices (Metro Ethernet, Industrial Ethernet, Blade Switches, Connected Grid etc.)
 
 Preliminary support for:
 * Cisco WLC - WLAN Controller
