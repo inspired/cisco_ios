@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
-<form refresh="30">
+<?xml version="1.0" encoding="utf-8"?><form>
   <label>Dashboard</label>
   <searchTemplate>| savedsearch "link changes" hostToken="$hostToken$"</searchTemplate>
   <fieldset autoRun="true">
@@ -16,6 +15,30 @@
       <!--<searchName>link changes</searchName>-->
       <title>Link connects</title>
       <option name="charting.chart">column</option>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+    </chart>
+  </row>
+  <row>
+    <chart>
+      <title>Optical transceiver attenuation by host and interface</title>
+      <searchString>sourcetype=cisco:ios mnemonic=THRESHOLD_VIOLATION | strcat host " " src_int host_src_int | timechart avg(operating_value) AS threshold by host_src_int</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">connect</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.axisTitleY.text">Attenuation (dB)</option>
     </chart>
   </row>
 </form>
