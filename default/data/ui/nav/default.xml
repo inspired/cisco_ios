@@ -26,8 +26,7 @@
     <view name="security_acl" />
   </collection>
   <collection label="Performance">
-    <view name="performance_dsl" />
-    <view name="performance_etherchannel" />
+    <view name="performance_dashboard" />
   </collection>
   <collection label="Wireless">
     <view name="wireless_dashboard" />

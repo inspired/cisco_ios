@@ -1,8 +1,8 @@
 Copyright (C) 2013 Mikael Bjerkeland, Datametrix AS. All Rights Reserved.
 
 App:               	Cisco IOS
-Current Version:	1.3.1
-Last Modified:		2014-04-17
+Current Version:	1.3.2
+Last Modified:		2014-04-23
 Splunk Version:		6.*
 Author:			Mikael Bjerkeland
 
@@ -13,6 +13,12 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 
 ++ What's New
+
++++ 1.3.2 (2014-04-23)
+Bug fixes:
+* Removed some unneccessary files.
+* Moved Performance panels into a common performance_dashboard
+* Preliminary support for IP SLA events
 
 +++ 1.3.1 (2014-04-17)
 Bug fixes:

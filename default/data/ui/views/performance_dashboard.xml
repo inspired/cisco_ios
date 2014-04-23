@@ -1,0 +1,44 @@
+<form>
+  <label>performance_dashboard</label>
+  <description>Performance Dashboard</description>
+  <fieldset autoRun="true" submitButton="false">
+    <input type="time" searchWhenChanged="true">
+      <default>
+        <earliestTime>-24h@h</earliestTime>
+        <latestTime>now</latestTime>
+      </default>
+    </input>
+  </fieldset>
+  <row>
+    <chart>
+      <title>IP SLA Events</title>
+      <searchString>eventtype="cisco_ios-ipsla"</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+    </chart>
+  </row>
+  <row>
+    <table>
+      <title>DSL bandwidth</title>
+      <searchString>eventtype="cisco_ios-downgradedbw" | dedup host | table _time,host,permanent_virtual_circuit,bw_down,bw_up | sort bw_down,_time</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">row</option>
+      <option name="count">10</option>
+    </table>
+    <table>
+      <title>Etherchannel events</title>
+      <searchString>eventtype="cisco_ios-etherchannel" | table _time, host, src_int, compatibility, dest_int, action, reason</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">row</option>
+      <option name="count">10</option>
+    </table>
+  </row>
+</form>
