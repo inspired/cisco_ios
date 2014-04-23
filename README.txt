@@ -6,8 +6,18 @@ Last Modified:		2014-04-23
 Splunk Version:		6.*
 Author:			Mikael Bjerkeland
 
-The Cisco IOS app sets different Cisco specific fields used for identifying data from Cisco IOS, IOS-XE, NX-OS, XR
+The Cisco IOS app includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices
 Install this app on your search head. Install the TA-cisco_ios app on your search head AND indexers
+
+Supported Cisco Devices:
+* Cisco Catalyst series switches (2960, 3650, 3750, 4500, 6500, 6800, 7600 etc.)
+* Cisco ASR - Aggregation Services Routers (900, 1000, 5000, 9000 etc.)
+* Cisco ISR - Integrated Services Routers (800, 1900, 2900, 3900, 4451 etc.)
+* Cisco Nexus Data Center switches (1000V, 2000, 3000, 4000, 5000, 6000, 7000, 9000 etc.)
+* Other Cisco IOS based devices (Metro Ethernet, Industrial Ethernet etc.)
+
+Preliminary support for:
+* Cisco WLC - WLAN Controller
 
 Please contact me on Splunk Base if there is anything you would like to see in this app.
 
