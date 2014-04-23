@@ -7,7 +7,7 @@ Splunk Version:		6.*
 Author:			Mikael Bjerkeland
 
 The Cisco IOS app includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices
-Install this app on your search head. Install the TA-cisco_ios app on your search head AND indexers/heavy forwarders
+Install this app on your search head. Install the TA-cisco_ios app on your search head AND indexers/heavy forwarders.
 
 Supported Cisco Devices:
 * Cisco Catalyst series switches (2960, 3650, 3750, 4500, 6500, 6800, 7600 etc.)
