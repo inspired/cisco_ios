@@ -1,6 +1,5 @@
 <form>
-  <label>performance_dashboard</label>
-  <description>Performance Dashboard</description>
+  <label>Performance Dashboard</label>
   <fieldset autoRun="true" submitButton="false">
     <input type="time" searchWhenChanged="true">
       <default>

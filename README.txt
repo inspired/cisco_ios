@@ -28,7 +28,9 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 Bug fixes:
 * Removed some unneccessary files.
 * Moved Performance panels into a common performance_dashboard
-* Preliminary support for IP SLA events
+Features:
+* Preliminary support for IP SLA events (Performance dashboard)
+* Optical transceiver attenuation monitoring (Switching -> Dashboard)
 
 +++ 1.3.1 (2014-04-17)
 Bug fixes:

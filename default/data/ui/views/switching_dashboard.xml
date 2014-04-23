@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><form>
-  <label>Dashboard</label>
+  <label>Switching Dashboard</label>
   <searchTemplate>| savedsearch "link changes" hostToken="$hostToken$"</searchTemplate>
   <fieldset autoRun="true">
     <input type="text" token="hostToken">
