@@ -21,8 +21,8 @@
   </row>
   <row>
     <chart>
-      <title>Optical transceiver attenuation by host and interface</title>
-      <searchString>sourcetype=cisco:ios mnemonic=THRESHOLD_VIOLATION | strcat host " " src_int host_src_int | timechart avg(operating_value) AS threshold by host_src_int</searchString>
+      <title>Optical transceiver power by host and interface</title>
+      <searchString>sourcetype=cisco:ios mnemonic=THRESHOLD_VIOLATION alarm="Rx power" OR alarm="Tx power" | strcat host " " src_int host_src_int | timechart avg(operating_value) by host_src_int</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="charting.axisTitleX.visibility">visible</option>
@@ -38,7 +38,27 @@
       <option name="charting.layout.splitSeries">0</option>
       <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
       <option name="charting.legend.placement">right</option>
-      <option name="charting.axisTitleY.text">Attenuation (dB)</option>
+      <option name="charting.axisTitleY.text">Power (dBm)</option>
+    </chart>
+    <chart>
+      <title>Optical transceiver temperature by host and interface</title>
+      <searchString>sourcetype=cisco:ios mnemonic=THRESHOLD_VIOLATION alarm="Temperature" | strcat host " " src_int host_src_int | timechart avg(operating_value) by host_src_int</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">connect</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.axisTitleY.text">Temperature (&deg;C)</option>
     </chart>
   </row>
 </form>
