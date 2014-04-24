@@ -1,4 +1,4 @@
-Copyright (C) 2013 Mikael Bjerkeland, Datametrix AS. All Rights Reserved.
+Copyright (C) 2013 Mikael Bjerkeland. All Rights Reserved.
 
 App:               	Cisco IOS
 Current Version:	1.3.2
@@ -7,6 +7,7 @@ Splunk Version:		6.*
 Author:			Mikael Bjerkeland
 
 The Cisco IOS app includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices
+
 Install this app on your search head. Install the TA-cisco_ios app on your search head AND indexers/heavy forwarders.
 
 Supported Cisco Devices:
