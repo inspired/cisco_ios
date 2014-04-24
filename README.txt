@@ -27,7 +27,7 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 +++ 1.3.2 (2014-04-23)
 Added a new overview page (overview_postprocess_searches_no_pivot)
 as a workaround for users having problems with Data Model powered
-searches not displaying (Splunk defect SPL-83310)
+searches not displaying (Splunk defect SPL-83310) - THIS IS SLOW!
 
 Bug fixes:
 * Removed some unneccessary files.
