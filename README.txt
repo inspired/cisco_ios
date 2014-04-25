@@ -233,11 +233,12 @@ interface ra Gi1/0/1 - 52
 !
 --
 
-5. For MAC move notifications and STP logging:
+5. For MAC move notifications, STP logging and IP SLA logging:
 
 --
 mac address-table notification mac-move
 spanning-tree logging
+ip sla logging traps
 --
 
 
