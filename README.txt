@@ -233,14 +233,20 @@ interface ra Gi1/0/1 - 52
 !
 --
 
-5. For MAC move notifications, STP logging and IP SLA logging:
+5. For MAC move notifications, STP logging, IP SLA logging etc:
 
 --
 mac address-table notification mac-move
 spanning-tree logging
 ip sla logging traps
+ip dhcp limit lease log
+ip dhcp conflict
 --
 
+6. For DHCP utilization logging on your devices, do this for each pool
+--
+utilization mark high 80 log
+--
 
 ++ TODO
 
