@@ -1,5 +1,6 @@
 <form>
   <label>Cisco IOS Overview</label>
+  <searchTemplate>| tstats count FROM datamodel=Cisco_IOS_Event BY nodename host</searchTemplate>
   <fieldset autoRun="true" submitButton="false">
     <input type="time" searchWhenChanged="true">
       <default>
@@ -11,7 +12,7 @@
   <row grouping="6,2">
     <single>
       <title>Events</title>
-      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event"</searchString>
+      <searchPostProcess>search nodename=Cisco_IOS_Event | stats sum(count)</searchPostProcess>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">Events</option>
@@ -32,7 +33,7 @@
     </single>
     <single>
       <title>Unique devices</title>
-      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event dc(host) AS "Count of Devices"</searchString>
+      <searchPostProcess>| stats dc(host)</searchPostProcess>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">Unique devices</option>
@@ -44,7 +45,7 @@
     </single>
     <single>
       <title>Device logins</title>
-      <searchString>| pivot Cisco_IOS_Event Device_Authentication count(Device_Authentication) AS "Count of Device Login"</searchString>
+      <searchPostProcess>search nodename=Cisco_IOS_Event.Authentication.Device_Authentication | stats sum(count)</searchPostProcess>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">Device logins</option>
@@ -56,7 +57,7 @@
     </single>
     <single>
       <title>Config changes</title>
-      <searchString>| pivot Cisco_IOS_Event Configuration count(Configuration) AS "Count of Configuration"</searchString>
+      <searchPostProcess>search nodename=Cisco_IOS_Event.Configuration | stats sum(count)</searchPostProcess>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">Config changes</option>
@@ -68,7 +69,7 @@
     </single>
     <single>
       <title>802.1x events</title>
-      <searchString>| pivot Cisco_IOS_Event DOT1X_Event count(DOT1X_Event) AS "Count of DOT1X Event"</searchString>
+      <searchPostProcess>search nodename=Cisco_IOS_Event.DOT1X_Event | stats sum(count)</searchPostProcess>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">802.1x events</option>
