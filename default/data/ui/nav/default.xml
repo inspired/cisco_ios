@@ -7,7 +7,7 @@
     <view name="auditing_dashboard" />
     <view name="auditing_config_change_transactions" />
     <view name="auditing_time_drift" />
-    <view name="auditing_best_practice_deviations" />
+    <view name="auditing_event_analysis" />
   </collection>
   <collection label="Switching">
     <view name="switching_dashboard" />
