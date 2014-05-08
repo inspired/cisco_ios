@@ -1,8 +1,8 @@
 Copyright (C) 2013 Mikael Bjerkeland. All Rights Reserved.
 
 App:               	Cisco IOS
-Current Version:	1.3.2
-Last Modified:		2014-04-23
+Current Version:	1.3.3
+Last Modified:		2014-05-08
 Splunk Version:		6.x
 Author:			Mikael Bjerkeland
 
@@ -24,6 +24,12 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 
 ++ What's New
+
++++ 1.3.3 (2014-05-08)
+Features:
+* Added more fields to the data model
+* Added an Event Analysis Dashboard to Auditing using the new lookups from TA-cisco_ios
+* Map visualizations added to Security -> ACL
 
 +++ 1.3.2 (2014-04-23)
 Added a new overview page (overview_postprocess_searches_no_pivot)
