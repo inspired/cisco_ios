@@ -3,7 +3,7 @@ Copyright (C) 2013 Mikael Bjerkeland. All Rights Reserved.
 App:               	Cisco IOS
 Current Version:	1.5.0
 Last Modified:		2014-05-08
-Splunk Version:		6.x
+Splunk Version:		6.1+
 Author:			Mikael Bjerkeland
 
 The Cisco IOS app includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices
