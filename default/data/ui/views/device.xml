@@ -8,13 +8,13 @@
       </default>
     </input>
   </fieldset>
-  <row grouping="3,2">
+  <row grouping="4,2">
     <html>
       <p>Device info comes here</p>
     </html>
     <single>
       <title>Device</title>
-      <searchString>| inputlookup CiscoSNMPInfo | search host=$form.host$ | fields host</searchString>
+      <searchString>| inputlookup CiscoSNMPInfo | search host=$form.host$ | fields host | appendcols [search sourcetype=Cisco:SmartCallHome host=$form.host$ | rename "soap-env:Envelope.soap-env:Body.aml-block:Block.aml-block:Content.ch-inv:CallHome.ch-inv:CustomerData.ch-inv:SystemInfo.ch-inv:Name" AS host | fields host | head 1]</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="linkView">search</option>
@@ -29,6 +29,12 @@
       <option name="dataOverlayMode">none</option>
       <option name="drilldown">row</option>
       <option name="count">10</option>
+    </table>
+    <table>
+      <title>Device info</title>
+      <searchString>sourcetype=Cisco:SmartCallHome host=$form.host$ | rename "rme:Model" AS model | rename "rme:SerialNumber" AS serial_number | rename "rme:VersionString" AS software_version | stats latest(model) AS model, latest(serial_number) AS serial_number, latest(software_version) AS software_version</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
     </table>
     <table>
       <title>Severities</title>
@@ -63,4 +69,17 @@
       <option name="count">48</option>
     </table>
   </row>
+<row>
+  <table>
+    <title>Smart Call Home (temporary)</title>
+    <searchString>host=$form.host$ sourcetype=Cisco:SmartCallHome</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">cell</option>
+      <option name="count">50</option>
+  </table>
+</row>
 </form>
