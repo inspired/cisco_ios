@@ -257,12 +257,8 @@ utilization mark high 80 log
 
 ++ TODO
 
-* Add Dot1x stuff to Security
-* Add new nav: Switching
-* Add summary indexing
-* Add paginators for all panels
-* Check CIM compliance
-* Add tags, i.e. tag=network, tag=authentication
+
+* IOS DHCP binding logging (file monitoring)
 * Add a macro for specifying index to accomodate different users
 * Add SNMP extractions
 
