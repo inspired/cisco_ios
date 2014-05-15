@@ -14,7 +14,7 @@
     </html>
     <single>
       <title>Device</title>
-      <searchString>| inputlookup CiscoSNMPInfo | search host=$form.host$ | fields host | appendcols [search sourcetype=Cisco:SmartCallHome host=$form.host$ | rename "soap-env:Envelope.soap-env:Body.aml-block:Block.aml-block:Content.ch-inv:CallHome.ch-inv:CustomerData.ch-inv:SystemInfo.ch-inv:Name" AS host | fields host | head 1]</searchString>
+      <searchString>| inputlookup CiscoSNMPInfo | search host=$form.host$ | fields host | appendcols [search sourcetype=Cisco:SmartCallHome host=$form.host$ | rename hostname AS host | fields host | head 1]</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="linkView">search</option>
