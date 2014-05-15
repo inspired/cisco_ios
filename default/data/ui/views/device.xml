@@ -72,7 +72,7 @@
 <row>
   <table>
     <title>Smart Call Home (temporary)</title>
-    <searchString>host=$form.host$ sourcetype=Cisco:SmartCallHome</searchString>
+    <searchString>host=$form.host$ sourcetype=Cisco:SmartCallHome | fields - _*, date*, punct, linecount, index, eventtype, source, sourcetype, splunk_server, tag, tag::eventtype, time*pos, "soap-env:Envelope.soap-env:Body.aml-block:Block.aml-block:Attachments.aml-block:Attachment.aml-block:Data"  | stats values(*) | transpose</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="wrap">true</option>
