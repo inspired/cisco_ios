@@ -20,19 +20,8 @@
       <option name="linkView">search</option>
     </single>
     <table>
-      <title>Status</title>
-      <searchString>| inputlookup CiscoSNMPInfo | search host=$form.host$ | fields sysDescr sysLocation hostName</searchString>
-      <earliestTime>$earliest$</earliestTime>
-      <latestTime>$latest$</latestTime>
-      <option name="wrap">true</option>
-      <option name="rowNumbers">false</option>
-      <option name="dataOverlayMode">none</option>
-      <option name="drilldown">row</option>
-      <option name="count">10</option>
-    </table>
-    <table>
       <title>Device info</title>
-      <searchString>sourcetype=Cisco:SmartCallHome host=$form.host$ | rename "rme:Model" AS model | rename "rme:SerialNumber" AS serial_number | rename "rme:VersionString" AS software_version | stats latest(model) AS model, latest(serial_number) AS serial_number, latest(software_version) AS software_version</searchString>
+      <searchString>sourcetype=Cisco:SmartCallHome host=$form.host$ | stats latest(model) AS model, latest(serial_number) AS serial_number, latest(software_version) AS software_version, latest(series) AS series, latest(site_id) AS site_id</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
     </table>
