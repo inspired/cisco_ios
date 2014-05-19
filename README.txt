@@ -211,6 +211,7 @@ archive
 !
 login on-failure log
 login on-success log
+logging userinfo
 !
 --
 
@@ -247,7 +248,7 @@ mac address-table notification mac-move
 spanning-tree logging
 ip sla logging traps
 ip dhcp limit lease log
-ip dhcp conflict
+ip dhcp conflict logging
 --
 
 6. For DHCP utilization logging on your devices, do this for each pool
