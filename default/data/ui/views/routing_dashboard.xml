@@ -7,7 +7,7 @@
   </fieldset>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios facility=DUAL mnemonic=NBRCHANGE | table _time,host,protocol,process_id,as_number,neighbor,interface,state_to,reason | sort -_time</searchString>
+      <searchString>sourcetype=cisco:ios facility=DUAL mnemonic=NBRCHANGE | table _time,host,protocol,process_id,as_number,neighbor,src_int,state_to,reason | sort -_time</searchString>
       <title>EIGRP neighbor changes</title>
       <option name="count">10</option>
       <option name="displayRowNumbers">true</option>
@@ -15,7 +15,7 @@
   </row>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios facility=OSPF mnemonic=ADJCHG | table _time,host,process_id,neighbor,interface,state_from,state_to,reason | sort -_time</searchString>
+      <searchString>sourcetype=cisco:ios facility=OSPF mnemonic=ADJCHG | table _time,host,process_id,neighbor,src_int,state_from,state_to,reason | sort -_time</searchString>
       <title>OSPF adjacency changes</title>
       <option name="count">10</option>
       <option name="displayRowNumbers">true</option>
