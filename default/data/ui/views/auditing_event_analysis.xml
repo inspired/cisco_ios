@@ -107,8 +107,55 @@
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
         <option name="dataOverlayMode">heatmap</option>
-        <option name="drilldown">cell</option>
+        <option name="drilldown">row</option>
         <option name="count">10</option>
+	<drilldown>
+		<link field="host">
+		<![CDATA[
+			/app/cisco_ios/search?q=search host=$row.host$&earliest=$earliest$&latest=$latest$
+		]]>
+		</link>
+		<link field="emergency">
+		<![CDATA[
+			/app/cisco_ios/search?q=search host=$row.host$ severity_name=emergency&earliest=$earliest$&latest=$latest$
+		]]>
+		</link>
+		<link field="alert">
+		<![CDATA[
+			/app/cisco_ios/search?q=search host=$row.host$ severity_name=alert&earliest=$earliest$&latest=$latest$
+		]]>
+		</link>
+		<link field="critical">
+		<![CDATA[
+			/app/cisco_ios/search?q=search host=$row.host$ severity_name=critical&earliest=$earliest$&latest=$latest$
+		]]>
+		</link>
+		<link field="error">
+		<![CDATA[
+			/app/cisco_ios/search?q=search host=$row.host$ severity_name=error&earliest=$earliest$&latest=$latest$
+		]]>
+		</link>
+		<link field="warning">
+		<![CDATA[
+			/app/cisco_ios/search?q=search host=$row.host$ severity_name=warning&earliest=$earliest$&latest=$latest$
+		]]>
+		</link>
+		<link field="notification">
+		<![CDATA[
+			/app/cisco_ios/search?q=search host=$row.host$ severity_name=notification&earliest=$earliest$&latest=$latest$
+		]]>
+		</link>
+		<link field="informational">
+		<![CDATA[
+			/app/cisco_ios/search?q=search host=$row.host$ severity_name=informational&earliest=$earliest$&latest=$latest$
+		]]>
+		</link>
+		<link field="debugging">
+		<![CDATA[
+			/app/cisco_ios/search?q=search host=$row.host$ severity_name=debugging&earliest=$earliest$&latest=$latest$
+		]]>
+		</link>
+	</drilldown>
       </table>
     </panel>
   </row>
