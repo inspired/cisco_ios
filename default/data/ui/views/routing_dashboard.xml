@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
+<form>
   <label>Dashboard</label>
   <fieldset autoRun="true">
     <input type="time">
