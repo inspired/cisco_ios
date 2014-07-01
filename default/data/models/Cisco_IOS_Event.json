@@ -1022,6 +1022,18 @@
                     "fieldSearch": ""
                 },
                 {
+                    "fieldName": "site_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "site_id",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
