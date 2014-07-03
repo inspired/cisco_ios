@@ -241,7 +241,7 @@ interface ra Gi1/0/1 - 52
 !
 --
 
-5. For MAC move notifications, STP logging, IP SLA logging etc:
+5. (OPTIONAL) For MAC move notifications, STP logging, IP SLA logging etc:
 
 --
 mac address-table notification mac-move
@@ -251,9 +251,16 @@ ip dhcp limit lease log
 ip dhcp conflict logging
 --
 
-6. For DHCP utilization logging on your devices, do this for each pool
+6. (OPTIONAL) For DHCP utilization logging on your devices, do this for each pool
 --
 utilization mark high 80 log
+--
+
+7. (OPTIONAL) Nexus ACL logging
+--
+logging level acllog 6
+acllog match-log-level 6
+logging logfile messages 6
 --
 
 ++ TODO
