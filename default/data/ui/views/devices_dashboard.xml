@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<form>
+<?xml version="1.0" encoding="UTF-8"?><form>
   <label>Devices</label>
   <fieldset autoRun="true">
     <input type="time" searchWhenChanged="true">
@@ -10,35 +9,65 @@
     </input>
   </fieldset>
   <row>
-    <chart>
-      <title>Unique Devices over time</title>
-      <searchString>| pivot Cisco_IOS_Event Device dc(host) AS "Unique Devices" SPLITROW _time AS "_time" PERIOD auto SORT 0 _time | predict "Unique Devices" future_timespan=20</searchString>
-      <earliestTime>$earliest$</earliestTime>
-      <latestTime>$latest$</latestTime>
-      <option name="charting.axisTitleX.visibility">visible</option>
-      <option name="charting.axisTitleY.visibility">visible</option>
-      <option name="charting.axisX.scale">linear</option>
-      <option name="charting.axisY.scale">linear</option>
-      <option name="charting.chart">line</option>
-      <option name="charting.chart.nullValueMode">gaps</option>
-      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
-      <option name="charting.chart.stackMode">default</option>
-      <option name="charting.chart.style">shiny</option>
-      <option name="charting.drilldown">all</option>
-      <option name="charting.layout.splitSeries">0</option>
-      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
-      <option name="charting.legend.placement">right</option>
-    </chart>
+    <panel>
+      <chart>
+        <title>Unique Devices over time</title>
+        <searchString>| pivot Cisco_IOS_Event Device dc(host) AS "Unique Devices" SPLITROW _time AS "_time" PERIOD auto SORT 0 _time | predict "Unique Devices" future_timespan=20</searchString>
+        <earliestTime>$earliest$</earliestTime>
+        <latestTime>$latest$</latestTime>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.chart">line</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Models</title>
+        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event dc(hostname) AS "Distinct Count of hostname" SPLITROW model AS model SORT 100 model ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</searchString>
+        <earliestTime>-24h@h</earliestTime>
+        <latestTime>now</latestTime>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.legend.placement">none</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.chart">column</option>
+      </chart>
+    </panel>
   </row>
   <row>
-    <table>
-      <title>Devices</title>
-      <searchString>| pivot Cisco_IOS_Event Device last(hostname) AS "Hostname" last(site_id) AS "Site ID" last(model) AS "Model" last(serial_number) AS "Serial number" count(Device) AS "Count of events" SPLITROW host AS host</searchString>
-      <option name="count">25</option>
-      <option name="drilldown">cell</option>
-      <drilldown target="My New Window">
-        <link field="host">/app/cisco_ios/device?form.host=$click.value$</link>
-      </drilldown>
-    </table>
+    <panel>
+      <table>
+        <title>Devices</title>
+        <searchString>| pivot Cisco_IOS_Event Device last(hostname) AS "Hostname" last(site_id) AS "Site ID" last(model) AS "Model" last(serial_number) AS "Serial number" count(Device) AS "Count of events" SPLITROW host AS host</searchString>
+        <option name="count">25</option>
+        <option name="drilldown">cell</option>
+        <drilldown target="My New Window">
+          <link field="host">/app/cisco_ios/device?form.host=$click.value$</link>
+        </drilldown>
+      </table>
+    </panel>
   </row>
 </form>
