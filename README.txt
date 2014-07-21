@@ -11,14 +11,14 @@ The Cisco IOS app includes dashboards, data models and logic for analyzing data 
 Install this app on your search head. Install the TA-cisco_ios app on your search head AND indexers/heavy forwarders.
 
 Supported Cisco Devices:
-* Cisco Catalyst series switches (2960, 3650, 3750, 4500, 6500, 6800, 7600 etc.)
-* Cisco ASR - Aggregation Services Routers (900, 1000, 5000, 9000 etc.)
-* Cisco ISR - Integrated Services Routers (800, 1900, 2900, 3900, 4451 etc.)
-* Cisco Nexus Data Center switches (1000V, 2000, 3000, 4000, 5000, 6000, 7000, 9000 etc.)
-* Other Cisco IOS based devices (Metro Ethernet, Industrial Ethernet, Blade Switches, Connected Grid etc.)
+*  Cisco Catalyst series switches (2960, 3650, 3750, 4500, 6500, 6800, 7600 etc.)
+*  Cisco ASR - Aggregation Services Routers (900, 1000, 5000, 9000 etc.)
+*  Cisco ISR - Integrated Services Routers (800, 1900, 2900, 3900, 4451 etc.)
+*  Cisco Nexus Data Center switches (1000V, 2000, 3000, 4000, 5000, 6000, 7000, 9000 etc.)
+*  Other Cisco IOS based devices (Metro Ethernet, Industrial Ethernet, Blade Switches, Connected Grid etc.)
 
 Preliminary support for:
-* Cisco WLC - WLAN Controller
+*  Cisco WLC - WLAN Controller
 
 Please contact me on Splunk Base if there is anything you would like to see in this app.
 
