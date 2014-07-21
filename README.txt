@@ -274,15 +274,11 @@ logging logfile messages 6
 
 ++ TODO
 
-* Smart Call Home HTTP destination (See http://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst2k3k_smart_call_home/release/12-2_58_se/Call_Home_Config_Guide.html, https://supportforums.cisco.com/community/4816/smart-call-home)
 * IOS DHCP binding logging (file monitoring)
-* Add a macro for specifying index to accomodate different users
 * Add SNMP extractions
-
-++ Troubleshooting the app
-
 
 
 ++ Getting Help
 
+* Consult Splunk Answers
 * Contact the author: mikael@bjerkeland.com
