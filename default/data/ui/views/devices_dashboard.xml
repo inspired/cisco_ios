@@ -66,7 +66,7 @@
     <panel>
       <chart>
         <title>Mnemonics by model</title>
-        <searchString>sourcetype=cisco:ios | chart count(mnemonic) OVER host BY mnemonic limit=50 usenull=f | join host [inputcsv test] | fields - host | stats avg(*) BY model</searchString>
+        <searchString>sourcetype=cisco:ios | chart count(mnemonic) OVER host BY mnemonic limit=50 usenull=f | join host [search sourcetype=Cisco:Smart* | stats latest(model) AS model BY host] | fields - host | stats avg(*) BY model</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
