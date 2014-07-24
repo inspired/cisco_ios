@@ -64,6 +64,34 @@
   </row>
   <row>
     <panel>
+      <chart>
+        <title>Mnemonics by model</title>
+        <searchString>sourcetype=cisco:ios | chart count(mnemonic) OVER host BY mnemonic limit=50 usenull=f | join host [inputcsv test] | fields - host | stats avg(*) BY model</searchString>
+        <earliestTime>$earliest$</earliestTime>
+        <latestTime>$latest$</latestTime>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.enabled">false</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">bar</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">stacked</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
       <table>
         <title>Devices</title>
         <searchString>| pivot Cisco_IOS_Event Device last(hostname) AS "Hostname" last(site_id) AS "Site ID" last(model) AS "Model" last(serial_number) AS "Serial number" count(Device) AS "Count of events" SPLITROW host AS host</searchString>
