@@ -8,7 +8,7 @@
   </fieldset>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-spanning_tree" | table _time, host, facility, mnemonic, action, dest_int, spanning_tree_instance</searchString>
+      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-spanning_tree" | table _time, host, facility, mnemonic, src_int, dest_int, src_vlan, src_mac, spanning_tree_instance, action</searchString>
       <title>Spanning tree events</title>
       <option name="count">20</option>
       <option name="displayRowNumbers">true</option>
