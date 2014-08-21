@@ -258,6 +258,7 @@ spanning-tree logging
 ip sla logging traps
 ip dhcp limit lease log
 ip dhcp conflict logging
+ip nat log translations syslog
 --
 
 6. (OPTIONAL) For DHCP utilization logging on your devices, do this for each pool
