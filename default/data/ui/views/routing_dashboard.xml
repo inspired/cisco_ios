@@ -1,6 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <form>
   <label>Dashboard</label>
+  <description>
+    TODO: Create one table that shows all routing protocol. Add multi to filter displayed protocols
+  </description>
   <fieldset autoRun="true">
     <input type="time">
       <default>Last 60 minutes</default>
