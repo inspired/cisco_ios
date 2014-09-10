@@ -6,7 +6,7 @@
   </description>
   <fieldset autoRun="true">
     <input type="time">
-      <default>Last 60 minutes</default>
+      <default>Last 24 hours</default>
     </input>
   </fieldset>
   <row>
