@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
   <label>Dashboard</label>
-  <description>TODO: Create one table that shows all routing protocol. Add multi to filter displayed protocols</description>
+  <description>Routing protocol events</description>
   <fieldset autoRun="true">
     <input type="time">
       <label>Time period</label>
@@ -41,47 +41,6 @@
         <option name="rowNumbers">true</option>
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">cell</option>
-      </table>
-    </panel>
-    </table>
-  </row>
-  <row>
-    <panel>
-      <table>
-        <searchString>sourcetype=cisco:ios eventtype=cisco_ios-routing-dual mnemonic=NBRCHANGE | table _time,host,protocol,process_id,as_number,neighbor,src_int,state_to,reason | sort -_time</searchString>
-        <title>EIGRP neighbor changes</title>
-        <option name="count">10</option>
-        <option name="displayRowNumbers">true</option>
-      </table>
-    </panel>
-  </row>
-  <row>
-    <panel>
-      <table>
-        <searchString>sourcetype=cisco:ios eventtype=cisco_ios-routing-ospf mnemonic=ADJCHG | table _time,host,process_id,neighbor,src_int,state_from,state_to,reason | sort -_time</searchString>
-        <title>OSPF adjacency changes</title>
-        <option name="count">10</option>
-        <option name="displayRowNumbers">true</option>
-      </table>
-    </panel>
-  </row>
-  <row>
-    <panel>
-      <table>
-        <searchString>sourcetype=cisco:ios eventtype=cisco_ios-routing-bgp mnemonic=ADJCHANGE | table _time,host,neighbor,vrf,state_to,reason | sort -_time</searchString>
-        <title>BGP adjacency changes</title>
-        <option name="count">10</option>
-        <option name="displayRowNumbers">true</option>
-      </table>
-    </panel>
-  </row>
-  <row>
-    <panel>
-      <table>
-        <searchString>sourcetype=cisco:ios eventtype=cisco_ios-routing-ldp (mnemonic=NBRCHG OR mnemonic=NBR_CHANGE) | table _time,host,protocol,neighbor,unknown_id,state_to,reason | sort -_time</searchString>
-        <title>MPLS LDP neighbor changes</title>
-        <option name="count">10</option>
-        <option name="displayRowNumbers">true</option>
       </table>
     </panel>
   </row>
