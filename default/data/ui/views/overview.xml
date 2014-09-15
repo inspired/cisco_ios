@@ -101,7 +101,7 @@
     </chart>
     <chart>
       <title>Syslog severity distribution</title>
-      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(severity_id) AS "Count of severity_id" SPLITROW severity_name AS "severity_name" TOP 100 count(severity_id)</searchString>
+      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(severity_id) AS "Count of severity_id" SPLITROW severity_name AS severity_name SPLITROW severity_id AS severity_id TOP 100 count(severity_id) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | sort - severity_id | fields - severity_id</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="charting.axisY.scale">linear</option>
