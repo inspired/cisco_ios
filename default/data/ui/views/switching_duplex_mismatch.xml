@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
-<form>
+<?xml version="1.0" encoding="utf-8"?><form>
   <label>Duplex mismatch</label>
   <fieldset autoRun="true">
     <input type="time">
@@ -8,10 +7,16 @@
   </fieldset>
   <row>
     <table>
-      <searchString>eventtype=cisco_ios-duplex_mismatch | dedup dvc,cdp_local_interface | table _time,dvc,cdp_local_interface,cdp_neighbor,message_text | rename cdp_local_interface AS "Local Int.",cdp_neighbor AS "CDP Neighbor",message_text AS "Message" | sort dvc</searchString>
       <title>Duplex mismatch by host</title>
+      <searchString>eventtype=cisco_ios-duplex_mismatch | dedup dvc,cdp_local_interface | table _time,dvc,cdp_local_interface,cdp_neighbor,dest_int,message_text | rename cdp_local_interface AS "Local Int.",cdp_neighbor AS "CDP Neighbor",dest_int AS "Remote Int.",message_text AS "Message" | sort dvc</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
       <option name="count">50</option>
       <option name="displayRowNumbers">true</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">true</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">cell</option>
     </table>
   </row>
 </form>
