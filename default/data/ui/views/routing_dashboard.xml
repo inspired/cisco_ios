@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<form>
+<?xml version="1.0" encoding="utf-8"?><form>
   <label>Dashboard</label>
   <description>Routing protocol events</description>
   <fieldset autoRun="true">
@@ -28,6 +27,34 @@
       <default>*</default>
     </input>
   </fieldset>
+  <row>
+    <panel>
+      <chart>
+        <title>Top neighbors</title>
+        <searchString>eventtype=cisco_ios-routing  | eval routing_protocol = case(eventtype == "cisco_ios-routing-ospf", "OSPF", eventtype == "cisco_ios-routing-dual", "EIGRP", eventtype == "cisco_ios-routing-bgp", "BGP", eventtype == "cisco_ios-routing-ldp", "LDP", eventtype == "cisco_ios-routing-isis", "ISIS", eventtype == "cisco_ios-routing-rsvp", "RSVP", eventtype == "cisco_ios-routing-pim", "PIM") | search $routing_protocol_selection$ | top neighbor</searchString>
+        <earliestTime>$earliest$</earliestTime>
+        <latestTime>$latest$</latestTime>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.enabled">false</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">pie</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+      </chart>
+    </panel>
+  </row>
   <row>
     <panel>
       <table>
