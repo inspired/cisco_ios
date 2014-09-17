@@ -8,7 +8,7 @@
   </fieldset>
   <row>
     <table>
-      <searchString>eventtype=cisco_ios-duplex_mismatch | dedup host,cdp_local_interface | table _time,host,cdp_local_interface,cdp_neighbor,message_text | rename cdp_local_interface AS "Local Int.",cdp_neighbor AS "CDP Neighbor",message_text AS "Message" | sort host</searchString>
+      <searchString>eventtype=cisco_ios-duplex_mismatch | dedup dvc,cdp_local_interface | table _time,dvc,cdp_local_interface,cdp_neighbor,message_text | rename cdp_local_interface AS "Local Int.",cdp_neighbor AS "CDP Neighbor",message_text AS "Message" | sort dvc</searchString>
       <title>Duplex mismatch by host</title>
       <option name="count">50</option>
       <option name="displayRowNumbers">true</option>
