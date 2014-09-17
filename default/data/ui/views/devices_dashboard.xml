@@ -39,9 +39,9 @@
       <chart>
         <title>Models</title>
         <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event dc(hostname) AS "Distinct Count of hostname" SPLITROW model AS model SORT 100 model ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</searchString>
-        <earliestTime>-24h@h</earliestTime>
-        <latestTime>now</latestTime>
-        <option name="charting.axisY2.enabled">0</option>
+        <earliestTime>$earliest$</earliestTime>
+        <latestTime>$latest$</latestTime>
+        <option name="charting.axisY2.enabled">false</option>
         <option name="charting.axisY.scale">linear</option>
         <option name="charting.axisY2.scale">inherit</option>
         <option name="charting.axisX.scale">linear</option>
@@ -66,7 +66,7 @@
     <panel>
       <chart>
         <title>Mnemonics by model</title>
-        <searchString>sourcetype=cisco:ios | chart count(mnemonic) OVER host BY mnemonic limit=50 usenull=f | join host [search sourcetype=Cisco:Smart* | stats latest(model) AS model BY host] | fields - host | stats avg(*) AS * BY model</searchString>
+        <searchString>sourcetype=cisco:ios | chart count(mnemonic) OVER host BY mnemonic limit=50 usenull=f | join host [search sourcetype=Cisco:Smart* | stats latest(model) AS model BY host] | fields - host | stats avg(*) BY model</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
