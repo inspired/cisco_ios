@@ -276,7 +276,6 @@ logging logfile messages 6
 ++ TODO
 
 * IOS DHCP binding logging (file monitoring)
-* Add SNMP extractions
 * Facility-Mnemonic by software version, by series, by model?
 
 
