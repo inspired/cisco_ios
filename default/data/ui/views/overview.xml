@@ -101,7 +101,7 @@
     </chart>
     <chart>
       <title>Syslog severity distribution</title>
-      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(severity_id) AS "Count of severity_id" SPLITROW severity_name AS severity_name SPLITROW severity_id AS severity_id TOP 100 count(severity_id) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | sort - severity_id | fields - severity_id</searchString>
+      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(severity_id) AS "Count of severity_id" SPLITROW severity_name AS severity_name SPLITROW severity_id AS severity_id TOP 100 count(severity_id) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | sort - severity_id | eval SN="" | xyseries SN severity_name "Count of severity_id" | rename SN AS "Severity name" | sort -emergency, -alert, -critical, -error, -warning, -notification, -informational, -debugging | table "Severity name" emergency, alert, critical, error, warning, notification, informational, debugging</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="charting.axisY.scale">linear</option>
@@ -117,6 +117,11 @@
       <option name="charting.chart">bar</option>
       <option name="charting.drilldown">all</option>
       <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+      <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+      <option name="charting.axisTitleY2.visibility">visible</option>
+      <option name="charting.axisY2.enabled">false</option>
+      <option name="charting.axisY2.scale">inherit</option>
     </chart>
     <chart>
       <title>Top mnemonics by time</title>
