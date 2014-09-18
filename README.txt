@@ -190,9 +190,9 @@ Features:
 
 ++ Application Details
 
-Sourcetype(s):            cisco:ios
-Supported Technologies:   Cisco IOS, IOS-XE, NX-OS, IOS XR devices
-
+Sourcetype(s):              cisco:ios
+Supported Technologies:     Cisco IOS, IOS-XE, NX-OS, IOS XR devices
+Supported Splunk versions:  6.1+
 
 ++ Installation Instructions
 
