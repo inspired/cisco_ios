@@ -30,7 +30,7 @@
     </table>
     <table>
       <title>Etherchannel events</title>
-      <searchString>eventtype="cisco_ios-etherchannel" | table _time, host, src_int, compatibility, dest_int, action, reason</searchString>
+      <searchString>eventtype="cisco_ios-etherchannel" | table _time, host, src_interface, compatibility, dest_interface, action, reason</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="wrap">true</option>
