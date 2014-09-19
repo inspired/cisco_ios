@@ -22,7 +22,7 @@
   <row>
     <chart>
       <title>Optical transceiver power by host and interface</title>
-      <searchString>sourcetype=cisco:ios mnemonic=THRESHOLD_VIOLATION alarm="Rx power" OR alarm="Tx power" | strcat host " " src_int host_src_int | timechart avg(operating_value) by host_src_int</searchString>
+      <searchString>sourcetype=cisco:ios mnemonic=THRESHOLD_VIOLATION alarm="Rx power" OR alarm="Tx power" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="charting.axisTitleX.visibility">visible</option>
@@ -43,7 +43,7 @@
     </chart>
     <chart>
       <title>Optical transceiver temperature by host and interface</title>
-      <searchString>sourcetype=cisco:ios mnemonic=THRESHOLD_VIOLATION alarm="Temperature" | strcat host " " src_int host_src_int | timechart avg(operating_value) by host_src_int</searchString>
+      <searchString>sourcetype=cisco:ios mnemonic=THRESHOLD_VIOLATION alarm="Temperature" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="charting.axisTitleX.visibility">visible</option>
