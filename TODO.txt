@@ -25,16 +25,6 @@ http://www.cisco.com/web/about/security/intelligence/identify-incidents-via-sysl
 %SEC-4-TOOMANY
 
  	
-For DOT1x events:
-May 27 09:03:15 10.215.32.107 601: 10.215.32.107: May 27 09:07:15.502 CEST: %EPM-6-IPEVENT: IP 10.215.33.101| MAC 001a.6bd2.67d9| AuditSessionID 0AD7206B00000B7132B16CC5| AUTHTYPE DOT1X| EVENT IP-ASSIGNMENT
- 	
-
-May 27 09:03:14 10.215.32.107 599: 10.215.32.107: May 27 09:07:14.773 CEST: %EPM-6-IPEVENT: IP 0.0.0.0| MAC 001a.6bd2.67d9| AuditSessionID 0AD7206B00000B7132B16CC5| AUTHTYPE DOT1X| EVENT IP-WAIT
-
-http://docs.splunk.com/Documentation/Splunk/5.0.2/Knowledge/UnderstandandusetheCommonInformationModel
-
-
-
 
 *Jun 12 04:05:33 PDT: %GLBP-6-STATECHANGE: FastEthernet0/1.17 Grp 17 state Standby -> Active
 *Jun 12 04:05:33 PDT: %GLBP-6-STATECHANGE: FastEthernet0/1.19 Grp 19 state Standby -> Active

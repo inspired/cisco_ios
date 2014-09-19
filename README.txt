@@ -28,7 +28,7 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 +++ 2.0.0 (2014-09-19)
 Features: 
-* CIM Compliance
+* CIM 4.0 Compliance. MANY fields have changed names
 * Lots of new features
 
 +++ 1.6.0 (2014-07-21)
