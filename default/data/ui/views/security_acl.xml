@@ -9,7 +9,7 @@
     <panel>
       <chart>
         <title>Protocols by action</title>
-        <searchString>sourcetype=cisco:ios eventtype=cisco_ios-acl_log | strcat protocol "://" dest_port protoDstPort | chart count(protoDstPort) over action BY protoDstPort</searchString>
+        <searchString>sourcetype=cisco:ios eventtype=cisco_ios-acl_log | strcat protocol "://" dest_port protoDestPort | chart count(protoDestPort) over action BY protoDestPort</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="charting.axisTitleX.visibility">visible</option>
@@ -31,7 +31,7 @@
     <panel>
       <chart>
         <title>Top ACE Correlation Tags</title>
-        <searchString>| pivot Cisco_IOS_Event Access_List_Event count(acl_correlation_tag) AS "Count of acl_correlation_tag" SPLITROW acl_correlation_tag AS "acl_correlation_tag" SORT 100 acl_correlation_tag</searchString>
+        <searchString>| pivot Cisco_IOS_Event Access_List_Event count(correlation_tag) AS "Count of correlation_tag" SPLITROW correlation_tag AS "correlation_tag" SORT 100 correlation_tag</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="wrap">true</option>
@@ -78,7 +78,7 @@
   <row>
     <panel>
       <table>
-        <searchString>sourcetype=cisco:ios eventtype="cisco_ios-acl_log" NOT [inputlookup cisco_ios_acl_excluded_ips | fields acl_src_ip] | table _time,host,acl_list,action,acl_proto,acl_src_ip,acl_src_port,acl_dst_ip,acl_dst_port</searchString>
+        <searchString>sourcetype=cisco:ios eventtype="cisco_ios-acl_log" NOT [inputlookup cisco_ios_acl_excluded_ips | fields src_ip] | table _time,host,rule,action,proto,src_ip,src_port,dest_ip,dest_port</searchString>
         <title>Access Control List logs (excluding hits from local management IPs)</title>
         <option name="count">20</option>
         <option name="displayRowNumbers">true</option>
