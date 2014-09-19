@@ -147,7 +147,7 @@
   <row>
     <table>
       <title>Port flapping</title>
-      <searchString>eventtype="cisco_ios-port_down" OR eventtype="cisco_ios-port_up" | stats count,latest(port_status) AS port_status by host,src_int | sort -count | table host,src_int,port_status,count</searchString>
+      <searchString>eventtype="cisco_ios-port_down" OR eventtype="cisco_ios-port_up" | stats count,latest(port_status) AS port_status by host,src_interface | sort -count | table host,src_interface,port_status,count</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="list.drilldown">full</option>
@@ -165,7 +165,7 @@
     </table>
     <table>
       <title>Error disabled interface</title>
-      <searchString>eventtype="cisco_ios-err_disable" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_int")` | stats count(src_int) AS Amount BY host,src_int,disable_cause | rename src_int AS Interface, disable_cause AS Cause</searchString>
+      <searchString>eventtype="cisco_ios-err_disable" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | stats count(src_interface) AS Amount BY host,src_interface,disable_cause | rename src_int AS Interface, disable_cause AS Cause</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="wrap">true</option>
