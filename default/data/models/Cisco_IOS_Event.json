@@ -1109,18 +1109,6 @@
                     "fieldSearch": ""
                 },
                 {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": true,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
-                    "comment": "",
-                    "fieldSearch": "acl_src_port=*"
-                },
-                {
                     "fieldName": "action",
                     "owner": "Cisco_IOS_Event",
                     "type": "string",
@@ -2331,18 +2319,6 @@
                     "fieldSearch": ""
                 },
                 {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
                     "fieldName": "action",
                     "owner": "Cisco_IOS_Event",
                     "type": "string",
@@ -3398,18 +3374,6 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "severity_id",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -4473,18 +4437,6 @@
                     "fieldSearch": ""
                 },
                 {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
                     "fieldName": "action",
                     "owner": "Cisco_IOS_Event",
                     "type": "string",
@@ -5540,18 +5492,6 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "severity_id",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -6615,18 +6555,6 @@
                     "fieldSearch": ""
                 },
                 {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
                     "fieldName": "action",
                     "owner": "Cisco_IOS_Event",
                     "type": "string",
@@ -7682,18 +7610,6 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "severity_id",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -8757,18 +8673,6 @@
                     "fieldSearch": ""
                 },
                 {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
                     "fieldName": "action",
                     "owner": "Cisco_IOS_Event",
                     "type": "string",
@@ -9824,18 +9728,6 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "severity_id",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -10899,18 +10791,6 @@
                     "fieldSearch": ""
                 },
                 {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
                     "fieldName": "action",
                     "owner": "Cisco_IOS_Event",
                     "type": "string",
@@ -11966,18 +11846,6 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "severity_id",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -13041,18 +12909,6 @@
                     "fieldSearch": ""
                 },
                 {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
                     "fieldName": "action",
                     "owner": "Cisco_IOS_Event",
                     "type": "string",
@@ -14110,18 +13966,6 @@
                     "displayName": "severity_id",
                     "comment": "",
                     "fieldSearch": ""
-                },
-                {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": true,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
-                    "comment": "",
-                    "fieldSearch": "acl_src_port=*"
                 },
                 {
                     "fieldName": "action",
@@ -15183,18 +15027,6 @@
                     "fieldSearch": ""
                 },
                 {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": true,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
-                    "comment": "",
-                    "fieldSearch": "acl_src_port=*"
-                },
-                {
                     "fieldName": "action",
                     "owner": "Cisco_IOS_Event",
                     "type": "string",
@@ -16254,18 +16086,6 @@
                     "fieldSearch": ""
                 },
                 {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
                     "fieldName": "action",
                     "owner": "Cisco_IOS_Event",
                     "type": "string",
@@ -17321,18 +17141,6 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "severity_id",
-                    "comment": "",
-                    "fieldSearch": ""
-                },
-                {
-                    "fieldName": "acl_src_port",
-                    "owner": "Cisco_IOS_Event",
-                    "type": "number",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "acl_src_port",
                     "comment": "",
                     "fieldSearch": ""
                 },
