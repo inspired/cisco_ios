@@ -39,7 +39,7 @@
     <panel>
       <table>
         <title>Vendor explanations</title>
-        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_explanation AS vendor_explanation TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</searchString>
+        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_explanation AS "Explanation" TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</searchString>
         <earliestTime>$field1.earliest$</earliestTime>
         <latestTime>$field1.latest$</latestTime>
         <option name="charting.axisY2.enabled">false</option>
@@ -68,7 +68,7 @@
     <panel>
       <table>
         <title>Recommended actions</title>
-        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_recommended_action AS vendor_recommended_action TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</searchString>
+        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_recommended_action AS "Recommended action" TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</searchString>
         <earliestTime>$field1.earliest$</earliestTime>
         <latestTime>$field1.latest$</latestTime>
         <option name="wrap">true</option>
