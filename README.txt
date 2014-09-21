@@ -5,7 +5,7 @@ Current Version:  2.0.0
 Last Modified:    2014-09-19
 Splunk Version:   6.1+
 Author:           Mikael Bjerkeland
-CIM Compliance:   4.0 (Authentication, Network Traffic)
+CIM Compliance:   4.0 (Authentication, Change Analysis, Inventory, Network Traffic)
 
 The Cisco IOS app includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices
 
