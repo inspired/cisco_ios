@@ -1,5 +1,5 @@
 <form>
-  <label>Auditing -&gt; Event Analysis</label>
+  <label>Event Analysis</label>
   <description>Event Analysis</description>
   <fieldset submitButton="false" autoRun="true">
     <input type="time" token="field1" searchWhenChanged="true">
