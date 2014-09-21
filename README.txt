@@ -1,10 +1,11 @@
 Copyright (C) 2013 Mikael Bjerkeland. All Rights Reserved.
 
-App:               	Cisco IOS
-Current Version:	2.0.0
-Last Modified:		2014-09-19
-Splunk Version:		6.1+
-Author:			Mikael Bjerkeland
+App:              Cisco IOS
+Current Version:  2.0.0
+Last Modified:    2014-09-19
+Splunk Version:   6.1+
+Author:           Mikael Bjerkeland
+CIM Compliance:   4.0 (Authentication, Network Traffic)
 
 The Cisco IOS app includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices
 
@@ -28,7 +29,7 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 +++ 2.0.0 (2014-09-19)
 Features: 
-* CIM 4.0 Compliance. MANY fields have changed names
+* CIM 4.0 Compliance. MANY fields have changed names. You may need to change your custom searches
 * Lots of new features
 
 +++ 1.6.0 (2014-07-21)
