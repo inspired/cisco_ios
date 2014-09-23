@@ -30,7 +30,8 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 +++ 2.0.0 (2014-09-19)
 Features: 
 * CIM 4.0 Compliance. MANY fields have changed names. You may need to change your custom searches
-* Lots of new features
+* Lots of new features. Dashboards have been fixed up, drilldowns enhanced, more Smart Call Home support
+MAKE SURE YOU REMOVE EARLIER VERSIONS OF THE CISCO IOS APP BEFORE INSTALLING THIS VERSION!
 
 +++ 1.6.0 (2014-07-21)
 Features:
