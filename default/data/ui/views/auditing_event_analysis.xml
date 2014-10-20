@@ -9,6 +9,13 @@
         <latestTime>now</latestTime>
       </default>
     </input>
+    <input type="multiselect" token="severity_id_selection" searchWhenChanged="true">
+      <label>Severity</label>
+      <populatingSearch fieldForLabel="severity_name" fieldForValue="severity_id">| inputlookup cisco_ios_severity</populatingSearch>
+      <delimiter> OR </delimiter>
+      <default>0,1,2,3,4,5,6,7</default>
+      <valuePrefix>severity_id=</valuePrefix>
+    </input>
   </fieldset>
   <row>
     <html>
@@ -30,7 +37,7 @@
         <li>Catalyst 2960, 3750 etc</li>
         <li>Catalyst 4500</li>
         <li>Catalyst 6500</li>
-	<li>Cisco WLAN Controller</li>
+        <li>Cisco WLAN Controller</li>
       </ul>
       </section>
       </html>
@@ -39,7 +46,7 @@
     <panel>
       <table>
         <title>Vendor explanations</title>
-        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_explanation AS "Explanation" TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</searchString>
+        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_explanation AS Explanation SPLITROW severity_id AS severity_id TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | search $severity_id_selection$</searchString>
         <earliestTime>$field1.earliest$</earliestTime>
         <latestTime>$field1.latest$</latestTime>
         <option name="charting.axisY2.enabled">false</option>
@@ -63,12 +70,13 @@
         <option name="rowNumbers">false</option>
         <option name="dataOverlayMode">none</option>
         <option name="count">10</option>
+        <option name="drilldown">cell</option>
       </table>
     </panel>
     <panel>
       <table>
         <title>Recommended actions</title>
-        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_recommended_action AS "Recommended action" TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</searchString>
+sco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | search $severity_id_selection$</searchString>
         <earliestTime>$field1.earliest$</earliestTime>
         <latestTime>$field1.latest$</latestTime>
         <option name="wrap">true</option>
@@ -101,7 +109,7 @@
     <panel>
       <table>
         <title>Hosts by severity</title>
-        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW host AS host SPLITCOL severity_name SORT 500 host ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1 | sort -emergency, -alert, -critical, -error, -warning, -notification, -informational, -debugging | table host, emergency, alert, critical, error, warning, notification, informational, debugging</searchString>
+ency, -alert, -critical, -error, -warning, -notification, -informational, -debugging | table host, emergency, alert, critical, error, warning, notification, informational, debugging</searchString>
         <earliestTime>$field1.earliest$</earliestTime>
         <latestTime>$field1.latest$</latestTime>
         <option name="wrap">true</option>
@@ -109,53 +117,53 @@
         <option name="dataOverlayMode">heatmap</option>
         <option name="drilldown">row</option>
         <option name="count">10</option>
-	<drilldown>
-		<link field="host">
-		<![CDATA[
-			/app/cisco_ios/search?q=search host=$row.host$&earliest=$earliest$&latest=$latest$
-		]]>
-		</link>
-		<link field="emergency">
-		<![CDATA[
-			/app/cisco_ios/search?q=search host=$row.host$ severity_name=emergency&earliest=$earliest$&latest=$latest$
-		]]>
-		</link>
-		<link field="alert">
-		<![CDATA[
-			/app/cisco_ios/search?q=search host=$row.host$ severity_name=alert&earliest=$earliest$&latest=$latest$
-		]]>
-		</link>
-		<link field="critical">
-		<![CDATA[
-			/app/cisco_ios/search?q=search host=$row.host$ severity_name=critical&earliest=$earliest$&latest=$latest$
-		]]>
-		</link>
-		<link field="error">
-		<![CDATA[
-			/app/cisco_ios/search?q=search host=$row.host$ severity_name=error&earliest=$earliest$&latest=$latest$
-		]]>
-		</link>
-		<link field="warning">
-		<![CDATA[
-			/app/cisco_ios/search?q=search host=$row.host$ severity_name=warning&earliest=$earliest$&latest=$latest$
-		]]>
-		</link>
-		<link field="notification">
-		<![CDATA[
-			/app/cisco_ios/search?q=search host=$row.host$ severity_name=notification&earliest=$earliest$&latest=$latest$
-		]]>
-		</link>
-		<link field="informational">
-		<![CDATA[
-			/app/cisco_ios/search?q=search host=$row.host$ severity_name=informational&earliest=$earliest$&latest=$latest$
-		]]>
-		</link>
-		<link field="debugging">
-		<![CDATA[
-			/app/cisco_ios/search?q=search host=$row.host$ severity_name=debugging&earliest=$earliest$&latest=$latest$
-		]]>
-		</link>
-	</drilldown>
+        <drilldown>
+          <link field="host">
+            <![CDATA[
+                        /app/cisco_ios/search?q=search host=$row.host$&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+          <link field="emergency">
+            <![CDATA[
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_name=emergency&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+          <link field="alert">
+            <![CDATA[
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_name=alert&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+          <link field="critical">
+            <![CDATA[
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_name=critical&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+          <link field="error">
+            <![CDATA[
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_name=error&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+          <link field="warning">
+            <![CDATA[
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_name=warning&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+          <link field="notification">
+            <![CDATA[
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_name=notification&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+          <link field="informational">
+            <![CDATA[
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_name=informational&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+          <link field="debugging">
+            <![CDATA[
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_name=debugging&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+        </drilldown>
       </table>
     </panel>
   </row>
