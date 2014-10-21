@@ -5,6 +5,20 @@
       <default>Last 60 minutes</default>
     </input>
   </fieldset>
+    <row>
+    <html>
+      <section>
+      <p>Add the following:</p>
+      <ul>
+        <li># of clients total, per switch, per protocol (802.1x/MAB/Webauth)</li>
+        <li>Top client device type (if device sensor is enabled)</li>
+        <li>Top user authentication</li>
+        <li># of success/failed auth timeline</li>
+        <li># of connected clients timeline</li>
+      </ul>
+      </section>
+    </html>
+    </row>
   <row>
     <panel>
       <table>
