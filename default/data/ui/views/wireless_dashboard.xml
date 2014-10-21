@@ -6,6 +6,24 @@
       <default>Last 60 minutes</default>
     </input>
   </fieldset>
+    <row>
+    <html>
+      <section>
+      <p>Add the following:</p>
+      <ul>
+        <li># of clients total, per AP (and/or AP group), per band, per controller, per WLAN, per protocol (PSK/802.1x/MAB/Webauth)</li>
+        <li>Top client device type (if device sensor is enabled)</li>
+        <li>Top client application type (if AVP is enabled)</li>
+        <li># of clients excluded with reason</li>
+        <li>Top user authentication</li>
+        <li># of success/failed auth timeline</li>
+        <li># of connected clients timeline</li>
+        <li>RF events chart with drill down</li>
+        <li>Mobility events chart with drill down</li>
+      </ul>
+      </section>
+    </html>
+    </row>
   <row>
     <table>
       <searchString>eventtype="cisco_ios-lwapp_radio_crash" | table _time,host,radio_id,ap_mac</searchString>
