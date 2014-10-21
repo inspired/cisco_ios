@@ -76,7 +76,7 @@
     <panel>
       <table>
         <title>Recommended actions</title>
-        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_recommended_action AS "Recommended action" severity_id AS "severity_id" TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | search $severity_id_selection$</searchString>
+        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_recommended_action AS "Recommended action" SPLITROW severity_id AS "severity_id" TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | search $severity_id_selection$</searchString>
         <earliestTime>$field1.earliest$</earliestTime>
         <latestTime>$field1.latest$</latestTime>
         <option name="wrap">true</option>
