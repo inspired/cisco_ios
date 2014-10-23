@@ -40,6 +40,21 @@ New extractions:
 
 * Software and hardware version history per host (lookup file generated daily)
 * From your WLC: "config ap syslog host global IP.ADDR.OF.SYSLOGSERVER" to enable logging from APs
+* Normalize IP address extractions using a common referenced match and make it version agnostic (IPv4 and IPv6):
+
+# This already exists in default/transforms.conf
+[octet] 
+# this would match only numbers from 0-255 (one octet in an ip)
+REGEX = (?:2(?:5[0-5]|[0-4][0-9])|[0-1][0-9][0-9]|[0-9][0-9]?)
+
+[ipv46]
+# matches a valid IPv4 or IPv6 address (change to [[octet]] and [[ipv6]]. 
+# Has a problem with 1::3 (http://stackoverflow.com/questions/53497/regular-expression-that-matches-valid-ipv6-addresses)
+Stolen from: https://gist.github.com/syzdek/6086792
+# Extracts: ip
+REGEX = (?<ip>(?:2(?:5[0-5]|[0-4][0-9])|[0-1][0-9][0-9]|[0-9][0-9]?)(?:\.(?:2(?:5[0-5]|[0-4][0-9])|[0-1][0-9][0-9]|[0-9][0-9]?)){3}|([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe08:(:[0-9a-fA-F]{1,4}){2,2}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))
+
+
 
 
 Cisco IOS Firewall (i.e. FW-6-SESS_AUDIT_TRAIL_START etc.) http://www.cisco.com/en/US/products/sw/secursw/ps1018/products_configuration_example09186a00800949e3.shtml#tshoot
