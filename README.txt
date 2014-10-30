@@ -1,8 +1,8 @@
 Copyright (C) 2013 Mikael Bjerkeland. All Rights Reserved.
 
 App:              Cisco IOS
-Current Version:  2.0.0
-Last Modified:    2014-09-19
+Current Version:  2.1.0
+Last Modified:    2014-10-30
 Splunk Version:   6.1+
 Author:           Mikael Bjerkeland
 CIM Compliance:   4.0 (Authentication, Change Analysis, Inventory, Network Traffic)
@@ -25,6 +25,11 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 
 ++ What's New
+
++++ 2.1.0 (2014-10-30)
+Features:
+* More filters in the dashboards
+* DOT1X now with more graphs
 
 
 +++ 2.0.0 (2014-09-19)
