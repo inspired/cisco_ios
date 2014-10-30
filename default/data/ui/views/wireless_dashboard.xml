@@ -1,13 +1,13 @@
-<?xml version='1.0' encoding='utf-8'?>
-<form>
+<?xml version="1.0" encoding="utf-8"?><form>
   <label>Wireless - Dashboard</label>
   <fieldset autoRun="true">
     <input type="time">
       <default>Last 60 minutes</default>
     </input>
   </fieldset>
-    <row>
-    <html>
+  <row>
+    <panel>
+      <html>
       <section>
       <p>Add the following:</p>
       <ul>
@@ -23,19 +23,39 @@
       </ul>
       </section>
     </html>
-    </row>
+    </panel>
+  </row>
   <row>
-    <table>
-      <searchString>eventtype="cisco_ios-lwapp_radio_crash" | table _time,host,radio_id,ap_mac</searchString>
-      <title>Radio crashes</title>
-      <option name="count">20</option>
-      <option name="displayRowNumbers">true</option>
-    </table>
-    <table>
-      <searchString>eventtype="cisco_ios-lwapp_akita_err" | table _time,host,ap_mac</searchString>
-      <title>Unsupported access points</title>
-      <option name="count">20</option>
-      <option name="displayRowNumbers">true</option>
-    </table>
+    <panel>
+      <table>
+        <searchString>eventtype="cisco_ios-lwapp_radio_crash" | table _time,host,radio_id,ap_mac</searchString>
+        <title>Radio crashes</title>
+        <option name="count">20</option>
+        <option name="displayRowNumbers">true</option>
+      </table>
+    </panel>
+    <panel>
+      <table>
+        <searchString>eventtype="cisco_ios-lwapp_akita_err" | table _time,host,ap_mac</searchString>
+        <title>Unsupported access points</title>
+        <option name="count">20</option>
+        <option name="displayRowNumbers">true</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Events with MAC addresses</title>
+        <search>
+          <query>sourcetype=cisco:ios filename=* filename_line=* | rex field=message_text "(?&lt;src_mac&gt;[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2})" | rex field=message_text mode=sed "s/([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}/XX:XX:XX:XX:XX/g" | stats latest(_time) AS _time, count by dvc,facility,mnemonic,src_mac,message_text,vendor_explanation | sort -count | table _time dvc facility mnemonic src_mac message_text vendor_explanation count</query>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="drilldown">cell</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
   </row>
 </form>
