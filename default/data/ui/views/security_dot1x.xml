@@ -38,7 +38,7 @@
   <row>
     <panel>
       <chart>
-        <title>Authentications events over time by protocol</title>
+        <title>Authentication events over time by protocol</title>
         <search>
           <query>eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | timechart count by authenticator</query>
         </search>
