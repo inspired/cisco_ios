@@ -291,7 +291,8 @@ logging logfile messages 6
 
 * IOS DHCP binding logging (file monitoring)
 * Facility-Mnemonic by software version, by series, by model?
-
+* Check drilldown for event analysis - cannot drilldown on specific host/event for recommended action/explanation
+* eventtype="cisco_ios-mac_flapping"  mnemonic=MACFLAP_NOTIF (src_mac, vlan osv funker ikke)
 
 ++ Getting Help
 
