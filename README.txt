@@ -273,6 +273,7 @@ ip sla logging traps
 ip dhcp limit lease log
 ip dhcp conflict logging
 ip nat log translations syslog
+xconnect logging pseudowire status
 --
 
 6. (OPTIONAL) For DHCP utilization logging on your devices, do this for each pool
