@@ -8,8 +8,8 @@
       <ol>
       <li>Install the Cisco Networks (cisco_networks) App on your search head</li>
       <li>Install the Cisco Networks Add-on (TA-cisco_networks) on your search head AND indexers/heavy forwarders</li>
-      <li>Enable a UDP input with a custom port number on your Splunk forwarder or Splunk indexer. Set the sourcetype to <b>cisco:ios</b> or <b>syslog</b></li>
-      <li>Enable a TCP input with a custom port number on your Splunk forwarder or Splunk indexer. Set the sourcetype to <b>Cisco:SmartCallHome</b></li>
+      <li>Syslog input: Enable a UDP input with a custom port number on your Splunk forwarder or Splunk indexer. Set the sourcetype to <b>cisco:ios</b> or <b>syslog</b></li>
+      <li>Smart Call Home input: Enable a TCP input with a custom port number on your Splunk forwarder or Splunk indexer. Set the sourcetype to <b>Cisco:SmartCallHome</b></li>
       </ol>
       </section>
       <section>
@@ -19,7 +19,7 @@
       <pre>
       service timestamps log datetime msec localtime show-timezone
       logging trap informational
-      logging host [YOUR SYSLOG/SPLUNK SERVER IP] transport udp port [YOUR PORT]
+      logging host [YOUR SYSLOG/SPLUNK SERVER IP] transport udp port [YOUR UDP PORT]
       </pre>
       <h4>Enable change auditing</h4>
       <pre>
