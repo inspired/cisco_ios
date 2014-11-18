@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><form script="autodiscover.js">
+<form>
   <label>Device</label>
   <fieldset autoRun="true">
     <input type="time" searchWhenChanged="true">
@@ -14,7 +14,7 @@
     </html>
     <single>
       <title>Device</title>
-      <searchString>| inputlookup CiscoSNMPInfo | search host=$form.host$ | fields host | appendcols [search sourcetype=Cisco:SmartCallHome host=$form.host$ | rename hostname AS host | fields host | head 1]</searchString>
+      <searchString>| inputlookup Cisco_Device | search host=$form.host$ | fields host | appendcols [search sourcetype=Cisco:SmartCallHome host=$form.host$ | rename hostname AS host | fields host | head 1]</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="linkView">search</option>
@@ -38,8 +38,6 @@
     </table>
     <html>
       <h2>Popular message types last 24 hours</h2>
-      <div id="tagcloud-search" class="splunk-manager splunk-searchmanager " data-require="splunkjs/mvc/searchmanager" data-options="{ &quot;app&quot;: &quot;cisco_ios&quot;, &quot;preview&quot;: true, &quot;search&quot;: &quot;sourcetype=cisco:ios host=$form.host$ | eval fsm=facility + \&quot;-\&quot; + severity_id + \&quot;-\&quot; + mnemonic | chart count by fsm&quot;, &quot;earliest_time&quot;: &quot;-24h&quot; }"/>
-      <div id="tagcloud" class="splunk-view" data-require="app/cisco_ios/components/tagcloud/tagcloud" data-options="{ &quot;minFontSize&quot;: 14, &quot;maxFontSize&quot;: 55, &quot;managerid&quot;: &quot;tagcloud-search&quot;, &quot;valueField&quot;: &quot;count&quot;, &quot;labelField&quot;: &quot;fsm&quot; }"/>
     </html>
   </row>
   <row>
