@@ -1,15 +1,15 @@
 Copyright (C) 2013-2014 Mikael Bjerkeland. All Rights Reserved.
 
-App:              Cisco Networks App for Splunk Enterprise (previously Cisco IOS)
+App:              Cisco Networks (previously Cisco IOS)
 Current Version:  2.1.0
 Last Modified:    2014-10-30
 Splunk Version:   6.1+
 Author:           Mikael Bjerkeland
 CIM Compliance:   4.0 (Authentication, Change Analysis, Inventory, Network Traffic)
 
-The Cisco IOS app includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices
+The Cisco Networks app includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices
 
-Install this app on your search head. Install the TA-cisco_ios app on your search head AND indexers/heavy forwarders.
+Install this app on your search head. Install the TA-cisco_networks app on your search head AND indexers/heavy forwarders.
 
 Supported Cisco Devices:
 *  Cisco Catalyst series switches (2960, 3650, 3750, 4500, 6500, 6800, 7600 etc.)
@@ -29,7 +29,7 @@ Please contact me on Splunk Base if there is anything you would like to see in t
 
 +++ 2.1.0 (2014-10-30)
 Features:
-* NAME CHANGED TO Cisco Networks App for Splunk Enterprise. Remove your old Cisco IOS app directories (cisco_ios and TA-cisco_ios)
+* NAME CHANGED TO Cisco Networks. Remove your old Cisco IOS app directories (cisco_ios and TA-cisco_ios) after upgrading
 * More filters in the dashboards
 * DOT1X now with more graphs
 
