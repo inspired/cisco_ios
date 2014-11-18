@@ -1,6 +1,6 @@
 Copyright (C) 2013-2014 Mikael Bjerkeland. All Rights Reserved.
 
-App:              Cisco Networks (previously Cisco IOS)
+App:              Cisco Networks (formerly known as Cisco IOS)
 Current Version:  2.1.0
 Last Modified:    2014-10-30
 Splunk Version:   6.1+
