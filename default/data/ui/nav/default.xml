@@ -23,7 +23,7 @@
     <view name="routing_dashboard" />
   </collection>
   <collection label="Security">
-    <view name="security_dot1x" />
+    <view name="security_authentications" />
     <view name="security_acl" />
   </collection>
   <collection label="Performance">
