@@ -1,4 +1,4 @@
-Copyright (C) 2013 Mikael Bjerkeland. All Rights Reserved.
+Copyright (C) 2013-2014 Mikael Bjerkeland. All Rights Reserved.
 
 App:              Cisco Networks App for Splunk Enterprise (previously Cisco IOS)
 Current Version:  2.1.0
