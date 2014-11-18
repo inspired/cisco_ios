@@ -97,8 +97,8 @@
         <searchString>| pivot Cisco_IOS_Event Device last(hostname) AS "Hostname" last(site_id) AS "Site ID" last(model) AS "Model" last(serial_number) AS "Serial number" count(Device) AS "Count of events" SPLITROW host AS host</searchString>
         <option name="count">25</option>
         <option name="drilldown">cell</option>
-        <drilldown target="My New Window">
-          <link field="host">/app/cisco_ios/inventory_device?form.host=$click.value$</link>
+        <drilldown>
+          <link field="host">/app/cisco_networks/inventory_device?form.host=$click.value$</link>
         </drilldown>
       </table>
     </panel>
