@@ -34,4 +34,5 @@
   </collection>
   <view name="search" />
   <view name="data_models" />
+  <view name="help" />
 </nav>
