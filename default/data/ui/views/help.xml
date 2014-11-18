@@ -8,30 +8,82 @@
       <ol>
       <li>Install the Cisco Networks (cisco_networks) App on your search head</li>
       <li>Install the Cisco Networks Add-on (TA-cisco_networks) on your search head AND indexers/heavy forwarders</li>
-      <li>Enable a UDP input on your Splunk forwarder or your Splunk indexer. Set the sourcetype to <b>cisco:ios</b> or <b>syslog</b></li>
+      <li>Enable a UDP input with a custom port number on your Splunk forwarder or Splunk indexer. Set the sourcetype to <b>cisco:ios</b> or <b>syslog</b></li>
+      <li>Enable a TCP input with a custom port number on your Splunk forwarder or Splunk indexer. Set the sourcetype to <b>Cisco:SmartCallHome</b></li>
       </ol>
       </section>
       <section>
       <h3>Step 2: Configure your Cisco IOS devices</h3>
       <p>This includes all IOS variants</p>
-      <h4>Basic logging</h4>
+      <h4>Basic logging and timestamping</h4>
       <pre>
+      service timestamps log datetime msec localtime show-timezone
       logging trap informational
-      logging host [YOUR SYSLOG SERVER IP] transport udp port [YOUR PORT]
+      logging host [YOUR SYSLOG/SPLUNK SERVER IP] transport udp port [YOUR PORT]
       </pre>
       <h4>Enable change auditing</h4>
       <pre>
       archive
- log config
-  logging enable
-  logging size 200
-  notify syslog contenttype plaintext
-  hidekeys
-!
-login on-failure log
-login on-success log
-logging userinfo
-!
+       log config
+        logging enable
+        logging size 200
+        notify syslog contenttype plaintext
+        hidekeys
+      !
+      login on-failure log
+      login on-success log
+      logging userinfo
+      !
+      </pre>
+      <h4>Add something along the following to monitor interface changes</h4>
+      <pre>
+      logging event trunk-status global
+      logging event link-status global
+      !
+      interface ra Gi1/0/1 - 52
+       logging event trunk-status
+       logging event spanning-tree
+       logging event status
+      !
+      </pre>
+      <h4>For MAC move notifications, STP logging, IP SLA logging etc.</h4>
+      <pre>
+      mac address-table notification mac-move
+      spanning-tree logging
+      ip sla logging traps
+      ip dhcp limit lease log
+      ip dhcp conflict logging
+      ip nat log translations syslog
+      xconnect logging pseudowire status
+      </pre>
+      <h4>For DHCP utilization logging on your devices, do this for each pool</h4>
+      <pre>
+      utilization mark high 80 log
+      </pre>
+      <h4>ACL logging</h4>
+      <h5>General</h5>
+      <p>Remember to add the <b>log</b> or <b>log-input</b> keyword to your access list entries if you want to enable access list logging</p>
+      <h5>Nexus ACL logging</h5>
+      <pre>
+      logging level acllog 6
+      acllog match-log-level 6
+      logging logfile messages 6
+      </pre>
+      <h4>Smart Call Home logging</h4>
+      <p>Enabling Smart Call home allows you to get extended device information from your devices at specific intervals</p>
+      <pre>
+      service call-home  
+      call-home  
+       contact-email-addr YOUR.EMAIL@ADDR.ESS  
+       site-id "YOUR_SITE_NAME"  
+       profile "Splunk"  
+        destination transport-method http  
+        destination address http http://[YOUR SYSLOG/SPLUNK SERVER IP]:[YOUR SMART CALL HOME TCP PORT]
+        subscribe-to-alert-group diagnostic severity debug  
+        subscribe-to-alert-group environment severity debug  
+        subscribe-to-alert-group inventory  
+        subscribe-to-alert-group inventory periodic daily 22:30
+        !
       </pre>
       </section>
     </html>
