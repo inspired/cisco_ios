@@ -1,0 +1,39 @@
+<dashboard>
+  <label>Help</label>
+  <description>Help</description>
+  <row>
+    <html>
+      <section>
+      <h3>Step 1: App installation</h3>
+      <ol>
+      <li>Install the Cisco Networks (cisco_networks) App on your search head</li>
+      <li>Install the Cisco Networks Add-on (TA-cisco_networks) on your search head AND indexers/heavy forwarders</li>
+      <li>Enable a UDP input on your Splunk forwarder or your Splunk indexer. Set the sourcetype to <b>cisco:ios</b> or <b>syslog</b></li>
+      </ol>
+      </section>
+      <section>
+      <h3>Step 2: Configure your Cisco IOS devices</h3>
+      <p>This includes all IOS variants</p>
+      <h4>Basic logging</h4>
+      <pre>
+      logging trap informational
+      logging host [YOUR SYSLOG SERVER IP] transport udp port [YOUR PORT]
+      </pre>
+      <h4>Enable change auditing</h4>
+      <pre>
+      archive
+ log config
+  logging enable
+  logging size 200
+  notify syslog contenttype plaintext
+  hidekeys
+!
+login on-failure log
+login on-success log
+logging userinfo
+!
+      </pre>
+      </section>
+    </html>
+  </row>
+</dashboard>
