@@ -1,5 +1,5 @@
 <form>
-  <label>Cisco IOS Overview</label>
+  <label>Cisco Networks Overview</label>
   <searchTemplate>| tstats count FROM datamodel=Cisco_IOS_Event BY nodename host</searchTemplate>
   <fieldset autoRun="true" submitButton="false">
     <input type="time" searchWhenChanged="true">
