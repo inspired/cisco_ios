@@ -22,7 +22,7 @@ Supported Cisco Devices:
 Preliminary support for:
 *  Cisco WLC - WLAN Controller
 
-Please contact me on Splunk Base if there is anything you would like to see in this app.
+Please contact me on Splunk Answers if there is anything you would like to see in this app.
 
 
 ++ What's New
