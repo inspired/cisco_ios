@@ -7,7 +7,7 @@ Splunk Version:   6.1+
 Author:           Mikael Bjerkeland
 CIM Compliance:   4.0 (Authentication, Change Analysis, Inventory, Network Traffic)
 
-The Cisco Networks app includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices using Splunk
+The Cisco Networks app includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices using Splunk® Enterprise
 
 Install this app on your search head. Install the TA-cisco_networks app on your search head AND indexers/heavy forwarders.
 
