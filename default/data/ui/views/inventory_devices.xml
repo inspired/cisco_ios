@@ -98,7 +98,7 @@
         <option name="count">25</option>
         <option name="drilldown">cell</option>
         <drilldown target="My New Window">
-          <link field="host">/app/cisco_ios/device?form.host=$click.value$</link>
+          <link field="host">/app/cisco_ios/inventory_device?form.host=$click.value$</link>
         </drilldown>
       </table>
     </panel>

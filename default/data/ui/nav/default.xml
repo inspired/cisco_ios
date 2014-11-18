@@ -1,7 +1,8 @@
 <nav>    
   <view name="overview" default="true" />
-  <collection label="Devices">
-    <view name="devices_dashboard" />
+  <collection label="Inventory">
+    <view name="inventory_devices" />
+    <view name="inventory_sites" />
   </collection>
   <collection label="Auditing">
     <view name="auditing_dashboard" />
