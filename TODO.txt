@@ -61,3 +61,7 @@ Cisco IOS Firewall (i.e. FW-6-SESS_AUDIT_TRAIL_START etc.) http://www.cisco.com/
 
 Can I make this useful in any way? It shows interface speed changes on Nexus switches
 index=ios mnemonic=SPEED | eval int_and_host=src_int + " on " + host | timechart avg(speed) by int_and_host limit=15 useother=f
+
+
+http://www.cisco.com/c/en/us/td/docs/net_mgmt/ciscoworks_resource_manager_essentials/4-0/user/guide/u_guide/appb.html
+http://www.cisco.com/c/en/us/products/collateral/services/high-availability/white_paper_c11-557812.html
