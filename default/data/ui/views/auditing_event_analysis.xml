@@ -1,24 +1,32 @@
 <form>
   <label>Event Analysis</label>
   <description>Event Analysis</description>
-  <fieldset submitButton="false" autoRun="true">
-    <input type="time" token="field1" searchWhenChanged="true">
-      <label/>
+  <fieldset submitButton="true" autoRun="true">
+    <input type="time" token="field1" searchWhenChanged="false">
+      <label></label>
       <default>
-        <earliestTime>-24h@h</earliestTime>
-        <latestTime>now</latestTime>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
       </default>
     </input>
-    <input type="multiselect" token="severity_id_selection" searchWhenChanged="true">
+    <input type="text" token="host" searchWhenChanged="false">
+      <default>*</default>
+    </input>
+    <input type="multiselect" token="severity_id_selection" searchWhenChanged="false">
       <label>Severity</label>
-      <populatingSearch fieldForLabel="severity_name" fieldForValue="severity_id">| inputlookup cisco_ios_severity</populatingSearch>
+      <search>
+        <query>| inputlookup cisco_ios_severity</query>
+      </search>
       <delimiter> OR </delimiter>
       <default>0,1,2,3,4,5,6,7</default>
       <valuePrefix>severity_id=</valuePrefix>
+      <fieldForLabel>severity_name</fieldForLabel>
+      <fieldForValue>severity_id</fieldForValue>
     </input>
   </fieldset>
   <row>
-    <html>
+    <panel>
+      <html>
       <section>
       <h3>This event analysis is based on the following fields in the Cisco IOS events</h3>
       <ul>
@@ -29,7 +37,9 @@
       <p>A lookup is performed based on the aforementioned fields.</p>
       </section>
     </html>
-    <html>
+    </panel>
+    <panel>
+      <html>
       <section>
         <h3>Devices supported in the lookup file</h3>
       <ul>
@@ -41,14 +51,17 @@
       </ul>
       </section>
       </html>
+    </panel>
   </row>
   <row>
     <panel>
       <table>
         <title>Message breakdown</title>
-        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_message_text AS "Message text" SPLITROW vendor_explanation AS Explanation SPLITROW vendor_recommended_action AS "Recommended action" SPLITROW severity_id AS severity_id TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | search $severity_id_selection$</searchString>
-        <earliestTime>$field1.earliest$</earliestTime>
-        <latestTime>$field1.latest$</latestTime>
+        <search>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_message_text AS "Message text" SPLITROW vendor_explanation AS Explanation SPLITROW vendor_recommended_action AS "Recommended action" SPLITROW severity_id AS severity_id FILTER host is $host$ TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | search $severity_id_selection$</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
         <option name="charting.axisY2.enabled">false</option>
         <option name="charting.axisY.scale">linear</option>
         <option name="charting.axisY2.scale">inherit</option>
@@ -71,7 +84,7 @@
         <option name="dataOverlayMode">none</option>
         <option name="count">10</option>
         <option name="drilldown">row</option>
-	<drilldown>
+        <drilldown>
           <link field="Message text">
             <![CDATA[
                         /app/cisco_networks/search?q=search vendor_message_text="$row.Message text$"&earliest=$earliest$&latest=$latest$
@@ -87,7 +100,7 @@
                         /app/cisco_networks/search?q=search vendor_recommended_action="$row.Recommended action$"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
-	</drilldown>
+        </drilldown>
       </table>
     </panel>
   </row>
@@ -95,9 +108,11 @@
     <panel>
       <table>
         <title>Hosts by severity</title>
-        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW host AS host SPLITCOL severity_name SORT 500 host ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1 | sort -emergency, -alert, -critical, -error, -warning, -notification, -informational, -debugging | table host, emergency, alert, critical, error, warning, notification, informational, debugging</searchString>
-        <earliestTime>$field1.earliest$</earliestTime>
-        <latestTime>$field1.latest$</latestTime>
+        <search>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW host AS host SPLITCOL severity_name FILTER host is "$host$" SORT 500 host ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1 | sort -emergency, -alert, -critical, -error, -warning, -notification, -informational, -debugging | table host, emergency, alert, critical, error, warning, notification, informational, debugging</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
         <option name="dataOverlayMode">heatmap</option>
