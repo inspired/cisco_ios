@@ -15,9 +15,7 @@
     <view name="switching_stacking" />
     <view name="switching_dhcp_snooping" />
     <view name="switching_spanning_tree" />
-    <view name="switching_duplex_mismatch" />
-    <view name="switching_native_vlan_mismatch" />
-    <view name="switching_fhrp" />
+    <view name="switching_cdp_events" />
   </collection>
   <collection label="Routing">
     <view name="routing_dashboard" />

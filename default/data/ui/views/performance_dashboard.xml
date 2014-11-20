@@ -9,56 +9,110 @@
     </input>
   </fieldset>
   <row>
-    <chart>
-      <title>IP SLA Events</title>
-      <searchString>eventtype="cisco_ios-ipsla" | eval state=case(state_to == "Up", 1, state_to == "Down", -1) | strcat dvc " " ip_sla_id dvc_ip_sla_id | timechart avg(state) AS state BY dvc_ip_sla_id | fillnull value=0</searchString>
-      <earliestTime>$earliest$</earliestTime>
-      <latestTime>$latest$</latestTime>
-      <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
-      <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
-      <option name="charting.axisTitleX.visibility">visible</option>
-      <option name="charting.axisTitleY.visibility">visible</option>
-      <option name="charting.axisTitleY2.visibility">visible</option>
-      <option name="charting.axisX.scale">linear</option>
-      <option name="charting.axisY.scale">linear</option>
-      <option name="charting.axisY2.enabled">false</option>
-      <option name="charting.axisY2.scale">inherit</option>
-      <option name="charting.chart">line</option>
-      <option name="charting.chart.nullValueMode">connect</option>
-      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
-      <option name="charting.chart.stackMode">default</option>
-      <option name="charting.chart.style">shiny</option>
-      <option name="charting.drilldown">all</option>
-      <option name="charting.layout.splitSeries">0</option>
-      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
-      <option name="charting.legend.placement">right</option>
-      <option name="charting.axisY.maximumNumber">1</option>
-      <option name="charting.axisY.minimumNumber">-1</option>
-      <option name="charting.axisY.includeZero">true</option>
-    </chart>
+    <panel>
+      <chart>
+        <title>IP SLA Events</title>
+        <searchString>eventtype="cisco_ios-ipsla" | eval state=case(state_to == "Up", 1, state_to == "Down", -1) | strcat dvc " " ip_sla_id dvc_ip_sla_id | timechart avg(state) AS state BY dvc_ip_sla_id | fillnull value=0</searchString>
+        <earliestTime>$earliest$</earliestTime>
+        <latestTime>$latest$</latestTime>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.enabled">false</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">line</option>
+        <option name="charting.chart.nullValueMode">connect</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.axisY.maximumNumber">1</option>
+        <option name="charting.axisY.minimumNumber">-1</option>
+        <option name="charting.axisY.includeZero">true</option>
+      </chart>
+    </panel>
   </row>
   <row>
-    <table>
-      <title>DSL bandwidth</title>
-      <searchString>eventtype="cisco_ios-downgradedbw" | dedup host | table _time,host,permanent_virtual_circuit,bw_down,bw_up | sort bw_down,_time</searchString>
-      <earliestTime>$earliest$</earliestTime>
-      <latestTime>$latest$</latestTime>
-      <option name="wrap">true</option>
-      <option name="rowNumbers">false</option>
-      <option name="dataOverlayMode">none</option>
-      <option name="drilldown">row</option>
-      <option name="count">10</option>
-    </table>
-    <table>
-      <title>Etherchannel events</title>
-      <searchString>eventtype="cisco_ios-etherchannel" | table _time, host, src_interface, compatibility, dest_interface, action, reason</searchString>
-      <earliestTime>$earliest$</earliestTime>
-      <latestTime>$latest$</latestTime>
-      <option name="wrap">true</option>
-      <option name="rowNumbers">false</option>
-      <option name="dataOverlayMode">none</option>
-      <option name="drilldown">row</option>
-      <option name="count">10</option>
-    </table>
+    <panel>
+      <chart>
+        <title>Optical transceiver power by host and interface</title>
+        <searchString>sourcetype=cisco:ios mnemonic=THRESHOLD_VIOLATION alarm="Rx power" OR alarm="Tx power" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface</searchString>
+        <earliestTime>$earliest$</earliestTime>
+        <latestTime>$latest$</latestTime>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.chart">line</option>
+        <option name="charting.chart.nullValueMode">connect</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">stacked</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.axisTitleY.text">Power (dBm)</option>
+        <option name="charting.axisY.includeZero">true</option>
+      </chart>
+    </panel>
+    <panel>
+      <table>
+        <title>Etherchannel events</title>
+        <searchString>eventtype="cisco_ios-etherchannel" | table _time, host, src_interface, compatibility, dest_interface, action, reason</searchString>
+        <earliestTime>$earliest$</earliestTime>
+        <latestTime>$latest$</latestTime>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">row</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Optical transceiver temperature by host and interface</title>
+        <searchString>sourcetype=cisco:ios mnemonic=THRESHOLD_VIOLATION alarm="Temperature" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface</searchString>
+        <earliestTime>$earliest$</earliestTime>
+        <latestTime>$latest$</latestTime>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.chart">line</option>
+        <option name="charting.chart.nullValueMode">connect</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">stacked</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.axisTitleY.text">Temperature (C)</option>
+        <option name="charting.axisY.includeZero">true</option>
+      </chart>
+    </panel>
+    <panel>
+      <table>
+        <title>DSL bandwidth</title>
+        <searchString>eventtype="cisco_ios-downgradedbw" | dedup host | table _time,host,permanent_virtual_circuit,bw_down,bw_up | sort bw_down,_time</searchString>
+        <earliestTime>$earliest$</earliestTime>
+        <latestTime>$latest$</latestTime>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">row</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
   </row>
 </form>
