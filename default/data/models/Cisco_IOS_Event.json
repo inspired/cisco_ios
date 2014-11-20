@@ -1022,6 +1022,18 @@
                     "fieldSearch": ""
                 },
                 {
+                    "fieldName": "severity_id_and_name",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "severity_id_and_name",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -2077,6 +2089,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "unit",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -3291,6 +3315,18 @@
                     "fieldSearch": ""
                 },
                 {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -4346,6 +4382,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "unit",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -5409,6 +5457,18 @@
                     "fieldSearch": ""
                 },
                 {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -6464,6 +6524,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "unit",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -7527,6 +7599,18 @@
                     "fieldSearch": ""
                 },
                 {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -8582,6 +8666,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "unit",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -9645,6 +9741,18 @@
                     "fieldSearch": ""
                 },
                 {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -10700,6 +10808,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "unit",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -11763,6 +11883,18 @@
                     "fieldSearch": ""
                 },
                 {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -12818,6 +12950,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "unit",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -13881,6 +14025,18 @@
                     "fieldSearch": ""
                 },
                 {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -14936,6 +15092,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "unit",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
                     "comment": "",
                     "fieldSearch": ""
                 },
@@ -15999,6 +16167,18 @@
                     "fieldSearch": ""
                 },
                 {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -17058,6 +17238,18 @@
                     "fieldSearch": ""
                 },
                 {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -18113,6 +18305,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "unit",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "session_id",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "session_id",
                     "comment": "",
                     "fieldSearch": ""
                 },
