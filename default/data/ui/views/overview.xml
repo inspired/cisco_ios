@@ -126,42 +126,42 @@
       <drilldown>
                 <link field="emergency">
                 <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios severity_name=emergency&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=emergency&earliest=$earliest$&latest=$latest$
                 ]]>
                 </link>
                 <link field="alert">
                 <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios severity_name=alert&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=alert&earliest=$earliest$&latest=$latest$
                 ]]>
                 </link>
                 <link field="critical">
                 <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios severity_name=critical&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=critical&earliest=$earliest$&latest=$latest$
                 ]]>
                 </link>
                 <link field="error">
                 <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios severity_name=error&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=error&earliest=$earliest$&latest=$latest$
                 ]]>
                 </link>
                 <link field="warning">
                 <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios severity_name=warning&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=warning&earliest=$earliest$&latest=$latest$
                 ]]>
                 </link>
                 <link field="notification">
                 <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios severity_name=notification&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=notification&earliest=$earliest$&latest=$latest$
                 ]]>
                 </link>
                 <link field="informational">
                 <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios severity_name=informational&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=informational&earliest=$earliest$&latest=$latest$
                 ]]>
                 </link>
                 <link field="debugging">
                 <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios severity_name=debugging&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=debugging&earliest=$earliest$&latest=$latest$
                 ]]>
                 </link>
       </drilldown>
