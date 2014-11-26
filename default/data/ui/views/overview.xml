@@ -37,7 +37,7 @@
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">Unique devices</option>
-      <option name="linkView">devices_dashboard</option>
+      <option name="linkView">inventory_devices</option>
       <option name="linkFields">result</option>
       <option name="linkSearch">
         <![CDATA[&earliest=$earliest$&latest=$latest$]]>
@@ -73,7 +73,7 @@
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="underLabel">802.1x events</option>
-      <option name="linkView">security_dot1x</option>
+      <option name="linkView">security_authentications</option>
       <option name="linkFields">result</option>
       <option name="linkSearch">
         <![CDATA[&earliest=$earliest$&latest=$latest$]]>
