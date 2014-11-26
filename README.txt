@@ -30,7 +30,7 @@ Please contact me on Splunk Answers if there is anything you would like to see i
 +++ 2.1.0 (2014-10-30)
 Features:
 * NAME CHANGED TO Cisco Networks. Also download the latest TA-cisco_networks!
-  Remove your old Cisco IOS app directories (cisco_ios and TA-cisco_ios) after upgrading
+  Remove your old Cisco IOS app directories (cisco_networks and TA-cisco_networks) after upgrading
 * More filters in the dashboards
 * DOT1X now with more graphs
 
@@ -53,7 +53,7 @@ Bug fixes:
 +++ 1.5.0 (2014-05-08)
 Features:
 * Added more fields to the data model
-* Added an Event Analysis Dashboard to Auditing using the new lookups from TA-cisco_ios.
+* Added an Event Analysis Dashboard to Auditing using the new lookups from TA-cisco_networks.
 * Auditing -> Best Practice Deviations has been removed
 * Map visualizations added to Security -> ACL
 
@@ -213,12 +213,12 @@ Supported Splunk versions:  6.1+
 ++ Installation Instructions
 
 The Cisco IOS app can be downloaded, installed, and configured to receive Cisco IOS data by either using the Splunk app setup screen or by manually installing and configuring the app.
-This app reads from the sourcetype cisco:ios defined in TA-cisco_ios
+This app reads from the sourcetype cisco:ios defined in TA-cisco_networks
 
 
 +++ Setup and configuration
 
-1. Install in $SPLUNK_HOME/etc/apps/cisco_ios
+1. Install in $SPLUNK_HOME/etc/apps/cisco_networks
 
 2. Restart Splunk
 
