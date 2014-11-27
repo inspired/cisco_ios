@@ -81,29 +81,37 @@
     </single>
     <chart>
       <title>Top reporting hosts by time</title>
-      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time SHOWOTHER false NUMCOLS 10</searchString>
-      <earliestTime>$earliest$</earliestTime>
-      <latestTime>$latest$</latestTime>
+      <search>
+        <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time SHOWOTHER false NUMCOLS 10</query>
+      </search>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
       <option name="charting.axisTitleY.text">Count of Event</option>
       <option name="charting.legend.placement">right</option>
       <option name="charting.legend.labelStyle.overflowMode">ellipsisEnd</option>
-      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.stackMode">stacked</option>
       <option name="charting.chart.nullValueMode">gaps</option>
       <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
       <option name="charting.chart.style">shiny</option>
       <option name="charting.axisTitleX.visibility">visible</option>
       <option name="charting.axisTitleY.visibility">visible</option>
-      <option name="charting.chart">line</option>
+      <option name="charting.chart">column</option>
       <option name="charting.drilldown">all</option>
       <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+      <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+      <option name="charting.axisTitleY2.visibility">visible</option>
+      <option name="charting.axisY2.enabled">false</option>
+      <option name="charting.axisY2.scale">inherit</option>
+      <option name="charting.chart.bubbleMaximumSize">50</option>
+      <option name="charting.chart.bubbleMinimumSize">10</option>
+      <option name="charting.chart.bubbleSizeBy">area</option>
     </chart>
     <chart>
       <title>Syslog severity distribution</title>
-      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(severity_id) AS "Count of severity_id" SPLITROW severity_name AS severity_name SPLITROW severity_id AS severity_id TOP 100 count(severity_id) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | sort - severity_id | eval SN="" | xyseries SN severity_name "Count of severity_id" | rename SN AS "Severity name" | sort -emergency, -alert, -critical, -error, -warning, -notification, -informational, -debugging | table "Severity name" emergency, alert, critical, error, warning, notification, informational, debugging</searchString>
-      <earliestTime>$earliest$</earliestTime>
-      <latestTime>$latest$</latestTime>
+      <search>
+        <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(severity_id) AS "Count of severity_id" SPLITROW severity_name AS severity_name SPLITROW severity_id AS severity_id TOP 100 count(severity_id) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | sort - severity_id | eval SN="" | xyseries SN severity_name "Count of severity_id" | rename SN AS "Severity name" | sort -emergency, -alert, -critical, -error, -warning, -notification, -informational, -debugging | table "Severity name" emergency, alert, critical, error, warning, notification, informational, debugging</query>
+      </search>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
       <option name="charting.legend.placement">right</option>
@@ -122,55 +130,57 @@
       <option name="charting.axisTitleY2.visibility">visible</option>
       <option name="charting.axisY2.enabled">false</option>
       <option name="charting.axisY2.scale">inherit</option>
-      <option name="drilldown">all</option>
       <drilldown>
-                <link field="emergency">
-                <![CDATA[
+        <link field="emergency">
+          <![CDATA[
                         /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=emergency&earliest=$earliest$&latest=$latest$
                 ]]>
-                </link>
-                <link field="alert">
-                <![CDATA[
+        </link>
+        <link field="alert">
+          <![CDATA[
                         /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=alert&earliest=$earliest$&latest=$latest$
                 ]]>
-                </link>
-                <link field="critical">
-                <![CDATA[
+        </link>
+        <link field="critical">
+          <![CDATA[
                         /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=critical&earliest=$earliest$&latest=$latest$
                 ]]>
-                </link>
-                <link field="error">
-                <![CDATA[
+        </link>
+        <link field="error">
+          <![CDATA[
                         /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=error&earliest=$earliest$&latest=$latest$
                 ]]>
-                </link>
-                <link field="warning">
-                <![CDATA[
+        </link>
+        <link field="warning">
+          <![CDATA[
                         /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=warning&earliest=$earliest$&latest=$latest$
                 ]]>
-                </link>
-                <link field="notification">
-                <![CDATA[
+        </link>
+        <link field="notification">
+          <![CDATA[
                         /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=notification&earliest=$earliest$&latest=$latest$
                 ]]>
-                </link>
-                <link field="informational">
-                <![CDATA[
+        </link>
+        <link field="informational">
+          <![CDATA[
                         /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=informational&earliest=$earliest$&latest=$latest$
                 ]]>
-                </link>
-                <link field="debugging">
-                <![CDATA[
+        </link>
+        <link field="debugging">
+          <![CDATA[
                         /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=debugging&earliest=$earliest$&latest=$latest$
                 ]]>
-                </link>
+        </link>
       </drilldown>
+      <option name="charting.chart.bubbleMaximumSize">50</option>
+      <option name="charting.chart.bubbleMinimumSize">10</option>
+      <option name="charting.chart.bubbleSizeBy">area</option>
     </chart>
     <chart>
       <title>Top mnemonics by time</title>
-      <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW _time AS "_time" PERIOD auto SPLITCOL mnemonic SORT 0 _time NUMCOLS 10</searchString>
-      <earliestTime>$earliest$</earliestTime>
-      <latestTime>$latest$</latestTime>
+      <search>
+        <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW _time AS "_time" PERIOD auto SPLITCOL mnemonic SORT 0 _time NUMCOLS 10</query>
+      </search>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
       <option name="charting.axisTitleY.text">Count of Event</option>
@@ -182,9 +192,17 @@
       <option name="charting.chart.style">shiny</option>
       <option name="charting.axisTitleX.visibility">visible</option>
       <option name="charting.axisTitleY.visibility">visible</option>
-      <option name="charting.chart">line</option>
+      <option name="charting.chart">column</option>
       <option name="charting.drilldown">all</option>
       <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+      <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+      <option name="charting.axisTitleY2.visibility">visible</option>
+      <option name="charting.axisY2.enabled">false</option>
+      <option name="charting.axisY2.scale">inherit</option>
+      <option name="charting.chart.bubbleMaximumSize">50</option>
+      <option name="charting.chart.bubbleMinimumSize">10</option>
+      <option name="charting.chart.bubbleSizeBy">area</option>
     </chart>
   </row>
   <row>
