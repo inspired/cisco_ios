@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<form>
+<?xml version="1.0" encoding="UTF-8"?><form>
   <label>Dashboard</label>
   <fieldset autoRun="true">
     <input type="time">
@@ -9,7 +8,9 @@
   <row>
     <chart>
       <title>Configuration started by host</title>
-      <searchString>| pivot Cisco_IOS_Event Configuration_Started count(Configuration_Started) AS "Count of Configuration Started" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time NUMCOLS 100</searchString>
+      <search>
+        <query>| pivot Cisco_IOS_Event Configuration_Started count(Configuration_Started) AS "Count of Configuration Started" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time NUMCOLS 100</query>
+      </search>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
       <option name="charting.axisTitleY.text">Count of Configuration Started</option>
@@ -24,6 +25,14 @@
       <option name="charting.chart">area</option>
       <option name="charting.drilldown">all</option>
       <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+      <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+      <option name="charting.axisTitleY2.visibility">visible</option>
+      <option name="charting.axisY2.enabled">false</option>
+      <option name="charting.axisY2.scale">inherit</option>
+      <option name="charting.chart.bubbleMaximumSize">50</option>
+      <option name="charting.chart.bubbleMinimumSize">10</option>
+      <option name="charting.chart.bubbleSizeBy">area</option>
     </chart>
     <chart>
       <title>Device Logins by user</title>

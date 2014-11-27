@@ -11,10 +11,10 @@
   <row>
     <panel>
       <chart>
-        <title>Reporting hosts by site</title>
-        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event dc(host) AS "Distinct Count of host" SPLITROW site_id AS site_id SORT 100 site_id ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</searchString>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+        <title>Software versions</title>
+        <search>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event dc(host) AS "Distinct Count of host" SPLITROW software_version AS "Software version" SORT 100 software_version ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
+        </search>
         <option name="charting.axisY2.enabled">false</option>
         <option name="charting.axisY.scale">linear</option>
         <option name="charting.axisY2.scale">inherit</option>
@@ -33,6 +33,9 @@
         <option name="charting.axisTitleY.visibility">visible</option>
         <option name="charting.axisTitleY2.visibility">visible</option>
         <option name="charting.chart">pie</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
       </chart>
     </panel>
     <panel>

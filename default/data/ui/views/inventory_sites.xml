@@ -35,5 +35,18 @@
         <option name="charting.chart">pie</option>
       </chart>
     </panel>
+    <panel>
+      <table>
+        <title>Hosts by site</title>
+        <search>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event values(host) AS "Hosts" values(contact) AS "Distinct Values of Contact" values(contact_email) AS "Distinct Values of Contact email address" SPLITROW site_id AS site_id SORT 100 site_id ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
   </row>
 </form>

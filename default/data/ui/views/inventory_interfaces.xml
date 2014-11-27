@@ -1,0 +1,34 @@
+<form>
+  <label>Interfaces</label>
+  <description>Interfaces</description>
+  <fieldset submitButton="true">
+    <input type="text" token="host">
+      <label>Host</label>
+      <default>*</default>
+    </input>
+    <input type="time" token="field2">
+      <label>Time period</label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <table>
+        <title>Interfaces by severity</title>
+        <search>
+          <query>| pivot Cisco_IOS_Event Interface  FILTER host is "$host$" count(Interface) AS "Count of Interface" SPLITROW dvc AS dvc SPLITROW interface AS Interface SPLITCOL severity_id_and_name SORT 100 dvc ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1</query>
+          <earliest>$field2.earliest$</earliest>
+          <latest>$field2.latest$</latest>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
+  </row>
+</form>

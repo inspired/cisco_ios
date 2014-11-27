@@ -3,6 +3,7 @@
   <collection label="Inventory">
     <view name="inventory_devices" />
     <view name="inventory_sites" />
+    <view name="inventory_interfaces" />
   </collection>
   <collection label="Auditing">
     <view name="auditing_dashboard" />
