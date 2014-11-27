@@ -1,7 +1,7 @@
 <form>
   <label>Interfaces</label>
   <description>Interfaces</description>
-  <fieldset submitButton="true">
+  <fieldset submitButton="true" autoRun="true">
     <input type="text" token="host">
       <label>Host</label>
       <default>*</default>
