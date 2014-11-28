@@ -1,4 +1,4 @@
-<nav>    
+<nav color="#cbd400">    
   <view name="overview" default="true" />
   <collection label="Inventory">
     <view name="inventory_devices" />
