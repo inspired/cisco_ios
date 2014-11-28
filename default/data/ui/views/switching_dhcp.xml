@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <form>
-  <label>DHCP snooping</label>
+  <label>DHCP</label>
   <fieldset autoRun="true">
     <input type="time">
       <default>Last 60 minutes</default>
