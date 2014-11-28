@@ -95,7 +95,7 @@
       <option name="charting.chart.style">shiny</option>
       <option name="charting.axisTitleX.visibility">visible</option>
       <option name="charting.axisTitleY.visibility">visible</option>
-      <option name="charting.chart">column</option>
+      <option name="charting.chart">area</option>
       <option name="charting.drilldown">all</option>
       <option name="charting.layout.splitSeries">0</option>
       <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
@@ -192,7 +192,7 @@
       <option name="charting.chart.style">shiny</option>
       <option name="charting.axisTitleX.visibility">visible</option>
       <option name="charting.axisTitleY.visibility">visible</option>
-      <option name="charting.chart">column</option>
+      <option name="charting.chart">area</option>
       <option name="charting.drilldown">all</option>
       <option name="charting.layout.splitSeries">0</option>
       <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
