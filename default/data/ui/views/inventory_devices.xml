@@ -10,22 +10,6 @@
   </fieldset>
   <row>
     <panel>
-      <html>
-      <section>
-      <h3>Inventory data</h3>
-      <p>Not seeing any inventory information? Possible reasons:
-      <ul>
-        <li>Smart Call Home Input not enabled</li>
-        <li>Devices not configured to send Smart Call Home events at specific intervals</li>
-        <li><q>ip http client source-interface SOURCE_INTERFACE</q> not set on your device</li>
-      </ul>
-      <p>See the <a href="help">help</a> page for information on enabling Smart Call Home.</p>
-      </section>
-    </html>
-    </panel>
-  </row>
-  <row>
-    <panel>
       <chart>
         <title>Software versions</title>
         <search>

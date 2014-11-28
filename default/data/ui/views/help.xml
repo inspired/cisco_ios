@@ -2,6 +2,7 @@
   <label>Help</label>
   <description>Help</description>
   <row>
+    <panel>
     <html>
       <section>
       <h3>Step 1: App installation</h3>
@@ -72,6 +73,8 @@ logging logfile messages 6
       <h4>Smart Call Home logging</h4>
       <p>Enabling Smart Call home allows you to get extended device information from your devices at specific intervals</p>
       <pre>
+ip http client source-interface [SOURCE INTERFACE]
+!
 service call-home  
 call-home  
  contact-email-addr YOUR.EMAIL@ADDR.ESS  
@@ -87,5 +90,21 @@ call-home
       </pre>
       </section>
     </html>
+    </panel>
+    <panel>
+      <html>
+      <section>
+      <h3>Troubleshooting</h3>
+      <h2>Not seeing any inventory information?</h2>
+        <p>The app needs a feature called Cisco Smart Call Home (SCH) to be enabled on the devices.</p>
+      <p>Reasons why you're not seeing any data:</p>
+      <ul>
+        <li>Smart Call Home Input not enabled</li>
+        <li>Devices not configured to send Smart Call Home events at specific intervals</li>
+        <li><q>ip http client source-interface SOURCE_INTERFACE</q> not set on your device</li>
+      </ul>
+      </section>
+    </html>
+    </panel>
   </row>
 </dashboard>
