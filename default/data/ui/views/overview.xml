@@ -110,7 +110,7 @@
     <chart>
       <title>Syslog severity distribution</title>
       <search>
-        <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(severity_id) AS "Count of severity_id" SPLITROW severity_name AS severity_name SPLITROW severity_id AS severity_id TOP 100 count(severity_id) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | sort - severity_id | eval SN="" | xyseries SN severity_name "Count of severity_id" | rename SN AS "Severity name" | sort -emergency, -alert, -critical, -error, -warning, -notification, -informational, -debugging | table "Severity name" emergency, alert, critical, error, warning, notification, informational, debugging</query>
+        <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(severity_id) AS "Count of severity_id" SPLITROW severity_id_and_name AS severity_id_and_name SPLITROW severity_id AS severity_id TOP 100 count(severity_id) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | sort - severity_id | eval SN="" | xyseries SN severity_id_and_name "Count of severity_id" | rename SN AS "Severity name" | sort -"0 - emergency" -"1 - alert" -"2 - critical" -"3 - error" -"4 - warning" -"5 - notification" -"6 - informational" -"7 - debugging" | table "Severity name" "0 - emergency" "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging"</query>
       </search>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
@@ -131,44 +131,44 @@
       <option name="charting.axisY2.enabled">false</option>
       <option name="charting.axisY2.scale">inherit</option>
       <drilldown>
-        <link field="emergency">
+        <link field="0 - emergency">
           <![CDATA[
-                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=emergency&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_id_and_name="0 - emergency"&earliest=$earliest$&latest=$latest$
                 ]]>
         </link>
-        <link field="alert">
+        <link field="1 - alert">
           <![CDATA[
-                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=alert&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_id_and_name="1 - alert"&earliest=$earliest$&latest=$latest$
                 ]]>
         </link>
-        <link field="critical">
+        <link field="2 - critical">
           <![CDATA[
-                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=critical&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_id_and_name="2 - critical"&earliest=$earliest$&latest=$latest$
                 ]]>
         </link>
-        <link field="error">
+        <link field="3 - error">
           <![CDATA[
-                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=error&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_id_and_name="3 - error"&earliest=$earliest$&latest=$latest$
                 ]]>
         </link>
-        <link field="warning">
+        <link field="4 - warning">
           <![CDATA[
-                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=warning&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_id_and_name="4 - warning"&earliest=$earliest$&latest=$latest$
                 ]]>
         </link>
-        <link field="notification">
+        <link field="5 - notification">
           <![CDATA[
-                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=notification&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_id_and_name="5 - notification"&earliest=$earliest$&latest=$latest$
                 ]]>
         </link>
-        <link field="informational">
+        <link field="6 - informational">
           <![CDATA[
-                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=informational&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_id_and_name="6 - informational"&earliest=$earliest$&latest=$latest$
                 ]]>
         </link>
-        <link field="debugging">
+        <link field="7 - debugging">
           <![CDATA[
-                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_name=debugging&earliest=$earliest$&latest=$latest$
+                        /app/cisco_networks/search?q=search eventtype=cisco_ios severity_id_and_name="7 - debugging"&earliest=$earliest$&latest=$latest$
                 ]]>
         </link>
       </drilldown>
