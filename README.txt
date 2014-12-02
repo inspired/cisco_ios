@@ -18,8 +18,6 @@ Supported Cisco Devices:
 *  Cisco Nexus Data Center switches (1000V, 2000, 3000, 4000, 5000, 6000, 7000, 9000 etc.)
 *  Cisco Carrier Routing System
 *  Other Cisco IOS based devices (Metro Ethernet, Industrial Ethernet, Blade Switches, Connected Grid etc.)
-
-Preliminary support for:
 *  Cisco WLC - WLAN Controller
 
 Please contact me on Splunk Answers if there is anything you would like to see in this app.
@@ -222,73 +220,7 @@ This app reads from the sourcetype cisco:ios defined in TA-cisco_networks
 
 2. Restart Splunk
 
-
-+++ Optional steps
-1. For better change auditing add the following to the running-configuration on your devices:
-
---
-archive
- log config
-  logging enable
-  logging size 200
-  notify syslog contenttype plaintext
-  hidekeys
-!
-login on-failure log
-login on-success log
-logging userinfo
-!
---
-
-This ensures that all run commands are logged for Change Management. We sort them by the IOS event_id
-See Auditing -> Configuration change transactions
-
-
-2. If you do not want to show ACL hits by local management IPs, add the IPs or subnets to lookups/cisco_ios_acl_excluded_ips.csv
-
-
-3. For the Auditing -> Time drift view to work correctly, add something along the following on your devices:
-
---
-service timestamps log datetime msec localtime show-timezone
---
-
-4. Add something along the following to monitor interface changes:
-
---
-logging event trunk-status global
-logging event link-status global
-!
-interface ra Gi1/0/1 - 52
- logging event trunk-status
- logging event spanning-tree
- logging event status
-!
---
-
-5. (OPTIONAL) For MAC move notifications, STP logging, IP SLA logging etc:
-
---
-mac address-table notification mac-move
-spanning-tree logging
-ip sla logging traps
-ip dhcp limit lease log
-ip dhcp conflict logging
-ip nat log translations syslog
-xconnect logging pseudowire status
---
-
-6. (OPTIONAL) For DHCP utilization logging on your devices, do this for each pool
---
-utilization mark high 80 log
---
-
-7. (OPTIONAL) Nexus ACL logging
---
-logging level acllog 6
-acllog match-log-level 6
-logging logfile messages 6
---
+3. See the Help page in the app
 
 ++ TODO
 
