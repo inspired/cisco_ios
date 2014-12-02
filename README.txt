@@ -20,7 +20,7 @@ Supported Cisco Devices:
 *  Other Cisco IOS based devices (Metro Ethernet, Industrial Ethernet, Blade Switches, Connected Grid etc.)
 *  Cisco WLC - WLAN Controller
 
-Please contact me on Splunk Answers if there is anything you would like to see in this app.
+Please post a question on Splunk Answers and tag it with "Cisco Networks" if there is anything you would like to see in this app.
 
 
 ++ What's New
