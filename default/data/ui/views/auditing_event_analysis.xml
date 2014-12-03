@@ -88,17 +88,17 @@
         <drilldown>
           <link field="Message text">
             <![CDATA[
-                        /app/cisco_networks/search?q=search vendor_message_text="$row.Message text$"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search vendor_message_text="$row.Message text$"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="Explanation">
             <![CDATA[
-                        /app/cisco_networks/search?q=search vendor_explanation="$row.Explanation$"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search vendor_explanation="$row.Explanation$"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="Recommended action">
             <![CDATA[
-                        /app/cisco_networks/search?q=search vendor_recommended_action="$row.Recommended action$"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search vendor_recommended_action="$row.Recommended action$"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
         </drilldown>
@@ -122,47 +122,47 @@
         <drilldown>
           <link field="host">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="0 - emergency">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_id_and_name="0 - emergency"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="0 - emergency"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="1 - alert">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_id_and_name="1 - alert"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="1 - alert"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="2 - critical">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_id_and_name="2 - critical"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="2 - critical"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="3 - error">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_id_and_name="3 - error"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="3 - error"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="4 - warning">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_id_and_name="4 - warning"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="4 - warning"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="5 - notification">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_id_and_name="5 - notification"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="5 - notification"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="6 - informational">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_id_and_name="6 - informational"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="6 - informational"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="7 - debugging">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_id_and_name="7 - debugging"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="7 - debugging"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
         </drilldown>
