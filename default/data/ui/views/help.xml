@@ -7,8 +7,8 @@
       <section>
       <h3>Step 1: App installation</h3>
       <ol>
-      <li>Install the Cisco Networks (cisco_networks) App on your search head</li>
-      <li>Install the Cisco Networks Add-on (TA-cisco_networks) on your search head AND indexers/heavy forwarders</li>
+      <li>Install the Cisco Networks (cisco_ios) App on your search head</li>
+      <li>Install the Cisco Networks Add-on (TA-cisco_ios) on your search head AND indexers/heavy forwarders</li>
       <li>Syslog input: Enable a UDP input with a custom port number on your Splunk forwarder or Splunk indexer. Set the sourcetype to <b>cisco:ios</b> or <b>syslog</b></li>
       <li>Smart Call Home input: Enable a TCP input with a custom port number on your Splunk forwarder or Splunk indexer. Set the sourcetype to <b>Cisco:SmartCallHome</b></li>
       </ol>
