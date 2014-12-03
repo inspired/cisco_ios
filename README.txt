@@ -28,7 +28,6 @@ Please post a question on Splunk Answers and tag it with "Cisco Networks" if the
 +++ 2.1.0 (2014-10-30)
 Features:
 * NAME CHANGED TO Cisco Networks. Also download the latest TA-cisco_ios!
-  Remove your old Cisco IOS app directories (cisco_ios and TA-cisco_ios) after upgrading
 * More filters in the dashboards
 * DOT1X now with more graphs
 
