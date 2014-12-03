@@ -204,12 +204,12 @@ Features:
 ++ Application Details
 
 Sourcetype(s):              cisco:ios
-Supported Technologies:     Cisco IOS, IOS-XE, NX-OS, IOS XR devices
+Supported Technologies:     Cisco IOS, IOS-XE, NX-OS, IOS XR devices, WLC
 Supported Splunk versions:  6.1+
 
 ++ Installation Instructions
 
-The Cisco IOS app can be downloaded, installed, and configured to receive Cisco IOS data by either using the Splunk app setup screen or by manually installing and configuring the app.
+The Cisco Networks app can be downloaded, installed, and configured to receive Cisco IOS and WLC data by either using the Splunk app setup screen or by manually installing and configuring the app.
 This app reads from the sourcetype cisco:ios defined in TA-cisco_ios
 
 
