@@ -29,8 +29,15 @@
   </row>
   <row>
     <table>
-      <searchName>cdp neighbors</searchName>
       <title>CDP Neighbors (Nexus)</title>
+      <search>
+        <query>eventtype="cisco_ios-cdp_neighbor_added" OR eventtype=cisco_ios-cdp_neighbor_removed | dedup host,cdp_local_interface | table host,cdp_local_interface,cdp_remote_dvc,cdp_remote_dvc_serial,cdp_remote_interface,cdp_remote_ip,cdp_remote_ip_mgmt,mnemonic | sort host,cdp_local_interface</query>
+      </search>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">cell</option>
+      <option name="count">10</option>
     </table>
   </row>
 </form>

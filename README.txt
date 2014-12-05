@@ -1,8 +1,8 @@
 Copyright (C) 2013-2014 Mikael Bjerkeland. All Rights Reserved.
 
 App:              Cisco Networks (formerly known as Cisco IOS)
-Current Version:  2.1.0
-Last Modified:    2014-10-30
+Current Version:  2.1.1
+Last Modified:    2014-12-05
 Splunk Version:   6.1+
 Author:           Mikael Bjerkeland
 CIM Compliance:   4.0 (Authentication, Change Analysis, Inventory, Network Traffic)
@@ -26,6 +26,10 @@ Please contact me on Splunk Answers if there is anything you would like to see i
 
 
 ++ What's New
+
++++ 2.1.1 (2014-12-05)
+Bug fixes:
+* Time picker for Auditing Time Drift + CDP neigbors fixed (it was explicit)
 
 +++ 2.1.0 (2014-10-30)
 Features:
