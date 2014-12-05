@@ -9,7 +9,7 @@ CIM Compliance:   4.0 (Authentication, Change Analysis, Inventory, Network Traff
 
 The Cisco Networks App includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices using Splunk® Enterprise.
 
-Install this App on your search head. Install the Cisco Networks Add-on (TA-cisco_networks) on your search head AND indexers/heavy forwarders.
+Install this App on your search head. Install the Cisco Networks Add-on (TA-cisco_ios) on your search head AND indexers/heavy forwarders.
 
 Supported Cisco Devices:
 *  Cisco Catalyst series switches (2960, 3650, 3750, 4500, 6500, 6800, 7600 etc.)
@@ -18,11 +18,9 @@ Supported Cisco Devices:
 *  Cisco Nexus Data Center switches (1000V, 2000, 3000, 4000, 5000, 6000, 7000, 9000 etc.)
 *  Cisco Carrier Routing System
 *  Other Cisco IOS based devices (Metro Ethernet, Industrial Ethernet, Blade Switches, Connected Grid etc.)
-
-Preliminary support for:
 *  Cisco WLC - WLAN Controller
 
-Please contact me on Splunk Answers if there is anything you would like to see in this app.
+Please post a question on Splunk Answers and tag it with "Cisco Networks" if there is anything you would like to see in this app.
 
 
 ++ What's New
@@ -33,8 +31,7 @@ Bug fixes:
 
 +++ 2.1.0 (2014-10-30)
 Features:
-* NAME CHANGED TO Cisco Networks. Also download the latest TA-cisco_networks!
-  Remove your old Cisco IOS app directories (cisco_networks and TA-cisco_networks) after upgrading
+* NAME CHANGED TO Cisco Networks. Also download the latest TA-cisco_ios!
 * More filters in the dashboards
 * DOT1X now with more graphs
 
@@ -57,7 +54,7 @@ Bug fixes:
 +++ 1.5.0 (2014-05-08)
 Features:
 * Added more fields to the data model
-* Added an Event Analysis Dashboard to Auditing using the new lookups from TA-cisco_networks.
+* Added an Event Analysis Dashboard to Auditing using the new lookups from TA-cisco_ios.
 * Auditing -> Best Practice Deviations has been removed
 * Map visualizations added to Security -> ACL
 
@@ -211,88 +208,22 @@ Features:
 ++ Application Details
 
 Sourcetype(s):              cisco:ios
-Supported Technologies:     Cisco IOS, IOS-XE, NX-OS, IOS XR devices
+Supported Technologies:     Cisco IOS, IOS-XE, NX-OS, IOS XR devices, WLC
 Supported Splunk versions:  6.1+
 
 ++ Installation Instructions
 
-The Cisco IOS app can be downloaded, installed, and configured to receive Cisco IOS data by either using the Splunk app setup screen or by manually installing and configuring the app.
-This app reads from the sourcetype cisco:ios defined in TA-cisco_networks
+The Cisco Networks app can be downloaded, installed, and configured to receive Cisco IOS and WLC data by either using the Splunk app setup screen or by manually installing and configuring the app.
+This app reads from the sourcetype cisco:ios defined in TA-cisco_ios
 
 
 +++ Setup and configuration
 
-1. Install in $SPLUNK_HOME/etc/apps/cisco_networks
+1. Install in $SPLUNK_HOME/etc/apps/cisco_ios
 
 2. Restart Splunk
 
-
-+++ Optional steps
-1. For better change auditing add the following to the running-configuration on your devices:
-
---
-archive
- log config
-  logging enable
-  logging size 200
-  notify syslog contenttype plaintext
-  hidekeys
-!
-login on-failure log
-login on-success log
-logging userinfo
-!
---
-
-This ensures that all run commands are logged for Change Management. We sort them by the IOS event_id
-See Auditing -> Configuration change transactions
-
-
-2. If you do not want to show ACL hits by local management IPs, add the IPs or subnets to lookups/cisco_ios_acl_excluded_ips.csv
-
-
-3. For the Auditing -> Time drift view to work correctly, add something along the following on your devices:
-
---
-service timestamps log datetime msec localtime show-timezone
---
-
-4. Add something along the following to monitor interface changes:
-
---
-logging event trunk-status global
-logging event link-status global
-!
-interface ra Gi1/0/1 - 52
- logging event trunk-status
- logging event spanning-tree
- logging event status
-!
---
-
-5. (OPTIONAL) For MAC move notifications, STP logging, IP SLA logging etc:
-
---
-mac address-table notification mac-move
-spanning-tree logging
-ip sla logging traps
-ip dhcp limit lease log
-ip dhcp conflict logging
-ip nat log translations syslog
-xconnect logging pseudowire status
---
-
-6. (OPTIONAL) For DHCP utilization logging on your devices, do this for each pool
---
-utilization mark high 80 log
---
-
-7. (OPTIONAL) Nexus ACL logging
---
-logging level acllog 6
-acllog match-log-level 6
-logging logfile messages 6
---
+3. See the Help page in the app
 
 ++ TODO
 

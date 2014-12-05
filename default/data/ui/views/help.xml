@@ -2,12 +2,13 @@
   <label>Help</label>
   <description>Help</description>
   <row>
+    <panel>
     <html>
       <section>
       <h3>Step 1: App installation</h3>
       <ol>
-      <li>Install the Cisco Networks (cisco_networks) App on your search head</li>
-      <li>Install the Cisco Networks Add-on (TA-cisco_networks) on your search head AND indexers/heavy forwarders</li>
+      <li>Install the Cisco Networks (cisco_ios) App on your search head</li>
+      <li>Install the Cisco Networks Add-on (TA-cisco_ios) on your search head AND indexers/heavy forwarders</li>
       <li>Syslog input: Enable a UDP input with a custom port number on your Splunk forwarder or Splunk indexer. Set the sourcetype to <b>cisco:ios</b> or <b>syslog</b></li>
       <li>Smart Call Home input: Enable a TCP input with a custom port number on your Splunk forwarder or Splunk indexer. Set the sourcetype to <b>Cisco:SmartCallHome</b></li>
       </ol>
@@ -72,6 +73,8 @@ logging logfile messages 6
       <h4>Smart Call Home logging</h4>
       <p>Enabling Smart Call home allows you to get extended device information from your devices at specific intervals</p>
       <pre>
+ip http client source-interface [SOURCE INTERFACE]
+!
 service call-home  
 call-home  
  contact-email-addr YOUR.EMAIL@ADDR.ESS  
@@ -87,5 +90,21 @@ call-home
       </pre>
       </section>
     </html>
+    </panel>
+    <panel>
+      <html>
+      <section>
+      <h3>Troubleshooting</h3>
+      <h2>Not seeing any inventory information?</h2>
+        <p>The app needs a feature called Cisco Smart Call Home (SCH) to be enabled on the devices.</p>
+      <p>Reasons why you're not seeing any data:</p>
+      <ul>
+        <li>Smart Call Home Input not enabled</li>
+        <li>Devices not configured to send Smart Call Home events at specific intervals</li>
+        <li><q>ip http client source-interface SOURCE_INTERFACE</q> not set on your device</li>
+      </ul>
+      </section>
+    </html>
+    </panel>
   </row>
 </dashboard>

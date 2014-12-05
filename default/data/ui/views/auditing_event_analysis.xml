@@ -12,16 +12,17 @@
     <input type="text" token="host" searchWhenChanged="false">
       <default>*</default>
     </input>
-    <input type="multiselect" token="severity_id_selection" searchWhenChanged="false">
+    <input type="multiselect" token="severity_selection" searchWhenChanged="false">
       <label>Severity</label>
       <search>
         <query>| inputlookup cisco_ios_severity</query>
       </search>
       <delimiter> OR </delimiter>
-      <default>0,1,2,3,4,5,6,7</default>
-      <valuePrefix>severity_id=</valuePrefix>
-      <fieldForLabel>severity_name</fieldForLabel>
-      <fieldForValue>severity_id</fieldForValue>
+      <default>0 - emergency,1 - alert,2 - critical,3 - error,4 - warning,5 - notification,6 - informational,7 - debugging</default>
+      <valuePrefix>severity_id_and_name="</valuePrefix>
+      <fieldForLabel>severity_id_and_name</fieldForLabel>
+      <fieldForValue>severity_id_and_name</fieldForValue>
+      <valueSuffix>"</valueSuffix>
     </input>
   </fieldset>
   <row>
@@ -58,7 +59,7 @@
       <table>
         <title>Message breakdown</title>
         <search>
-          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_message_text AS "Message text" SPLITROW vendor_explanation AS Explanation SPLITROW vendor_recommended_action AS "Recommended action" SPLITROW severity_id AS severity_id FILTER host is $host$ TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | search $severity_id_selection$</query>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_message_text AS "Message text" SPLITROW vendor_explanation AS Explanation SPLITROW vendor_recommended_action AS "Recommended action" SPLITROW severity_id_and_name AS severity_id_and_name FILTER host is $host$ TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | search $severity_selection$</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -87,17 +88,17 @@
         <drilldown>
           <link field="Message text">
             <![CDATA[
-                        /app/cisco_networks/search?q=search vendor_message_text="$row.Message text$"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search vendor_message_text="$row.Message text$"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="Explanation">
             <![CDATA[
-                        /app/cisco_networks/search?q=search vendor_explanation="$row.Explanation$"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search vendor_explanation="$row.Explanation$"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
           <link field="Recommended action">
             <![CDATA[
-                        /app/cisco_networks/search?q=search vendor_recommended_action="$row.Recommended action$"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search vendor_recommended_action="$row.Recommended action$"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
         </drilldown>
@@ -109,7 +110,7 @@
       <table>
         <title>Hosts by severity</title>
         <search>
-          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW host AS host SPLITCOL severity_name FILTER host is "$host$" SORT 500 host ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1 | sort -emergency, -alert, -critical, -error, -warning, -notification, -informational, -debugging | table host, emergency, alert, critical, error, warning, notification, informational, debugging</query>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW host AS host SPLITCOL severity_id_and_name FILTER host is "$host$" SORT 500 host ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1 | sort -"0 - emergency", -"1 - alert", -"2 - critical", -"3 - error", -"4 - warning", -"5 - notification", -"6 - informational", -"7 - debugging" | table host "0 - emergency" "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging"</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -121,47 +122,47 @@
         <drilldown>
           <link field="host">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
-          <link field="emergency">
+          <link field="0 - emergency">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_name=emergency&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="0 - emergency"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
-          <link field="alert">
+          <link field="1 - alert">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_name=alert&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="1 - alert"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
-          <link field="critical">
+          <link field="2 - critical">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_name=critical&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="2 - critical"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
-          <link field="error">
+          <link field="3 - error">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_name=error&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="3 - error"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
-          <link field="warning">
+          <link field="4 - warning">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_name=warning&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="4 - warning"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
-          <link field="notification">
+          <link field="5 - notification">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_name=notification&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="5 - notification"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
-          <link field="informational">
+          <link field="6 - informational">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_name=informational&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="6 - informational"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
-          <link field="debugging">
+          <link field="7 - debugging">
             <![CDATA[
-                        /app/cisco_networks/search?q=search host=$row.host$ severity_name=debugging&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search host=$row.host$ severity_id_and_name="7 - debugging"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
         </drilldown>

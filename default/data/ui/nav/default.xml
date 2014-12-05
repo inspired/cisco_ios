@@ -1,4 +1,4 @@
-<nav>    
+<nav color="#a3a3a7">
   <view name="overview" default="true" />
   <collection label="Inventory">
     <view name="inventory_devices" />
@@ -13,7 +13,7 @@
   </collection>
   <collection label="Switching">
     <view name="switching_dashboard" />
-    <view name="switching_dhcp_snooping" />
+    <view name="switching_dhcp" />
     <view name="switching_spanning_tree" />
     <view name="switching_cdp_events" />
   </collection>
