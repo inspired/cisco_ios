@@ -7,22 +7,6 @@
   </fieldset>
   <row>
     <panel>
-      <html>
-      <section>
-      <p>Add the following:</p>
-      <ul>
-        <li># of clients total, per switch, per protocol (802.1x/MAB/Webauth)</li>
-        <li>Top client device type (if device sensor is enabled)</li>
-        <li>Top user authentication</li>
-        <li># of success/failed auth timeline</li>
-        <li># of connected clients timeline</li>
-      </ul>
-      </section>
-    </html>
-    </panel>
-  </row>
-  <row>
-    <panel>
       <table>
         <title>Authentications</title>
         <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")`| transaction audit_session_id| table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,result | stats latest(audit_session_id) AS audit_session_id, latest(authenticator) AS authenticator, latest(src_vlan) AS src_vlan, latest(result) AS result BY host,src_interface  | stats count(eval(result="succeeded" OR result="successful")) AS succeeded, count(eval(result="failed")) AS failed</searchString>
