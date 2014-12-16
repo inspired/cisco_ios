@@ -72,7 +72,7 @@
       <chart>
         <title>Severities over time</title>
         <search>
-          <query>sourcetype=cisco:ios host=sbe-3424-10645-sw-01.eiendom.statsbygg.pro | timechart count by severity_id_and_name | rename severity_id_and_name AS "Severity"</query>
+          <query>sourcetype=cisco:ios host=$form.host$ | timechart count by severity_id_and_name | rename severity_id_and_name AS "Severity"</query>
         </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
