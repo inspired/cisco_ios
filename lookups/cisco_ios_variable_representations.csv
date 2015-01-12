@@ -1,17 +1,17 @@
 vendor_variable_field,vendor_variable_type_of_information
-[atalk_address],AppleTalk address
-[atalk_net],AppleTalk network, either 600 or 600-601
-[char],Single character
-[chars],Character string
-[dec],Decimal number
-[enet],Ethernet address (for example, 0000.FEED.00C0)
-[hex],Hexadecimal number
-[hex_addr],Hexadecimal address
-[inet],Internet address (for example, 10.0.2.16)
-[int],Integer
-[ipv6_addr],IP version 6 (IPv6) address
-[node],Address or node name
-[p],IPv6 address
-[sci_notation],Scientific notation
-[t-line],Terminal line number in octal (or decimal if the decimal-TTY service is enabled)
+[atalk_address],"AppleTalk address"
+[atalk_net],"AppleTalk network, either 600 or 600-601"
+[char],"Single character"
+[chars],"Character string"
+[dec],"Decimal number"
+[enet],"Ethernet address (for example, 0000.FEED.00C0)"
+[hex],"Hexadecimal number"
+[hex_addr],"Hexadecimal address"
+[inet],"Internet address (for example, 10.0.2.16)"
+[int],"Integer"
+[ipv6_addr],"IP version 6 (IPv6) address"
+[node],"Address or node name"
+[p],"IPv6 address"
+[sci_notation],"Scientific notation"
+[t-line],"Terminal line number in octal (or decimal if the decimal-TTY service is enabled)"
 [v-name],"VINES name, or service number (hex or decimal)"
