@@ -1,4 +1,4 @@
-variable_field,variable_type_of_information
+vendor_variable_field,vendor_variable_type_of_information
 [atalk_address],AppleTalk address
 [atalk_net],AppleTalk network, either 600 or 600-601
 [char],Single character
