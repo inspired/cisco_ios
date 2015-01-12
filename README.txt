@@ -1,8 +1,8 @@
 Copyright (C) 2013-2014 Mikael Bjerkeland. All Rights Reserved.
 
 App:              Cisco Networks (formerly known as Cisco IOS)
-Current Version:  2.1.1
-Last Modified:    2014-12-05
+Current Version:  2.1.2
+Last Modified:    2015-01-12
 Splunk Version:   6.1+
 Author:           Mikael Bjerkeland
 CIM Compliance:   4.0 (Authentication, Change Analysis, Inventory, Network Traffic)
@@ -24,6 +24,14 @@ Please post a question on Splunk Answers and tag it with "Cisco Networks" if the
 
 
 ++ What's New
+
++++ 2.1.2 (2014-01-12)
+Features:
+* Added facility category lookup file based on http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html
+* Added variable name lookup file (not in use yet)
+
+Bug fixes:
+* Fixed static search on one single device for Smart Call Home events in the Device view
 
 +++ 2.1.1 (2014-12-05)
 Bug fixes:
