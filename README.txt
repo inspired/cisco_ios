@@ -25,7 +25,7 @@ Please post a question on Splunk Answers and tag it with "Cisco Networks" if the
 
 ++ What's New
 
-+++ 2.1.2 (2014-01-12)
++++ 2.1.2 (2015-01-12)
 Features:
 * Added facility category lookup file based on http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html
 * Added variable name lookup file (not in use yet)
