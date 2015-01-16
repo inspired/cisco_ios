@@ -1,11 +1,11 @@
 Copyright (C) 2013-2014 Mikael Bjerkeland. All Rights Reserved.
 
 App:              Cisco Networks (formerly known as Cisco IOS)
-Current Version:  2.1.2
-Last Modified:    2015-01-12
-Splunk Version:   6.1+
+Current Version:  2.2.0
+Last Modified:    2015-01-16
+Splunk Version:   6.2+
 Author:           Mikael Bjerkeland
-CIM Compliance:   4.0 (Authentication, Change Analysis, Inventory, Network Traffic)
+CIM Compliance:   4.1 (Authentication, Change Analysis, Inventory, Network Traffic)
 
 The Cisco Networks App includes dashboards, data models and logic for analyzing data from Cisco IOS, IOS XE, IOS XR and NX-OS devices using Splunk® Enterprise.
 
@@ -25,13 +25,16 @@ Please post a question on Splunk Answers and tag it with "Cisco Networks" if the
 
 ++ What's New
 
-+++ 2.1.2 (2015-01-12)
++++ 2.2.0 (2015-01-16)
 Features:
 * Added facility category lookup file based on http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html
 * Added variable name lookup file (not in use yet)
+* Better documentation
 
 Bug fixes:
 * Fixed static search on one single device for Smart Call Home events in the Device view
+* Removed unused searches
+* Improvements to get the app Splunk Certified
 
 +++ 2.1.1 (2014-12-05)
 Bug fixes:
