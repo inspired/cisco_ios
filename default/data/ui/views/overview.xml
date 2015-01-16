@@ -130,6 +130,7 @@
       <option name="charting.axisTitleY2.visibility">visible</option>
       <option name="charting.axisY2.enabled">false</option>
       <option name="charting.axisY2.scale">inherit</option>
+      <option name="link.openPivot.visible">false</option>
       <drilldown>
         <link field="0 - emergency">
           <![CDATA[
