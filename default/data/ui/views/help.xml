@@ -64,6 +64,10 @@ utilization mark high 80 log
       <h4>ACL logging</h4>
       <h5>General</h5>
       <p>Remember to add the <b>log</b> or <b>log-input</b> keyword to your access list entries if you want to enable access list logging</p>
+      <h5>Access list correlation tags</h5>
+      <pre>
+        ip access-list logging hash-generation
+      </pre>
       <h5>Nexus ACL logging</h5>
       <pre>
 logging level acllog 6
