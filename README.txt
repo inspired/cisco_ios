@@ -28,6 +28,7 @@ Please post a question on Splunk Answers and tag it with "Cisco Networks" if the
 +++ 2.2.0 (2015-01-16)
 Features:
 * Added facility category lookup file based on http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html
+* DHCP now includes ARP inspection
 * Added variable name lookup file (not in use yet)
 * Better documentation
 
