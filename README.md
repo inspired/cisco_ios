@@ -36,7 +36,7 @@
 #### About the Cisco Networks app
 
 | Author | Mikael Bjerkeland |
-| --- |  |
+| --- | --- |
 | App Version | 2.2.0 |
 | Vendor Products | Cisco Catalyst, ASR, ISR, Nexus, CRS and other IOS based switches, Wireless LAN Controller   |
 | Has index-time operations | False |
