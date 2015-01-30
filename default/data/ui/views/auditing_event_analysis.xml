@@ -59,7 +59,7 @@
       <chart>
         <title>Categories over time</title>
         <search>
-          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW _time AS _time PERIOD auto SPLITCOL vendor_category FILTER host is $host$ SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1</query>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW _time AS _time PERIOD auto SPLITCOL vendor_category FILTER host is $host$ FILTER vendor_category isNotNull SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
