@@ -1,10 +1,6 @@
-# Proposed App Certification Documentation Template
-**November 2014**
+# Cisco Networks
 
-All content listed in the table of contents is _required_.
-——-
-
-## Template Table of Contents
+## Table of Contents
 
 ### OVERVIEW
 
