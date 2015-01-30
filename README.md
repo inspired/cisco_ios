@@ -220,6 +220,12 @@ Provides the vendor's description of an event category based on the event's faci
 - Lookup fields: facility, vendor_category
 - Lookup contents: See the file contents
 
+| | |
+| --- | --- |
+| File location | lookups/cisco_ios_facility_categories.csv |
+| Lookup fields | facility, vendor_category |
+| Lookup contents | See the file contents |
+
 **cisco_ios_messages.csv**
 
 Provides the vendor's recommended actions, explanations and message texts based on the event's facility, severity_id and mnemonic,
