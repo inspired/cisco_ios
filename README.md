@@ -212,7 +212,7 @@ These data types support the following Common Information Model data models:
 
 The Cisco Networks app contains 3 lookup files.
 
-** cisco_ios_facility_categories.csv **
+**cisco_ios_facility_categories.csv**
 
 Provides the vendor's description of an event category based on the event's facility.
 
@@ -220,7 +220,7 @@ Provides the vendor's description of an event category based on the event's faci
 - Lookup fields: facility, vendor_category
 - Lookup contents: See the file contents
 
-** cisco_ios_messages.csv **
+**cisco_ios_messages.csv**
 
 Provides the vendor's recommended actions, explanations and message texts based on the event's facility, severity_id and mnemonic,
 
@@ -228,7 +228,7 @@ Provides the vendor's recommended actions, explanations and message texts based 
 - Lookup fields: facility, severity_id, mnemonic, vendor_message_text, vendor_explanation, vendor_recommended_action
 - Lookup contents: See the file contents
 
-** cisco_ios_variable_representations.csv **
+**cisco_ios_variable_representations.csv**
 
 Not yet in use, but may be used to look up the variables from vendor_message_text to get a friendly explanation of the type of variable
 
