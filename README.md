@@ -220,8 +220,8 @@ Provides the vendor's description of an event category based on the event's faci
 - Lookup fields: facility, vendor_category
 - Lookup contents: See the file contents
 
-| | |
-| --- | --- |
+| | | |
+| --- | --- | --- |
 | File location | lookups/cisco_ios_facility_categories.csv |
 | Lookup fields | facility, vendor_category |
 | Lookup contents | See the file contents |
