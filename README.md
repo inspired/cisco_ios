@@ -76,6 +76,7 @@ Version 2.2.0 of the Cicso Networks app fixes the following issues:
 
 - Fixed static search on one single device for Smart Call Home events in the Device view
 - Removed unused searches
+- Wireless view corrected to get MAC addresses correctly output
 - Improvements to get the app Splunk Certified
 
 ##### Known issues
