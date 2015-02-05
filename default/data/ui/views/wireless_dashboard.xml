@@ -59,7 +59,7 @@
       <table>
         <title>Events with MAC addresses</title>
         <search>
-          <query>sourcetype=cisco:ios filename=* filename_line=* | rex field=message_text "(?&lt;src_mac&gt;[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2})" | rex field=message_text mode=sed "s/([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}/XX:XX:XX:XX:XX/g" | stats latest(_time) AS _time, count by dvc,facility,mnemonic,src_mac,message_text,vendor_explanation | sort -count | table _time dvc facility mnemonic src_mac message_text vendor_explanation count</query>
+          <query>sourcetype=cisco:ios filename=* filename_line=* | rex field=message_text "(?&lt;src_mac&gt;[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2})" | rex field=message_text mode=sed "s/([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}/XX:XX:XX:XX:XX:XX/g" | stats latest(_time) AS _time, count by dvc,facility,mnemonic,src_mac,message_text,vendor_explanation | sort -count | table _time dvc facility mnemonic src_mac message_text vendor_explanation count</query>
         </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
