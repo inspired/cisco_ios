@@ -107,7 +107,9 @@ call-home
         <li>Devices not configured to send Smart Call Home events at specific intervals</li>
         <li><q>ip http client source-interface SOURCE_INTERFACE</q> not set on your device</li>
       </ul>
-      <h2>Not seeing authentication results</h2>
+      </section>
+      <section>
+      <h2>Not seeing authentication results?</h2>
       <p>Results from wired 802.1x (DOT1X) authentications are sent with severity "level 7 - debugging". 
       To correct this configure logging trap debugging on your device. Take extra precautions in actual debugging situations
       as "debug all" will result in a huge increase in events forwarded to your Splunk servers.
