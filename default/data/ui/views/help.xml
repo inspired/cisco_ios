@@ -74,6 +74,13 @@ logging level acllog 6
 acllog match-log-level 6
 logging logfile messages 6
       </pre>
+      <h4>CPU and Memory Utilization logging</h4>
+      <p>This generates CPU and memory notifications. CPU notifications if the CPU has been over 80% for more than 5 seconds. Memory if there is less than 20000KB.</p>
+      <pre>
+      process cpu threshold type total rising 80 interval 5
+      memory free low-watermark processor 20000
+      memory free low-watermark io 20000
+      </pre>
       <h4>Smart Call Home logging</h4>
       <p>Enabling Smart Call home allows you to get extended device information from your devices at specific intervals</p>
       <pre>
