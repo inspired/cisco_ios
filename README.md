@@ -66,7 +66,7 @@ Version 2.2.1 of the Cisco Networks app is compatible with:
 
 Cisco Networks includes the following new features:
 
-- Added WLC/IOS toggle to the overview page
+- Added WLC/IOS toggle to the overview page. UPDATE YOUR Cisco Networks Add-on too!
 
 ##### Fixed issues
 
