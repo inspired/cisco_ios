@@ -27,7 +27,7 @@ Please post a question on Splunk Answers and tag it with "Cisco Networks" if the
 
 +++ 2.2.1 (2015-04-07)
 Features:
-* IOS or WLC toggle added in the overview page
+* IOS or WLC toggle added in the overview page. Make sure you update the Cisco Networks Add-on to 2.2.1 too!
 
 +++ 2.2.0 (2015-01-16)
 Features:
