@@ -37,7 +37,7 @@
 
 | Author | Mikael Bjerkeland |
 | --- | --- |
-| App Version | 2.2.0 |
+| App Version | 2.2.1 |
 | Vendor Products | Cisco Catalyst, ASR, ISR, Nexus, CRS and other IOS based switches, Wireless LAN Controller   |
 | Has index-time operations | False |
 | Create an index | False |
@@ -53,7 +53,7 @@ No scripts or binaries are included.
 
 ##### About this release
 
-Version 2.2.0 of the Cisco Networks app is compatible with:
+Version 2.2.1 of the Cisco Networks app is compatible with:
 
 | Splunk Enterprise versions | 6.2 |
 | --- | --- |
@@ -72,12 +72,9 @@ Cisco Networks includes the following new features:
 
 ##### Fixed issues
 
-Version 2.2.0 of the Cicso Networks app fixes the following issues:
+Version 2.2.1 of the Cicso Networks app fixes the following issues:
 
-- Fixed static search on one single device for Smart Call Home events in the Device view
-- Removed unused searches
-- Wireless view corrected to get MAC addresses correctly output
-- Improvements to get the app Splunk Certified
+- Added WLC/IOS toggle to the overview page
 
 ##### Known issues
 

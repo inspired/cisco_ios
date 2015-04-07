@@ -1,8 +1,8 @@
 Copyright (C) 2013-2014 Mikael Bjerkeland. All Rights Reserved.
 
 App:              Cisco Networks (formerly known as Cisco IOS)
-Current Version:  2.2.0
-Last Modified:    2015-01-16
+Current Version:  2.2.1
+Last Modified:    2015-04-07
 Splunk Version:   6.2+
 Author:           Mikael Bjerkeland
 CIM Compliance:   4.1 (Authentication, Change Analysis, Inventory, Network Traffic)
@@ -24,6 +24,10 @@ Please post a question on Splunk Answers and tag it with "Cisco Networks" if the
 
 
 ++ What's New
+
++++ 2.2.1 (2015-04-07)
+Features:
+* IOS or WLC toggle added in the overview page
 
 +++ 2.2.0 (2015-01-16)
 Features:
