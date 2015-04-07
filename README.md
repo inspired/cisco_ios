@@ -66,15 +66,11 @@ Version 2.2.1 of the Cisco Networks app is compatible with:
 
 Cisco Networks includes the following new features:
 
-- Added facility category lookup file based on http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html
-- Added variable name lookup file (not in use yet)
-- Better documentation
+- Added WLC/IOS toggle to the overview page
 
 ##### Fixed issues
 
 Version 2.2.1 of the Cicso Networks app fixes the following issues:
-
-- Added WLC/IOS toggle to the overview page
 
 ##### Known issues
 
