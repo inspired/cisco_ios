@@ -70,19 +70,19 @@ Cisco Networks includes the following new features:
 
 ##### Fixed issues
 
-Version 2.2.1 of the Cicso Networks app fixes the following issues:
+Version 2.2.2 of the Cicso Networks app fixes the following issues:
 
 - Change management transactions now resorts to using _time if event_id is missing.
 
 ##### Known issues
 
-Version 2.2.0 of the Cisco Networks app has the following known issues:
+Version 2.2.2 of the Cisco Networks app has the following known issues:
 
 - None known
 
 ##### Third-party software attributions
 
-Version 2.2.0 of the Cisco Networks app incorporates the following third-party software or libraries.
+Version 2.2.2 of the Cisco Networks app incorporates the following third-party software or libraries.
 
 - None
 
