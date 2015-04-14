@@ -9,7 +9,7 @@
     <panel>
       <table>
         <title>Authentications</title>
-        <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")`| transaction audit_session_id| table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,result | stats latest(audit_session_id) AS audit_session_id, latest(authenticator) AS authenticator, latest(src_vlan) AS src_vlan, latest(result) AS result BY host,src_interface  | stats count(eval(result="succeeded" OR result="successful")) AS succeeded, count(eval(result="failed")) AS failed</searchString>
+        <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")`| transaction audit_session_id| table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,vendor_action | stats latest(audit_session_id) AS audit_session_id, latest(authenticator) AS authenticator, latest(src_vlan) AS src_vlan, latest(vendor_action) AS vendor_action BY host,src_interface  | stats count(eval(vendor_action="succeeded" OR vendor_action="successful")) AS succeeded, count(eval(vendor_action="failed")) AS failed</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="wrap">true</option>
@@ -95,7 +95,7 @@
     <panel>
       <table>
         <title>Authentication transactions</title>
-        <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | transaction audit_session_id | table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,result</searchString>
+        <searchString>sourcetype=cisco:ios eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | transaction audit_session_id | table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,vendor_action</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="count">20</option>

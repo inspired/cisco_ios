@@ -73,6 +73,7 @@ Cisco Networks includes the following new features:
 Version 2.2.2 of the Cicso Networks app fixes the following issues:
 
 - Change management transactions now resorts to using _time if event_id is missing.
+- Changed result field for authentication events to vendor_action for CIM compliance. Also changed in the TA
 
 ##### Known issues
 
