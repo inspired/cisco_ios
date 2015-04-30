@@ -14,14 +14,14 @@
     </html>
       <single>
         <title>Device</title>
-        <searchString>| inputlookup Cisco_Device | search host=$form.host$ | fields host | appendcols [search sourcetype=Cisco:SmartCallHome host=$form.host$ | rename hostname AS host | fields host | head 1]</searchString>
+        <searchString>| inputlookup Cisco_Device | search host=$form.host$ | fields host | appendcols [search eventtype=cisco_ios-smart_call_home host=$form.host$ | rename hostname AS host | fields host | head 1]</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="linkView">search</option>
       </single>
       <table>
         <title>Device info</title>
-        <searchString>sourcetype=Cisco:SmartCallHome host=$form.host$ | stats latest(model) AS model, latest(serial_number) AS serial_number, latest(software_version) AS software_version, latest(series) AS series, latest(site_id) AS site_id</searchString>
+        <searchString>eventtype=cisco_ios-smart_call_home host=$form.host$ | stats latest(model) AS model, latest(serial_number) AS serial_number, latest(software_version) AS software_version, latest(series) AS series, latest(site_id) AS site_id</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
       </table>
@@ -41,7 +41,7 @@
       <chart>
         <title>Messages over time</title>
         <search>
-          <query>sourcetype=cisco:ios host=$form.host$ | strcat facility "-" severity_id "-" mnemonic fsm | timechart count by fsm</query>
+          <query>eventtype=cisco_ios host=$form.host$ | strcat facility "-" severity_id "-" mnemonic fsm | timechart count by fsm</query>
         </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
@@ -72,7 +72,7 @@
       <chart>
         <title>Severities over time</title>
         <search>
-          <query>sourcetype=cisco:ios host=$form.host$ | timechart count by severity_id_and_name | rename severity_id_and_name AS "Severity"</query>
+          <query>eventtype=cisco_ios host=$form.host$ | timechart count by severity_id_and_name | rename severity_id_and_name AS "Severity"</query>
         </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
@@ -121,7 +121,7 @@
     <panel>
       <table>
         <title>Smart Call Home (temporary)</title>
-        <searchString>host=$form.host$ sourcetype=Cisco:SmartCallHome | fields - _*, date*, punct, linecount, index, eventtype, source, sourcetype, splunk_server, tag, tag::eventtype, time*pos, "soap-env:Envelope.soap-env:Body.aml-block:Block.aml-block:Attachments.aml-block:Attachment.aml-block:Data"  | stats values(*) | transpose</searchString>
+        <searchString>host=$form.host$ eventtype=cisco_ios-smart_call_home | fields - _*, date*, punct, linecount, index, eventtype, source, sourcetype, splunk_server, tag, tag::eventtype, time*pos, "soap-env:Envelope.soap-env:Body.aml-block:Block.aml-block:Attachments.aml-block:Attachment.aml-block:Data"  | stats values(*) | transpose</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="wrap">true</option>

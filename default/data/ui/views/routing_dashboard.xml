@@ -85,7 +85,7 @@
     <panel>
       <table>
         <title>Routing events</title>
-        <searchString>sourcetype=cisco:ios eventtype=cisco_ios-routing | eval routing_protocol = case(eventtype == "cisco_ios-routing-ospf", "OSPF", eventtype == "cisco_ios-routing-dual", "EIGRP", eventtype == "cisco_ios-routing-bgp", "BGP", eventtype == "cisco_ios-routing-ldp", "LDP", eventtype == "cisco_ios-routing-isis", "ISIS", eventtype == "cisco_ios-routing-rsvp", "RSVP", eventtype == "cisco_ios-routing-pim", "PIM") | search $routing_protocol_selection$ | table _time,host,routing_protocol,protocol,process_id,as_number,neighbor,vrf,src_interface,state_from,state_to,reason,message_text | sort -_time</searchString>
+        <searchString>eventtype=cisco_ios-routing | eval routing_protocol = case(eventtype == "cisco_ios-routing-ospf", "OSPF", eventtype == "cisco_ios-routing-dual", "EIGRP", eventtype == "cisco_ios-routing-bgp", "BGP", eventtype == "cisco_ios-routing-ldp", "LDP", eventtype == "cisco_ios-routing-isis", "ISIS", eventtype == "cisco_ios-routing-rsvp", "RSVP", eventtype == "cisco_ios-routing-pim", "PIM") | search $routing_protocol_selection$ | table _time,host,routing_protocol,protocol,process_id,as_number,neighbor,vrf,src_interface,state_from,state_to,reason,message_text | sort -_time</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="count">10</option>

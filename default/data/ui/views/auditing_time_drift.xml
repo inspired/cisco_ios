@@ -24,7 +24,7 @@
       <option name="displayRowNumbers">true</option>
       <title>Time drift between event time and device's reported event time</title>
       <search>
-        <query>sourcetype=cisco:ios | dedup host | eval dtime1=strptime(device_time, "%Y %b %e %H:%M:%S.%Q %Z") | eval dtime2=strptime(device_time, "%b %e %H:%M:%S.%Q %Z") | eval dtime3=strptime(device_time, "%b %e %H:%M:%S %Z") | eval dtime4=strptime(device_time, "%b %e %H:%M:%S.%Q") | eval dtime5=strptime(device_time, "%b %e %H:%M:%S") | eval device_time2=coalesce(dtime1,dtime2,dtime3,dtime4,dtime5) | eval difference=_time-device_time2 | convert timeformat="%s" ctime(difference) AS seconds | `sla-sec2time(seconds,time_difference)` | table _time,host,device_time,time_difference | sort -time_difference</query>
+        <query>eventtype=cisco_ios | dedup host | eval dtime1=strptime(device_time, "%Y %b %e %H:%M:%S.%Q %Z") | eval dtime2=strptime(device_time, "%b %e %H:%M:%S.%Q %Z") | eval dtime3=strptime(device_time, "%b %e %H:%M:%S %Z") | eval dtime4=strptime(device_time, "%b %e %H:%M:%S.%Q") | eval dtime5=strptime(device_time, "%b %e %H:%M:%S") | eval device_time2=coalesce(dtime1,dtime2,dtime3,dtime4,dtime5) | eval difference=_time-device_time2 | convert timeformat="%s" ctime(difference) AS seconds | `sla-sec2time(seconds,time_difference)` | table _time,host,device_time,time_difference | sort -time_difference</query>
       </search>
       <option name="wrap">true</option>
       <option name="rowNumbers">true</option>
@@ -38,7 +38,7 @@
       <option name="displayRowNumbers">true</option>
       <title>Devices with unsynchronized clocks</title>
       <search>
-        <query>sourcetype=cisco:ios reliable_time=false | dedup host | table _time, device_time, host</query>
+        <query>eventtype=cisco_ios reliable_time=false | dedup host | table _time, device_time, host</query>
       </search>
       <option name="wrap">true</option>
       <option name="rowNumbers">true</option>

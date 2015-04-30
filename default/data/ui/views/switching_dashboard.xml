@@ -36,7 +36,7 @@
     </panel>
     <panel>
       <table>
-        <searchString>sourcetype=cisco:ios eventtype="cisco_ios-stackmgr" | table _time, host, switch_id, state_to, dest_interface, switch</searchString>
+        <searchString>eventtype="cisco_ios-stackmgr" | table _time, host, switch_id, state_to, dest_interface, switch</searchString>
         <title>Stacking events</title>
         <option name="count">10</option>
         <option name="displayRowNumbers">true</option>

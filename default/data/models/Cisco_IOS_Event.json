@@ -1433,7 +1433,7 @@
             "calculations": [],
             "constraints": [
                 {
-                    "search": "sourcetype=cisco:ios OR sourcetype=Cisco:SmartCallHome",
+                    "search": "eventtype=cisco_ios OR eventtype=cisco_ios-smart_call_home",
                     "owner": "Cisco_IOS_Event"
                 }
             ],

@@ -54,12 +54,12 @@
   </row>
   <row>
     <table>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-config_started" | table _time,host,config_source,user,line,src_ip</searchString>
+      <searchString>eventtype="cisco_ios-config_started" | table _time,host,config_source,user,line,src_ip</searchString>
       <title>Configuration started</title>
     </table>
     <table>
       <title>Device restarts</title>
-      <searchString>sourcetype=cisco:ios eventtype="cisco_ios-restart" OR eventtype="cisco_ios-reload" | eval host=if(isnotnull(switch_id),host + "/" + switch_id,host) | table _time,host,user,src_ip,reason</searchString>
+      <searchString>eventtype="cisco_ios-restart" OR eventtype="cisco_ios-reload" | eval host=if(isnotnull(switch_id),host + "/" + switch_id,host) | table _time,host,user,src_ip,reason</searchString>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="wrap">true</option>
