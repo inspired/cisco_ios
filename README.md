@@ -66,7 +66,7 @@ Version 2.2.2 of the Cisco Networks app is compatible with:
 
 Cisco Networks includes the following new features:
 
--
+- Route flapping table added to the Routing Dashboard
 
 ##### Fixed issues
 
