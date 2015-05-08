@@ -6,6 +6,7 @@
       <label>Product</label>
       <choice value="IOS">IOS</choice>
       <choice value="WLC">WLC</choice>
+      <choice value="AP">AP</choice>
       <default>IOS</default>
     </input>
     <input type="time" searchWhenChanged="true">
