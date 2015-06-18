@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><form>
-  <label>ACL</label>
+  <label>Access Control Lists</label>
   <fieldset autoRun="true">
     <input type="time">
       <default>Last 60 minutes</default>
@@ -9,7 +9,7 @@
     <panel>
       <chart>
         <title>Protocols by action</title>
-        <searchString>eventtype=cisco_ios-acl_log | strcat protocol "://" dest_port protoDestPort | chart count(protoDestPort) over action BY protoDestPort</searchString>
+        <searchString>eventtype=cisco_ios-acl_log | strcat protocol "://" dest_port protoDestPort | chart sum(packets) over action BY protoDestPort</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="charting.axisTitleX.visibility">visible</option>
@@ -25,7 +25,6 @@
         <option name="charting.layout.splitSeries">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
-        <option name="charting.axisTitleY.text">Note: Does not take num_packets into account</option>
       </chart>
     </panel>
     <panel>
@@ -59,7 +58,7 @@
     <panel>
       <map>
         <title>Events by location</title>
-        <searchString>eventtype=cisco_ios-acl_log src_ip=* OR dest_ip=* | iplocation src_ip dest_ip | geostats count by action</searchString>
+        <searchString>eventtype=cisco_ios-acl_log src_ip=* OR dest_ip=* | iplocation src_ip dest_ip | geostats sum(packets) by action</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="mapping.data.maxClusters">100</option>

@@ -68,6 +68,7 @@ Cisco Networks includes the following new features:
 
 - Route flapping table added to the Routing Dashboard
 - AP logging now supported
+- Security ACL now does a sum of packets instead of counting rows
 
 ##### Fixed issues
 
