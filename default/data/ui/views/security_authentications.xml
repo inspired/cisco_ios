@@ -95,7 +95,7 @@
     <panel>
       <table>
         <title>Authentication transactions</title>
-        <searchString>eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | transaction audit_session_id | table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,vendor_action</searchString>
+        <searchString>eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | transaction audit_session_id | table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,vendor_action,action</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="count">20</option>
