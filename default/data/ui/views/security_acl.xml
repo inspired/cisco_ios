@@ -29,6 +29,36 @@
     </panel>
     <panel>
       <chart>
+        <title>Top blocked ports</title>
+        <search>
+          <query>eventtype=cisco_ios-acl_log action=blocked | strcat protocol "://" dest_port protoDestPort | top protoDestPort</query>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.axisY2.enabled">undefined</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <map>
+        <title>Events by location</title>
+        <searchString>eventtype=cisco_ios-acl_log src_ip=* OR dest_ip=* | iplocation src_ip dest_ip | geostats sum(packets) by action</searchString>
+        <earliestTime>$earliest$</earliestTime>
+        <latestTime>$latest$</latestTime>
+        <option name="mapping.data.maxClusters">100</option>
+        <option name="mapping.drilldown">all</option>
+        <option name="mapping.map.center">(0,0)</option>
+        <option name="mapping.map.zoom">2</option>
+        <option name="mapping.markerLayer.markerMaxSize">50</option>
+        <option name="mapping.markerLayer.markerMinSize">10</option>
+        <option name="mapping.markerLayer.markerOpacity">0.8</option>
+        <option name="mapping.tileLayer.maxZoom">7</option>
+        <option name="mapping.tileLayer.minZoom">0</option>
+        <option name="drilldown">all</option>
+      </map>
+    </panel>
+    <panel>
+      <chart>
         <title>Top ACE Correlation Tags</title>
         <searchString>| pivot Cisco_IOS_Event Access_List_Event count(correlation_tag) AS "Count of correlation_tag" SPLITROW correlation_tag AS "correlation_tag" SORT 100 correlation_tag</searchString>
         <earliestTime>$earliest$</earliestTime>
@@ -52,26 +82,6 @@
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
       </chart>
-    </panel>
-  </row>
-  <row>
-    <panel>
-      <map>
-        <title>Events by location</title>
-        <searchString>eventtype=cisco_ios-acl_log src_ip=* OR dest_ip=* | iplocation src_ip dest_ip | geostats sum(packets) by action</searchString>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
-        <option name="mapping.data.maxClusters">100</option>
-        <option name="mapping.drilldown">all</option>
-        <option name="mapping.map.center">(0,0)</option>
-        <option name="mapping.map.zoom">2</option>
-        <option name="mapping.markerLayer.markerMaxSize">50</option>
-        <option name="mapping.markerLayer.markerMinSize">10</option>
-        <option name="mapping.markerLayer.markerOpacity">0.8</option>
-        <option name="mapping.tileLayer.maxZoom">7</option>
-        <option name="mapping.tileLayer.minZoom">0</option>
-        <option name="drilldown">all</option>
-      </map>
     </panel>
   </row>
   <row>
