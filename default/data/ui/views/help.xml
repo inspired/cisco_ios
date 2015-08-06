@@ -18,7 +18,9 @@
       <p>This includes all IOS variants</p>
       <h4>Basic logging and timestamping</h4>
       <pre>
-service timestamps log datetime msec localtime show-timezone
+service timestamps debug datetime msec localtime show-timezone year
+service timestamps log datetime msec localtime show-timezone year
+service sequence-numbers
 logging trap informational
 logging host [YOUR SYSLOG/SPLUNK SERVER IP] transport udp port [YOUR UDP PORT]
       </pre>
