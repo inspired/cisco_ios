@@ -67,6 +67,12 @@ utilization mark high 80 log
       <pre>
 arp log threshold entries 2048
       </pre>
+      <h4>TrustSec</h4>
+      <p>If you are using Cisco TrustSec, add the following</p>
+      <pre>
+cts sxp log binding-changes
+cts logging verbose
+      </pre>
       <h4>ACL logging</h4>
       <h5>General</h5>
       <p>Remember to add the <b>log</b> or <b>log-input</b> keyword to your access list entries if you want to enable access list logging</p>
