@@ -714,7 +714,7 @@ MODEM_HIST,"Router shelf modem history and tracing","http://www.cisco.com/c/en/u
 MODEM_NV,"Modem NVRAM","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 MODEM_CALLREC,"Modem call record","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 MODEMCALL,"Modem Call Record","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
-RECORD;;http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html
+RECORD,"","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 MOHAWK_SM,"IDS sensor network module","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 MONITOR,"Cisco IOS software ROM monitor","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 MOTCR,"Hardware accelerator for IPSec","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
@@ -873,7 +873,7 @@ PQUICC_ASYNC,"Asynchronous MPC860 quad integrated communications controller","ht
 PQUICC_ASYNC_NOMEM,"Integrated Port Module Asynchronous Driver","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 PQUICC_ETHER,"Ethernet MPC860 quad integrated communications controller","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 PQUICC_,"Ethernet MPC860 quad integrated communications controller","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
-ETHERNET;;http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html
+ETHERNET,"","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 PQUICC_FE,"Fast Ethernet MPC860 quad integrated communications controller","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 PQUICC_SERIAL,"Serial MPC860 quad integrated communications controller","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 PQUICC3,"MPC8500 PowerQUICC3","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
@@ -1026,9 +1026,9 @@ SIP600_PARSING_ENGINE,"SIP-600 parsing engine","http://www.cisco.com/c/en/us/td/
 SIP600_QOS,"SIP-600 QoS","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 SIPSPA,"Shared Port Adapter on GSR line card","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 SKINNYSECURE,"Skinny secure server","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
-SERVER;;http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html
+SERVER,"","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 SKINNYSECURE,"Skinny secure service","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
-SERVICE;;http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html
+SERVICE,"","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 SKINNYSERVER,"Skinny server","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 SLB,"Server load balancing","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 SLB_DFP,"Server Load Balancing Dynamic Feedback Protocol agent","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
