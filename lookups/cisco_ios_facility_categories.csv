@@ -671,7 +671,7 @@ MDEBUG,"Memory debug","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/me
 MDR_SM,"Minimum Disruption Restart State Machine","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 MDS,"Multicast distributed switching","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 MDT,"PIM MDT","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
-MDX;;http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html
+MDX,"","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 MEM_ECC,"Memory write parity errors detected by ECC control","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 MEM_HM,"Memory health monitor","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
 MEMD,"CMCC CIP related to the memory device facility","http://www.cisco.com/c/en/us/td/docs/ios/15_0sy/system/messages/15sysmg/sm15syovr.html"
