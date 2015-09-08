@@ -58,6 +58,7 @@ ip dhcp limit lease log
 ip dhcp conflict logging
 ip nat log translations syslog
 xconnect logging pseudowire status
+ntp logging
       </pre>
       <h4>For DHCP utilization logging on your devices, do this for each pool</h4>
       <pre>
