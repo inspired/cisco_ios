@@ -86,7 +86,7 @@ Version 2.3.0 of the Cisco Networks app has the following known issues:
 
 ##### Third-party software attributions
 
-Version 2.2.2 of the Cisco Networks app incorporates the following third-party software or libraries.
+Version 2.3.0 of the Cisco Networks app incorporates the following third-party software or libraries.
 
 - None
 
