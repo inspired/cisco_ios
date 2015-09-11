@@ -37,7 +37,7 @@
 
 | Author | Mikael Bjerkeland |
 | --- | --- |
-| App Version | 2.2.2 |
+| App Version | 2.3.0 |
 | Vendor Products | Cisco Catalyst, ASR, ISR, Nexus, CRS and other IOS based switches, Wireless LAN Controller   |
 | Has index-time operations | False |
 | Create an index | False |
@@ -53,7 +53,7 @@ No scripts or binaries are included.
 
 ##### About this release
 
-Version 2.2.2 of the Cisco Networks app is compatible with:
+Version 2.3.0 of the Cisco Networks app is compatible with:
 
 | Splunk Enterprise versions | 6.2 |
 | --- | --- |
@@ -72,7 +72,7 @@ Cisco Networks includes the following new features:
 
 ##### Fixed issues
 
-Version 2.2.2 of the Cicso Networks app fixes the following issues:
+Version 2.3.0 of the Cicso Networks app fixes the following issues:
 
 - Change management transactions now resorts to using _time if event_id is missing.
 - Changed result field for authentication events to vendor_action for CIM compliance. Also changed in the TA
@@ -80,7 +80,7 @@ Version 2.2.2 of the Cicso Networks app fixes the following issues:
 
 ##### Known issues
 
-Version 2.2.2 of the Cisco Networks app has the following known issues:
+Version 2.3.0 of the Cisco Networks app has the following known issues:
 
 - None known
 
