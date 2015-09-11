@@ -1,3 +1,14 @@
++++ 2.3.0 (2015-09-11)
+Features:
+* Route flapping table added to the Routing Dashboard
+* AP logging now supported
+* Security ACL now does a sum of packets instead of counting rows
+
+Bug fixes:
+* Change management transactions now resorts to using _time if event_id is missing.
+* Changed result field for authentication events to vendor_action for CIM compliance. Also changed in the TA
+* All searches now use eventtypes instead of sourcetype=cisco:ios
+
 +++ 2.2.1 (2015-04-07)
 Features:
 * IOS or WLC toggle added in the overview page. Make sure you update the Cisco Networks Add-on to 2.2.1 too!
