@@ -100,7 +100,7 @@ No performance tests have been performed, but the app has proved to perform well
 
 * Hours: Mon-Fri 08:00 - 16:00 Central European Time
 * Observed Holidays: All Norwegian Public Holidays, December 23 to January 2, Palm Sunday to Easter Monday.
-* Email: mikael.bjerkeland@datametrix.no
+* Support URL: https://github.com/inspired/cisco_ios/issues
 
 **For users who are not customers of Datametrix, best effort support is available via Splunk Answers**
 
