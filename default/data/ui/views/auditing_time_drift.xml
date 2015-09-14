@@ -6,6 +6,7 @@
     </input>
   </fieldset>
   <row>
+    <panel>
     <html>
       <p>These reporting devices have a time drift of more than 1 second compared to the event time as reported by Splunk</p>
       <p>Consider checking the NTP settings of the listed devices</p>
@@ -18,6 +19,12 @@
       </ol>
       </section>
     </html>
+    </panel>
+    <panel>
+      <html>
+        <p>If you are not seeing anything in the "Devices with unsynchronized clocks" table, please ensure that your Syslog server is not replacing the device's time with its local time. It should instead be appending the local time upon reception.</p>
+      </html>
+    </panel>
   </row>
   <row>
     <table>
