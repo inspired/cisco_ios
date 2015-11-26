@@ -1,11 +1,11 @@
 <dashboard>
   <label>Help</label>
-  <description>Help</description>
   <row>
     <panel>
     <html>
       <section>
-      <h3>Step 1: App installation</h3>
+	<h1>Installation</h1>
+      <h2>Step 1: App installation</h2>
       <ol>
       <li>Install the Cisco Networks (cisco_ios) App on your search head</li>
       <li>Install the Cisco Networks Add-on (TA-cisco_ios) on your search head AND indexers/heavy forwarders</li>
@@ -14,9 +14,9 @@
       </ol>
       </section>
       <section>
-      <h3>Step 2: Configure your Cisco IOS devices</h3>
+      <h2>Step 2: Configure your Cisco IOS devices</h2>
       <p>This includes all IOS variants</p>
-      <h4>Basic logging and timestamping</h4>
+      <h3>Basic logging and timestamping</h3>
       <pre>
 service timestamps debug datetime msec localtime show-timezone year
 service timestamps log datetime msec localtime show-timezone year
@@ -24,7 +24,7 @@ service sequence-numbers
 logging trap informational
 logging host [YOUR SYSLOG/SPLUNK SERVER IP] transport udp port [YOUR UDP PORT]
       </pre>
-      <h4>Enable change auditing</h4>
+      <h3>Enable change auditing</h3>
       <pre>
 archive
  log config
@@ -38,7 +38,7 @@ login on-success log
 logging userinfo
 !
       </pre>
-      <h4>Add something along the following to monitor interface changes</h4>
+      <h3>Add something along the following to monitor interface changes</h3>
       <pre>
 logging event trunk-status global
 logging event link-status global
@@ -49,7 +49,7 @@ logging event spanning-tree
 logging event status
 !
       </pre>
-      <h4>For MAC move notifications, STP logging, IP SLA logging etc.</h4>
+      <h3>For MAC move notifications, STP logging, IP SLA logging etc.</h3>
       <pre>
 mac address-table notification mac-move
 spanning-tree logging
@@ -60,41 +60,41 @@ ip nat log translations syslog
 xconnect logging pseudowire status
 ntp logging
       </pre>
-      <h4>For DHCP utilization logging on your devices, do this for each pool</h4>
+      <h3>For DHCP utilization logging on your devices, do this for each pool</h3>
       <pre>
 utilization mark high 80 log
       </pre>
-      <h4>For ARP threshold logging, do this on your SVIs and IP interfaces</h4>
+      <h3>For ARP threshold logging, do this on your SVIs and IP interfaces</h3>
       <pre>
 arp log threshold entries 2048
       </pre>
-      <h4>TrustSec</h4>
+      <h3>TrustSec</h3>
       <p>If you are using Cisco TrustSec, add the following</p>
       <pre>
 cts sxp log binding-changes
 cts logging verbose
       </pre>
-      <h4>ACL logging</h4>
-      <h5>General</h5>
+      <h3>ACL logging</h3>
+      <h4>General</h4>
       <p>Remember to add the <b>log</b> or <b>log-input</b> keyword to your access list entries if you want to enable access list logging</p>
-      <h5>Access list correlation tags</h5>
+      <h4>Access list correlation tags</h4>
       <pre>
         ip access-list logging hash-generation
       </pre>
-      <h5>Nexus ACL logging</h5>
+      <h4>Nexus ACL logging</h4>
       <pre>
 logging level acllog 6
 acllog match-log-level 6
 logging logfile messages 6
       </pre>
-      <h4>CPU and Memory Utilization logging</h4>
+      <h3>CPU and Memory Utilization logging</h3>
       <p>This generates CPU and memory notifications. CPU notifications if the CPU has been over 80% for more than 5 seconds. Memory if there is less than 20000KB.</p>
       <pre>
       process cpu threshold type total rising 80 interval 5
       memory free low-watermark processor 20000
       memory free low-watermark io 20000
       </pre>
-      <h4>Smart Call Home logging</h4>
+      <h3>Smart Call Home logging</h3>
       <p>Enabling Smart Call home allows you to get extended device information from your devices at specific intervals</p>
       <pre>
 ip http client source-interface [SOURCE INTERFACE]
@@ -118,7 +118,7 @@ call-home
     <panel>
       <html>
       <section>
-      <h3>Troubleshooting</h3>
+      <h1>Troubleshooting</h1>
       <h2>Not seeing any inventory information?</h2>
         <p>The app needs a feature called Cisco Smart Call Home (SCH) to be enabled on the devices.</p>
       <p>Reasons why you're not seeing any data:</p>
@@ -136,8 +136,8 @@ call-home
       </p>
       </section>
       <section>
-      <h3>About this App</h3>
-      	<p>This add-on was created by Mikael Bjerkeland (mikael@bjerkeland.com). Commercial support is available by contacting <a href="www.datametrix.no">Datametrix</a>.
+      <h1>About this App</h1>
+      	<p>This App and the Cisco Networks Add-on was created by Mikael Bjerkeland (mikael@bjerkeland.com). Commercial support is available by contacting <a href="http://www.datametrix.no">Datametrix</a>.
 	</p>
       </section>
     </html>
