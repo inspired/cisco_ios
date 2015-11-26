@@ -135,6 +135,11 @@ call-home
       as "debug all" will result in a huge increase in events forwarded to your Splunk servers.
       </p>
       </section>
+      <section>
+      <h3>About this App</h3>
+      	<p>This add-on was created by Mikael Bjerkeland (mikael@bjerkeland.com). Commercial support is available by contacting <a href="www.datametrix.no">Datametrix</a>.
+	</p>
+      </section>
     </html>
     </panel>
   </row>

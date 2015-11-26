@@ -22,7 +22,7 @@
     </panel>
     <panel>
       <html>
-        <p>If you are not seeing anything in the "Devices with unsynchronized clocks" table, please ensure that your Syslog server is not replacing the device's time with its local time. It should instead be appending the local time upon reception.</p>
+        <p>If you are not seeing anything in the "Time drift between event time and device's reported event time" table, please ensure that your Syslog server is not replacing the device's time with its local time. It should instead be appending the local time upon reception.</p>
       </html>
     </panel>
   </row>
