@@ -256,7 +256,7 @@
     <panel>
       <table>
         <title>Diagnostic messages</title>
-        <searchString>eventtype="cisco_ios-diag" | eval eventcode=facility + "-" + severity_id + "-" + mnemonic | stats count AS Count, latest(_time) AS _time, latest(severity_id) AS severity_id by host, eventcode, message_text | lookup cisco_ios_severity severity_id | sort +severity_id,-Count | table _time, host, eventcode, message_text, severity_name, Count</searchString>
+        <searchString>eventtype="cisco_ios-diag" | eval eventcode=facility + "-" + severity_id + "-" + mnemonic | stats count AS Count, latest(_time) AS _time, latest(severity_id) AS severity_id by host, eventcode, message_text | lookup cisco_ios_severity severity_id | sort +severity_id,-Count | table _time, host, eventcode, message_text, severity_id_and_name, Count</searchString>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="wrap">true</option>
