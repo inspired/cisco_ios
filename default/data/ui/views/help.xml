@@ -59,6 +59,7 @@ ip dhcp conflict logging
 ip nat log translations syslog
 xconnect logging pseudowire status
 ntp logging
+epm logging
       </pre>
       <h3>For DHCP utilization logging on your devices, do this for each pool</h3>
       <pre>
