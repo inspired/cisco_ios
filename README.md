@@ -37,7 +37,7 @@
 
 | Author | Mikael Bjerkeland |
 | --- | --- |
-| App Version | 2.3.0 |
+| App Version | 2.3.1 |
 | Vendor Products | Cisco Catalyst, ASR, ISR, Nexus, CRS and other IOS based switches, Wireless LAN Controller   |
 | Has index-time operations | False |
 | Create an index | False |
@@ -53,7 +53,7 @@ No scripts or binaries are included.
 
 ##### About this release
 
-Version 2.3.0 of the Cisco Networks app is compatible with:
+Version 2.3.1 of the Cisco Networks app is compatible with:
 
 | Splunk Enterprise versions | 6.2 |
 | --- | --- |
@@ -66,28 +66,25 @@ Version 2.3.0 of the Cisco Networks app is compatible with:
 
 Cisco Networks includes the following new features:
 
-- Route flapping table added to the Routing Dashboard
-- AP logging now supported
-- Security ACL now does a sum of packets instead of counting rows
-- ACL dashboard shows dropped and rate-limited packets over time
+- Added some more panels to the Security -> ACL dashboard
 
 ##### Fixed issues
 
-Version 2.3.0 of the Cicso Networks app fixes the following issues:
+Version 2.3.1 of the Cicso Networks app fixes the following issues:
 
-- Change management transactions now resorts to using _time if event_id is missing.
-- Changed result field for authentication events to vendor_action for CIM compliance. Also changed in the TA
-- All searches now use eventtypes instead of sourcetype=cisco:ios
+- Documentation for certification
 
 ##### Known issues
 
-Version 2.3.0 of the Cisco Networks app has the following known issues:
+Version 2.3.1 of the Cisco Networks app has the following known issues:
 
-- Unable to return raw events in Splunk Enterprise 6.3 using searches such as sourcetype=cisco:ios unless in Fast Mode. This is due to a bug in Splunk Enterprise 6.3 and the Vendor Message Lookup CSV file. Workaround: Rename TA-cisco_ios/default/limits.conf.spec as TA-cisco_ios/default/limits.conf your Search Head and Indexers
+- Unable to return raw events in Splunk Enterprise 6.3.0 using searches such as sourcetype=cisco:ios unless in Fast Mode. This is due to a bug in Splunk Enterprise 6.3 and the Vendor Message Lookup CSV file. Workarounds (choose one): 
+  - Upgrade your servers to Splunk Enterprise 6.3.1 or higher
+  - Rename TA-cisco_ios/default/limits.conf.spec as TA-cisco_ios/default/limits.conf your Search Head and Indexers
 
 ##### Third-party software attributions
 
-Version 2.3.0 of the Cisco Networks app incorporates the following third-party software or libraries.
+Version 2.3.1 of the Cisco Networks app incorporates the following third-party software or libraries.
 
 - None
 
@@ -133,7 +130,7 @@ Cisco Networks supports the following server platforms in the versions supported
 
 To function properly, Cisco Networks requires the following software:
 
-- Cisco Networks Add-on (TA-cisco_ios), 2.3.0 or higher
+- Cisco Networks Add-on (TA-cisco_ios), 2.3.1 or higher
 
 #### Splunk Enterprise system requirements
 
