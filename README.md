@@ -276,3 +276,4 @@ The app needs a feature called Cisco Smart Call Home (SCH) to be enabled on the 
 * View access list logs
 * View events by Cisco access point MAC address
 * View top events by device model, software and hostname
+* Identify rare and common log messages by facility, mnemonic and device type
