@@ -1,3 +1,9 @@
++++ 2.3.1 (2016-01-08)
+Features:
+* Added some more panels to the Security -> ACL dashboard
+Bug fixes:
+* Documentation for certification
+
 +++ 2.3.0 (2015-09-11)
 Features:
 * Route flapping table added to the Routing Dashboard
