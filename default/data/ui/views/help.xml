@@ -14,9 +14,10 @@
       </ol>
       </section>
       <section>
-      <h2>Step 2: Configure your Cisco IOS devices</h2>
-      <p>This includes all IOS variants</p>
-      <h3>Basic logging and timestamping</h3>
+      <h2>Step 2: Configure your Cisco devices</h2>
+	<h3>Cisco IOS</h3>
+      <p>This includes all IOS variants. Not all commands are supported on all models</p>
+      <h4>Basic logging and timestamping</h4>
       <pre>
 service timestamps debug datetime msec localtime show-timezone year
 service timestamps log datetime msec localtime show-timezone year
@@ -24,7 +25,7 @@ service sequence-numbers
 logging trap informational
 logging host [YOUR SYSLOG/SPLUNK SERVER IP] transport udp port [YOUR UDP PORT]
       </pre>
-      <h3>Enable change auditing</h3>
+      <h4>Enable change auditing</h4>
       <pre>
 archive
  log config
@@ -38,18 +39,19 @@ login on-success log
 logging userinfo
 !
       </pre>
-      <h3>Add something along the following to monitor interface changes</h3>
-      <pre>
+      <h4>Monitor interface changes</h4>
+	<h5>General</h5>
+	<pre>
 logging event trunk-status global
 logging event link-status global
-!
-interface ra Gi1/0/1 - 52
+	</pre>
+	<h5>Interface level</h5>
+	<pre>
 logging event trunk-status
 logging event spanning-tree
 logging event status
-!
-      </pre>
-      <h3>For MAC move notifications, STP logging, IP SLA logging etc.</h3>
+        </pre>
+      <h4>MAC move notifications, STP logging, IP SLA logging etc.</h4>
       <pre>
 mac address-table notification mac-move
 spanning-tree logging
@@ -61,49 +63,43 @@ xconnect logging pseudowire status
 ntp logging
 epm logging
       </pre>
-      <h3>For DHCP utilization logging on your devices, do this for each pool</h3>
+      <h4>For DHCP utilization logging on your devices, do this for each pool</h4>
       <pre>
 utilization mark high 80 log
       </pre>
-      <h3>For ARP threshold logging, do this on your SVIs and IP interfaces</h3>
+      <h4>For ARP threshold logging, do this on your SVIs and IP interfaces</h4>
       <pre>
 arp log threshold entries 2048
       </pre>
-      <h3>TrustSec</h3>
+      <h4>TrustSec</h4>
       <p>If you are using Cisco TrustSec, add the following</p>
       <pre>
 cts sxp log binding-changes
 cts logging verbose
       </pre>
-      <h3>ACL logging</h3>
-      <h4>General</h4>
+      <h4>ACL logging</h4>
+      <h5>General</h5>
       <p>Remember to add the <b>log</b> or <b>log-input</b> keyword to your access list entries if you want to enable access list logging</p>
-      <h4>Access list correlation tags</h4>
+      <h5>Access list correlation tags</h5>
       <pre>
-        ip access-list logging hash-generation
+ip access-list logging hash-generation
       </pre>
-      <h4>Nexus ACL logging</h4>
-      <pre>
-logging level acllog 6
-acllog match-log-level 6
-logging logfile messages 6
-      </pre>
-      <h3>CPU and Memory Utilization logging</h3>
+      <h4>CPU and Memory Utilization logging</h4>
       <p>This generates CPU and memory notifications. CPU notifications if the CPU has been over 80% for more than 5 seconds. Memory if there is less than 20000KB.</p>
       <pre>
-      process cpu threshold type total rising 80 interval 5
-      memory free low-watermark processor 20000
-      memory free low-watermark io 20000
+process cpu threshold type total rising 80 interval 5
+memory free low-watermark processor 20000
+memory free low-watermark io 20000
       </pre>
-      <h3>Smart Call Home logging</h3>
+      <h4>Smart Call Home logging</h4>
       <p>Enabling Smart Call home allows you to get extended device information from your devices at specific intervals</p>
       <pre>
 ip http client source-interface [SOURCE INTERFACE]
 !
 service call-home  
 call-home  
- contact-email-addr YOUR.EMAIL@ADDR.ESS  
- site-id "YOUR_SITE_NAME"  
+ contact-email-addr [YOUR.EMAIL@ADDR.ESS]
+ site-id ["YOUR_SITE_NAME"]
  profile "Splunk"  
   destination transport-method http  
   destination address http http://[YOUR SYSLOG/SPLUNK SERVER IP]:[YOUR SMART CALL HOME TCP PORT]
@@ -113,6 +109,69 @@ call-home
   subscribe-to-alert-group inventory periodic daily 22:30
 !
       </pre>
+      <h3>NX-OS</h3>
+     <p>This includes all NX-OS variants. Not all commands are supported on all models</p>
+      <h4>Basic logging and timestamping</h4>
+      <pre>
+logging logfile messages 6
+logging server [YOUR SYSLOG/SPLUNK SERVER IP] 6 use-vrf [YOUR MGMT VRF] 
+logging timestamp milliseconds
+logging monitor 6
+      </pre>
+      <h4>Enable change auditing</h4>
+      <p>This feature is not supported on the NX-OS platform</p>
+     <h4>Monitor interface changes</h4>
+        <h5>General</h5>
+        <pre>   
+logging message interface type ethernet description
+logging event link-status default
+logging event trunk-status default
+        </pre>
+        <h5>Interface level</h5>
+        <pre>
+logging event port link-status
+logging event port trunk-status
+        </pre>
+      <h4>MAC move notifications, STP logging, IP SLA logging etc.</h4>
+      <pre>
+mac address-table notification mac-move
+ntp logging
+      </pre>
+     <h4>ACL logging</h4>
+      <h5>General</h5>
+      <p>Remember to add the <b>log</b> or <b>log-input</b> keyword to your access list entries if you want to enable access list logging</p>
+      <h5>NX-OS ACL logging</h5>
+      <pre>
+logging level acllog 6
+acllog match-log-level 6
+logging logfile messages 6
+      </pre>
+      <h4>Smart Call Home logging</h4>
+      <p>Enabling Smart Call home allows you to get extended device information from your devices at specific intervals</p>
+      <pre>
+callhome
+  site-id ["YOUR_SITE_NAME"]
+  email-contact [YOUR.EMAIL@ADDR.ESS]
+  phone-contact [YOUR PHONE NUMBER]
+  streetaddress S01
+  destination-profile Splunk
+  destination-profile Splunk format XML
+  destination-profile Splunk transport-method http
+  destination-profile Splunk http http://[YOUR SYSLOG/SPLUNK SERVER IP]:[YOUR SMART CALL HOME TCP PORT]
+  destination-profile Splunk alert-group Diagnostic
+  destination-profile Splunk alert-group EEM
+  destination-profile Splunk alert-group environmental
+  destination-profile Splunk alert-group inventory
+  destination-profile Splunk alert-group license
+  destination-profile Splunk alert-group linecard-hardware
+  destination-profile Splunk alert-group supervisor-hardware
+  destination-profile Splunk alert-group system
+  destination-profile Splunk alert-group test
+  transport http use-vrf [YOUR MGMT VRF] 
+  enable
+  periodic-inventory notification interval  1
+  periodic-inventory notification timeofday 22:30
+	  </pre>
       </section>
     </html>
     </panel>
