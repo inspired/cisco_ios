@@ -78,9 +78,9 @@ Version 2.3.1 of the Cicso Networks app fixes the following issues:
 
 Version 2.3.1 of the Cisco Networks app has the following known issues:
 
-- Unable to return raw events in Splunk Enterprise 6.3.0 using searches such as sourcetype=cisco:ios unless in Fast Mode. This is due to a bug in Splunk Enterprise 6.3 and the Vendor Message Lookup CSV file. Workarounds (choose one): 
+- Unable to return raw events in Splunk Enterprise 6.3.0 using searches such as sourcetype=cisco:ios unless in Fast Mode. This is due to a bug in Splunk Enterprise 6.3.0 and the Vendor Message Lookup CSV file. Workarounds (choose one): 
   - Upgrade your servers to Splunk Enterprise 6.3.1 or higher
-  - Rename TA-cisco_ios/default/limits.conf.spec as TA-cisco_ios/default/limits.conf your Search Head and Indexers
+  - Rename TA-cisco_ios/default/limits.conf.example as TA-cisco_ios/default/limits.conf your Search Head and Indexers
 
 ##### Third-party software attributions
 
