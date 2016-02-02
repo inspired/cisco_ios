@@ -36,7 +36,11 @@
     </chart>
     <chart>
       <title>Device Logins by user</title>
-      <searchString>| pivot Cisco_IOS_Event Successful_Device_Authentication count(Successful_Device_Authentication) AS "Count of Successful Device Login" SPLITROW user AS "user" SORT 100 user</searchString>
+      <search>
+<query>
+| pivot Cisco_IOS_Event Successful_Device_Authentication count(Successful_Device_Authentication) AS "Count of Successful Device Login" SPLITROW user AS "user" SORT 100 user
+</query>
+</search>
       <option name="charting.axisY.scale">linear</option>
       <option name="charting.axisX.scale">linear</option>
       <option name="charting.legend.placement">none</option>
@@ -54,12 +58,20 @@
   </row>
   <row>
     <table>
-      <searchString>eventtype="cisco_ios-config_started" | table _time,host,config_source,user,line,src_ip</searchString>
+      <search>
+<query>
+eventtype="cisco_ios-config_started" | table _time,host,config_source,user,line,src_ip
+</query>
+</search>
       <title>Configuration started</title>
     </table>
     <table>
       <title>Device restarts</title>
-      <searchString>eventtype="cisco_ios-restart" OR eventtype="cisco_ios-reload" | eval host=if(isnotnull(switch_id),host + "/" + switch_id,host) | table _time,host,user,src_ip,reason</searchString>
+      <search>
+<query>
+eventtype="cisco_ios-restart" OR eventtype="cisco_ios-reload" | eval host=if(isnotnull(switch_id),host + "/" + switch_id,host) | table _time,host,user,src_ip,reason
+</query>
+</search>
       <earliestTime>$earliest$</earliestTime>
       <latestTime>$latest$</latestTime>
       <option name="wrap">true</option>

@@ -9,7 +9,11 @@
     <panel>
       <chart>
         <title>Protocols by action</title>
-        <searchString>eventtype=cisco_ios-acl_log | strcat protocol "://" dest_port protoDestPort | chart sum(packets) over action BY protoDestPort</searchString>
+        <search>
+<query>
+eventtype=cisco_ios-acl_log | strcat protocol "://" dest_port protoDestPort | chart sum(packets) over action BY protoDestPort
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="charting.axisTitleX.visibility">visible</option>
@@ -40,7 +44,11 @@
     <panel>
       <chart>
         <title>Top ACE Correlation Tags</title>
-        <searchString>| pivot Cisco_IOS_Event Access_List_Event count(correlation_tag) AS "Count of correlation_tag" SPLITROW correlation_tag AS "correlation_tag" SORT 100 correlation_tag</searchString>
+        <search>
+<query>
+| pivot Cisco_IOS_Event Access_List_Event count(correlation_tag) AS "Count of correlation_tag" SPLITROW correlation_tag AS "correlation_tag" SORT 100 correlation_tag
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="wrap">true</option>
@@ -68,7 +76,11 @@
     <panel>
       <map>
         <title>Events by location</title>
-        <searchString>eventtype=cisco_ios-acl_log src_ip=* OR dest_ip=* | iplocation src_ip dest_ip | geostats sum(packets) by action</searchString>
+        <search>
+<query>
+eventtype=cisco_ios-acl_log src_ip=* OR dest_ip=* | iplocation src_ip dest_ip | geostats sum(packets) by action
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="mapping.data.maxClusters">100</option>
@@ -96,7 +108,11 @@
   <row>
     <panel>
       <table>
-        <searchString>eventtype="cisco_ios-acl_log" NOT [inputlookup cisco_ios_acl_excluded_ips | fields src_ip] | table _time,host,rule,action,proto,src_ip,src_port,dest_ip,dest_port,correlation_tag</searchString>
+        <search>
+<query>
+eventtype="cisco_ios-acl_log" NOT [inputlookup cisco_ios_acl_excluded_ips | fields src_ip] | table _time,host,rule,action,proto,src_ip,src_port,dest_ip,dest_port,correlation_tag
+</query>
+</search>
         <title>Access Control List logs (excluding hits from local management IPs)</title>
         <option name="count">20</option>
         <option name="displayRowNumbers">true</option>

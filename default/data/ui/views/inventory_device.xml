@@ -14,20 +14,32 @@
     </html>
       <single>
         <title>Device</title>
-        <searchString>| inputlookup Cisco_Device | search host=$form.host$ | fields host | appendcols [search eventtype=cisco_ios-smart_call_home host=$form.host$ | rename hostname AS host | fields host | head 1]</searchString>
+        <search>
+<query>
+| inputlookup Cisco_Device | search host=$form.host$ | fields host | appendcols [search eventtype=cisco_ios-smart_call_home host=$form.host$ | rename hostname AS host | fields host | head 1]
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="linkView">search</option>
       </single>
       <table>
         <title>Device info</title>
-        <searchString>eventtype=cisco_ios-smart_call_home host=$form.host$ | stats latest(model) AS model, latest(serial_number) AS serial_number, latest(software_version) AS software_version, latest(series) AS series, latest(site_id) AS site_id</searchString>
+        <search>
+<query>
+eventtype=cisco_ios-smart_call_home host=$form.host$ | stats latest(model) AS model, latest(serial_number) AS serial_number, latest(software_version) AS software_version, latest(series) AS series, latest(site_id) AS site_id
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
       </table>
       <table>
         <title>Severities</title>
-        <searchString>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW severity_id_and_name AS "Severity" SORT 100 severity_id_and_name FILTER host is $form.host$</searchString>
+        <search>
+<query>
+| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW severity_id_and_name AS "Severity" SORT 100 severity_id_and_name FILTER host is $form.host$
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="wrap">true</option>
@@ -106,7 +118,11 @@
     <panel>
       <table>
         <title>Events</title>
-        <searchString>eventtype=cisco_ios host=$form.host$ | table _time facility subfacility severity_id mnemonic message_text</searchString>
+        <search>
+<query>
+eventtype=cisco_ios host=$form.host$ | table _time facility subfacility severity_id mnemonic message_text
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="wrap">true</option>
@@ -121,7 +137,11 @@
     <panel>
       <table>
         <title>Smart Call Home (temporary)</title>
-        <searchString>host=$form.host$ eventtype=cisco_ios-smart_call_home | fields - _*, date*, punct, linecount, index, eventtype, source, sourcetype, splunk_server, tag, tag::eventtype, time*pos, "soap-env:Envelope.soap-env:Body.aml-block:Block.aml-block:Attachments.aml-block:Attachment.aml-block:Data"  | stats values(*) | transpose</searchString>
+        <search>
+<query>
+host=$form.host$ eventtype=cisco_ios-smart_call_home | fields - _*, date*, punct, linecount, index, eventtype, source, sourcetype, splunk_server, tag, tag::eventtype, time*pos, "soap-env:Envelope.soap-env:Body.aml-block:Block.aml-block:Attachments.aml-block:Attachment.aml-block:Data"  | stats values(*) | transpose
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="wrap">true</option>

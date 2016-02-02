@@ -43,7 +43,11 @@
   <row>
     <panel>
       <table>
-        <searchString>eventtype="cisco_ios-spanning_tree" | table _time, host, facility, mnemonic, src_interface, dest_interface, src_vlan, src_mac, spanning_tree_instance, action</searchString>
+        <search>
+<query>
+eventtype="cisco_ios-spanning_tree" | table _time, host, facility, mnemonic, src_interface, dest_interface, src_vlan, src_mac, spanning_tree_instance, action
+</query>
+</search>
         <title>Spanning tree events</title>
         <option name="count">20</option>
         <option name="displayRowNumbers">true</option>
@@ -94,7 +98,11 @@
   <row>
     <panel>
       <table>
-        <searchString>eventtype="cisco_ios-mac_flapping" | table _time, host, facility, mnemonic, src_mac, src_vlan, src_interface, dest_interface</searchString>
+        <search>
+<query>
+eventtype="cisco_ios-mac_flapping" | table _time, host, facility, mnemonic, src_mac, src_vlan, src_interface, dest_interface
+</query>
+</search>
         <title>MAC Flapping</title>
         <option name="count">20</option>
         <option name="displayRowNumbers">true</option>

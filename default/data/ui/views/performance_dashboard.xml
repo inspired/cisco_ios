@@ -12,7 +12,11 @@
     <panel>
       <chart>
         <title>IP SLA Events</title>
-        <searchString>eventtype="cisco_ios-ipsla" | eval state=case(state_to == "Up", 1, state_to == "Down", -1) | strcat dvc " " ip_sla_id dvc_ip_sla_id | timechart avg(state) AS state BY dvc_ip_sla_id | fillnull value=0</searchString>
+        <search>
+<query>
+eventtype="cisco_ios-ipsla" | eval state=case(state_to == "Up", 1, state_to == "Down", -1) | strcat dvc " " ip_sla_id dvc_ip_sla_id | timechart avg(state) AS state BY dvc_ip_sla_id | fillnull value=0
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
@@ -43,7 +47,11 @@
     <panel>
       <chart>
         <title>Optical transceiver power by host and interface</title>
-        <searchString>eventtype=cisco_ios mnemonic=THRESHOLD_VIOLATION alarm="Rx power" OR alarm="Tx power" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface</searchString>
+        <search>
+<query>
+eventtype=cisco_ios mnemonic=THRESHOLD_VIOLATION alarm="Rx power" OR alarm="Tx power" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="charting.axisTitleX.visibility">visible</option>
@@ -66,7 +74,11 @@
     <panel>
       <table>
         <title>Etherchannel events</title>
-        <searchString>eventtype="cisco_ios-etherchannel" | table _time, host, src_interface, compatibility, dest_interface, action, vendor_action</searchString>
+        <search>
+<query>
+eventtype="cisco_ios-etherchannel" | table _time, host, src_interface, compatibility, dest_interface, action, vendor_action
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="wrap">true</option>
@@ -81,7 +93,11 @@
     <panel>
       <chart>
         <title>Optical transceiver temperature by host and interface</title>
-        <searchString>eventtype=cisco_ios mnemonic=THRESHOLD_VIOLATION alarm="Temperature" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface</searchString>
+        <search>
+<query>
+eventtype=cisco_ios mnemonic=THRESHOLD_VIOLATION alarm="Temperature" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="charting.axisTitleX.visibility">visible</option>
@@ -104,7 +120,11 @@
     <panel>
       <table>
         <title>DSL bandwidth</title>
-        <searchString>eventtype="cisco_ios-downgradedbw" | dedup host | table _time,host,permanent_virtual_circuit,bw_down,bw_up | sort bw_down,_time</searchString>
+        <search>
+<query>
+eventtype="cisco_ios-downgradedbw" | dedup host | table _time,host,permanent_virtual_circuit,bw_down,bw_up | sort bw_down,_time
+</query>
+</search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="wrap">true</option>
