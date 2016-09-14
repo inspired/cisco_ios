@@ -57,7 +57,7 @@ Version 2.3.2 of the Cisco Networks app is compatible with:
 
 | Splunk Enterprise versions | 6.2 |
 | --- | --- |
-| CIM | 4.3, 4.2, 4.1, 4.0 |
+| CIM | 4.5, 4.4, 4.3, 4.2, 4.1, 4.0 |
 | Platforms | Platform independent |
 | Vendor Products | Cisco Catalyst, ASR, ISR, Nexus, CRS and other IOS based switches, Wireless LAN Controller|
 | Lookup file changes | cisco_ios_facility_categories.csv, cisco_ios_variable_representations.csv |
