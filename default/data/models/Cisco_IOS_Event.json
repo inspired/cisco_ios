@@ -3,7 +3,7 @@
     "displayName": "Cisco_IOS_Event",
     "description": "Cisco IOS Event",
     "objectSummary": {
-        "Event-Based": 19,
+        "Event-Based": 18,
         "Transaction-Based": 0,
         "Search-Based": 0
     },
@@ -25939,20 +25939,6 @@
                 }
             ],
             "lineage": "Cisco_IOS_Event.Device.Interface"
-        },
-        {
-            "objectName": "Test",
-            "displayName": "Test",
-            "parentName": "BaseEvent",
-            "fields": [],
-            "calculations": [],
-            "constraints": [
-                {
-                    "search": "",
-                    "owner": "Test"
-                }
-            ],
-            "lineage": "Test"
         }
     ],
     "objectNameList": [
@@ -25973,7 +25959,6 @@
         "Blocked_Access_List_Event",
         "Port_State_Change",
         "Device",
-        "Interface",
-        "Test"
+        "Interface"
     ]
 }
