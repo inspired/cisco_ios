@@ -17,7 +17,7 @@
       <search>
         <query>
           | savedsearch "change management transactions" hostToken="$hostToken$"
-         </query>
+        </query>
       </search>
       <option name="showPager">true</option>
       <option name="count">20</option>
