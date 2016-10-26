@@ -57,7 +57,7 @@ Version 2.3.3 of the Cisco Networks app is compatible with:
 
 | Splunk Enterprise versions | 6.2, 6.3, 6.4, 6.5 |
 | --- | --- |
-| CIM | 4.5, 4.4, 4.3, 4.2, 4.1, 4.0 |
+| CIM | 4.6, 4.5, 4.4, 4.3, 4.2, 4.1, 4.0 |
 | Platforms | Platform independent |
 | Vendor Products | Cisco Catalyst, ASR, ISR, Nexus, CRS and other IOS based switches, Wireless LAN Controller|
 | Lookup file changes | cisco_ios_messages.csv |
@@ -73,7 +73,8 @@ Cisco Networks includes the following new features:
 Version 2.3.3 of the Cicso Networks app fixes the following issues:
 
 - A few facility lookups were broken in cisco_ios_messages.csv
-- Diagnostic messages panel in overview page now displays vendor_message_text instead of message_text. This hides the actual raw event, but prevents actual duplicate events from the same host cluttering the dashboard 
+- Diagnostic messages panel in overview page now displays vendor_message_text instead of message_text. This hides the actual raw event, but prevents actual duplicate events from the same host cluttering the dashboard
+- Other CSV file fixes
 
 ##### Known issues
 
