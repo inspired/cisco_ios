@@ -46,7 +46,6 @@
         <option name="charting.layout.splitSeries">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
-        <option name="linkView">search</option>
       </single>
       <single>
         <title>Unique devices</title>
@@ -58,9 +57,8 @@
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="underLabel">Unique devices</option>
-        <option name="linkView">inventory_devices</option>
-        <option name="linkFields">result</option>
-        <option name="linkSearch">
+        <option name="link.openSearch.viewTarget">inventory_devices</option>
+        <option name="link.openSearch.search">
           <![CDATA[&earliest=$earliest$&latest=$latest$]]>
         </option>
       </single>
@@ -74,9 +72,8 @@
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="underLabel">Device logins</option>
-        <option name="linkView">auditing_dashboard</option>
-        <option name="linkFields">result</option>
-        <option name="linkSearch">
+        <option name="link.openSearch.viewTarget">auditing_dashboard</option>
+        <option name="link.openSearch.search">
           <![CDATA[&earliest=$earliest$&latest=$latest$]]>
         </option>
       </single>
@@ -90,9 +87,8 @@
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="underLabel">Config changes</option>
-        <option name="linkView">auditing_config_change_transactions</option>
-        <option name="linkFields">result</option>
-        <option name="linkSearch">
+        <option name="link.openSearch.viewTarget">auditing_config_change_transactions</option>
+        <option name="link.openSearch.search">
           <![CDATA[&earliest=$earliest$&latest=$latest$]]>
         </option>
       </single>
@@ -106,9 +102,8 @@
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
         <option name="underLabel">802.1x events</option>
-        <option name="linkView">security_authentications</option>
-        <option name="linkFields">result</option>
-        <option name="linkSearch">
+        <option name="link.openSearch.viewTarget">security_authentications</option>
+        <option name="link.openSearch.search">
           <![CDATA[&earliest=$earliest$&latest=$latest$]]>
         </option>
       </single>

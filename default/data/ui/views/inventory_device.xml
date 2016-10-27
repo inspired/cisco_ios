@@ -21,7 +21,6 @@
 </search>
         <earliestTime>$earliest$</earliestTime>
         <latestTime>$latest$</latestTime>
-        <option name="linkView">search</option>
       </single>
       <table>
         <title>Device info</title>
