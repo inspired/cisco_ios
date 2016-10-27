@@ -37,7 +37,7 @@
 
 | Author | Mikael Bjerkeland |
 | --- | --- |
-| App Version | 2.3.3 |
+| App Version | 2.3.4 |
 | Vendor Products | Cisco Catalyst, ASR, ISR, Nexus, CRS and other IOS based switches, Wireless LAN Controller   |
 | Has index-time operations | False |
 | Create an index | False |
@@ -53,7 +53,7 @@ No scripts or binaries are included.
 
 ##### About this release
 
-Version 2.3.3 of the Cisco Networks app is compatible with:
+Version 2.3.4 of the Cisco Networks app is compatible with:
 
 | Splunk Enterprise versions | 6.2, 6.3, 6.4, 6.5 |
 | --- | --- |
@@ -66,11 +66,11 @@ Version 2.3.3 of the Cisco Networks app is compatible with:
 
 Cisco Networks includes the following new features:
 
-- 
+- App certification
 
 ##### Fixed issues
 
-Version 2.3.3 of the Cicso Networks app fixes the following issues:
+Version 2.3.4 of the Cicso Networks app fixes the following issues:
 
 - A few facility lookups were broken in cisco_ios_messages.csv
 - Diagnostic messages panel in overview page now displays vendor_message_text instead of message_text. This hides the actual raw event, but prevents actual duplicate events from the same host cluttering the dashboard
@@ -78,7 +78,7 @@ Version 2.3.3 of the Cicso Networks app fixes the following issues:
 
 ##### Known issues
 
-Version 2.3.3 of the Cisco Networks app has the following known issues:
+Version 2.3.4 of the Cisco Networks app has the following known issues:
 
 - Unable to return raw events in Splunk Enterprise 6.3.0 using searches such as sourcetype=cisco:ios unless in Fast Mode. This is due to a bug in Splunk Enterprise 6.3.0 and the Vendor Message Lookup CSV file. Workarounds (choose one): 
   - Upgrade your servers to Splunk Enterprise 6.3.1 or higher
@@ -86,7 +86,7 @@ Version 2.3.3 of the Cisco Networks app has the following known issues:
 
 ##### Third-party software attributions
 
-Version 2.3.3 of the Cisco Networks app incorporates the following third-party software or libraries.
+Version 2.3.4 of the Cisco Networks app incorporates the following third-party software or libraries.
 
 - None
 
@@ -132,7 +132,7 @@ Cisco Networks supports the following server platforms in the versions supported
 
 To function properly, Cisco Networks requires the following software:
 
-- Cisco Networks Add-on (TA-cisco_ios), 2.3.3 or higher
+- Cisco Networks Add-on (TA-cisco_ios), 2.3.4 or higher
 
 #### Splunk Enterprise system requirements
 
