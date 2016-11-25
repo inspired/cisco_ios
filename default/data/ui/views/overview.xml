@@ -11,9 +11,6 @@
       </condition>
     </done>
   </search>
-  <search id="check_roles">
-    <query></query>
-  </search>
   <search id="baseSearch">
     <query>| tstats values(nodename) AS nodename count FROM datamodel=Cisco_IOS_Event WHERE Cisco_IOS_Event.product="$product_selection$" $tenant_indexes$ BY host index</query>
     <earliest>$earliest$</earliest>
@@ -30,7 +27,7 @@
       <fieldForLabel>tenant_name</fieldForLabel>
       <fieldForValue>index</fieldForValue>
       <search>
-        <query>| inputlookup cisco_ios_tenants | stats values(index) AS index BY tenant_name,roles | eval index=mvjoin(index,",") | eval index=replace(index,","," OR index=") | eval index="index=" + index | search [| rest splunk_server=local /services/authentication/users/$env:user$ | fields roles]</query>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
       </search>
       <default>index=*</default>
       <delimiter> OR </delimiter>
