@@ -71,9 +71,9 @@ eventtype="cisco_ios-config_started" | table _time,host,config_source,user,line,
 <query>
 eventtype="cisco_ios-restart" OR eventtype="cisco_ios-reload" | eval host=if(isnotnull(switch_id),host + "/" + switch_id,host) | table _time,host,user,src_ip,reason
 </query>
+<earliest>$earliest$</earliest>
+<latest>$latest$</latest>
 </search>
-      <earliestTime>$earliest$</earliestTime>
-      <latestTime>$latest$</latestTime>
       <option name="wrap">true</option>
       <option name="rowNumbers">false</option>
       <option name="dataOverlayMode">none</option>
