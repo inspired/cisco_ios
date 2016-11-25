@@ -171,62 +171,13 @@
         <option name="charting.axisY2.scale">inherit</option>
         <option name="link.openPivot.visible">false</option>
         <drilldown>
-          <condition field="0 - emergency">
+
           <link>
             <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" severity_id_and_name="0 - emergency"&earliest=$earliest$&latest=$latest$
+                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" $tenant_indexes$ severity_id_and_name="$click.name2$"&earliest=$earliest$&latest=$latest$
                 ]]>
           </link>
-          </condition>
-          <condition field="1 - alert">
-          <link>
-            <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" severity_id_and_name="1 - alert"&earliest=$earliest$&latest=$latest$
-                ]]>
-          </link>
-          </condition>
-          <condition field="2 - critical">
-          <link>
-            <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" severity_id_and_name="2 - critical"&earliest=$earliest$&latest=$latest$
-                ]]>
-          </link>
-          </condition>
-          <condition field="3 - error">
-          <link>
-            <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" severity_id_and_name="3 - error"&earliest=$earliest$&latest=$latest$
-                ]]>
-          </link>
-          </condition>
-          <condition  field="4 - warning">
-          <link>
-            <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" severity_id_and_name="4 - warning"&earliest=$earliest$&latest=$latest$
-                ]]>
-          </link>
-          </condition>
-          <condition  field="5 - notification">
-          <link>
-            <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" severity_id_and_name="5 - notification"&earliest=$earliest$&latest=$latest$
-                ]]>
-          </link>
-          </condition>
-          <condition field="6 - informational">
-          <link>
-            <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" severity_id_and_name="6 - informational"&earliest=$earliest$&latest=$latest$
-                ]]>
-          </link>
-          </condition>
-          <condition field="7 - debugging">
-          <link>
-            <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" severity_id_and_name="7 - debugging"&earliest=$earliest$&latest=$latest$
-                ]]>
-          </link>
-          </condition>
+
         </drilldown>
         <option name="charting.chart.bubbleMaximumSize">50</option>
         <option name="charting.chart.bubbleMinimumSize">10</option>
