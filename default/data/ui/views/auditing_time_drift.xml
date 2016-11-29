@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?><form>
   <label>Time drift</label>
-  <fieldset autoRun="true">
+  <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
+  <fieldset autoRun="true" submitButton="false">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>index=*</default>
+      <delimiter> OR </delimiter>
+      <choice value="index=*">All</choice>
+    </input>
     <input type="time">
       <default>Last 60 minutes</default>
     </input>
   </fieldset>
   <row>
     <panel>
-    <html>
+      <html>
       <p>These reporting devices have a time drift of more than 1 second compared to the event time as reported by Splunk</p>
       <p>Consider checking the NTP settings of the listed devices</p>
       <section>
@@ -27,31 +49,33 @@
     </panel>
   </row>
   <row>
-    <table>
-      <option name="displayRowNumbers">true</option>
-      <title>Time drift between event time and device's reported event time</title>
-      <search>
-        <query>eventtype=cisco_ios | dedup host | eval dtime1=strptime(device_time, "%Y %b %e %H:%M:%S.%Q %Z") | eval dtime2=strptime(device_time, "%b %e %H:%M:%S.%Q %Z") | eval dtime3=strptime(device_time, "%b %e %H:%M:%S %Z") | eval dtime4=strptime(device_time, "%b %e %H:%M:%S.%Q") | eval dtime5=strptime(device_time, "%b %e %H:%M:%S") | eval dtime6=strptime(device_time, "%b %e %Y %H:%M:%S.%3N %Z") | eval device_time2=coalesce(dtime1,dtime2,dtime3,dtime4,dtime5,dtime6) | eval difference=_time-device_time2 | convert timeformat="%s" ctime(difference) AS seconds | `sla-sec2time(seconds,time_difference)` | table _time,host,device_time,time_difference | sort -time_difference</query>
-      </search>
-      <option name="wrap">true</option>
-      <option name="rowNumbers">true</option>
-      <option name="dataOverlayMode">none</option>
-      <option name="drilldown">cell</option>
-      <option name="count">10</option>
-    </table>
+    <panel>
+      <table>
+        <title>Time drift between event time and device's reported event time</title>
+        <search>
+          <query>eventtype=cisco_ios $tenant_indexes$ | dedup host | eval dtime1=strptime(device_time, "%Y %b %e %H:%M:%S.%Q %Z") | eval dtime2=strptime(device_time, "%b %e %H:%M:%S.%Q %Z") | eval dtime3=strptime(device_time, "%b %e %H:%M:%S %Z") | eval dtime4=strptime(device_time, "%b %e %H:%M:%S.%Q") | eval dtime5=strptime(device_time, "%b %e %H:%M:%S") | eval dtime6=strptime(device_time, "%b %e %Y %H:%M:%S.%3N %Z") | eval device_time2=coalesce(dtime1,dtime2,dtime3,dtime4,dtime5,dtime6) | eval difference=_time-device_time2 | convert timeformat="%s" ctime(difference) AS seconds | `sla-sec2time(seconds,time_difference)` | table _time,host,device_time,time_difference | sort -time_difference</query>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">true</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
   </row>
   <row>
-    <table>
-      <option name="displayRowNumbers">true</option>
-      <title>Devices with unsynchronized clocks</title>
-      <search>
-        <query>eventtype=cisco_ios reliable_time=false | dedup host | table _time, device_time, host</query>
-      </search>
-      <option name="wrap">true</option>
-      <option name="rowNumbers">true</option>
-      <option name="dataOverlayMode">none</option>
-      <option name="drilldown">cell</option>
-      <option name="count">10</option>
-    </table>
+    <panel>
+      <table>
+        <title>Devices with unsynchronized clocks</title>
+        <search>
+          <query>eventtype=cisco_ios $tenant_indexes$ reliable_time=false | dedup host | table _time, device_time, host</query>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">true</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
   </row>
 </form>

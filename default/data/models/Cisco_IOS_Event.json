@@ -1382,6 +1382,18 @@
                     "comment": ""
                 },
                 {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -2810,6 +2822,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "vlan_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
                     "comment": ""
                 },
                 {
@@ -4395,6 +4419,18 @@
                     "comment": ""
                 },
                 {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -5823,6 +5859,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "vlan_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
                     "comment": ""
                 },
                 {
@@ -7257,6 +7305,18 @@
                     "comment": ""
                 },
                 {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -8685,6 +8745,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "vlan_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
                     "comment": ""
                 },
                 {
@@ -10119,6 +10191,18 @@
                     "comment": ""
                 },
                 {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -11547,6 +11631,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "vlan_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
                     "comment": ""
                 },
                 {
@@ -12981,6 +13077,18 @@
                     "comment": ""
                 },
                 {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -14409,6 +14517,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "vlan_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
                     "comment": ""
                 },
                 {
@@ -15843,6 +15963,18 @@
                     "comment": ""
                 },
                 {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -17271,6 +17403,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "vlan_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
                     "comment": ""
                 },
                 {
@@ -18705,6 +18849,18 @@
                     "comment": ""
                 },
                 {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -20133,6 +20289,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "vlan_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
                     "comment": ""
                 },
                 {
@@ -21567,6 +21735,18 @@
                     "comment": ""
                 },
                 {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -22995,6 +23175,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "vlan_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
                     "comment": ""
                 },
                 {
@@ -24429,6 +24621,18 @@
                     "comment": ""
                 },
                 {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -25857,6 +26061,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "vlan_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
                     "comment": ""
                 },
                 {

@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?><form>
   <label>Dashboard</label>
+  <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
   <fieldset autoRun="true">
+        <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>index=*</default>
+      <delimiter> OR </delimiter>
+      <choice value="index=*">All</choice>
+    </input>
     <input type="time">
       <default>Last 60 minutes</default>
     </input>
   </fieldset>
   <row>
     <chart>
-      <title>Configuration started by host</title>
+      <title>Configuration started by host (NOT MULTI TENANT AWARE)</title>
       <search>
         <query>| pivot Cisco_IOS_Event Configuration_Started count(Configuration_Started) AS "Count of Configuration Started" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time NUMCOLS 100</query>
       </search>
@@ -35,7 +57,7 @@
       <option name="charting.chart.bubbleSizeBy">area</option>
     </chart>
     <chart>
-      <title>Device Logins by user</title>
+      <title>Device Logins by user (NOT MULTI TENANT AWARE)</title>
       <search>
 <query>
 | pivot Cisco_IOS_Event Successful_Device_Authentication count(Successful_Device_Authentication) AS "Count of Successful Device Login" SPLITROW user AS "user" SORT 100 user
@@ -60,7 +82,7 @@
     <table>
       <search>
 <query>
-eventtype="cisco_ios-config_started" | table _time,host,config_source,user,line,src_ip
+eventtype="cisco_ios-config_started" $tenant_indexes$ | table _time,host,config_source,user,line,src_ip
 </query>
 </search>
       <title>Configuration started</title>
@@ -69,7 +91,7 @@ eventtype="cisco_ios-config_started" | table _time,host,config_source,user,line,
       <title>Device restarts</title>
       <search>
 <query>
-eventtype="cisco_ios-restart" OR eventtype="cisco_ios-reload" | eval host=if(isnotnull(switch_id),host + "/" + switch_id,host) | table _time,host,user,src_ip,reason
+eventtype="cisco_ios-restart" OR eventtype="cisco_ios-reload" $tenant_indexes$ | eval host=if(isnotnull(switch_id),host + "/" + switch_id,host) | table _time,host,user,src_ip,reason
 </query>
 <earliest>$earliest$</earliest>
 <latest>$latest$</latest>
