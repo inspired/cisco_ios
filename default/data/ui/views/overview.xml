@@ -71,7 +71,7 @@
       <single>
         <title>Device logins</title>
         <search base="baseSearch">
-          <query>search nodename=Cisco_IOS_Event.Authentication.Device_Authentication | stats sum(count)</query>
+          <query>search nodename=Cisco_IOS_Event.Authentication.Device_Authentication | stats count</query>
         </search>
         <option name="underLabel">Device logins</option>
         <option name="link.openSearch.viewTarget">auditing_dashboard</option>
@@ -82,7 +82,7 @@
       <single>
         <title>Config changes</title>
         <search base="baseSearch">
-          <query>search nodename=Cisco_IOS_Event.Configuration | stats sum(count)</query>
+          <query>search nodename=Cisco_IOS_Event.Configuration | stats count</query>
         </search>
         <option name="underLabel">Config changes</option>
         <option name="link.openSearch.viewTarget">auditing_config_change_transactions</option>
@@ -93,7 +93,7 @@
       <single>
         <title>802.1x events</title>
         <search base="baseSearch">
-          <query>search nodename=Cisco_IOS_Event.DOT1X_Event | stats sum(count)</query>
+          <query>search nodename=Cisco_IOS_Event.DOT1X_Event | stats count</query>
         </search>
         <option name="underLabel">802.1x events</option>
         <option name="link.openSearch.viewTarget">security_authentications</option>
