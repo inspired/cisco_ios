@@ -260,7 +260,7 @@
         <search base="topBottomSearch">
           <!--
           | pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW mnemonic AS "mnemonic" FILTER product is "ios" TOP 10 count(Cisco_IOS_Event) -->
-          <query>| had 10</query>
+          <query>| head 10</query>
         </search>
         <option name="charting.axisLabelsY.majorUnit">1</option>
         <option name="charting.axisY.scale">linear</option>
