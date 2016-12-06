@@ -93,7 +93,7 @@
       <single>
         <title>802.1x events</title>
         <search base="baseSearch">
-          <query>search nodename=Cisco_IOS_Event.DOT1X_Event | stats count</query>
+          <query>search nodename=Cisco_IOS_Event.DOT1X_Event | stats sum(count)</query>
         </search>
         <option name="underLabel">802.1x events</option>
         <option name="link.openSearch.viewTarget">security_authentications</option>
