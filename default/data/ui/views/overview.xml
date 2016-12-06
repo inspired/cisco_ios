@@ -17,7 +17,7 @@
     <latest>$latest$</latest>
   </search>
     <search id="topBottomSearch">
-    <query>| tstats count AS "Count of Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.product=$product_selection$) $tenant_indexes$ groupby Cisco_IOS_Event.mnemonic | stats dedup_splitvals=t count AS "Count of Event" by Cisco_IOS_Event.mnemonic | sort limit=0 -"Count of Event" | fields - _span | rename Cisco_IOS_Event.mnemonic AS mnemonic | fillnull "Count of Event" | fields mnemonic, "Count of Event"</query>
+    <query>| tstats count AS "Count of Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.product=$product_selection$) $tenant_indexes$ groupby Cisco_IOS_Event.mnemonic prestats=true | stats dedup_splitvals=t count AS "Count of Event" by Cisco_IOS_Event.mnemonic | sort limit=0 -"Count of Event" | fields - _span | rename Cisco_IOS_Event.mnemonic AS mnemonic | fillnull "Count of Event" | fields mnemonic, "Count of Event"</query>
     <earliest>$earliest$</earliest>
     <latest>$latest$</latest>
   </search>
@@ -111,7 +111,7 @@
       <chart>
         <title>Top reporting hosts by time</title>
         <search>
-          <query>| tstats count AS "Count of Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.product=$product_selection$) ($tenant_indexes$) groupby _time host | eval host='host', _time='_time' | timechart dedup_splitvals=t limit=10 useother=f count AS "Count of Event" by host format=$$VAL$$:::$$AGG$$ | sort limit=0 _time | fields _time *</query>
+          <query>| tstats count AS "Count of Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.product=$product_selection$) ($tenant_indexes$) groupby _time host prestats=true | eval host='host', _time='_time' | timechart dedup_splitvals=t limit=10 useother=f count AS "Count of Event" by host format=$$VAL$$:::$$AGG$$ | sort limit=0 _time | fields _time *</query>
         </search>
         <option name="charting.axisY.scale">linear</option>
         <option name="charting.axisX.scale">linear</option>
@@ -144,7 +144,7 @@
           <!--
           | pivot Cisco_IOS_Event Cisco_IOS_Event count(severity_id) AS "Count of severity_id" SPLITROW severity_id_and_name AS severity_id_and_name SPLITROW severity_id AS severity_id FILTER product is "$product_selection$" TOP 100 count(severity_id) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | sort - severity_id | eval SN="" | xyseries SN severity_id_and_name "Count of severity_id" | rename SN AS "Severity name" | sort -"0 - emergency" -"1 - alert" -"2 - critical" -"3 - error" -"4 - warning" -"5 - notification" -"6 - informational" -"7 - debugging" | table "Severity name" "0 - emergency" "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging"
           -->
-          <query>| tstats count(Cisco_IOS_Event.severity_id) AS "Count of severity_id" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.product=$product_selection$) $tenant_indexes$ groupby Cisco_IOS_Event.severity_id_and_name, Cisco_IOS_Event.severity_id | stats dedup_splitvals=t count(Cisco_IOS_Event.severity_id) AS "Count of severity_id" by Cisco_IOS_Event.severity_id_and_name, Cisco_IOS_Event.severity_id | sort limit=100 -"Count of severity_id" | fields - _span | rename Cisco_IOS_Event.severity_id_and_name AS severity_id_and_name Cisco_IOS_Event.severity_id AS severity_id | fillnull "Count of severity_id" | fields severity_id_and_name, severity_id, "Count of severity_id" | sort - severity_id | eval SN="" | xyseries SN severity_id_and_name "Count of severity_id" | rename SN AS "Severity name" | sort -"0 - emergency" -"1 - alert" -"2 - critical" -"3 - error" -"4 - warning" -"5 - notification" -"6 - informational" -"7 - debugging" | table "Severity name" "0 - emergency" "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging"</query>
+          <query>| tstats count(Cisco_IOS_Event.severity_id) AS "Count of severity_id" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.product=$product_selection$) $tenant_indexes$ groupby Cisco_IOS_Event.severity_id_and_name, Cisco_IOS_Event.severity_id prestats=true | stats dedup_splitvals=t count(Cisco_IOS_Event.severity_id) AS "Count of severity_id" by Cisco_IOS_Event.severity_id_and_name, Cisco_IOS_Event.severity_id | sort limit=100 -"Count of severity_id" | fields - _span | rename Cisco_IOS_Event.severity_id_and_name AS severity_id_and_name Cisco_IOS_Event.severity_id AS severity_id | fillnull "Count of severity_id" | fields severity_id_and_name, severity_id, "Count of severity_id" | sort - severity_id | eval SN="" | xyseries SN severity_id_and_name "Count of severity_id" | rename SN AS "Severity name" | sort -"0 - emergency" -"1 - alert" -"2 - critical" -"3 - error" -"4 - warning" -"5 - notification" -"6 - informational" -"7 - debugging" | table "Severity name" "0 - emergency" "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging"</query>
         </search>
         <option name="charting.axisY.scale">linear</option>
         <option name="charting.axisX.scale">linear</option>
@@ -182,7 +182,7 @@
           <!-- 
           | pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW _time AS "_time" PERIOD auto SPLITCOL mnemonic FILTER product is "$product_selection$" SORT 0 _time NUMCOLS 10
           -->
-          <query>| tstats count AS "Count of Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.product=$product_selection$) $tenant_indexes$ groupby _time Cisco_IOS_Event.mnemonic  | eval "Cisco_IOS_Event.mnemonic"='Cisco_IOS_Event.mnemonic', _time='_time' | timechart dedup_splitvals=t limit=10 useother=t count AS "Count of Event" by Cisco_IOS_Event.mnemonic format=$$VAL$$:::$$AGG$$ | sort limit=0 _time | fields _time *</query>
+          <query>| tstats count AS "Count of Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.product=$product_selection$) $tenant_indexes$ groupby _time Cisco_IOS_Event.mnemonic prestats=true  | eval "Cisco_IOS_Event.mnemonic"='Cisco_IOS_Event.mnemonic', _time='_time' | timechart dedup_splitvals=t limit=10 useother=t count AS "Count of Event" by Cisco_IOS_Event.mnemonic format=$$VAL$$:::$$AGG$$ | sort limit=0 _time | fields _time *</query>
         </search>
         <option name="charting.axisY.scale">linear</option>
         <option name="charting.axisX.scale">linear</option>
