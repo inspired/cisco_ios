@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><form>
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
   <label>Devices</label>
+  <description>This dashboard does not yet support multi-tenancy</description>
   <fieldset autoRun="true">
     <input type="time" searchWhenChanged="true">
       <default>
@@ -73,12 +75,8 @@
       <chart>
         <title>Mnemonics by model</title>
         <search>
-<query>
-eventtype=cisco_ios | chart count(mnemonic) OVER host BY mnemonic limit=50 usenull=f | join host [search sourcetype=Cisco:Smart* | stats latest(model) AS model BY host] | fields - host | stats avg(*) AS * BY model
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+          <query>eventtype=cisco_ios | chart count(mnemonic) OVER host BY mnemonic limit=50 usenull=f | join host [search sourcetype=Cisco:Smart* | stats latest(model) AS model BY host] | fields - host | stats avg(*) AS * BY model</query>
+        </search>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
         <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
         <option name="charting.axisTitleX.visibility">visible</option>
@@ -105,10 +103,8 @@ eventtype=cisco_ios | chart count(mnemonic) OVER host BY mnemonic limit=50 usenu
       <table>
         <title>Devices</title>
         <search>
-<query>
-| pivot Cisco_IOS_Event Device last(hostname) AS "Hostname" last(site_id) AS "Site ID" last(model) AS "Model" last(serial_number) AS "Serial number" count(Device) AS "Count of events" SPLITROW host AS host
-</query>
-</search>
+          <query>| pivot Cisco_IOS_Event Device last(hostname) AS "Hostname" last(site_id) AS "Site ID" last(model) AS "Model" last(serial_number) AS "Serial number" count(Device) AS "Count of events" SPLITROW host AS host</query>
+        </search>
         <option name="count">25</option>
         <option name="drilldown">cell</option>
         <drilldown>

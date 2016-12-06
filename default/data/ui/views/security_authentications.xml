@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?><form>
   <label>Authentications</label>
+  <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
+  <search id="baseSearch">
+    <query>eventtype="cisco_ios-dot1x" $tenant_indexes$ | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")`</query>
+    <earliest>$earliest$</earliest>
+    <latest>$latest$</latest>
+  </search>
   <fieldset autoRun="true">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>index=*</default>
+      <delimiter> OR </delimiter>
+      <choice value="index=*">All</choice>
+    </input>
     <input type="time">
       <default>Last 60 minutes</default>
     </input>
@@ -9,13 +36,11 @@
     <panel>
       <table>
         <title>Authentications</title>
-        <search>
-<query>
-eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")`| transaction audit_session_id| table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,vendor_action | stats latest(audit_session_id) AS audit_session_id, latest(authenticator) AS authenticator, latest(src_vlan) AS src_vlan, latest(vendor_action) AS vendor_action BY host,src_interface  | stats count(eval(vendor_action="succeeded" OR vendor_action="successful")) AS succeeded, count(eval(vendor_action="failed")) AS failed
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+        <search base="baseSearch">
+          <query>
+            | transaction audit_session_id| table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,vendor_action | stats latest(audit_session_id) AS audit_session_id, latest(authenticator) AS authenticator, latest(src_vlan) AS src_vlan, latest(vendor_action) AS vendor_action BY host,src_interface  | stats count(eval(vendor_action="succeeded" OR vendor_action="successful")) AS succeeded, count(eval(vendor_action="failed")) AS failed
+          </query>
+        </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
         <option name="dataOverlayMode">none</option>
@@ -27,8 +52,8 @@ eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,
     <panel>
       <chart>
         <title>Authentication events over time by protocol</title>
-        <search>
-          <query>eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | timechart count by authenticator</query>
+        <search base="baseSearch">
+          <query>| timechart count by authenticator</query>
         </search>
         <option name="charting.chart">area</option>
         <option name="charting.axisY2.enabled">false</option>
@@ -58,18 +83,17 @@ eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,
     <panel>
       <chart>
         <title>Top connection points</title>
-        <search>
-          <query>eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | strcat dvc " " src_interface dvc_src_interface | top dvc_src_interface</query>
+        <search base="baseSearch">
+          <query>| strcat dvc " " src_interface dvc_src_interface | top dvc_src_interface</query>
         </search>
         <option name="charting.chart">pie</option>
-        <option name="charting.axisY2.enabled">undefined</option>
       </chart>
     </panel>
     <panel>
       <chart>
         <title>Top MAC addresses</title>
-        <search>
-          <query>eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | top src_mac</query>
+        <search base="baseSearch">
+          <query>| top src_mac</query>
         </search>
         <option name="charting.chart">pie</option>
         <option name="charting.axisY2.enabled">false</option>
@@ -99,15 +123,13 @@ eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,
     <panel>
       <table>
         <title>Authentication transactions</title>
-        <search>
-<query>
-eventtype="cisco_ios-dot1x" | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | transaction audit_session_id | table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,vendor_action,action
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+        <search base="baseSearch">
+          <query>
+            | transaction audit_session_id | table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,vendor_action,action
+          </query>
+        </search>
         <option name="count">20</option>
-        <option name="displayRowNumbers">true</option>
+        <option name="rowNumbers">true</option>
         <option name="wrap">true</option>
         <option name="rowNumbers">true</option>
         <option name="dataOverlayMode">none</option>

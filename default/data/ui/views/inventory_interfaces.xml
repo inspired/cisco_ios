@@ -1,6 +1,6 @@
 <form>
   <label>Interfaces</label>
-  <description>Interfaces</description>
+  <description>This dashboard does not yet support multi-tenancy</description>
   <fieldset submitButton="true" autoRun="true">
     <input type="text" token="host">
       <label>Host</label>

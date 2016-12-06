@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><form>
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
   <label>Sites</label>
+  <description>This dashboard does not yet support multi-tenancy</description>
   <fieldset autoRun="true">
     <input type="time" searchWhenChanged="true">
       <default>
@@ -13,12 +15,8 @@
       <chart>
         <title>Reporting hosts by site</title>
         <search>
-<query>
-| pivot Cisco_IOS_Event Cisco_IOS_Event dc(host) AS "Distinct Count of host" SPLITROW site_id AS site_id SORT 100 site_id ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event dc(host) AS "Distinct Count of host" SPLITROW site_id AS site_id SORT 100 site_id ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
+        </search>
         <option name="charting.axisY2.enabled">false</option>
         <option name="charting.axisY.scale">linear</option>
         <option name="charting.axisY2.scale">inherit</option>
@@ -43,9 +41,7 @@
       <table>
         <title>Hosts by site</title>
         <search>
-          <query>
-		  | pivot Cisco_IOS_Event Cisco_IOS_Event values(host) AS "Hosts" values(contact) AS "Distinct Values of Contact" values(contact_email) AS "Distinct Values of Contact email address" SPLITROW site_id AS site_id SORT 100 site_id ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1
-		  </query>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event values(host) AS "Hosts" values(contact) AS "Distinct Values of Contact" values(contact_email) AS "Distinct Values of Contact email address" SPLITROW site_id AS site_id SORT 100 site_id ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
         </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>

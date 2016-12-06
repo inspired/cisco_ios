@@ -1,6 +1,28 @@
 <form>
   <label>Performance Dashboard</label>
+  <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
   <fieldset autoRun="true" submitButton="false">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>index=*</default>
+      <delimiter> OR </delimiter>
+      <choice value="index=*">All</choice>
+    </input>
     <input type="time" searchWhenChanged="true">
       <default>
         <earliestTime>-24h@h</earliestTime>
@@ -13,12 +35,12 @@
       <chart>
         <title>IP SLA Events</title>
         <search>
-<query>
-eventtype="cisco_ios-ipsla" | eval state=case(state_to == "Up", 1, state_to == "Down", -1) | strcat dvc " " ip_sla_id dvc_ip_sla_id | timechart avg(state) AS state BY dvc_ip_sla_id | fillnull value=0
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+          <query>
+            eventtype="cisco_ios-ipsla" $tenant_indexes$ | eval state=case(state_to == "Up", 1, state_to == "Down", -1) | strcat dvc " " ip_sla_id dvc_ip_sla_id | timechart avg(state) AS state BY dvc_ip_sla_id | fillnull value=0
+            </query>
+            <earliest>$earliest$</earliest>
+            <latest>$latest$</latest>
+          </search>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
         <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
         <option name="charting.axisTitleX.visibility">visible</option>
@@ -48,12 +70,12 @@ eventtype="cisco_ios-ipsla" | eval state=case(state_to == "Up", 1, state_to == "
       <chart>
         <title>Optical transceiver power by host and interface</title>
         <search>
-<query>
-eventtype=cisco_ios mnemonic=THRESHOLD_VIOLATION alarm="Rx power" OR alarm="Tx power" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+          <query>
+            eventtype=cisco_ios $tenant_indexes$ mnemonic=THRESHOLD_VIOLATION alarm="Rx power" OR alarm="Tx power" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface
+          </query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
         <option name="charting.axisTitleX.visibility">visible</option>
         <option name="charting.axisTitleY.visibility">visible</option>
         <option name="charting.axisX.scale">linear</option>
@@ -75,12 +97,12 @@ eventtype=cisco_ios mnemonic=THRESHOLD_VIOLATION alarm="Rx power" OR alarm="Tx p
       <table>
         <title>Etherchannel events</title>
         <search>
-<query>
-eventtype="cisco_ios-etherchannel" | table _time, host, src_interface, compatibility, dest_interface, action, vendor_action
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+          <query>
+            eventtype="cisco_ios-etherchannel" $tenant_indexes$ | table _time, host, src_interface, compatibility, dest_interface, action, vendor_action
+          </query>
+        <earliest>$earliest$</earliest>
+        <latest>$latest$</latest>
+        </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
         <option name="dataOverlayMode">none</option>
@@ -94,12 +116,12 @@ eventtype="cisco_ios-etherchannel" | table _time, host, src_interface, compatibi
       <chart>
         <title>Optical transceiver temperature by host and interface</title>
         <search>
-<query>
-eventtype=cisco_ios mnemonic=THRESHOLD_VIOLATION alarm="Temperature" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+          <query>
+            eventtype=cisco_ios $tenant_indexes$ mnemonic=THRESHOLD_VIOLATION alarm="Temperature" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface
+          </query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
         <option name="charting.axisTitleX.visibility">visible</option>
         <option name="charting.axisTitleY.visibility">visible</option>
         <option name="charting.axisX.scale">linear</option>
@@ -121,12 +143,12 @@ eventtype=cisco_ios mnemonic=THRESHOLD_VIOLATION alarm="Temperature" | strcat ho
       <table>
         <title>DSL bandwidth</title>
         <search>
-<query>
-eventtype="cisco_ios-downgradedbw" | dedup host | table _time,host,permanent_virtual_circuit,bw_down,bw_up | sort bw_down,_time
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+          <query>
+            eventtype="cisco_ios-downgradedbw" $tenant_indexes$ | dedup host | table _time,host,permanent_virtual_circuit,bw_down,bw_up | sort bw_down,_time
+          </query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
         <option name="dataOverlayMode">none</option>

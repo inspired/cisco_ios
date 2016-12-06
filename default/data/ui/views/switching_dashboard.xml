@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?><form>
   <label>Switching Dashboard</label>
+    <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
   <search id="baseSearch">
 	<query>
-	| savedsearch "link changes" hostToken="$hostToken$"
+	eventtype="cisco_ios" host="$host$" $tenant_indexes$ facility=LINK mnemonic="UPDOWN" | timechart span=1h count(port_status) by port_status | eval new_clients_in_period=up-down | rename new_clients_in_period AS "Link changes" | fields _time "Link changes"
 	</query>
   </search>
   <fieldset autoRun="true">
-    <input type="text" token="hostToken">
+        <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>index=*</default>
+      <delimiter> OR </delimiter>
+      <choice value="index=*">All</choice>
+    </input>
+    <input type="text" token="host">
       <label>Host</label>
       <default>*</default>
     </input>
@@ -20,8 +42,6 @@
         <search base="baseSearch"></search>
         <title>Link connects</title>
         <option name="charting.chart">column</option>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
       </chart>
     </panel>
   </row>
@@ -31,11 +51,10 @@
         <title>First Hop Redundancy Protocol State Changes (HSRP only)</title>
         <search>
 <query>
-eventtype="cisco_ios-standby" | table _time,host,src_interface,group_id,state_from,state_to
+eventtype="cisco_ios-standby" $tenant_indexes$ | table _time,host,src_interface,group_id,state_from,state_to
 </query>
 </search>
         <option name="count">10</option>
-        <option name="displayRowNumbers">true</option>
         <option name="wrap">true</option>
         <option name="rowNumbers">true</option>
         <option name="dataOverlayMode">none</option>
@@ -46,12 +65,11 @@ eventtype="cisco_ios-standby" | table _time,host,src_interface,group_id,state_fr
       <table>
         <search>
 <query>
-eventtype="cisco_ios-stackmgr" | table _time, host, switch_id, state_to, dest_interface, switch
+eventtype="cisco_ios-stackmgr" $tenant_indexes$ | table _time, host, switch_id, state_to, dest_interface, switch
 </query>
 </search>
         <title>Stacking events</title>
         <option name="count">10</option>
-        <option name="displayRowNumbers">true</option>
       </table>
     </panel>
   </row>

@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?><form>
   <label>DHCP and ARP Inspection</label>
+    <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
+  <search id="baseSearch">
+    <query>eventtype="cisco_ios-dhcp_snooping" $tenant_indexes$</query>
+        <earliest>$earliest$</earliest>
+    <latest>$latest$</latest>
+  </search>
   <fieldset autoRun="true">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>index=*</default>
+      <delimiter> OR </delimiter>
+      <choice value="index=*">All</choice>
+    </input>
     <input type="time">
       <label>Time period</label>
       <default>
@@ -13,8 +40,8 @@
     <panel>
       <chart>
         <title>DHCP snooping events by device and interface</title>
-        <search>
-          <query>eventtype="cisco_ios-dhcp_snooping" num_packets=* | strcat dvc " " src_int dvc_src_int | timechart sum(num_packets) BY dvc_src_int</query>
+        <search base="baseSearch">
+          <query>search num_packets=* | strcat dvc " " src_int dvc_src_int | timechart sum(num_packets) BY dvc_src_int</query>
         </search>
         <option name="charting.chart">column</option>
         <option name="charting.axisY2.enabled">false</option>
@@ -44,53 +71,31 @@
     <panel>
       <chart>
         <title>Top IPs</title>
-        <search>
-          <query>eventtype="cisco_ios-dhcp_snooping" | eval ip=coalesce(src_ip,dest_ip) | top ip</query>
+        <search base="baseSearch">
+          <query>| eval ip=coalesce(src_ip,dest_ip) | top ip</query>
         </search>
         <option name="charting.chart">pie</option>
-        <option name="charting.axisY2.enabled">undefined</option>
       </chart>
     </panel>
     <panel>
       <chart>
         <title>Top source MACs</title>
-        <search>
-          <query>eventtype="cisco_ios-dhcp_snooping" | top src_mac</query>
+        <search base="baseSearch">
+          <query>| top src_mac</query>
         </search>
         <option name="charting.chart">pie</option>
-        <option name="charting.axisY2.enabled">undefined</option>
       </chart>
     </panel>
     <panel>
       <table>
         <title>Message types</title>
-        <search>
-          <query>eventtype="cisco_ios-dhcp_snooping" num_packets=* | chart sum(num_packets) AS "Packet count" BY message_type | rename message_type AS "Message type"</query>
+        <search base="baseSearch">
+          <query>search num_packets=* | chart sum(num_packets) AS "Packet count" BY message_type | rename message_type AS "Message type"</query>
         </search>
-        <option name="charting.chart">pie</option>
-        <option name="charting.axisY2.enabled">false</option>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
         <option name="dataOverlayMode">none</option>
-        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
-        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
-        <option name="charting.axisTitleX.visibility">visible</option>
-        <option name="charting.axisTitleY.visibility">visible</option>
-        <option name="charting.axisTitleY2.visibility">visible</option>
-        <option name="charting.axisX.scale">linear</option>
-        <option name="charting.axisY.scale">linear</option>
-        <option name="charting.axisY2.scale">inherit</option>
-        <option name="charting.chart.bubbleMaximumSize">50</option>
-        <option name="charting.chart.bubbleMinimumSize">10</option>
-        <option name="charting.chart.bubbleSizeBy">area</option>
-        <option name="charting.chart.nullValueMode">gaps</option>
-        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
-        <option name="charting.chart.stackMode">default</option>
-        <option name="charting.chart.style">shiny</option>
-        <option name="charting.drilldown">all</option>
-        <option name="charting.layout.splitSeries">0</option>
-        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
-        <option name="charting.legend.placement">right</option>
+
         <option name="drilldown">cell</option>
         <option name="count">10</option>
       </table>
@@ -100,11 +105,10 @@
     <panel>
       <table>
         <title>DHCP snooping events</title>
-        <search>
-          <query>eventtype="cisco_ios-dhcp_snooping" | table _time host facility mnemonic src_int src_vlan src_mac src_ip dest_mac dest_ip message_type num_packets</query>
+        <search base="baseSearch">
+          <query>| table _time host facility mnemonic src_int src_vlan src_mac src_ip dest_mac dest_ip message_type num_packets</query>
         </search>
         <option name="count">20</option>
-        <option name="displayRowNumbers">true</option>
         <option name="wrap">true</option>
         <option name="rowNumbers">true</option>
         <option name="dataOverlayMode">none</option>

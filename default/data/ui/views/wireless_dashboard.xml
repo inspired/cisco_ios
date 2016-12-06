@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?><form>
   <label>Wireless - Dashboard</label>
+  <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
   <fieldset autoRun="true">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>index=*</default>
+      <delimiter> OR </delimiter>
+      <choice value="index=*">All</choice>
+    </input>
     <input type="time">
       <default>Last 60 minutes</default>
     </input>
@@ -10,7 +32,7 @@
       <chart>
         <title>Events over time by access point MAC</title>
         <search>
-          <query>eventtype=cisco_ios ap_mac=* | timechart count BY ap_mac</query>
+          <query>eventtype=cisco_ios ap_mac=* $tenant_indexes$ | timechart count BY ap_mac</query>
         </search>
         <option name="charting.chart">column</option>
         <option name="charting.axisY2.enabled">false</option>
@@ -40,25 +62,25 @@
     <panel>
       <table>
         <search>
-<query>
-eventtype="cisco_ios-lwapp_radio_crash" | table _time,host,radio_id,ap_mac
-</query>
-</search>
+          <query>
+            eventtype="cisco_ios-lwapp_radio_crash" $tenant_indexes$ | table _time,host,radio_id,ap_mac
+            </query>
+            </search>
         <title>Radio crashes</title>
         <option name="count">20</option>
-        <option name="displayRowNumbers">true</option>
+        <option name="rowNumbers">true</option>
       </table>
     </panel>
     <panel>
       <table>
         <search>
-<query>
-eventtype="cisco_ios-lwapp_akita_err" | table _time,host,ap_mac
-</query>
-</search>
+          <query>
+            eventtype="cisco_ios-lwapp_akita_err" $tenant_indexes$ | table _time,host,ap_mac
+            </query>
+            </search>
         <title>Unsupported access points</title>
         <option name="count">20</option>
-        <option name="displayRowNumbers">true</option>
+        <option name="rowNumbers">true</option>
       </table>
     </panel>
   </row>
@@ -68,8 +90,8 @@ eventtype="cisco_ios-lwapp_akita_err" | table _time,host,ap_mac
         <title>Events with MAC addresses</title>
         <search>
           <query>
-		  eventtype=cisco_ios product="WLC" | rex field=message_text "(?&lt;src_mac&gt;[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2})" | rex field=message_text mode=sed "s/([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}/XX:XX:XX:XX:XX:XX/g" | stats latest(_time) AS _time, count by dvc,facility,mnemonic,src_mac,message_text,vendor_explanation | sort -count | table _time dvc facility mnemonic src_mac message_text vendor_explanation count
-		  </query>
+            eventtype=cisco_ios $tenant_indexes$ product="WLC" | rex field=message_text "(?&lt;src_mac&gt;[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2})" | rex field=message_text mode=sed "s/([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}/XX:XX:XX:XX:XX:XX/g" | stats latest(_time) AS _time, count by dvc,facility,mnemonic,src_mac,message_text,vendor_explanation | sort -count | table _time dvc facility mnemonic src_mac message_text vendor_explanation count
+          </query>
         </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>

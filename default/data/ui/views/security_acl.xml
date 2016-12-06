@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?><form>
   <label>Access Control Lists</label>
+  <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
+  <search id="baseSearch_acl">
+    <query>eventtype=cisco_ios-acl_log $tenant_indexes$ | strcat protocol "://" dest_port protoDestPort</query>
+    <earliest>$earliest$</earliest>
+    <latest>$latest$</latest>
+  </search>
   <fieldset autoRun="true">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>index=*</default>
+      <delimiter> OR </delimiter>
+      <choice value="index=*">All</choice>
+    </input>
     <input type="time">
       <default>Last 60 minutes</default>
     </input>
@@ -9,13 +36,11 @@
     <panel>
       <chart>
         <title>Protocols by action</title>
-        <search>
-<query>
-eventtype=cisco_ios-acl_log | strcat protocol "://" dest_port protoDestPort | chart sum(packets) over action BY protoDestPort
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+        <search base="baseSearch_acl">
+          <query>
+            | chart sum(packets) over action BY protoDestPort
+          </query>
+        </search>
         <option name="charting.axisTitleX.visibility">visible</option>
         <option name="charting.axisTitleY.visibility">visible</option>
         <option name="charting.axisX.scale">linear</option>
@@ -34,28 +59,25 @@ eventtype=cisco_ios-acl_log | strcat protocol "://" dest_port protoDestPort | ch
     <panel>
       <chart>
         <title>Top blocked ports</title>
-        <search>
-          <query>eventtype=cisco_ios-acl_log action=blocked | strcat protocol "://" dest_port protoDestPort | top protoDestPort</query>
+        <search base="baseSearch_acl">
+          <query>search action=blocked | top protoDestPort</query>
         </search>
         <option name="charting.chart">pie</option>
-        <option name="charting.axisY2.enabled">undefined</option>
       </chart>
     </panel>
     <panel>
       <chart>
         <title>Top ACE Correlation Tags</title>
         <search>
-<query>
-| pivot Cisco_IOS_Event Access_List_Event count(correlation_tag) AS "Count of correlation_tag" SPLITROW correlation_tag AS "correlation_tag" SORT 100 correlation_tag
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
-        <option name="wrap">true</option>
-        <option name="rowNumbers">false</option>
-        <option name="dataOverlayMode">none</option>
-        <option name="drilldown">row</option>
-        <option name="count">10</option>
+          <!--
+          | pivot Cisco_IOS_Event Access_List_Event count(correlation_tag) AS "Count of correlation_tag" SPLITROW correlation_tag AS "correlation_tag" SORT 100 correlation_tag
+          -->
+          <query>
+            | tstats count(Cisco_IOS_Event.correlation_tag) AS "Count of correlation_tag" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event.Access_List_Event) ($tenant_indexes$) groupby Cisco_IOS_Event.correlation_tag prestats=true | stats dedup_splitvals=t count(Cisco_IOS_Event.correlation_tag) AS "Count of correlation_tag" by Cisco_IOS_Event.correlation_tag | sort limit=100 Cisco_IOS_Event.correlation_tag | fields - _span | rename Cisco_IOS_Event.correlation_tag AS correlation_tag | fillnull "Count of correlation_tag" | fields correlation_tag, "Count of correlation_tag" 
+            </query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
         <option name="charting.axisTitleX.visibility">visible</option>
         <option name="charting.axisTitleY.visibility">visible</option>
         <option name="charting.axisX.scale">linear</option>
@@ -76,13 +98,11 @@ eventtype=cisco_ios-acl_log | strcat protocol "://" dest_port protoDestPort | ch
     <panel>
       <map>
         <title>Events by location</title>
-        <search>
-<query>
-eventtype=cisco_ios-acl_log src_ip=* OR dest_ip=* | iplocation src_ip dest_ip | geostats sum(packets) by action
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+        <search base="baseSearch_acl">
+          <query>
+            search src_ip=* OR dest_ip=* | iplocation src_ip dest_ip | geostats sum(packets) by action
+            </query>
+            </search>
         <option name="mapping.data.maxClusters">100</option>
         <option name="mapping.drilldown">all</option>
         <option name="mapping.map.center">(0,0)</option>
@@ -99,7 +119,12 @@ eventtype=cisco_ios-acl_log src_ip=* OR dest_ip=* | iplocation src_ip dest_ip | 
       <chart>
         <title>Dropped or rate-limited packets</title>
         <search>
-          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event sum(num_packets) AS "Dropped or rate-limited packets" SPLITROW _time AS _time PERIOD auto SPLITCOL host FILTER mnemonic is IPACCESSLOGRL SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 10 SHOWOTHER 1</query>
+          <!--
+          | pivot Cisco_IOS_Event Cisco_IOS_Event sum(num_packets) AS "Dropped or rate-limited packets" SPLITROW _time AS _time PERIOD auto SPLITCOL host FILTER mnemonic is IPACCESSLOGRL SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 10 SHOWOTHER 1
+          -->
+          <query>
+            | tstats sum(Cisco_IOS_Event.num_packets) AS "Dropped or rate-limited packets" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.mnemonic=IPACCESSLOGRL) ($tenant_indexes$) groupby _time host prestats=true | eval host='host', _time='_time' | timechart dedup_splitvals=t limit=10 useother=t sum(Cisco_IOS_Event.num_packets) AS "Dropped or rate-limited packets" by host format=$$VAL$$:::$$AGG$$ | sort limit=100 _time | fields _time * 
+            </query>
         </search>
         <option name="charting.chart">area</option>
       </chart>
@@ -109,13 +134,15 @@ eventtype=cisco_ios-acl_log src_ip=* OR dest_ip=* | iplocation src_ip dest_ip | 
     <panel>
       <table>
         <search>
-<query>
-eventtype="cisco_ios-acl_log" NOT [inputlookup cisco_ios_acl_excluded_ips | fields src_ip] | table _time,host,rule,action,proto,src_ip,src_port,dest_ip,dest_port,correlation_tag
-</query>
-</search>
+          <query>
+            eventtype="cisco_ios-acl_log" $tenant_indexes$ NOT [inputlookup cisco_ios_acl_excluded_ips | fields src_ip] | table _time,host,rule,action,proto,src_ip,src_port,dest_ip,dest_port,correlation_tag
+            </query>
+            <earliest>$earliest$</earliest>
+            <latest>$latest$</latest>
+            </search>
         <title>Access Control List logs (excluding hits from local management IPs)</title>
         <option name="count">20</option>
-        <option name="displayRowNumbers">true</option>
+        <option name="rowNumbers">true</option>
       </table>
     </panel>
   </row>

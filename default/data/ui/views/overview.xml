@@ -1,7 +1,7 @@
 <form>
   <label>Cisco Networks Overview</label>
   <search id="check_multi_tenancy">
-    <query>| rest splunk_server=local /services/apps/local/ | search title=TA-cisco_ios-multi_tenancy disabled=0</query>
+    <query>| `check_multi_tenancy`</query>
     <done>
       <condition match="$job.resultCount$ != 0">
         <set token="multi_tenancy">true</set>
@@ -260,7 +260,7 @@
         <search base="topBottomSearch">
           <!--
           | pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW mnemonic AS "mnemonic" FILTER product is "ios" TOP 10 count(Cisco_IOS_Event) -->
-          <query>| head 10</query>
+          <query>| had 10</query>
         </search>
         <option name="charting.axisLabelsY.majorUnit">1</option>
         <option name="charting.axisY.scale">linear</option>

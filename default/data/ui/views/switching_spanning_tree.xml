@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?><form>
   <label>Spanning tree &amp; MAC flapping</label>
+    <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
+  <search id="baseSearch_spanning_tree">
+    <query>eventtype="cisco_ios-spanning_tree" $tenant_indexes$</query>
+  </search>
+    <search id="baseSearch_mac_flapping">
+    <query>eventtype="cisco_ios-mac_flapping" $tenant_indexes$</query>
+  </search>
   <fieldset autoRun="true" submitButton="true">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>index=*</default>
+      <delimiter> OR </delimiter>
+      <choice value="index=*">All</choice>
+    </input>
     <input type="time" searchWhenChanged="true">
       <label>Time period</label>
       <default>
@@ -13,8 +41,8 @@
     <panel>
       <chart>
         <title>Spanning tree events over time</title>
-        <search>
-          <query>eventtype="cisco_ios-spanning_tree" | timechart count BY mnemonic</query>
+        <search base="baseSearch_spanning_tree">
+          <query>| timechart count BY mnemonic</query>
         </search>
         <option name="charting.chart">column</option>
         <option name="charting.axisY2.enabled">false</option>
@@ -43,14 +71,12 @@
   <row>
     <panel>
       <table>
-        <search>
-<query>
-eventtype="cisco_ios-spanning_tree" | table _time, host, facility, mnemonic, src_interface, dest_interface, src_vlan, src_mac, spanning_tree_instance, action
-</query>
-</search>
+        <search base="baseSearch_spanning_tree">
+          <query>| table _time, host, facility, mnemonic, src_interface, dest_interface, src_vlan, src_mac, spanning_tree_instance, action
+          </query>
+          </search>
         <title>Spanning tree events</title>
         <option name="count">20</option>
-        <option name="displayRowNumbers">true</option>
       </table>
     </panel>
   </row>
@@ -62,7 +88,6 @@ eventtype="cisco_ios-spanning_tree" | table _time, host, facility, mnemonic, src
           <query>eventtype="cisco_ios-mac_flapping" | timechart count</query>
         </search>
         <option name="charting.chart">column</option>
-        <option name="charting.axisY2.enabled">undefined</option>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
         <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
         <option name="charting.axisTitleX.visibility">visible</option>
@@ -87,25 +112,22 @@ eventtype="cisco_ios-spanning_tree" | table _time, host, facility, mnemonic, src
     <panel>
       <chart>
         <title>Top MAC addresses</title>
-        <search>
-          <query>eventtype="cisco_ios-mac_flapping" | chart count BY src_mac</query>
+        <search base="baseSearch_mac_flapping">
+          <query>| chart count BY src_mac</query>
         </search>
         <option name="charting.chart">pie</option>
-        <option name="charting.axisY2.enabled">undefined</option>
       </chart>
     </panel>
   </row>
   <row>
     <panel>
       <table>
-        <search>
-<query>
-eventtype="cisco_ios-mac_flapping" | table _time, host, facility, mnemonic, src_mac, src_vlan, src_interface, dest_interface
-</query>
-</search>
+        <search base="baseSearch_mac_flapping">
+          <query>| table _time, host, facility, mnemonic, src_mac, src_vlan, src_interface, dest_interface
+          </query>
+          </search>
         <title>MAC Flapping</title>
         <option name="count">20</option>
-        <option name="displayRowNumbers">true</option>
       </table>
     </panel>
   </row>
