@@ -11,6 +11,12 @@
       </condition>
     </done>
   </search>
+  <search>
+   <query>| makeresults | eval token=replace(replace($tenant_indexes|s$,"index=","")," OR ",",") | table token</query>
+   <done>
+      <set token="pivot_filter">$result.token$</set>
+    </done>
+ </search>
   <fieldset submitButton="false" autoRun="true">
     <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
       <label>Tenant</label>
@@ -49,7 +55,7 @@
   <row>
     <panel>
       <html>
-      <section>
+      <section>PIVOT STYLE: $pivot_filter$
       <h3>This event analysis is based on the following fields in the Cisco IOS events</h3>
       <ul>
         <li>Facility (<q>facility</q>)</li>
