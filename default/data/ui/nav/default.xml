@@ -5,7 +5,7 @@
     <view name="inventory_sites" />
     <view name="inventory_interfaces" />
   </collection>
-  <collection label="Auditing">
+  <collection label="Audit">
     <view name="auditing_dashboard" />
     <view name="auditing_config_change_transactions" />
     <view name="auditing_time_drift" />
@@ -30,6 +30,7 @@
   <collection label="Wireless">
     <view name="wireless_dashboard" />
   </collection>
+  <view name="cisco_networks_tenants" />
   <view name="search" />
   <view name="data_models" />
   <view name="reports" />
