@@ -1,0 +1,285 @@
+<form>
+  <label>Event Analysis</label>
+  <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
+  <search>
+   <query>| makeresults | eval token=replace(replace($tenant_indexes|s$,"index=","")," OR ",",") | table token</query>
+   <done>
+      <set token="pivot_filter">$result.token$</set>
+    </done>
+ </search>
+  <fieldset submitButton="false" autoRun="true">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>index=*</default>
+      <delimiter> OR </delimiter>
+      <choice value="index=*">All</choice>
+    </input>
+    <input type="time" token="field1" searchWhenChanged="false">
+      <label></label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="text" token="host" searchWhenChanged="false">
+      <default>*</default>
+    </input>
+    <input type="multiselect" token="severity_selection" searchWhenChanged="false">
+      <label>Severity</label>
+      <search>
+        <query>| inputlookup cisco_ios_severity</query>
+      </search>
+      <delimiter> OR </delimiter>
+      <default>0 - emergency,1 - alert,2 - critical,3 - error,4 - warning,5 - notification,6 - informational,7 - debugging</default>
+      <valuePrefix>severity_id_and_name="</valuePrefix>
+      <fieldForLabel>severity_id_and_name</fieldForLabel>
+      <fieldForValue>severity_id_and_name</fieldForValue>
+      <valueSuffix>"</valueSuffix>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <html>
+      <section>TOKEN: $pivot_filter$ .. $tenant_indexes$
+      <h3>This event analysis is based on the following fields in the Cisco IOS events</h3>
+      <ul>
+        <li>Facility (<q>facility</q>)</li>
+        <li>Severity (<q>severity_id</q>)</li>
+        <li>Mnemonic (<q>mnemonic</q>)</li>
+      </ul>
+      <p>A lookup is performed based on the aforementioned fields.</p>
+      </section>
+    </html>
+    </panel>
+    <panel>
+      <html>
+      <section>
+        <h3>Devices supported in the lookup file</h3>
+      <ul>
+        <li>Nexus 7000, MDS 9000</li>
+        <li>Catalyst 2960, 3750 etc</li>
+        <li>Catalyst 4500</li>
+        <li>Catalyst 6500</li>
+        <li>Cisco WLAN Controller</li>
+      </ul>
+      </section>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Categories over time</title>
+        <search>
+          <!--
+          | pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW _time AS _time PERIOD auto SPLITCOL vendor_category FILTER host is $host$ FILTER vendor_category isNotNull SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1
+          -->
+          <query>| tstats count AS "Count of Cisco IOS Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (host="$host$") (Cisco_IOS_Event.vendor_category=*) ($tenant_indexes$) groupby _time Cisco_IOS_Event.vendor_category prestats=true | eval "Cisco_IOS_Event.vendor_category"='Cisco_IOS_Event.vendor_category', _time='_time' | timechart dedup_splitvals=t limit=100 useother=t count AS "Count of Cisco IOS Event" by Cisco_IOS_Event.vendor_category format=$$VAL$$:::$$AGG$$ | sort limit=100 _time | fields _time * </query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.enabled">false</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">column</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">stacked</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Message breakdown</title>
+        <search>
+          <!--
+          | pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique devices" SPLITROW vendor_message_text AS "Message text" SPLITROW vendor_explanation AS Explanation SPLITROW vendor_recommended_action AS "Recommended action" SPLITROW severity_id_and_name AS severity_id_and_name FILTER host is $host$ TOP 500 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1 | search $severity_selection$</query>
+          -->
+          <query>| tstats count AS Events dc(host) AS "Unique devices" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (host="$host$") ($tenant_indexes$) groupby Cisco_IOS_Event.vendor_message_text, Cisco_IOS_Event.vendor_explanation, Cisco_IOS_Event.vendor_recommended_action, Cisco_IOS_Event.severity_id_and_name | rename Cisco_IOS_Event.* AS * | search $severity_selection$ </query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="count">10</option>
+        <option name="drilldown">row</option>
+        <option name="link.openPivot.visible">false</option>
+        <drilldown>
+          <condition field="Message text">
+            <link>
+              <![CDATA[
+                        search?q=search vendor_message_text="$row.Message text$"&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+          <condition field="Explanation">
+            <link>
+              <![CDATA[
+                        search?q=search vendor_explanation="$row.Explanation$"&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+          <condition field="Recommended action">
+            <link>
+              <![CDATA[
+                        search?q=search vendor_recommended_action="$row.Recommended action$"&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+        </drilldown>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Hosts by severity</title>
+        <search>
+          <!--
+          | tstats count AS "Count of Cisco IOS Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (host="$host$") groupby host Cisco_IOS_Event.severity_id_and_name prestats=true | eval "Cisco_IOS_Event.severity_id_and_name"='Cisco_IOS_Event.severity_id_and_name', host='host' | chart dedup_splitvals=t limit=100 useother=t count AS "Count of Cisco IOS Event" by host Cisco_IOS_Event.severity_id_and_name format=$VAL$:::$AGG$ | sort limit=500 host | fields - _span | fields host * | sort -"0 - emergency", -"1 - alert", -"2 - critical", -"3 - error", -"4 - warning", -"5 - notification", -"6 - informational", -"7 - debugging" | table host "0 - emergency" "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging" 
+          -->
+          <query>| tstats count AS "Count of Cisco IOS Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (host="$host$") ($tenant_indexes$) groupby host Cisco_IOS_Event.severity_id_and_name prestats=true | eval "Cisco_IOS_Event.severity_id_and_name"='Cisco_IOS_Event.severity_id_and_name', host='host' | chart dedup_splitvals=t limit=100 useother=t count AS "Count of Cisco IOS Event" by host Cisco_IOS_Event.severity_id_and_name format=$$VAL$$:::$$AGG$$ | sort limit=500 host | fields - _span | fields host * | sort -"0 - emergency", -"1 - alert", -"2 - critical", -"3 - error", -"4 - warning", -"5 - notification", -"6 - informational", -"7 - debugging" | table host "0 - emergency" "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging" </query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">heatmap</option>
+        <option name="drilldown">row</option>
+        <option name="count">10</option>
+        <drilldown>
+          <condition field="host">
+            <link>
+              <![CDATA[
+                        search?q=search host=$row.host$&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+          <condition field="0 - emergency">
+            <link>
+              <![CDATA[
+                        search?q=search host=$row.host$ severity_id_and_name="0 - emergency"&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+          <condition field="1 - alert">
+            <link>
+              <![CDATA[
+                        search?q=search host=$row.host$ severity_id_and_name="1 - alert"&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+          <condition field="2 - critical">
+            <link>
+              <![CDATA[
+                        search?q=search host=$row.host$ severity_id_and_name="2 - critical"&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+          <condition field="3 - error">
+            <link>
+              <![CDATA[
+                        search?q=search host=$row.host$ severity_id_and_name="3 - error"&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+          <condition field="4 - warning">
+            <link>
+              <![CDATA[
+                        search?q=search host=$row.host$ severity_id_and_name="4 - warning"&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+          <condition field="5 - notification">
+            <link>
+              <![CDATA[
+                        search?q=search host=$row.host$ severity_id_and_name="5 - notification"&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+          <condition field="6 - informational">
+            <link>
+              <![CDATA[
+                        search?q=search host=$row.host$ severity_id_and_name="6 - informational"&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+          <condition field="7 - debugging">
+            <link>
+              <![CDATA[
+                        search?q=search host=$row.host$ severity_id_and_name="7 - debugging"&earliest=$earliest$&latest=$latest$
+                ]]>
+            </link>
+          </condition>
+        </drilldown>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Hosts by severity</title>
+        <search>
+          <!--
+          | pivot Cisco_IOS_Event Cisco_IOS_Event count(host) AS "Count of host" avg(severity_id) AS "Average of severity_id" count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW host AS host SORT 100 host ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1
+          -->
+          <query>| tstats count(host) AS "Count of host" avg(Cisco_IOS_Event.severity_id) AS "Average of severity_id" count AS "Count of Cisco IOS Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) ($tenant_indexes$)  groupby host prestats=true | stats dedup_splitvals=t count(host) AS "Count of host" avg(Cisco_IOS_Event.severity_id) AS "Average of severity_id" count AS "Count of Cisco IOS Event" by host | sort limit=100 host | fields - _span | fillnull "Count of host" "Count of Cisco IOS Event" | fields host, "Count of host", "Average of severity_id", "Count of Cisco IOS Event" </query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.chart">bubble</option>
+      </chart>
+    </panel>
+  </row>
+</form>
