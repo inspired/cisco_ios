@@ -141,7 +141,7 @@
       <table>
         <title>Devices</title>
         <search>
-          <query>| pivot Cisco_IOS_Event Device last(hostname) AS "Hostname" last(site_id) AS "Site ID" last(model) AS "Model" last(serial_number) AS "Serial number" count(Device) AS "Count of events" SPLITROW host AS host</query>
+          <query>| pivot Cisco_IOS_Event Device last(hostname) AS "Hostname" last(site_id) AS "Site ID" last(model) AS "Model" last(serial_number) AS "Serial number" last(software_version) AS "Software version" count(Device) AS "Count of events" SPLITROW host AS host</query>
         </search>
         <option name="count">25</option>
         <option name="drilldown">cell</option>
