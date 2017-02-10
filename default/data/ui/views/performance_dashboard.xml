@@ -23,6 +23,13 @@
       <delimiter> OR </delimiter>
       <choice value="index=*">All</choice>
     </input>
+    <input type="text" token="host">
+      <label>Host</label>
+      <default>*</default>
+    </input>
+    <input type="time">
+      <default>Last 7 days</default>
+    </input>
     <input type="time" searchWhenChanged="true">
       <default>
         <earliestTime>-24h@h</earliestTime>
@@ -36,7 +43,7 @@
         <title>IP SLA Events</title>
         <search>
           <query>
-            eventtype="cisco_ios-ipsla" $tenant_indexes$ | eval state=case(state_to == "Up", 1, state_to == "Down", -1) | strcat dvc " " ip_sla_id dvc_ip_sla_id | timechart avg(state) AS state BY dvc_ip_sla_id | fillnull value=0
+            eventtype="cisco_ios-ipsla" $tenant_indexes$ host="$host$" | eval state=case(state_to == "Up", 1, state_to == "Down", -1) | strcat dvc " " ip_sla_id dvc_ip_sla_id | timechart avg(state) AS state BY dvc_ip_sla_id | fillnull value=0
             </query>
             <earliest>$earliest$</earliest>
             <latest>$latest$</latest>
@@ -71,7 +78,7 @@
         <title>Optical transceiver power by host and interface</title>
         <search>
           <query>
-            eventtype=cisco_ios $tenant_indexes$ mnemonic=THRESHOLD_VIOLATION alarm="Rx power" OR alarm="Tx power" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface
+            eventtype=cisco_ios $tenant_indexes$ host="$host$" mnemonic=THRESHOLD_VIOLATION alarm="Rx power" OR alarm="Tx power" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface
           </query>
           <earliest>$earliest$</earliest>
           <latest>$latest$</latest>
@@ -98,7 +105,7 @@
         <title>Etherchannel events</title>
         <search>
           <query>
-            eventtype="cisco_ios-etherchannel" $tenant_indexes$ | table _time, host, src_interface, compatibility, dest_interface, action, vendor_action
+            eventtype="cisco_ios-etherchannel" $tenant_indexes$ host="$host$" | table _time, host, src_interface, compatibility, dest_interface, action, vendor_action
           </query>
         <earliest>$earliest$</earliest>
         <latest>$latest$</latest>
@@ -117,7 +124,7 @@
         <title>Optical transceiver temperature by host and interface</title>
         <search>
           <query>
-            eventtype=cisco_ios $tenant_indexes$ mnemonic=THRESHOLD_VIOLATION alarm="Temperature" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface
+            eventtype=cisco_ios $tenant_indexes$ host="$host$" mnemonic=THRESHOLD_VIOLATION alarm="Temperature" | strcat host " " src_interface host_src_interface | timechart avg(operating_value) by host_src_interface
           </query>
           <earliest>$earliest$</earliest>
           <latest>$latest$</latest>
@@ -144,7 +151,7 @@
         <title>DSL bandwidth</title>
         <search>
           <query>
-            eventtype="cisco_ios-downgradedbw" $tenant_indexes$ | dedup host | table _time,host,permanent_virtual_circuit,bw_down,bw_up | sort bw_down,_time
+            eventtype="cisco_ios-downgradedbw" $tenant_indexes$ host="$host$" | dedup host | table _time,host,permanent_virtual_circuit,bw_down,bw_up | sort bw_down,_time
           </query>
           <earliest>$earliest$</earliest>
           <latest>$latest$</latest>
