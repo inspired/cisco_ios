@@ -51,7 +51,7 @@
         <title>First Hop Redundancy Protocol State Changes (HSRP only)</title>
         <search>
 <query>
-eventtype="cisco_ios-standby" $tenant_indexes$ | table _time,host,src_interface,group_id,state_from,state_to
+eventtype="cisco_ios-standby" $tenant_indexes$ host=$host$ | table _time,host,src_interface,group_id,state_from,state_to
 </query>
 </search>
         <option name="count">10</option>
@@ -65,7 +65,7 @@ eventtype="cisco_ios-standby" $tenant_indexes$ | table _time,host,src_interface,
       <table>
         <search>
 <query>
-eventtype="cisco_ios-stackmgr" $tenant_indexes$ | table _time, host, switch_id, state_to, dest_interface, switch
+eventtype="cisco_ios-stackmgr" $tenant_indexes$ host=$host$ | table _time, host, switch_id, state_to, dest_interface, switch
 </query>
 </search>
         <title>Stacking events</title>
