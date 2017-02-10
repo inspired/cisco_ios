@@ -27,9 +27,6 @@
       <label>Host</label>
       <default>*</default>
     </input>
-    <input type="time">
-      <default>Last 7 days</default>
-    </input>
     <input type="time" searchWhenChanged="true">
       <default>
         <earliestTime>-24h@h</earliestTime>
