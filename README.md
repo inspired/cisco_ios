@@ -1,4 +1,5 @@
 # Cisco Networks
+https://img.shields.io/github/downloads/inspired/cisco_ios/latest/total.svg
 
 ## Table of Contents
 
