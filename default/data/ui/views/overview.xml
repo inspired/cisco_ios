@@ -217,7 +217,7 @@
           <!--
           eventtype="cisco_ios-port_down" OR eventtype="cisco_ios-port_up" | stats count,latest(port_status) AS port_status by host,src_interface | sort -count | table host,src_interface,port_status,count
           -->
-          <query>eventtype="cisco_ios-port_down" OR eventtype="cisco_ios-port_up" product=$product_selection$ $tenant_indexes$ | stats count,latest(port_status) AS port_status by host,src_interface | sort -count | table host,src_interface,port_status,count</query>
+          <query>eventtype="cisco_ios-port_down" OR eventtype="cisco_ios-port_up" product=$product_selection$ $tenant_indexes$ | stats count, latest(port_status) AS port_status, latest(src_interface_description) AS description BY host,src_interface | sort -count | table host,src_interface,port_status,description,count</query>
         </search>
         <option name="rowNumbers">false</option>
         <option name="wrap">true</option>
