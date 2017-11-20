@@ -10,28 +10,6 @@
   </fieldset>
   <row>
     <panel>
-      <html>
-    </html>
-      <single>
-        <title>Device</title>
-        <search>
-<query>
-| inputlookup Cisco_Device | search host=$form.host$ | fields host | appendcols [search eventtype=cisco_ios-smart_call_home host=$form.host$ | rename hostname AS host | fields host | head 1]
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
-      </single>
-      <table>
-        <title>Device info</title>
-        <search>
-<query>
-eventtype=cisco_ios-smart_call_home host=$form.host$ | stats latest(model) AS model, latest(serial_number) AS serial_number, latest(software_version) AS software_version, latest(series) AS series, latest(site_id) AS site_id
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
-      </table>
       <table>
         <title>Severities</title>
         <search>
@@ -129,25 +107,6 @@ eventtype=cisco_ios host=$form.host$ | table _time facility subfacility severity
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">cell</option>
         <option name="count">20</option>
-      </table>
-    </panel>
-  </row>
-  <row>
-    <panel>
-      <table>
-        <title>Smart Call Home (temporary)</title>
-        <search>
-<query>
-host=$form.host$ eventtype=cisco_ios-smart_call_home | fields - _*, date*, punct, linecount, index, eventtype, source, sourcetype, splunk_server, tag, tag::eventtype, time*pos, "soap-env:Envelope.soap-env:Body.aml-block:Block.aml-block:Attachments.aml-block:Attachment.aml-block:Data"  | stats values(*) | transpose
-</query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
-        <option name="wrap">true</option>
-        <option name="rowNumbers">false</option>
-        <option name="dataOverlayMode">none</option>
-        <option name="drilldown">cell</option>
-        <option name="count">50</option>
       </table>
     </panel>
   </row>
