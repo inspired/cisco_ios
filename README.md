@@ -73,7 +73,7 @@ Cisco Networks includes the following new features:
 
 ##### Removed features
 
-- SMART CALL HOME IS REMOVED ENTIRELY
+- SMART CALL HOME IS REMOVED ENTIRELY. If you require Inventory information, please get a NMS such as Cisco Prime Infrastructure.
 
 ##### Fixed issues
 
