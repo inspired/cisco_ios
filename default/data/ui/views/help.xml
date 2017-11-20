@@ -91,24 +91,6 @@ process cpu threshold type total rising 80 interval 5
 memory free low-watermark processor 20000
 memory free low-watermark io 20000
       </pre>
-      <h4>Smart Call Home logging</h4>
-      <p>Enabling Smart Call home allows you to get extended device information from your devices at specific intervals</p>
-      <pre>
-ip http client source-interface [SOURCE INTERFACE]
-!
-service call-home  
-call-home  
- contact-email-addr [YOUR.EMAIL@ADDR.ESS]
- site-id ["YOUR_SITE_NAME"]
- profile "Splunk"  
-  destination transport-method http  
-  destination address http http://[YOUR SYSLOG/SPLUNK SERVER IP]:[YOUR SMART CALL HOME TCP PORT]
-  subscribe-to-alert-group diagnostic severity debug  
-  subscribe-to-alert-group environment severity debug  
-  subscribe-to-alert-group inventory  
-  subscribe-to-alert-group inventory periodic daily 22:30
-!
-      </pre>
       <h3>NX-OS</h3>
      <p>This includes all NX-OS variants. Not all commands are supported on all models</p>
       <h4>Basic logging and timestamping</h4>
@@ -146,32 +128,6 @@ logging level acllog 6
 acllog match-log-level 6
 logging logfile messages 6
       </pre>
-      <h4>Smart Call Home logging</h4>
-      <p>Enabling Smart Call home allows you to get extended device information from your devices at specific intervals</p>
-      <pre>
-callhome
-  site-id ["YOUR_SITE_NAME"]
-  email-contact [YOUR.EMAIL@ADDR.ESS]
-  phone-contact [YOUR PHONE NUMBER]
-  streetaddress S01
-  destination-profile Splunk
-  destination-profile Splunk format XML
-  destination-profile Splunk transport-method http
-  destination-profile Splunk http http://[YOUR SYSLOG/SPLUNK SERVER IP]:[YOUR SMART CALL HOME TCP PORT]
-  destination-profile Splunk alert-group Diagnostic
-  destination-profile Splunk alert-group EEM
-  destination-profile Splunk alert-group environmental
-  destination-profile Splunk alert-group inventory
-  destination-profile Splunk alert-group license
-  destination-profile Splunk alert-group linecard-hardware
-  destination-profile Splunk alert-group supervisor-hardware
-  destination-profile Splunk alert-group system
-  destination-profile Splunk alert-group test
-  transport http use-vrf [YOUR MGMT VRF] 
-  enable
-  periodic-inventory notification interval  1
-  periodic-inventory notification timeofday 22:30
-	  </pre>
       </section>
     </html>
     </panel>
@@ -179,14 +135,6 @@ callhome
       <html>
       <section>
       <h1>Troubleshooting</h1>
-      <h2>Not seeing any inventory information?</h2>
-        <p>The app needs a feature called Cisco Smart Call Home (SCH) to be enabled on the devices.</p>
-      <p>Reasons why you're not seeing any data:</p>
-      <ul>
-        <li>Smart Call Home Input not enabled</li>
-        <li>Devices not configured to send Smart Call Home events at specific intervals</li>
-        <li><q>ip http client source-interface SOURCE_INTERFACE</q> not set on your device</li>
-      </ul>
       </section>
       <section>
       <h2>Not seeing authentication results?</h2>
@@ -197,7 +145,7 @@ callhome
       </section>
       <section>
       <h1>About this App</h1>
-      	<p>This App and the Cisco Networks Add-on was created by Mikael Bjerkeland (mikael@bjerkeland.com). Commercial support is available by contacting <a href="http://www.datametrix.no">Datametrix</a>.
+      	<p>This App and the Cisco Networks Add-on was created by Mikael Bjerkeland (mikael@bjerkeland.com). Commercial support is available by contacting the author.
 	</p>
       </section>
     </html>
