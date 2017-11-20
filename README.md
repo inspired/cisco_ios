@@ -71,6 +71,10 @@ Cisco Networks includes the following new features:
 
 - Multi tenancy support (COMMERCIAL USERS ONLY)
 
+##### Removed features
+
+- SMART CALL HOME IS REMOVED ENTIRELY
+
 ##### Fixed issues
 
 Version 2.5.0 of the Cicso Networks app fixes the following issues:
