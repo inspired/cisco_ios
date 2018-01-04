@@ -120,10 +120,10 @@
         <title>Dropped or rate-limited packets</title>
         <search>
           <!--
-          | pivot Cisco_IOS_Event Cisco_IOS_Event sum(num_packets) AS "Dropped or rate-limited packets" SPLITROW _time AS _time PERIOD auto SPLITCOL host FILTER mnemonic is IPACCESSLOGRL SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 10 SHOWOTHER 1
+          | pivot Cisco_IOS_Event Cisco_IOS_Event sum(packets) AS "Dropped or rate-limited packets" SPLITROW _time AS _time PERIOD auto SPLITCOL host FILTER mnemonic is IPACCESSLOGRL SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 10 SHOWOTHER 1
           -->
           <query>
-            | tstats sum(Cisco_IOS_Event.num_packets) AS "Dropped or rate-limited packets" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.mnemonic=IPACCESSLOGRL) ($tenant_indexes$) groupby _time host prestats=true | eval host='host', _time='_time' | timechart dedup_splitvals=t limit=10 useother=t sum(Cisco_IOS_Event.num_packets) AS "Dropped or rate-limited packets" by host format=$$VAL$$:::$$AGG$$ | sort limit=100 _time | fields _time * 
+            | tstats sum(Cisco_IOS_Event.packets) AS "Dropped or rate-limited packets" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.mnemonic=IPACCESSLOGRL) ($tenant_indexes$) groupby _time host prestats=true | eval host='host', _time='_time' | timechart dedup_splitvals=t limit=10 useother=t sum(Cisco_IOS_Event.packets) AS "Dropped or rate-limited packets" by host format=$$VAL$$:::$$AGG$$ | sort limit=100 _time | fields _time * 
             </query>
         </search>
         <option name="charting.chart">area</option>
