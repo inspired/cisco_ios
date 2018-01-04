@@ -144,7 +144,7 @@ logging logfile messages 6
       </section>
       <section>
       <h1>About this App</h1>
-      	<p>This App and the Cisco Networks Add-on was created by Mikael Bjerkeland (mikael@bjerkeland.com). Commercial support is available by contacting the author.
+      	<p>This App and the Cisco Networks Add-on was created by Mikael Bjerkeland (mikael@bjerkeland.com). Commercial support is available by contacting the author.<br/>Community support is available at <a href="https://answers.splunk.com/app/questions/1352.html">Splunkbase</a>.
 	</p>
       </section>
     </html>
