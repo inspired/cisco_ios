@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
   <label>Devices</label>
-  <description>This dashboard does not yet support multi-tenancy</description>
+  <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
+  <description></description>
   <fieldset autoRun="true">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>index=*</default>
+      <delimiter> OR </delimiter>
+      <choice value="index=*">All</choice>
+    </input>
     <input type="time" searchWhenChanged="true">
       <default>
         <earliestTime>-24h@h</earliestTime>
@@ -15,7 +37,7 @@
       <table>
         <title>Event's severities by host</title>
         <search>
-          <query>eventtype=cisco_ios | chart count OVER host BY severity_id_and_name usenull=f | sort limit=0 "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging" desc</query>
+          <query>eventtype=cisco_ios $tenant_indexes$ | chart count OVER host BY severity_id_and_name usenull=f | sort limit=0 "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging" desc</query>
         </search>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
         <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
