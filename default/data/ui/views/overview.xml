@@ -135,6 +135,13 @@
         <option name="charting.chart.bubbleMaximumSize">50</option>
         <option name="charting.chart.bubbleMinimumSize">10</option>
         <option name="charting.chart.bubbleSizeBy">area</option>
+        <drilldown>
+          <link>
+            <![CDATA[
+                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" $tenant_indexes$ host="$click.name2$"&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+        </drilldown>
       </chart>
     </panel>
     <panel>
@@ -206,6 +213,13 @@
         <option name="charting.chart.bubbleMaximumSize">50</option>
         <option name="charting.chart.bubbleMinimumSize">10</option>
         <option name="charting.chart.bubbleSizeBy">area</option>
+        <drilldown>
+          <link>
+            <![CDATA[
+                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" $tenant_indexes$ mnemonic="$click.name2$"&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+        </drilldown>
       </chart>
     </panel>
   </row>
@@ -217,7 +231,7 @@
           <!--
           eventtype="cisco_ios-port_down" OR eventtype="cisco_ios-port_up" | stats count,latest(port_status) AS port_status by host,src_interface | sort -count | table host,src_interface,port_status,count
           -->
-          <query>eventtype="cisco_ios-port_down" OR eventtype="cisco_ios-port_up" product=$product_selection$ $tenant_indexes$ | stats count, latest(port_status) AS port_status, latest(src_interface_description) AS description BY host,src_interface | sort -count | table host,src_interface,port_status,description,count</query>
+          <query>eventtype="cisco_ios-port_down" OR eventtype="cisco_ios-port_up" product=$product_selection$ $tenant_indexes$ | stats count,latest(port_status) AS port_status by host,src_interface | sort -count | table host,src_interface,port_status,count</query>
         </search>
         <option name="rowNumbers">false</option>
         <option name="wrap">true</option>
@@ -276,6 +290,13 @@
         <option name="charting.chart">bar</option>
         <option name="charting.drilldown">all</option>
         <option name="charting.layout.splitSeries">0</option>
+        <drilldown>
+          <link>
+            <![CDATA[
+                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" $tenant_indexes$ mnemonic="$click.value$"&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+        </drilldown>
       </chart>
       <chart>
         <title>Rare mnemonics</title>
@@ -299,6 +320,13 @@
         <option name="charting.chart">bar</option>
         <option name="charting.drilldown">all</option>
         <option name="charting.layout.splitSeries">0</option>
+        <drilldown>
+          <link>
+            <![CDATA[
+                        /app/cisco_ios/search?q=search eventtype=cisco_ios product="$product_selection$" $tenant_indexes$ mnemonic="$click.value$"&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+        </drilldown>
       </chart>
     </panel>
   </row>
