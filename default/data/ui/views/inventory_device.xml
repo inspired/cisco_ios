@@ -1,5 +1,6 @@
 <form>
   <label>Device</label>
+  <description>Dashboard currently not in use</description>
   <fieldset autoRun="true">
     <input type="time" searchWhenChanged="true">
       <default>
