@@ -1,7 +1,29 @@
 <form>
   <label>Interfaces</label>
-  <description>This dashboard does not yet support multi-tenancy</description>
+  <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
+  <description></description>
   <fieldset submitButton="true" autoRun="true">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>*</default>
+      <delimiter>,</delimiter>
+      <choice value="*">All</choice>
+    </input>
     <input type="text" token="host">
       <label>Host</label>
       <default>*</default>
@@ -19,7 +41,7 @@
       <table>
         <title>Interfaces by severity</title>
         <search>
-          <query>| pivot Cisco_IOS_Event Interface  FILTER host is "$host$" count(Interface) AS "Count of Interface" SPLITROW dvc AS dvc SPLITROW interface AS Interface SPLITCOL severity_id_and_name SORT 100 dvc ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1</query>
+          <query>| pivot Cisco_IOS_Event Interface FILTER host is "$host$" FILTER index in ($tenant_indexes$) count(Interface) AS "Count of Interface" SPLITROW dvc AS dvc SPLITROW interface AS Interface SPLITCOL severity_id_and_name SORT 100 dvc ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1</query>
           <earliest>$field2.earliest$</earliest>
           <latest>$field2.latest$</latest>
         </search>
