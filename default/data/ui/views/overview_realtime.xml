@@ -1,0 +1,335 @@
+<form>
+  <label>Cisco Networks Overview Realtime</label>
+  <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
+  <search id="baseSearch">
+    <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Events" dc(host) AS "Unique Devices" dc(index) AS "Unique Indexes"</query>
+    <earliest>$earliest$</earliest>
+    <latest>$latest$</latest>
+  </search>
+  <search id="topBottomSearch">
+    <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW mnemonic FILTER product is "$product_selection$" FILTER index in ("$tenant_indexes$") ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 10 SHOWOTHER 1 | sort limit=0 -"Count of Event" | fillnull "Count of Event" | fields mnemonic, "Count of Event"</query>
+    <earliest>$earliest$</earliest>
+    <latest>$latest$</latest>
+  </search>
+  <fieldset autoRun="true" submitButton="false">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>*</default>
+      <delimiter>,</delimiter>
+      <choice value="*">All</choice>
+    </input>
+    <input type="radio" token="product_selection" searchWhenChanged="true">
+      <label>Product</label>
+      <choice value="IOS">IOS</choice>
+      <choice value="WLC">WLC</choice>
+      <choice value="AP">AP</choice>
+      <default>IOS</default>
+    </input>
+    <input type="time" searchWhenChanged="true">
+      <label>Time period</label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <single>
+        <title>Events</title>
+        <search base="baseSearch">
+          <query>| fields "Events"</query>
+        </search>
+        <option name="underLabel">Events</option>
+      </single>
+      <single>
+        <title>Unique devices</title>
+        <search base="baseSearch">
+          <query>| fields "Unique Devices"</query>
+        </search>
+        <option name="underLabel">Unique devices</option>
+        <option name="link.openSearch.viewTarget">inventory_devices</option>
+        <option name="link.openSearch.search">
+          <![CDATA[&earliest=$earliest$&latest=$latest$]]>
+        </option>
+      </single>
+      <single>
+        <title>Device logins</title>
+        <search>
+          <query>| pivot Cisco_IOS_Event Device_Authentication count(Device_Authentication) AS "Device Logins" FILTER product is "$product_selection$" FILTER index in ("$tenant_indexes$") ROWSUMMARY 0 COLSUMMARY 0 SHOWOTHER 1</query>
+        </search>
+        <option name="underLabel">Device logins</option>
+        <option name="link.openSearch.viewTarget">auditing_dashboard</option>
+        <option name="link.openSearch.search">
+          <![CDATA[&earliest=$earliest$&latest=$latest$]]>
+        </option>
+      </single>
+      <single>
+        <title>Config changes</title>
+        <search>
+          <query>| pivot Cisco_IOS_Event Configuration_Change count(Configuration_Change) AS "Configuration Changes" FILTER product is "$product_selection$" FILTER index in ("$tenant_indexes$") ROWSUMMARY 0 COLSUMMARY 0 SHOWOTHER 1</query>
+        </search>
+        <option name="underLabel">Config changes</option>
+        <option name="link.openSearch.viewTarget">auditing_config_change_transactions</option>
+        <option name="link.openSearch.search">
+          <![CDATA[&earliest=$earliest$&latest=$latest$]]>
+        </option>
+      </single>
+      <single>
+        <title>802.1x events</title>
+        <search>
+          <query>| pivot Cisco_IOS_Event DOT1X_Event count(DOT1X_Event) AS "802.1x Events" FILTER product is "$product_selection$" FILTER index in ("$tenant_indexes$") ROWSUMMARY 0 COLSUMMARY 0 SHOWOTHER 1</query>
+        </search>
+        <option name="underLabel">802.1x events</option>
+        <option name="link.openSearch.viewTarget">security_authentications</option>
+        <option name="link.openSearch.search">
+          <![CDATA[&earliest=$earliest$&latest=$latest$]]>
+        </option>
+      </single>
+      <single depends="$tenant_indexes$">
+        <title>Unique indexes</title>
+        <search base="baseSearch">
+          <query>| fields "Unique Indexes"</query>
+        </search>
+        <option name="underLabel">Unique indexes</option>
+      </single>
+      <chart>
+        <title>Top reporting hosts by time</title>
+        <search>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW _time AS _time PERIOD auto SPLITCOL host FILTER product is "$product_selection$" FILTER index in ("$tenant_indexes$") SORT 0 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 10 SHOWOTHER 1</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.text">Count of Event</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">area</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">stacked</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisEnd</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
+        <drilldown>
+          <link>
+            <![CDATA[
+                        /app/cisco_ios/search?q=search eventtype=cisco_ios product IN ("$product_selection$") $tenant_indexes$ host="$click.name2$"&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+        </drilldown>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Syslog severity distribution</title>
+        <search>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS Count SPLITROW severity_id_and_name AS severity_id_and_name SPLITROW severity_id AS severity_id FILTER product is "$product_selection$" FILTER index in ("$tenant_indexes$") SORT 100 severity_id_and_name ROWSUMMARY 0 COLSUMMARY 0 SHOWOTHER 1 | sort limit=100 -"Count" | fillnull "Count" | fields severity_id_and_name, severity_id, "Count" | sort - severity_id | eval SN="" |  xyseries SN severity_id_and_name "Count" | rename SN AS "Severity name" | sort -"0 - emergency" -"1 - alert" -"2 - critical" -"3 - error" -"4 - warning" -"5 - notification" -"6 - informational" -"7 - debugging" | table "Severity name" "0 - emergency" "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging"</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">bar</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="link.openPivot.visible">0</option>
+        <option name="refresh.display">progressbar</option>
+        <drilldown>
+          <link>
+            <![CDATA[
+                        /app/cisco_ios/search?q=search eventtype=cisco_ios product IN ("$product_selection$") $tenant_indexes$ severity_id_and_name="$click.name2$"&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+        </drilldown>
+      </chart>
+      <chart>
+        <title>Top mnemonics by time</title>
+        <search>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW _time AS _time PERIOD auto SPLITCOL mnemonic FILTER product is "$product_selection$" FILTER index in ("$tenant_indexes$")  SORT 0 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 10 SHOWOTHER 1</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.text">Count of Event</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">area</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">stacked</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
+        <drilldown>
+          <link>
+            <![CDATA[
+                        /app/cisco_ios/search?q=search eventtype=cisco_ios product IN ("$product_selection$") $tenant_indexes$ mnemonic="$click.name2$"&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+        </drilldown>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Port flapping</title>
+        <search>
+          <!--
+          eventtype="cisco_ios-port_down" OR eventtype="cisco_ios-port_up" | stats count,latest(port_status) AS port_status by host,src_interface | sort -count | table host,src_interface,port_status,count
+          -->
+          <query>eventtype="cisco_ios-port_down" OR eventtype="cisco_ios-port_up" product IN ("$product_selection$") $tenant_indexes$ | stats count, latest(port_status) AS port_status, latest(src_interface_description) AS description BY host,src_interface | sort -count | table host,src_interface,port_status,description,count</query>
+        </search>
+        <option name="rowNumbers">false</option>
+        <option name="wrap">true</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">row</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
+    <panel>
+      <table>
+        <title>Error disabled interface</title>
+        <search>
+          <query>eventtype="cisco_ios-err_disable" product IN ("$product_selection$") $tenant_indexes$ | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | stats count(src_interface) AS Amount BY host,src_interface,disable_cause | rename src_interface AS Interface, disable_cause AS Cause</query>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Diagnostic messages</title>
+        <search>
+          <query>eventtype="cisco_ios-diag" product IN ("$product_selection$") $tenant_indexes$ | eval eventcode=facility + "-" + severity_id + "-" + mnemonic | stats count AS Count, latest(_time) AS _time, latest(severity_id) AS severity_id by host, eventcode, vendor_message_text | lookup cisco_ios_severity severity_id | sort +severity_id,-Count | table _time, host, eventcode, vendor_message_text, severity_id_and_name, Count</query>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">row</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
+    <panel>
+      <chart>
+        <title>Top mnemonics</title>
+        <search base="topBottomSearch">
+          <!--
+          | pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW mnemonic AS "mnemonic" FILTER product is "ios" TOP 10 count(Cisco_IOS_Event) -->
+          <query>| head 10</query>
+        </search>
+        <option name="charting.axisLabelsY.majorUnit">1</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.legend.placement">none</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.chart">bar</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <drilldown>
+          <link>
+            <![CDATA[
+                        /app/cisco_ios/search?q=search eventtype=cisco_ios product IN ("$product_selection$") $tenant_indexes$ mnemonic="$click.value$"&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+        </drilldown>
+      </chart>
+      <chart>
+        <title>Rare mnemonics</title>
+        <search base="topBottomSearch">
+          <!--
+          | pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW mnemonic AS "mnemonic" FILTER product is "$product_selection$" BOTTOM 10 count(Cisco_IOS_Event)
+          -->
+          <query>| tail 10</query>
+        </search>
+        <option name="charting.axisLabelsY.majorUnit">1</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.legend.placement">none</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.chart">bar</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <drilldown>
+          <link>
+            <![CDATA[
+                        /app/cisco_ios/search?q=search eventtype=cisco_ios product IN ("$product_selection$") $tenant_indexes$ mnemonic="$click.value$"&earliest=$earliest$&latest=$latest$
+                ]]>
+          </link>
+        </drilldown>
+      </chart>
+    </panel>
+  </row>
+</form>
