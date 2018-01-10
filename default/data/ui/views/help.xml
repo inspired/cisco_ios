@@ -37,6 +37,7 @@ login on-failure log
 login on-success log
 logging userinfo
 !
+ip ssh logging events
       </pre>
       <h4>Monitor interface changes</h4>
 	<h5>General</h5>
