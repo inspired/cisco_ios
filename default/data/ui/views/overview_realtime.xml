@@ -49,6 +49,11 @@
     </input>
   </fieldset>
   <row>
+    <html>
+      <a href="overview">Switch to historical mode</a>
+    </html>
+  </row>
+  <row>
     <panel>
       <single>
         <title>Events</title>
