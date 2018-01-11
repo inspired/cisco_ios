@@ -49,6 +49,12 @@
     </input>
   </fieldset>
   <row>
+    <html>
+      <a href="overview_realtime">Switch to real-time mode</a>
+    </html>
+  </row>
+  <row>
+  <row>
     <panel>
       <single>
         <title>Events</title>
