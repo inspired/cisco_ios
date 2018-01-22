@@ -253,20 +253,6 @@ Details of any configurations a user must make in order to get the app running.
 * Check the device configuration
 * Install the Cisco Networks Add-on
 
-***Not seeing any inventory information?***
-
-The app needs a feature called Cisco Smart Call Home (SCH) to be enabled on the devices.
-
-***Cause***
-* Smart Call Home Input not enabled
-* Devices not configured to send Smart Call Home events at specific intervals
-* ip http client source-interface SOURCE_INTERFACE not set on your device
-
-***Resolution***
-* Enable a TCP input for Smart Call Home using the instructions in the app's Help page
-* Enable Smart Call Home logging on your devices using the instructions in the app's Help page.
-* Set the correct source interface on your devices.
-
 ### Upgrade Cisco Networks
 1. In your Splunk Enterprise web interface, click on App(s) -> Manage Apps
 1. Click on Install app from file
