@@ -70,6 +70,7 @@ Version 2.5.0 of the Cisco Networks app is compatible with:
 Cisco Networks includes the following new features:
 
 - Multi tenancy support (COMMERCIAL USERS ONLY)
+- Real-time dashboard added. You now have the option to switch between real-time and historical mode
 
 ##### Removed features
 
