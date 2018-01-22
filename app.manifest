@@ -5,7 +5,7 @@
     "id": {
       "group": null, 
       "name": "cisco_ios", 
-      "version": "2.3.4"
+      "version": "2.5.0"
     }, 
     "author": [
       {
@@ -48,8 +48,8 @@
 # Lists the app dependencies and version requirements
  "dependencies": {
      "TA-cisco_ios": {
-         "version": "^2.3.0",
-         "package": "TA-cisco_ios-2.3.4.tar.gz"
+         "version": "^2.5.0",
+         "package": "TA-cisco_ios-2.5.0.tar.gz"
      }
  }
 }
