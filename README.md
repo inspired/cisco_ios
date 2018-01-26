@@ -58,7 +58,7 @@ No scripts or binaries are included.
 
 Version 2.5.2 of the Cisco Networks app is compatible with:
 
-| Splunk Enterprise versions | 6.5, 6.6, 7.* |
+| Splunk Enterprise versions | 6.6, 7.* |
 | --- | --- |
 | CIM | 4.* |
 | Platforms | Platform independent |
