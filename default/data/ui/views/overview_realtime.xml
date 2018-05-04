@@ -43,11 +43,12 @@
     <input type="time" searchWhenChanged="true">
       <label>Time period</label>
       <default>
-        <earliest>-24h@h</earliest>
+        <earliest>rt-1h</earliest>
         <latest>now</latest>
       </default>
     </input>
   </fieldset>
+  <row><html><a href="overview">Switch to historical mode</a></html></row>
   <row>
     <panel>
       <single>
