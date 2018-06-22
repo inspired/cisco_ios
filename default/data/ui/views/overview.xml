@@ -17,7 +17,7 @@
     <latest>$latest$</latest>
   </search>
     <search id="topBottomSearch">
-    <query>| tstats count AS "Count of Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.product=$product_selection$) $tenant_indexes$ groupby Cisco_IOS_Event.mnemonic prestats=true | stats dedup_splitvals=t count AS "Count of Event" by Cisco_IOS_Event.mnemonic | sort limit=0 -"Count of Event" | fields - _span | rename Cisco_IOS_Event.mnemonic AS mnemonic | fillnull "Count of Event" | fields mnemonic, "Count of Event"</query>
+    <query>| tstats count AS "Count of Event" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.product=$product_selection$) Cisco_IOS_Event.index IN ("$tenant_indexes$") groupby Cisco_IOS_Event.mnemonic prestats=true | stats dedup_splitvals=t count AS "Count of Event" by Cisco_IOS_Event.mnemonic | sort limit=0 -"Count of Event" | fields - _span | rename Cisco_IOS_Event.mnemonic AS mnemonic | fillnull "Count of Event" | fields mnemonic, "Count of Event"</query>
     <earliest>$earliest$</earliest>
     <latest>$latest$</latest>
   </search>
