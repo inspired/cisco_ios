@@ -44,11 +44,17 @@
       <label>Time period</label>
       <default>
         <earliest>rt-1h</earliest>
-        <latest>now</latest>
+        <latest>rt</latest>
       </default>
     </input>
   </fieldset>
-  <row><html><a href="overview">Switch to historical mode</a></html></row>
+  <row>
+    <panel>
+      <html>
+        <a href="overview">Switch to historical mode</a>
+      </html>
+    </panel>
+  </row>
   <row>
     <panel>
       <single>
