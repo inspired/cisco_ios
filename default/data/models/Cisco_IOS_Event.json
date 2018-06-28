@@ -2093,17 +2093,6 @@
       "displayName": "vendor_category",
       "comment": ""
     }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
-      "comment": ""
-    }, {
       "fieldName": "serial_number",
       "owner": "Cisco_IOS_Event",
       "type": "string",
@@ -3319,17 +3308,6 @@
       "displayName": "vendor_category",
       "comment": ""
     }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
-      "comment": ""
-    }, {
       "fieldName": "serial_number",
       "owner": "Cisco_IOS_Event",
       "type": "string",
@@ -4409,17 +4387,6 @@
       "displayName": "vendor_category",
       "comment": ""
     }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
-      "comment": ""
-    }, {
       "fieldName": "serial_number",
       "owner": "Cisco_IOS_Event",
       "type": "string",
@@ -5497,17 +5464,6 @@
       "hidden": false,
       "editable": true,
       "displayName": "vendor_category",
-      "comment": ""
-    }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
       "comment": ""
     }, {
       "fieldName": "serial_number",
@@ -7668,17 +7624,6 @@
       "displayName": "vendor_category",
       "comment": ""
     }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
-      "comment": ""
-    }, {
       "fieldName": "serial_number",
       "owner": "Cisco_IOS_Event",
       "type": "string",
@@ -8756,17 +8701,6 @@
       "hidden": false,
       "editable": true,
       "displayName": "vendor_category",
-      "comment": ""
-    }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
       "comment": ""
     }, {
       "fieldName": "serial_number",
@@ -9848,17 +9782,6 @@
       "displayName": "vendor_category",
       "comment": ""
     }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
-      "comment": ""
-    }, {
       "fieldName": "serial_number",
       "owner": "Cisco_IOS_Event",
       "type": "string",
@@ -10936,17 +10859,6 @@
       "hidden": false,
       "editable": true,
       "displayName": "vendor_category",
-      "comment": ""
-    }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
       "comment": ""
     }, {
       "fieldName": "serial_number",
@@ -12028,17 +11940,6 @@
       "displayName": "vendor_category",
       "comment": ""
     }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
-      "comment": ""
-    }, {
       "fieldName": "serial_number",
       "owner": "Cisco_IOS_Event",
       "type": "string",
@@ -13116,17 +13017,6 @@
       "hidden": false,
       "editable": true,
       "displayName": "vendor_category",
-      "comment": ""
-    }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
       "comment": ""
     }, {
       "fieldName": "serial_number",
@@ -14208,17 +14098,6 @@
       "displayName": "vendor_category",
       "comment": ""
     }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
-      "comment": ""
-    }, {
       "fieldName": "serial_number",
       "owner": "Cisco_IOS_Event",
       "type": "string",
@@ -15296,17 +15175,6 @@
       "hidden": false,
       "editable": true,
       "displayName": "vendor_category",
-      "comment": ""
-    }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
       "comment": ""
     }, {
       "fieldName": "serial_number",
@@ -16388,17 +16256,6 @@
       "displayName": "vendor_category",
       "comment": ""
     }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
-      "comment": ""
-    }, {
       "fieldName": "serial_number",
       "owner": "Cisco_IOS_Event",
       "type": "string",
@@ -17476,17 +17333,6 @@
       "hidden": false,
       "editable": true,
       "displayName": "vendor_category",
-      "comment": ""
-    }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
       "comment": ""
     }, {
       "fieldName": "serial_number",
@@ -18568,17 +18414,6 @@
       "displayName": "vendor_category",
       "comment": ""
     }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
-      "comment": ""
-    }, {
       "fieldName": "serial_number",
       "owner": "Cisco_IOS_Event",
       "type": "string",
@@ -19656,17 +19491,6 @@
       "hidden": false,
       "editable": true,
       "displayName": "vendor_category",
-      "comment": ""
-    }, {
-      "fieldName": "index",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "index",
       "comment": ""
     }, {
       "fieldName": "serial_number",
