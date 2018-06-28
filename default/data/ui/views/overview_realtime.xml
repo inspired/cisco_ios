@@ -21,7 +21,7 @@
     <earliest>$earliest$</earliest>
     <latest>$latest$</latest>
   </search>
-  <fieldset autoRun="true" submitButton="false">
+  <fieldset autoRun="true" submitButton="true">
     <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
       <label>Tenant</label>
       <fieldForLabel>tenant_name</fieldForLabel>
@@ -33,12 +33,13 @@
       <delimiter>,</delimiter>
       <choice value="*">All</choice>
     </input>
-    <input type="radio" token="product_selection" searchWhenChanged="true">
+    <input type="multiselect" token="product_selection" searchWhenChanged="false">
       <label>Product</label>
       <choice value="IOS">IOS</choice>
       <choice value="WLC">WLC</choice>
       <choice value="AP">AP</choice>
       <default>IOS</default>
+      <delimiter>,</delimiter>
     </input>
     <input type="time" searchWhenChanged="true">
       <label>Time period</label>
