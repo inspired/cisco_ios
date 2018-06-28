@@ -11,12 +11,6 @@
       </condition>
     </done>
   </search>
-  <search>
-   <query>| makeresults | eval token=replace(replace($tenant_indexes|s$,"index=","")," OR ",",") | table token</query>
-   <done>
-      <set token="pivot_filter">$result.token$</set>
-    </done>
- </search>
   <fieldset autoRun="true">
     <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
       <label>Tenant</label>
@@ -25,9 +19,9 @@
       <search>
         <query>| `get_tenants_for_user_role($env:user$)`</query>
       </search>
-      <default>index=*</default>
-      <delimiter> OR </delimiter>
-      <choice value="index=*">All</choice>
+      <default>*</default>
+      <delimiter>,</delimiter>
+      <choice value="*">All</choice>
     </input>
     <input type="time">
       <default>Last 60 minutes</default>
@@ -37,7 +31,7 @@
     <chart>
       <title>Configuration started by host</title>
       <search>
-        <query>| pivot Cisco_IOS_Event Configuration_Started FILTER index in ($pivot_filter$) count(Configuration_Started) AS "Count of Configuration Started" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time NUMCOLS 100</query>
+        <query>| pivot Cisco_IOS_Event Configuration_Started FILTER index in ($tenant_indexes$) count(Configuration_Started) AS "Count of Configuration Started" SPLITROW _time AS "_time" PERIOD auto SPLITCOL host SORT 0 _time NUMCOLS 100</query>
         <earliest>$earliest$</earliest>
         <latest>$latest$</latest>
       </search>
@@ -67,7 +61,7 @@
     <chart>
       <title>Device Logins by user</title>
       <search>
-        <query>| pivot Cisco_IOS_Event Successful_Device_Authentication FILTER index in ($pivot_filter$) count(Successful_Device_Authentication) AS "Count of Successful Device Login" SPLITROW user AS "user" SORT 100 user</query>
+        <query>| pivot Cisco_IOS_Event Successful_Device_Authentication FILTER index in ($tenant_indexes$) count(Successful_Device_Authentication) AS "Count of Successful Device Login" SPLITROW user AS "user" SORT 100 user</query>
         <earliest>$earliest$</earliest>
         <latest>$latest$</latest>
       </search>
@@ -90,7 +84,7 @@
     <table>
       <title>Configuration started</title>
       <search>
-        <query>eventtype="cisco_ios-config_started" $tenant_indexes$ | table _time,host,config_source,user,line,src_ip</query>
+        <query>eventtype="cisco_ios-config_started" index IN ($tenant_indexes$) | table _time,host,config_source,user,line,src_ip</query>
         <earliest>$earliest$</earliest>
         <latest>$latest$</latest>
       </search>
@@ -98,7 +92,7 @@
     <table>
       <title>Device restarts</title>
       <search>
-        <query>eventtype="cisco_ios-restart" OR eventtype="cisco_ios-reload" $tenant_indexes$ | eval host=if(isnotnull(switch_id),host + "/" + switch_id,host) | table _time,host,user,src_ip,reason</query>
+        <query>eventtype="cisco_ios-restart" OR eventtype="cisco_ios-reload" index IN ($tenant_indexes$) | eval host=if(isnotnull(switch_id),host + "/" + switch_id,host) | table _time,host,user,src_ip,reason</query>
         <earliest>$earliest$</earliest>
         <latest>$latest$</latest>
       </search>
