@@ -12,7 +12,7 @@
     </done>
   </search>
   <search id="baseSearch">
-    <query>eventtype="cisco_ios-dot1x" $tenant_indexes$ | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")`</query>
+    <query>eventtype="cisco_ios-dot1x" index IN ($tenant_indexes$) | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")`</query>
     <earliest>$earliest$</earliest>
     <latest>$latest$</latest>
   </search>
@@ -24,9 +24,9 @@
       <search>
         <query>| `get_tenants_for_user_role($env:user$)`</query>
       </search>
-      <default>index=*</default>
-      <delimiter> OR </delimiter>
-      <choice value="index=*">All</choice>
+      <default>*</default>
+      <delimiter>,</delimiter>
+      <choice value="*">All</choice>
     </input>
     <input type="time">
       <default>Last 60 minutes</default>
@@ -38,7 +38,7 @@
         <title>Authentications</title>
         <search base="baseSearch">
           <query>
-            | transaction audit_session_id| table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,vendor_action | stats latest(audit_session_id) AS audit_session_id, latest(authenticator) AS authenticator, latest(src_vlan) AS src_vlan, latest(vendor_action) AS vendor_action BY host,src_interface  | stats count(eval(vendor_action="succeeded" OR vendor_action="successful")) AS succeeded, count(eval(vendor_action="failed")) AS failed
+            | transaction audit_session_id | table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,vendor_action | stats latest(audit_session_id) AS audit_session_id, latest(authenticator) AS authenticator, latest(src_vlan) AS src_vlan, latest(vendor_action) AS vendor_action BY host,src_interface  | stats count(eval(vendor_action="succeeded" OR vendor_action="successful")) AS succeeded, count(eval(vendor_action="failed")) AS failed
           </query>
         </search>
         <option name="wrap">true</option>
