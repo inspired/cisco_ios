@@ -20,9 +20,9 @@
       <search>
         <query>| `get_tenants_for_user_role($env:user$)`</query>
       </search>
-      <default>index=*</default>
-      <delimiter> OR </delimiter>
-      <choice value="index=*">All</choice>
+      <default>*</default>
+      <delimiter>,</delimiter>
+      <choice value="*">All</choice>
     </input>
     <input type="time">
       <default>Last 60 minutes</default>
@@ -32,7 +32,7 @@
     <table>
       <title>Duplex mismatch by host</title>
       <search>
-        <query>eventtype=cisco_ios-duplex_mismatch $tenant_indexes$ | dedup dvc,cdp_local_interface | table _time,dvc,cdp_local_interface,cdp_neighbor,dest_interface,message_text | rename cdp_local_interface AS "Local Int.",cdp_neighbor AS "CDP Neighbor",dest_interface AS "Remote Int.",message_text AS "Message" | sort dvc
+        <query>eventtype=cisco_ios-duplex_mismatch index IN ($tenant_indexes$) | dedup dvc,cdp_local_interface | table _time,dvc,cdp_local_interface,cdp_neighbor,dest_interface,message_text | rename cdp_local_interface AS "Local Int.",cdp_neighbor AS "CDP Neighbor",dest_interface AS "Remote Int.",message_text AS "Message" | sort dvc
         </query>
         <earliest>$earliest$</earliest>
         <latest>$latest$</latest>
@@ -49,7 +49,7 @@
     <table>
       <search>
         <query>
-          eventtype="cisco_ios-native_vlan_mismatch" $tenant_indexes$ | dedup host,cdp_local_interface | table _time,host,cdp_local_interface,cdp_local_vlan,cdp_neighbor,cdp_remote_interface,cdp_remote_vlan | rename cdp_local_interface AS "Local Int.",cdp_local_vlan AS "Local VLAN",cdp_neighbor AS "CDP Neighbor",cdp_remote_interface AS "Remote Int.",cdp_remote_vlan AS "Remote VLAN",message_text AS "Message"
+          eventtype="cisco_ios-native_vlan_mismatch" index IN ($tenant_indexes$) | dedup host,cdp_local_interface | table _time,host,cdp_local_interface,cdp_local_vlan,cdp_neighbor,cdp_remote_interface,cdp_remote_vlan | rename cdp_local_interface AS "Local Int.",cdp_local_vlan AS "Local VLAN",cdp_neighbor AS "CDP Neighbor",cdp_remote_interface AS "Remote Int.",cdp_remote_vlan AS "Remote VLAN",message_text AS "Message"
         </query>
       </search>
       <title>Native VLAN mismatch</title>
@@ -60,7 +60,7 @@
     <table>
       <title>CDP Neighbors (Nexus)</title>
       <search>
-        <query>eventtype="cisco_ios-cdp_neighbor_added" OR eventtype=cisco_ios-cdp_neighbor_removed $tenant_indexes$ | dedup host,cdp_local_interface | table host,cdp_local_interface,cdp_remote_dvc,cdp_remote_dvc_serial,cdp_remote_interface,cdp_remote_ip,cdp_remote_ip_mgmt,mnemonic | sort host,cdp_local_interface</query>
+        <query>eventtype="cisco_ios-cdp_neighbor_added" OR eventtype=cisco_ios-cdp_neighbor_removed index IN ($tenant_indexes$) | dedup host,cdp_local_interface | table host,cdp_local_interface,cdp_remote_dvc,cdp_remote_dvc_serial,cdp_remote_interface,cdp_remote_ip,cdp_remote_ip_mgmt,mnemonic | sort host,cdp_local_interface</query>
       </search>
       <option name="wrap">true</option>
       <option name="rowNumbers">false</option>
