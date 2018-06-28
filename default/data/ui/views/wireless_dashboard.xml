@@ -19,9 +19,9 @@
       <search>
         <query>| `get_tenants_for_user_role($env:user$)`</query>
       </search>
-      <default>index=*</default>
-      <delimiter> OR </delimiter>
-      <choice value="index=*">All</choice>
+      <default>*</default>
+      <delimiter>,</delimiter>
+      <choice value="*">All</choice>
     </input>
     <input type="time">
       <default>Last 60 minutes</default>
@@ -32,7 +32,7 @@
       <chart>
         <title>Events over time by access point MAC</title>
         <search>
-          <query>eventtype=cisco_ios ap_mac=* $tenant_indexes$ | timechart count BY ap_mac</query>
+          <query>eventtype=cisco_ios ap_mac=* index IN ($tenant_indexes$) | timechart count BY ap_mac</query>
         </search>
         <option name="charting.chart">column</option>
         <option name="charting.axisY2.enabled">false</option>
@@ -63,7 +63,7 @@
       <table>
         <search>
           <query>
-            eventtype="cisco_ios-lwapp_radio_crash" $tenant_indexes$ | table _time,host,radio_id,ap_mac
+            eventtype="cisco_ios-lwapp_radio_crash" index IN ($tenant_indexes$) | table _time,host,radio_id,ap_mac
             </query>
             </search>
         <title>Radio crashes</title>
@@ -75,7 +75,7 @@
       <table>
         <search>
           <query>
-            eventtype="cisco_ios-lwapp_akita_err" $tenant_indexes$ | table _time,host,ap_mac
+            eventtype="cisco_ios-lwapp_akita_err" index IN ($tenant_indexes$) | table _time,host,ap_mac
             </query>
             </search>
         <title>Unsupported access points</title>
@@ -90,7 +90,7 @@
         <title>Events with MAC addresses</title>
         <search>
           <query>
-            eventtype=cisco_ios $tenant_indexes$ product="WLC" | rex field=message_text "(?&lt;src_mac&gt;[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2})" | rex field=message_text mode=sed "s/([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}/XX:XX:XX:XX:XX:XX/g" | stats latest(_time) AS _time, count by dvc,facility,mnemonic,src_mac,message_text,vendor_explanation | sort -count | table _time dvc facility mnemonic src_mac message_text vendor_explanation count
+            eventtype=cisco_ios index IN ($tenant_indexes$) product="WLC" | rex field=message_text "(?&lt;src_mac&gt;[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2})" | rex field=message_text mode=sed "s/([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}/XX:XX:XX:XX:XX:XX/g" | stats latest(_time) AS _time, count by dvc,facility,mnemonic,src_mac,message_text,vendor_explanation | sort -count | table _time dvc facility mnemonic src_mac message_text vendor_explanation count
           </query>
         </search>
         <option name="wrap">true</option>
