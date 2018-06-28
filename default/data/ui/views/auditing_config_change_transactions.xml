@@ -19,9 +19,9 @@
       <search>
         <query>| `get_tenants_for_user_role($env:user$)`</query>
       </search>
-      <default>index=*</default>
-      <delimiter> OR </delimiter>
-      <choice value="index=*">All</choice>
+      <default>*</default>
+      <delimiter>,</delimiter>
+      <choice value="*">All</choice>
     </input>
     <input type="text" token="hostToken">
       <label>Host</label>
@@ -37,7 +37,7 @@
         <title>Configuration change transactions</title>
         <search>
           <query>
-            <![CDATA[eventtype=cisco_ios host="$hostToken$" $tenant_indexes$ eventtype=cisco_ios-config_started OR eventtype="cisco_ios-cfglog_loggedcmd" | eval event_id=coalesce(event_id, strftime(_time, "%s%3Q")) | rex mode=sed field=event_id "s/(\d+)/0000000000000\1/" | rex mode=sed field=event_id "s/0*([0-9]{13})/\1/" | eval event_command=event_id + " " + command | transaction maxspan=15m host,user | rex field=event_command "(?<eid>\d+)\s(?<cmd>.+)" | eval cmd=if(isnull(cmd), "ARCHIVING NOT ENABLED ON THIS DEVICE", cmd) | table _time,host,config_source,user,line,src_ip,eid,cmd]]>
+            <![CDATA[eventtype=cisco_ios host="$hostToken$" index IN ($tenant_indexes$) eventtype=cisco_ios-config_started OR eventtype="cisco_ios-cfglog_loggedcmd" | eval event_id=coalesce(event_id, strftime(_time, "%s%3Q")) | rex mode=sed field=event_id "s/(\d+)/0000000000000\1/" | rex mode=sed field=event_id "s/0*([0-9]{13})/\1/" | eval event_command=event_id + " " + command | transaction maxspan=15m host,user | rex field=event_command "(?<eid>\d+)\s(?<cmd>.+)" | eval cmd=if(isnull(cmd), "ARCHIVING NOT ENABLED ON THIS DEVICE", cmd) | table _time,host,config_source,user,line,src_ip,eid,cmd]]>
           </query>
         </search>
         <option name="showPager">true</option>
