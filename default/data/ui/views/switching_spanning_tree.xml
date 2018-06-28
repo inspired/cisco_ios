@@ -12,10 +12,10 @@
     </done>
   </search>
   <search id="baseSearch_spanning_tree">
-    <query>eventtype="cisco_ios-spanning_tree" $tenant_indexes$</query>
+    <query>eventtype="cisco_ios-spanning_tree" index IN ($tenant_indexes$)</query>
   </search>
     <search id="baseSearch_mac_flapping">
-    <query>eventtype="cisco_ios-mac_flapping" $tenant_indexes$</query>
+    <query>eventtype="cisco_ios-mac_flapping" index IN ($tenant_indexes$)</query>
   </search>
   <fieldset autoRun="true" submitButton="true">
     <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
@@ -25,9 +25,9 @@
       <search>
         <query>| `get_tenants_for_user_role($env:user$)`</query>
       </search>
-      <default>index=*</default>
-      <delimiter> OR </delimiter>
-      <choice value="index=*">All</choice>
+      <default>*</default>
+      <delimiter>,</delimiter>
+      <choice value="*">All</choice>
     </input>
     <input type="time" searchWhenChanged="true">
       <label>Time period</label>
