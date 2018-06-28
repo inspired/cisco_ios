@@ -12,7 +12,7 @@
     </done>
   </search>
   <search id="baseSearch">
-    <query>eventtype="cisco_ios-dhcp_snooping" $tenant_indexes$</query>
+    <query>eventtype="cisco_ios-dhcp_snooping" index IN ($tenant_indexes$)</query>
         <earliest>$earliest$</earliest>
     <latest>$latest$</latest>
   </search>
@@ -24,9 +24,9 @@
       <search>
         <query>| `get_tenants_for_user_role($env:user$)`</query>
       </search>
-      <default>index=*</default>
-      <delimiter> OR </delimiter>
-      <choice value="index=*">All</choice>
+      <default>*</default>
+      <delimiter>,</delimiter>
+      <choice value="*">All</choice>
     </input>
     <input type="time">
       <label>Time period</label>
