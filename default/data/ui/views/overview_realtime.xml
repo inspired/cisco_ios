@@ -149,8 +149,8 @@
         <drilldown>
           <link>
             <![CDATA[
-                        /app/cisco_ios/search?q=search eventtype=cisco_ios product IN ($product_selection$) index IN ($tenant_indexes$) host="$click.name2$"&earliest=$earliest$&latest=$latest$
-                ]]>
+            search?q=search eventtype=cisco_ios product IN ($product_selection$) index IN ($tenant_indexes$) host="$click.name2$"&earliest=$earliest$&latest=$latest$
+            ]]>
           </link>
         </drilldown>
       </chart>
