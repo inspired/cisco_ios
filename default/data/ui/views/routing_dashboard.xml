@@ -13,7 +13,7 @@
     </done>
   </search>
   <search id="baseSearch">
-    <query>eventtype=cisco_ios-routing $tenant_indexes$ | eval routing_protocol = case(eventtype == "cisco_ios-routing-ospf", "OSPF", eventtype == "cisco_ios-routing-dual", "EIGRP", eventtype == "cisco_ios-routing-bgp", "BGP", eventtype == "cisco_ios-routing-ldp", "LDP", eventtype == "cisco_ios-routing-isis", "ISIS", eventtype == "cisco_ios-routing-rsvp", "RSVP", eventtype == "cisco_ios-routing-pim", "PIM") | search $routing_protocol_selection$
+    <query>eventtype=cisco_ios-routing index IN ($tenant_indexes$) | eval routing_protocol = case(eventtype == "cisco_ios-routing-ospf", "OSPF", eventtype == "cisco_ios-routing-dual", "EIGRP", eventtype == "cisco_ios-routing-bgp", "BGP", eventtype == "cisco_ios-routing-ldp", "LDP", eventtype == "cisco_ios-routing-isis", "ISIS", eventtype == "cisco_ios-routing-rsvp", "RSVP", eventtype == "cisco_ios-routing-pim", "PIM") | search $routing_protocol_selection$
     </query>
     <earliest>$earliest$</earliest>
     <latest>$latest$</latest>
@@ -26,9 +26,9 @@
       <search>
         <query>| `get_tenants_for_user_role($env:user$)`</query>
       </search>
-      <default>index=*</default>
-      <delimiter> OR </delimiter>
-      <choice value="index=*">All</choice>
+      <default>*</default>
+      <delimiter>,</delimiter>
+      <choice value="*">All</choice>
     </input>
     <input type="time">
       <label>Time period</label>
