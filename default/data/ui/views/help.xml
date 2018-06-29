@@ -99,6 +99,7 @@ logging logfile messages 6
 logging server [YOUR SYSLOG/SPLUNK SERVER IP] 6 use-vrf [YOUR MGMT VRF] 
 logging timestamp milliseconds
 logging monitor 6
+no logging rate-limit
       </pre>
       <h4>Enable change auditing</h4>
       <p>This feature is not supported on the NX-OS platform</p>
