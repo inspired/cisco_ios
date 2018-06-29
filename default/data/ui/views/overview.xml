@@ -12,7 +12,7 @@
     </done>
   </search>
   <search id="baseSearch">
-    <query>| tstats values(nodename) AS nodename count FROM datamodel=Cisco_IOS_Event WHERE Cisco_IOS_Event.product IN ($product_selection$) index IN ("$tenant_indexes$") BY host index</query>
+    <query>| tstats values(nodename) AS nodename count FROM datamodel=Cisco_IOS_Event WHERE Cisco_IOS_Event.product IN ($product_selection$) index IN ($tenant_indexes$) BY host index</query>
     <earliest>$earliest$</earliest>
     <latest>$latest$</latest>
   </search>
