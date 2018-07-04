@@ -78,7 +78,7 @@ Cisco Networks includes the following new features:
 
 ##### Fixed issues
 
-Version 2.5.5 of the Cicso Networks app fixes the following issues:
+Version 2.5.5 of the Cisco Networks app fixes the following issues:
 
 - Overview dashboard not showing due to bug with index filter
 
