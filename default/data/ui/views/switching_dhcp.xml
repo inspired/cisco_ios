@@ -41,7 +41,7 @@
       <chart>
         <title>DHCP snooping events by device and interface</title>
         <search base="baseSearch">
-          <query>search packets=* | strcat dvc " " src_int dvc_src_int | timechart sum(packets) BY dvc_src_int</query>
+          <query>search packets=* | strcat dvc " " src_interface dvc_src_int | timechart sum(packets) BY dvc_src_int</query>
         </search>
         <option name="charting.chart">column</option>
         <option name="charting.axisY2.enabled">false</option>
@@ -106,7 +106,7 @@
       <table>
         <title>DHCP snooping events</title>
         <search base="baseSearch">
-          <query>| table _time host facility mnemonic src_int src_vlan src_mac src_ip dest_mac dest_ip message_type packets</query>
+          <query>| table _time host facility mnemonic src_interface src_vlan src_mac src_ip dest_mac dest_ip message_type packets</query>
         </search>
         <option name="count">20</option>
         <option name="wrap">true</option>

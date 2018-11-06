@@ -134,7 +134,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -142,7 +142,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -860,7 +860,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -868,7 +868,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -1213,7 +1213,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -1221,7 +1221,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -1939,7 +1939,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -1947,7 +1947,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -2428,7 +2428,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -2436,7 +2436,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -3154,7 +3154,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -3162,7 +3162,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -3507,7 +3507,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -3515,7 +3515,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -4233,7 +4233,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -4241,7 +4241,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -4586,7 +4586,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -4594,7 +4594,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -5312,7 +5312,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -5320,7 +5320,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -5665,7 +5665,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -5673,7 +5673,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -6391,7 +6391,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -6399,7 +6399,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -6744,7 +6744,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -6752,7 +6752,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -7470,7 +7470,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -7478,7 +7478,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -7823,7 +7823,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -7831,7 +7831,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -8549,7 +8549,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -8557,7 +8557,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -8902,7 +8902,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -8910,7 +8910,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -9628,7 +9628,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -9636,7 +9636,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -9981,7 +9981,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -9989,7 +9989,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -10707,7 +10707,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -10715,7 +10715,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -11060,7 +11060,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -11068,7 +11068,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -11786,7 +11786,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -11794,7 +11794,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -12139,7 +12139,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -12147,7 +12147,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -12205,17 +12205,6 @@
       "displayName": "cdp_local_duplex",
       "comment": ""
     }, {
-      "fieldName": "cdp_local_interface",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "cdp_local_interface",
-      "comment": ""
-    }, {
       "fieldName": "cdp_neighbor",
       "owner": "Cisco_IOS_Event",
       "type": "string",
@@ -12236,17 +12225,6 @@
       "hidden": false,
       "editable": true,
       "displayName": "cdp_remote_duplex",
-      "comment": ""
-    }, {
-      "fieldName": "cdp_remote_interface",
-      "owner": "Cisco_IOS_Event",
-      "type": "string",
-      "fieldSearch": "",
-      "required": false,
-      "multivalue": false,
-      "hidden": false,
-      "editable": true,
-      "displayName": "cdp_remote_interface",
       "comment": ""
     }, {
       "fieldName": "port_status",
@@ -12865,7 +12843,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -12873,7 +12851,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -13218,7 +13196,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -13226,7 +13204,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -13944,7 +13922,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -13952,7 +13930,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -14297,7 +14275,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -14305,7 +14283,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -15023,7 +15001,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -15031,7 +15009,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -15376,7 +15354,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -15384,7 +15362,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -16102,7 +16080,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -16110,7 +16088,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -16455,7 +16433,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "src_int=*",
@@ -16463,7 +16441,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -17181,7 +17159,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -17189,7 +17167,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -17534,7 +17512,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -17542,7 +17520,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -18260,7 +18238,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -18268,7 +18246,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
@@ -18613,7 +18591,7 @@
       "displayName": "src",
       "comment": ""
     }, {
-      "fieldName": "src_int",
+      "fieldName": "src_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -18621,7 +18599,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "src_int",
+      "displayName": "src_interface",
       "comment": ""
     }, {
       "fieldName": "src_ip",
@@ -19339,7 +19317,7 @@
       "displayName": "change_type",
       "comment": ""
     }, {
-      "fieldName": "dest_int",
+      "fieldName": "dest_interface",
       "owner": "Cisco_IOS_Event",
       "type": "string",
       "fieldSearch": "",
@@ -19347,7 +19325,7 @@
       "multivalue": false,
       "hidden": false,
       "editable": true,
-      "displayName": "dest_int",
+      "displayName": "dest_interface",
       "comment": ""
     }, {
       "fieldName": "detected_on_interface",
