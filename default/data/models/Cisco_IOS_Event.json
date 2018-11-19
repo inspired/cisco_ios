@@ -1083,6 +1083,18 @@
                     "comment": ""
                 },
                 {
+                    "fieldName": "index",
+                    "owner": "Cisco_IOS_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": ""
+                },
+                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -1527,7 +1539,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -2810,7 +2822,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -3942,7 +3954,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -5074,7 +5086,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -6206,7 +6218,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -7338,7 +7350,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -8470,7 +8482,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -9602,7 +9614,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -10734,7 +10746,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -11866,7 +11878,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -12998,7 +13010,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -14130,7 +14142,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -15262,7 +15274,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -16394,7 +16406,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -17526,7 +17538,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -18658,7 +18670,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
@@ -19790,7 +19802,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "AS Number",
+                    "displayName": "as_number",
                     "comment": ""
                 },
                 {
