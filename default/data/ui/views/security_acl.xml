@@ -26,7 +26,7 @@
       </search>
       <default>*</default>
       <delimiter>,</delimiter>
-      <choice value="index=*">All</choice>
+      <choice value="*">All</choice>
     </input>
     <input type="time">
       <default>Last 60 minutes</default>
@@ -73,7 +73,7 @@
           | pivot Cisco_IOS_Event Access_List_Event count(correlation_tag) AS "Count of correlation_tag" SPLITROW correlation_tag AS "correlation_tag" SORT 100 correlation_tag
           -->
           <query>
-            | tstats count(Cisco_IOS_Event.correlation_tag) AS "Count of correlation_tag" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event.Access_List_Event) index IN ($tenant_indexes$) groupby Cisco_IOS_Event.correlation_tag prestats=true | stats dedup_splitvals=t count(Cisco_IOS_Event.correlation_tag) AS "Count of correlation_tag" by Cisco_IOS_Event.correlation_tag | sort limit=100 Cisco_IOS_Event.correlation_tag | fields - _span | rename Cisco_IOS_Event.correlation_tag AS correlation_tag | fillnull "Count of correlation_tag" | fields correlation_tag, "Count of correlation_tag" 
+            | tstats count(Cisco_IOS_Event.correlation_tag) AS "Count of correlation_tag" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event.Access_List_Event) Cisco_IOS_Event.index IN ($tenant_indexes$) groupby Cisco_IOS_Event.correlation_tag prestats=true | stats dedup_splitvals=t count(Cisco_IOS_Event.correlation_tag) AS "Count of correlation_tag" by Cisco_IOS_Event.correlation_tag | sort limit=100 Cisco_IOS_Event.correlation_tag | fields - _span | rename Cisco_IOS_Event.correlation_tag AS correlation_tag | fillnull "Count of correlation_tag" | fields correlation_tag, "Count of correlation_tag" 
             </query>
           <earliest>$earliest$</earliest>
           <latest>$latest$</latest>
@@ -123,7 +123,7 @@
           | pivot Cisco_IOS_Event Cisco_IOS_Event sum(packets) AS "Dropped or rate-limited packets" SPLITROW _time AS _time PERIOD auto SPLITCOL host FILTER mnemonic is IPACCESSLOGRL SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 10 SHOWOTHER 1
           -->
           <query>
-            | tstats sum(Cisco_IOS_Event.packets) AS "Dropped or rate-limited packets" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.mnemonic=IPACCESSLOGRL) index IN ($tenant_indexes$) groupby _time host prestats=true | eval host='host', _time='_time' | timechart dedup_splitvals=t limit=10 useother=t sum(Cisco_IOS_Event.packets) AS "Dropped or rate-limited packets" by host format=$$VAL$$:::$$AGG$$ | sort limit=100 _time | fields _time * 
+            | tstats sum(Cisco_IOS_Event.packets) AS "Dropped or rate-limited packets" from datamodel=Cisco_IOS_Event where (nodename = Cisco_IOS_Event) (Cisco_IOS_Event.mnemonic=IPACCESSLOGRL) Cisco_IOS_Event.index IN ($tenant_indexes$) groupby _time host prestats=true | eval host='host', _time='_time' | timechart dedup_splitvals=t limit=10 useother=t sum(Cisco_IOS_Event.packets) AS "Dropped or rate-limited packets" by host format=$$VAL$$:::$$AGG$$ | sort limit=100 _time | fields _time * 
             </query>
         </search>
         <option name="charting.chart">area</option>
