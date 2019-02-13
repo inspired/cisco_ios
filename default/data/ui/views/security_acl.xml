@@ -135,7 +135,7 @@
       <table>
         <search>
           <query>
-            eventtype="cisco_ios-acl_log" index IN ($tenant_indexes$) NOT [inputlookup cisco_ios_acl_excluded_ips | fields src_ip] | table _time,host,rule,action,proto,src_ip,src_port,dest_ip,dest_port,correlation_tag
+            eventtype="cisco_ios-acl_log" index IN ($tenant_indexes$) NOT [inputlookup cisco_ios_acl_excluded_ips | fields src_ip] | table _time,host,rule,action,transport,src_ip,src_port,dest_ip,dest_port,correlation_tag
             </query>
             <earliest>$earliest$</earliest>
             <latest>$latest$</latest>

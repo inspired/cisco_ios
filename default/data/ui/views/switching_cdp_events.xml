@@ -60,7 +60,7 @@
     <table>
       <title>CDP Neighbors (Nexus)</title>
       <search>
-        <query>eventtype="cisco_ios-cdp_neighbor_added" OR eventtype=cisco_ios-cdp_neighbor_removed index IN ($tenant_indexes$) | dedup host,src_interface | table host,src_interface,cdp_remote_dvc,cdp_remote_dvc_serial,dest_interface,cdp_remote_ip,cdp_remote_ip_mgmt,mnemonic | sort host,src_interface</query>
+        <query>eventtype="cisco_ios-cdp_neighbor_added" OR eventtype=cisco_ios-cdp_neighbor_removed index IN ($tenant_indexes$) | dedup host,src_interface | table host,src_interface,cdp_remote_dvc,cdp_remote_dvc_serial,dest_interface,src_ip,cdp_remote_ip_mgmt,mnemonic | sort host,src_interface</query>
       </search>
       <option name="wrap">true</option>
       <option name="rowNumbers">false</option>

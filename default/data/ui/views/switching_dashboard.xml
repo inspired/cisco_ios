@@ -13,7 +13,7 @@
   </search>
   <search id="baseSearch">
 	<query>
-	eventtype="cisco_ios" host="$host$" index IN ($tenant_indexes$) facility=LINK mnemonic="UPDOWN" | timechart span=1h count(port_status) by port_status | eval new_clients_in_period=up-down | rename new_clients_in_period AS "Link changes" | fields _time "Link changes"
+	eventtype="cisco_ios-port_down" OR eventtype="cisco_ios-port_up" host="$host$" index IN ($tenant_indexes$) | timechart span=1h count(vendor_action) BY vendor_action | eval new_clients_in_period=up-down | rename new_clients_in_period AS "Link changes" | fields _time "Link changes"
 	</query>
   </search>
   <fieldset autoRun="true">

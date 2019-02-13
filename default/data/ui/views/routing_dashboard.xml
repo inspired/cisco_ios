@@ -61,7 +61,7 @@
         <title>Top neighbors</title>
         <search base="baseSearch">
           <query>
-            | top neighbor
+            | top src_ip
           </query>
         </search>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
@@ -118,7 +118,7 @@
       <table>
         <title>Route flapping</title>
         <search base="baseSearch">
-          <query>| stats latest(_time) AS _time latest(state_to) AS latest_state_to latest(reason) AS latest_reason count BY host routing_protocol neighbor src_interface | sort -count | table _time host routing_protocol neighbor src_interface latest_state_to latest_reason count</query>
+          <query>| stats latest(_time) AS _time latest(state_to) AS latest_state_to latest(reason) AS latest_reason count BY host routing_protocol src_ip src_interface | sort -count | table _time host routing_protocol src_ip src_interface latest_state_to latest_reason count</query>
         </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">true</option>
@@ -132,7 +132,7 @@
         <title>Routing events</title>
         <search base="baseSearch">
           <query>
-            | table _time,host,routing_protocol,protocol,process_id,as_number,neighbor,vrf,src_interface,state_from,state_to,reason,message_text | sort -_time
+            | table _time,host,routing_protocol,protocol,process_id,as_number,src_ip,vrf,src_interface,state_from,state_to,reason,message_text | sort -_time
           </query>
         </search>
         <option name="count">10</option>

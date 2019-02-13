@@ -40,7 +40,7 @@
 
 | Author | Mikael Bjerkeland |
 | --- | --- |
-| App Version | 2.5.6 |
+| App Version | 2.5.7 |
 | Vendor Products | Cisco Catalyst, ASR, ISR, Nexus, CRS and other IOS based switches, Wireless LAN Controller   |
 | Has index-time operations | False |
 | Create an index | False |
@@ -56,7 +56,7 @@ No scripts or binaries are included.
 
 ##### About this release
 
-Version 2.5.6 of the Cisco Networks app is compatible with:
+Version 2.5.7 of the Cisco Networks app is compatible with:
 
 | Splunk Enterprise versions | 7.* |
 | --- | --- |
@@ -78,19 +78,20 @@ Cisco Networks includes the following new features:
 
 ##### Fixed issues
 
-Version 2.5.6 of the Cisco Networks app fixes the following issues:
+Version 2.5.7 of the Cisco Networks app fixes the following issues:
 
 - Overview dashboard not showing due to bug with index filter (this release actually fixes it)
+- Some fields have been renamed to align with field names in TA-cisco_ios because FIELDALIAS behaviour has changed in Splunk 7.2
 
 ##### Known issues
 
-Version 2.5.6 of the Cisco Networks app has the following known issues:
+Version 2.5.7 of the Cisco Networks app has the following known issues:
 
 - Not fully compatible with the latest CIM
 
 ##### Third-party software attributions
 
-Version 2.5.6 of the Cisco Networks app incorporates the following third-party software or libraries.
+Version 2.5.7 of the Cisco Networks app incorporates the following third-party software or libraries.
 
 - None
 
