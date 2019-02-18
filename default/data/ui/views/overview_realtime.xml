@@ -269,7 +269,7 @@
       <table>
         <title>Diagnostic messages</title>
         <search>
-          <query>eventtype="cisco_ios-diag" product IN ($product_selection$) index IN ($tenant_indexes$) | eval eventcode=facility + "-" + severity_id + "-" + mnemonic | stats count AS Count, latest(_time) AS _time, latest(severity_id) AS severity_id by host, eventcode, vendor_message_text | lookup cisco_ios_severity severity_id | sort +severity_id,-Count | table _time, host, eventcode, vendor_message_text, severity_id_and_name, Count</query>
+          <query>eventtype="cisco_ios-diag" product IN ($product_selection$) index IN ($tenant_indexes$) | eval eventcode=facility + "-" + severity_id + "-" + mnemonic | stats count AS Count, latest(_time) AS _time, latest(severity_id) AS severity_id latest(message_text) AS message_text by host, eventcode | lookup cisco_ios_severity severity_id | sort +severity_id,-Count |table _time, host, eventcode, message_text, severity_id_and_name, Count | rename eventcode AS Event, message_text AS Message, severity_id_and_name AS Severity</query>
         </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
