@@ -93,7 +93,7 @@ Version 2.5.8 of the Cisco Networks app has the following known issues:
 
 Version 2.5.8 of the Cisco Networks app incorporates the following third-party software or libraries.
 
-- None
+- Icon by Yudha Agung Pribadi (https://www.iconfinder.com/iconsets/networking-icons-1)
 
 #### Performance benchmarks
 
