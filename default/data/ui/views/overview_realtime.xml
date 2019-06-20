@@ -197,7 +197,7 @@
       <chart>
         <title>Top mnemonics by time</title>
         <search>
-          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW _time AS _time PERIOD auto SPLITCOL mnemonic FILTER product in ($product_selection$) FILTER index in ($tenant_indexes$) SORT 0 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 10 SHOWOTHER 1</query>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW _time AS _time PERIOD auto SPLITCOL mnemonic FILTER product in ($product_selection$) FILTER index in ($tenant_indexes$) FILTER mnemonic is "*" SORT 0 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 10 SHOWOTHER 1</query>
           <earliest>$earliest$</earliest>
           <latest>$latest$</latest>
         </search>
