@@ -12,7 +12,7 @@
     </done>
   </search>
   <search id="baseSearch">
-    <query>eventtype="cisco_ios-dot1x" index IN ($tenant_indexes$) | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")`</query>
+    <query>eventtype="cisco_ios-dot1x" index IN ($tenant_indexes$) | `normalize-int(src_int_prefix_long,src_int_suffix,"src_interface")` | fields authenticator audit_session_id src_vlan vendor_action host dvc src_interface src_mac action</query>
     <earliest>$earliest$</earliest>
     <latest>$latest$</latest>
   </search>
@@ -37,14 +37,13 @@
       <table>
         <title>Authentications</title>
         <search base="baseSearch">
-          <query>
-            | transaction audit_session_id | table _time,host,mnemonic,audit_session_id,authenticator,src_interface,src_mac,src_vlan,vendor_action | stats latest(audit_session_id) AS audit_session_id, latest(authenticator) AS authenticator, latest(src_vlan) AS src_vlan, latest(vendor_action) AS vendor_action BY host,src_interface  | stats count(eval(vendor_action="succeeded" OR vendor_action="successful")) AS succeeded, count(eval(vendor_action="failed")) AS failed
-          </query>
+          <query>| stats latest(audit_session_id) AS audit_session_id latest(authenticator) AS authenticator, latest(src_vlan) AS src_vlan, latest(vendor_action) AS vendor_action BY host,src_interface | stats count(eval(vendor_action="succeeded" OR vendor_action="successful")) AS succeeded, count(eval(vendor_action="failed")) AS failed</query>
         </search>
-        <option name="wrap">true</option>
-        <option name="rowNumbers">false</option>
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">cell</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="wrap">true</option>
       </table>
     </panel>
   </row>
