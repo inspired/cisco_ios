@@ -11,7 +11,7 @@
       </condition>
     </done>
   </search>
-  <fieldset submitButton="false" autoRun="true">
+  <fieldset submitButton="true" autoRun="true">
     <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
       <label>Tenant</label>
       <fieldForLabel>tenant_name</fieldForLabel>
