@@ -58,7 +58,7 @@ No scripts or binaries are included.
 
 Version 2.6.0 of the Cisco Networks app is compatible with:
 
-| Splunk Enterprise versions | 7.* |
+| Splunk Enterprise versions | 7.*, 8.* |
 | --- | --- |
 | CIM | 4.* |
 | Platforms | Platform independent |
@@ -130,7 +130,7 @@ Cisco Networks supports the following server platforms in the versions supported
 
 To function properly, Cisco Networks requires the following software:
 
-- Cisco Networks Add-on (TA-cisco_ios), 2.5.4 or higher
+- Cisco Networks Add-on (TA-cisco_ios), 2.6.0 or higher
 
 #### Splunk Enterprise system requirements
 
