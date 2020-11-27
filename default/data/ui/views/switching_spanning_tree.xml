@@ -12,10 +12,10 @@
     </done>
   </search>
   <search id="baseSearch_spanning_tree">
-    <query>eventtype="cisco_ios-spanning_tree" index IN ($tenant_indexes$)</query>
+    <query>eventtype="cisco_ios-spanning_tree" index IN ($tenant_indexes$) | fields _time, host, facility, mnemonic, src_interface, dest_interface, src_vlan, src_mac, spanning_tree_instance, action</query>
   </search>
     <search id="baseSearch_mac_flapping">
-    <query>eventtype="cisco_ios-mac_flapping" index IN ($tenant_indexes$)</query>
+    <query>eventtype="cisco_ios-mac_flapping" index IN ($tenant_indexes$) | fields _time, host, facility, mnemonic, src_mac, src_vlan, src_interface, dest_interface</query>
   </search>
   <fieldset autoRun="true" submitButton="true">
     <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">

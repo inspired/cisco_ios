@@ -12,7 +12,7 @@
     </done>
   </search>
   <search id="baseSearch">
-    <query>eventtype="cisco_ios-dhcp_snooping" index IN ($tenant_indexes$)</query>
+    <query>eventtype="cisco_ios-dhcp_snooping" index IN ($tenant_indexes$) | fields dvc facility mnemonic message_type src_ip dest_ip src_mac dest_mac src_interface packets src_vlan</query>
         <earliest>$earliest$</earliest>
     <latest>$latest$</latest>
   </search>
@@ -41,7 +41,7 @@
       <chart>
         <title>DHCP snooping events by device and interface</title>
         <search base="baseSearch">
-          <query>search packets=* | strcat dvc " " src_interface dvc_src_int | timechart sum(packets) BY dvc_src_int</query>
+          <query>| fields dvc src_interface packets | search packets=* | eval dvc_src_int=dvc + " " + src_interface | timechart sum(packets) BY dvc_src_int</query>
         </search>
         <option name="charting.chart">column</option>
         <option name="charting.axisY2.enabled">false</option>
