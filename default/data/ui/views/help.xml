@@ -96,7 +96,7 @@ memory free low-watermark io 20000
       <h4>Basic logging and timestamping</h4>
       <pre>
 logging logfile messages 6
-logging server [YOUR SYSLOG/SPLUNK SERVER IP] 6 use-vrf [YOUR MGMT VRF] 
+logging server [YOUR SYSLOG/SPLUNK SERVER IP] 6 use-vrf [YOUR MGMT VRF]
 logging timestamp milliseconds
 logging monitor 6
 no logging rate-limit
@@ -105,7 +105,7 @@ no logging rate-limit
       <p>This feature is not supported on the NX-OS platform</p>
      <h4>Monitor interface changes</h4>
         <h5>General</h5>
-        <pre>   
+        <pre>
 logging message interface type ethernet description
 logging event link-status default
 logging event trunk-status default
@@ -139,10 +139,20 @@ logging logfile messages 6
       </section>
       <section>
       <h2>Not seeing authentication results?</h2>
-      <p>Results from wired 802.1x (DOT1X) authentications are sent with severity "level 7 - debugging". 
+      <p>Results from wired 802.1x (DOT1X) authentications are sent with severity "level 7 - debugging".
       To correct this configure logging trap debugging on your device. Take extra precautions in actual debugging situations
       as "debug all" will result in a huge increase in events forwarded to your Splunk servers.
       </p>
+      </section>
+      <section>
+      <h2>Not seeing Route Monitoring results?</h2>
+      <p>In order to monitor Route Changes via Syslog, the following EEM applet must be configured on your routers:</p>
+      <pre>
+event manager applet route-table-monitor
+  event routing network 0.0.0.0/0 ge 1
+  action 0.5 set msg "Route changed: Type: $_routing_type, Network: $_routing_network, Mask/Prefix: $_routing_mask, Protocol: $_routing_protocol, GW: $_routing_lastgateway, Intf: $_routing_lastinterface"
+  action 1.0 syslog msg "$msg"
+      </pre>
       </section>
       <section>
       <h1>About this App</h1>

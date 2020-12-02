@@ -69,6 +69,8 @@ Version 2.7.0 of the Cisco Networks app is compatible with:
 
 Cisco Networks includes the following new features:
 
+- Route Monitoring support in the Routing dashboard
+- Help page updated with instructions on Route Monitoring
 - Multi tenancy support (COMMERCIAL USERS ONLY)
 - Real-time dashboard added. You now have the option to switch between real-time and historical mode
 

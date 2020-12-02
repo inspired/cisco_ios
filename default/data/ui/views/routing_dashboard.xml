@@ -12,6 +12,19 @@
       </condition>
     </done>
   </search>
+  <search id="routing_hider">
+    <query>eventtype=cisco_ios facility=HA_EM mnemonic=LOG | fields _time action network netmask routing_protocol gateway src_interface dvc | stats values(network) AS network values(netmask) AS netmask values(routing_protocol) AS routing_protocol values(gateway) AS gateway values(src_interface) AS src_interface BY _time dvc action</query>
+    <progress>
+      <condition match="'job.resultCount' == 0">
+        <unset token="hide_panel"></unset>
+      </condition>
+      <condition>
+        <set token="hide_panel">true</set>
+      </condition>
+    </progress>
+    <earliest>$earliest$</earliest>
+    <latest>$latest$</latest>
+  </search>
   <search id="baseSearch">
     <query>eventtype=cisco_ios-routing index IN ($tenant_indexes$) | eval routing_protocol = case(eventtype == "cisco_ios-routing-ospf", "OSPF", eventtype == "cisco_ios-routing-dual", "EIGRP", eventtype == "cisco_ios-routing-bgp", "BGP", eventtype == "cisco_ios-routing-ldp", "LDP", eventtype == "cisco_ios-routing-isis", "ISIS", eventtype == "cisco_ios-routing-rsvp", "RSVP", eventtype == "cisco_ios-routing-pim", "PIM") | search $routing_protocol_selection$ | fields _time host routing_protocol protocol process_id as_number src_ip vrf src_interface state_from state_to reason message_text
     </query>
@@ -111,6 +124,24 @@
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
       </chart>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$hide_panel$">
+      <table>
+        <title>Route monitoring</title>
+        <search base="routing_hider">
+          <query></query>
+        </search>
+        <option name="drilldown">cell</option>
+        <option name="refresh.display">progressbar</option>
+      </table>
+    </panel>
+    <panel rejects="$hide_panel$">
+      <html>
+        <p>In order to monitor route changes on your devices, an EEM applet must be configured on your routers. Consult the <a href="help">Help</a> page for instructions.</p>
+        <p>Once the EEM applet has been configured correctly and your devices are sending route changes via syslog, this panel will be hidden.</p>
+      </html>
     </panel>
   </row>
   <row>
