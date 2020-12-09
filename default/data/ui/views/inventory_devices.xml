@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<form>
+<?xml version="1.0" encoding="UTF-8"?><form>
   <label>Devices</label>
   <search id="check_multi_tenancy">
     <query>| `check_multi_tenancy`</query>
@@ -27,8 +26,8 @@
     </input>
     <input type="time" searchWhenChanged="true">
       <default>
-        <earliestTime>-24h@h</earliestTime>
-        <latestTime>now</latestTime>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
       </default>
     </input>
   </fieldset>
@@ -37,13 +36,18 @@
       <table>
         <title>Event's severities by host</title>
         <search>
-          <query>eventtype=cisco_ios index IN ($tenant_indexes$) | chart count OVER host BY severity_id_and_name usenull=f | sort limit=0 "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging" desc</query>
+          <query>| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Cisco IOS Event" SPLITROW host AS host SPLITCOL severity_id_and_name FILTER index in ("$tenant_indexes$") TOP 0 count(Cisco_IOS_Event) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1 | sort limit=0 "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging" desc</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
         </search>
-        <option name="wrap">true</option>
-        <option name="rowNumbers">false</option>
+        <option name="count">25</option>
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">cell</option>
-        <option name="count">25</option>
+        <option name="rowNumbers">false</option>
+        <option name="wrap">true</option>
+        <drilldown>
+          <link target="_blank">/app/cisco_ios/inventory_device?form.host=$click.value$</link>
+        </drilldown>
       </table>
     </panel>
   </row>

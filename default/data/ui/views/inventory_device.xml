@@ -1,42 +1,80 @@
 <form>
   <label>Device</label>
-  <description>Dashboard currently not in use</description>
+  <search id="check_multi_tenancy">
+    <query>| `check_multi_tenancy`</query>
+    <done>
+      <condition match="$job.resultCount$ != 0">
+        <set token="multi_tenancy">true</set>
+      </condition>
+      <condition>
+        <unset token="multi_tenancy"></unset>
+      </condition>
+    </done>
+  </search>
+  <description>Device view</description>
   <fieldset autoRun="true">
+    <input type="multiselect" token="tenant_indexes" depends="$multi_tenancy$">
+      <label>Tenant</label>
+      <fieldForLabel>tenant_name</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| `get_tenants_for_user_role($env:user$)`</query>
+      </search>
+      <default>*</default>
+      <delimiter>,</delimiter>
+      <choice value="*">All</choice>
+    </input>
     <input type="time" searchWhenChanged="true">
       <default>
-        <earliestTime>-24h@h</earliestTime>
-        <latestTime>now</latestTime>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
       </default>
     </input>
   </fieldset>
   <row>
     <panel>
-      <table>
+      <single>
         <title>Severities</title>
         <search>
-<query>
-| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW severity_id_and_name AS "Severity" SORT 100 severity_id_and_name FILTER host is $form.host$
+          <query>
+| pivot Cisco_IOS_Event Cisco_IOS_Event count(Cisco_IOS_Event) AS "Count of Event" SPLITROW severity_id_and_name AS "Severity" SORT 100 severity_id_and_name FILTER host is $form.host$ FILTER index in ("$tenant_indexes$")
 </query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
-        <option name="wrap">true</option>
-        <option name="rowNumbers">false</option>
-        <option name="dataOverlayMode">none</option>
-        <option name="drilldown">row</option>
-        <option name="count">10</option>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
+        <option name="colorMode">block</option>
+        <option name="height">154</option>
+        <option name="rangeColors">["0x53a051","0x0877a6","0xf8be34","0xf1813f","0xdc4e41"]</option>
+        <option name="trellis.enabled">1</option>
+        <option name="trellis.size">small</option>
+        <option name="trellis.splitBy">Severity</option>
+        <option name="underLabel">Events</option>
+        <option name="unitPosition">before</option>
+        <option name="useColors">1</option>
+      </single>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Interfaces</title>
+        <search>
+          <query>| pivot Cisco_IOS_Event Interface FILTER host is "$form.host$" FILTER index in ($tenant_indexes$) count(Interface) AS "Count of Interface" SPLITROW interface AS Interface SPLITCOL severity_id_and_name SORT 100 dvc ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1 | sort limit=0 "1 - alert" "2 - critical" "3 - error" "4 - warning" "5 - notification" "6 - informational" "7 - debugging" desc</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
       </table>
     </panel>
     <panel>
       <chart>
         <title>Messages over time</title>
         <search>
-          <query>eventtype=cisco_ios host=$form.host$ | strcat facility "-" severity_id "-" mnemonic fsm | timechart count by fsm</query>
+          <query>eventtype=cisco_ios host=$form.host$ index IN ("$tenant_indexes$") | strcat facility "-" severity_id "-" mnemonic fsm | timechart count by fsm</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
         </search>
-        <option name="wrap">true</option>
-        <option name="rowNumbers">false</option>
-        <option name="dataOverlayMode">none</option>
-        <option name="count">10</option>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
         <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
         <option name="charting.axisTitleX.visibility">visible</option>
@@ -62,12 +100,10 @@
       <chart>
         <title>Severities over time</title>
         <search>
-          <query>eventtype=cisco_ios host=$form.host$ | timechart count by severity_id_and_name | rename severity_id_and_name AS "Severity"</query>
+          <query>eventtype=cisco_ios host=$form.host$ index IN ("$tenant_indexes$") | timechart count by severity_id_and_name | rename severity_id_and_name AS "Severity"</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
         </search>
-        <option name="wrap">true</option>
-        <option name="rowNumbers">false</option>
-        <option name="dataOverlayMode">none</option>
-        <option name="count">10</option>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
         <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
         <option name="charting.axisTitleX.visibility">visible</option>
@@ -97,12 +133,12 @@
       <table>
         <title>Events</title>
         <search>
-<query>
-eventtype=cisco_ios host=$form.host$ | table _time facility subfacility severity_id mnemonic message_text
+          <query>
+eventtype=cisco_ios host=$form.host$ index IN ("$tenant_indexes$") | table _time facility subfacility severity_id mnemonic message_text
 </query>
-</search>
-        <earliestTime>$earliest$</earliestTime>
-        <latestTime>$latest$</latestTime>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
         <option name="dataOverlayMode">none</option>

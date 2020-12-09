@@ -46,8 +46,8 @@
     <input type="time">
       <label>Time period</label>
       <default>
-        <earliestTime>-24h@h</earliestTime>
-        <latestTime>now</latestTime>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
       </default>
     </input>
     <input type="multiselect" token="routing_protocol_selection" searchWhenChanged="false">
