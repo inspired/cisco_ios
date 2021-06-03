@@ -33,6 +33,39 @@
   </fieldset>
   <row>
     <panel>
+      <chart>
+        <title>Performance Statistics</title>
+        <search>
+          <query>| mstats avg("telegraf.Cisco-IOS-XE-memory-oper:memory-statistics/memory-statistic.used_memory") AS mem_used prestats=f WHERE index IN ("$tenant_indexes$") AND "host"="$form.host$" AND `sai_metrics_indexes` span=1s BY name, _timeseries
+| append [| mstats avg("telegraf.Cisco-IOS-XE-process-cpu-oper:cpu-usage/cpu-utilization.cpu_usage_process/five_seconds") AS cpu prestats=f  WHERE index IN ("$tenant_indexes$") AND "host"="$form.host$" AND `sai_metrics_indexes` span=1s BY _timeseries]
+| eval name=coalesce("MEM: " . name, "CPU")
+| timechart avg(cpu) avg(mem_used) BY name span=1s</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
+        <option name="charting.axisTitleX.visibility">collapsed</option>
+        <option name="charting.axisTitleY.visibility">collapsed</option>
+        <option name="charting.axisTitleY2.visibility">collapsed</option>
+        <option name="charting.chart">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.showDataLabels">none</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.drilldown">none</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.mode">standard</option>
+        <option name="charting.legend.placement">none</option>
+        <option name="height">309</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="trellis.enabled">1</option>
+        <option name="trellis.scales.shared">0</option>
+        <option name="trellis.size">medium</option>
+        <option name="trellis.splitBy">name</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
       <single>
         <title>Severities</title>
         <search>
@@ -51,6 +84,18 @@
         <option name="underLabel">Events</option>
         <option name="unitPosition">before</option>
         <option name="useColors">1</option>
+      </single>
+    </panel>
+    <panel>
+      <single>
+        <title>Interfaces with Telemetry data</title>
+        <search>
+          <query>| mstats avg("telegraf.Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics.tx_kbps") AS tx_kbps avg("telegraf.Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics.rx_kbps") AS rx_kbps prestats=false WHERE index IN ("$tenant_indexes$") AND "host"="$form.host$" AND `sai_metrics_indexes` BY name
+| stats dc(name) AS Interfaces</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
       </single>
     </panel>
   </row>
