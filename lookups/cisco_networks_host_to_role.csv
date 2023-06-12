@@ -1,0 +1,9 @@
+host,role,description
+osl-e-310-swi-1,Edge,
+cph-e-951-swi-1,Edge,
+osl-e-310-swi-3,Edge,
+cph-c-001-rtr-1,Core,
+hel-c-001-rtr-1,Core,
+osl-c-001-rtr-1,Core,
+sto-c-001-rtr-1,Core,
+osl-e-310-swi-2,Edge,

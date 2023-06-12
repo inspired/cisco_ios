@@ -130,6 +130,11 @@ acllog match-log-level 6
 logging logfile messages 6
       </pre>
       </section>
+      <section>
+        <h2>Step 3: Configure Device to Role mappings (OPTIONAL)</h2>
+        <p>If you'd like to be able to select devices in the dashboards using their roles, i.e. Core, Edge, PE etc, install the app <a href="https://splunkbase.splunk.com/app/1724">Splunk App for Lookup File Editing</a> and open up the <b>cisco_networks_host_to_role.csv</b> lookup file to add your own device to role mappings.</p>
+        <p> This process could also be automated from your CMDB by replacing the content of the aforementioned lookup file. Make sure you keep the original headers.</p>
+      </section>
     </html>
     </panel>
     <panel>
