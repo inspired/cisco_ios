@@ -1,3 +1,3 @@
-local/*
-metadata/local.meta
-lookups/cisco_ios_messages.csv_*
+package/local/*
+package/metadata/local.meta
+package/lookups/cisco_ios_messages.csv_*
