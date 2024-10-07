@@ -9,50 +9,5 @@
 ######################################################
 
 []
-access = read : [ * ], write : [ admin, power ]
+access = read : [ * ], write : [ sc_admin, admin, power ]
 export = system
-
-[eventtypes]
-export = system
-
-
-[props]
-export = system
-
-
-[transforms]
-export = system
-
-
-[macros]
-export = system
-
-
-[tags]
-export = system
-
-[viewstates]
-access = read : [ * ], write : [ * ]
-export = system
-
-[lookups]
-export = system
-
-[views]
-export = none
-
-[savedsearches]
-access = read : [ * ]
-export = none
-
-[datamodels/Cisco_IOS_Event]
-access = read : [ * ], write : [ admin ]
-export = system
-owner = admin
-version = 6.1.0
-
-[models/Cisco_IOS_Event]
-access = read : [ * ], write : [ admin ]
-export = system
-owner = admin
-version = 6.1.0
