@@ -257,7 +257,7 @@ Details of any configurations a user must make in order to get the app running.
 1. Click on Install app from file
 1. Select the file you downloaded, Click Upload, selecting Upgrade app. Restart Splunk if required
 
-### Example Use Case ###
+### Example Use Cases ###
 * Find flapping ports
 * View configuration changes
 * View access list logs
