@@ -119,6 +119,8 @@ logging event port trunk-status
       <pre>
 mac address-table notification mac-move
 ntp logging
+ptp
+  log best-master-clock changes
       </pre>
      <h4>ACL logging</h4>
       <h5>General</h5>
